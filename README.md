@@ -22,6 +22,7 @@
 
 ## Desafio
 
+Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços é fornecer aos nossos clientes, relatórios customizados de dados meteorológicos. Como trabalhamos processando muitas informações manualmente, acabamos que perdemos tempo e desperdiçamos recursos. Por isso, precisamos de um sistema que nos permita realizar a importação dos dados meteorológicos, bem como armazená-los em uma base de dados, para posteriormente gerar os relatórios desejados por nossos clientes.
 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -31,18 +32,28 @@
 <details>
 <summary>Requisitos Funcionais</summary>
 
-<p>• Visualização
+<p>• Cadastro de Estações
+<p>• Cadastros de Estados e Regiões
+<p>• Geração de relatórios
+<p>• Importação de dados
+      
 </details>
 
 <details>
 <summary>Requisitos Não Funcionais</summary>
 
-<p>• Visualização
+<p>•Linguagem Java
+<p>•Linguagem Java
+<p>•Sistema WEB
+<p>•Documentações
+
 </details>
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Solução
+
+A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas de visualizações, sendo possível gerar relatórios e filtrar esses dados metereológicos, obtidos a partir de CSV's. 
 
 
 
@@ -144,9 +155,8 @@
 <details>
 <summary>Banco de Dados</summary>
 
-* [SQL Server Nuvem Azure](https://azure.microsoft.com/pt-br/services/sql-database/campaign/)
+* [PostgreSQL](https://www.postgresql.org/download/)
 </details>
-
 <details>
 <summary>Reuniões e Comunicação</summary>
 
