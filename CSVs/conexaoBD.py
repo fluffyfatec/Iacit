@@ -8,6 +8,84 @@ def povoar_banco(df):
     # Conectando ao banco de dados
     db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
 
+    # Tabela radiacao_global
+    rad = df[['CODIGO (WMO)', 'RADIACAO GLOBAL (Kj/m²)', 'DATAHORA DE CAPTAÇÃO']]
+
+    rad = rad.rename({'CODIGO (WMO)': 'cod_wmo', 'RADIACAO GLOBAL (Kj/m²)': 'radiacao_global',
+                     'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    rad.to_sql('radiacao_global', db, if_exists='append', index=False)
+
+    # Tabela preciptacao
+    precip = df[['CODIGO (WMO)', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)', 'DATAHORA DE CAPTAÇÃO']]
+
+    precip = precip.rename({'CODIGO (WMO)': 'cod_wmo', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)': 'preciptacaototal',
+                            'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    precip.to_sql('preciptacao', db, if_exists='append', index=False)
+
+    # Tabela vento
+    vento = df[['CODIGO (WMO)', 'VENTO, VELOCIDADE HORARIA (m/s)', 'VENTO, RAJADA MAXIMA (m/s)',
+                'VENTO, DIREÇÃO HORARIA (gr) (° (gr))', 'DATAHORA DE CAPTAÇÃO']]
+
+    vento = vento.rename({'CODIGO (WMO)': 'cod_wmo', 'VENTO, VELOCIDADE HORARIA (m/s)': 'vento_velocidade',
+                          'VENTO, RAJADA MAXIMA (m/s)': 'vento_rajada_max',
+                          'VENTO, DIREÇÃO HORARIA (gr) (° (gr))': 'vento_direcao_horario',
+                          'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    vento.to_sql('vento', db, if_exists='append', index=False)
+
+    # Tabela pressao_atmosferica
+    atm = df[['CODIGO (WMO)', 'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)',
+              'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)',
+              'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)', 'DATAHORA DE CAPTAÇÃO']]
+
+    atm = atm.rename({'CODIGO (WMO)': 'cod_wmo',
+                      'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)': 'pressao_atm_estacao',
+                      'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)': 'pressao_atm_min',
+                      'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)': 'pressao_atm_max',
+                      'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    atm.to_sql('pressao_atmosferica', db, if_exists='append', index=False)
+
+    # Tabela temperatura
+    temp = df[['CODIGO (WMO)', 'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)',
+              'TEMPERATURA MÍNIMA NA HORA ANT. (AUT) (°C)',
+              'TEMPERATURA MÁXIMA NA HORA ANT. (AUT) (°C)',
+              'TEMPERATURA DO PONTO DE ORVALHO (°C)',
+              'TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (°C)',
+              'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)', 'DATAHORA DE CAPTAÇÃO']]
+
+    temp = temp.rename({'CODIGO (WMO)': 'cod_wmo',
+                      'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)': 'temperatura_ar',
+                      'TEMPERATURA MÍNIMA NA HORA ANT. (AUT) (°C)': 'temperatura_min',
+                      'TEMPERATURA MÁXIMA NA HORA ANT. (AUT) (°C)': 'temperatura_max',
+                      'TEMPERATURA DO PONTO DE ORVALHO (°C)': 'temperatura_ponto_orvalho',
+                      'TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (°C)': 'temperatura_orvalho_min',
+                      'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)': 'temperatura_orvalho_max',
+                      'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    temp.to_sql('temperatura', db, if_exists='append', index=False)
+
+    # Tabela umidade
+    umi = df[['CODIGO (WMO)', 'UMIDADE RELATIVA DO AR, HORARIA (%)',
+              'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)',
+              'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)', 'DATAHORA DE CAPTAÇÃO']]
+
+    umi = umi.rename({'CODIGO (WMO)': 'cod_wmo',
+                      'UMIDADE RELATIVA DO AR, HORARIA (%)': 'umidade_relativa_ar',
+                      'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)': 'umidade_relativa_min',
+                      'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)': 'umidade_relativa_max',
+                      'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
+
+    umi.to_sql('umidade', db, if_exists='append', index=False)
+
+
+def povoar_banco_sqlquery(df):
+
+    # Conectando ao banco de dados
+    db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+
     # Inserindo os dados no banco de dados
     for index, row in df.iterrows():
         if db.execute(f"select exists(select 1 from radiacao_global where cod_wmo='{row['CODIGO (WMO)']}' "
