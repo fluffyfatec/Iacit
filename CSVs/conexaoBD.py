@@ -154,8 +154,28 @@ def povoar_banco_sqlquery(df):
             pass
 
 
-
 def estacao_banco(df):
+
+    # Conectando ao banco de dados
+    db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+
+    # Tabela estacao
+    estacao = df[['CODIGO (WMO)', 'ESTACAO', 'REGIAO', 'UF', 'LONGITUDE', 'LATITUDE',
+                  'ALTITUDE', 'DATA DE FUNDACAO']]
+
+    estacao = estacao.rename({'CODIGO (WMO)': 'cod_wmo', 'ESTACAO': 'estacao_nome',
+                              'REGIAO': 'estacao_regiao', 'UF': 'estacao_estado',
+                              'LONGITUDE': 'estacao_longitude',
+                              'LATITUDE': 'estacao_latitude', 'ALTITUDE': 'estacao_altitude',
+                              'DATA DE FUNDACAO': 'estacao_datafundacao'}, axis=1)
+    try:
+        estacao.to_sql('estacao', db, if_exists='append', index=False)
+    except sqlalchemy.exc.IntegrityError:
+        print('Erro de integridade, esse código_wmo já existe no banco')
+        pass
+
+
+def estacao_banco_sqlquery(df):
 
     # Conectando ao banco de dados
     db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
@@ -169,5 +189,5 @@ def estacao_banco(df):
                        f"{row['LONGITUDE']}, {row['LATITUDE']}, {row['ALTITUDE']}, "
                        f"'{row['DATA DE FUNDACAO']}')")
         except sqlalchemy.exc.IntegrityError:
-            print('Erro de integridade')
+            print('Erro de integridade, esse código_wmo já existe no banco')
             pass
