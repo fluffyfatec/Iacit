@@ -98,7 +98,7 @@ def tratamento_dfs(df):
     df = df.replace({',': '.'}, regex=True)
 
     # Redeterminando valores Nan
-    df.fillna("NaN", inplace=True)
+    df = df.astype(object).where(pd.notnull(df), None)
 
     # Convertendo a datetime
     df['DATAHORA DE CAPTAÇÃO'] = pd.to_datetime(df['DATAHORA DE CAPTAÇÃO'], errors='raise', dayfirst=True)
