@@ -9,7 +9,6 @@ def tratamento_dfs(df):
     # Apagando as linhas duplicadas
     df = df.drop_duplicates(subset=['Data', 'Hora UTC'], keep='first')
 
-    # Resolvendo o problema dos números que começam com vírgula
     for col in df.columns:
         mask = (df[col] == ',9')
         df.loc[mask, col] = '0,9'
@@ -98,8 +97,8 @@ def tratamento_dfs(df):
     # Apagando vírgulas de valores floating
     df = df.replace({',': '.'}, regex=True)
 
-    # Redeterminando valores Nan para NULL
-    df.fillna("NULL", inplace=True)
+    # Redeterminando valores Nan
+    df.fillna("NaN", inplace=True)
 
     # Convertendo a datetime
     df['DATAHORA DE CAPTAÇÃO'] = pd.to_datetime(df['DATAHORA DE CAPTAÇÃO'], errors='raise', dayfirst=True)
