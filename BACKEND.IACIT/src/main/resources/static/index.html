@@ -189,7 +189,7 @@
     <div class="content-wrapper">
 
       <!-- Content Header (Page header) -->
-      <div class="content-header">
+      <div class="content-header" style="padding: 10px;">
         <div class="container-fluid">
 
           <div class="row mb-2">
@@ -199,21 +199,29 @@
             </div><!-- /.col -->
 
             <div class="col-sm-4">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Projeto</li>
+              <ol class="breadcrumb float-sm-right" onclick="teste()">
+                <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
               </ol>
             </div><!-- /.col -->
+
+         
 
           </div><!-- /.row -->
 
           <div class="row mb-2">
+
             <div class="col-sm-12">
-              <ol class="breadcrumb float-sm-left" onclick="teste()">
-                <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
-              </ol>
-            </div>
-          </div>
+              Estação: xxxxxxx   /   Estado: SP   /   Região: Sudeste
+            </div><!-- /.col -->
+
+            <div class="col-sm-4">
+             
+            </div><!-- /.col -->
+
+         
+
+          </div><!-- /.row -->
+
           
         </div><!-- /.container-fluid -->
       </div>
@@ -370,7 +378,6 @@
       </div>
     </footer>
 
-
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
@@ -434,13 +441,10 @@
         <div class="modal-body">
   
           <div class="row">
-            <div class="col-md-8">
-              Filtro 1:
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-  
-            <div class="col-md-4">
-              Filtro 2:
+       
+            <div class="col-md-12">
+              
+              Estação:
               <select class="custom-select" id="inputGroupSelect02">
                 <option selected>Escolha...</option>
                 <option value="1">Um</option>
@@ -450,18 +454,29 @@
             </div>
   
   
+  
           </div>
           <br>
   
           <div class="row">
-            <div class="col-md-4">
-              Filtro 3:
-              <input type="month" class="form-control" id="recipient-name">
+            <div class="col-md-5">
+              Estado:
+              <select class="custom-select" id="inputGroupSelect02">
+                <option selected>Escolha...</option>
+                <option value="1">Um</option>
+                <option value="2">Dois</option>
+                <option value="3">Três</option>
+              </select>            
             </div>
   
-            <div class="col-md-8">
-              Filtro 3:
-              <input type="text" class="form-control" id="recipient-name">
+            <div class="col-md-7">
+              Região:
+              <select class="custom-select" id="inputGroupSelect02">
+                <option selected>Escolha...</option>
+                <option value="1">Um</option>
+                <option value="2">Dois</option>
+                <option value="3">Três</option>
+              </select>            
             </div>
   
   
