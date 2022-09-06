@@ -2,7 +2,10 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.util.Date;
 
-public class UmidadeDTO {
+import javax.persistence.Entity;
+
+//@Entity
+public class UmidadeModal {
 	private Integer codUmidade;
 	private String codWmo;
 	private Double umiRelAr;

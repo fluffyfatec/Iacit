@@ -2,7 +2,10 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.util.Date;
 
-public class RadiacaoGlobalDTO {
+import javax.persistence.Entity;
+
+//@Entity
+public class RadiacaoGlobalModal {
 	
 	private Integer codRadiacao;
 	private String codWmoRadiacao;

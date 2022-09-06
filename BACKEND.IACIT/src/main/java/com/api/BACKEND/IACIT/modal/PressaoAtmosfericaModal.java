@@ -1,6 +1,9 @@
 package com.api.BACKEND.IACIT.modal;
 
-public class PressaoAtmosfericaDTO {
+import javax.persistence.Entity;
+
+//@Entity
+public class PressaoAtmosfericaModal {
  
 	private Integer codPressao;
 	private String codWmoPressao;

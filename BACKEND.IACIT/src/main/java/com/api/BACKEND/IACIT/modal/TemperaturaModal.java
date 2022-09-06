@@ -2,7 +2,10 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.util.Date;
 
-public class TemperaturaDTO {
+import javax.persistence.Entity;
+
+//@Entity
+public class TemperaturaModal {
 
 	private Integer codTemperatura;
 	private String codWmoTemp;

@@ -2,7 +2,10 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.util.Date;
 
-public class EstacaoDTO {
+import javax.persistence.Entity;
+
+//@Entity
+public class EstacaoModal {
 	
 	private String codWmo;
 	private String estNome;
