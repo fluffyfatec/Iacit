@@ -11,34 +11,72 @@ def povoar_banco(df):
     # Tabela radiacao_global
     rad = df[['CODIGO (WMO)', 'RADIACAO GLOBAL (Kj/m²)', 'DATAHORA DE CAPTAÇÃO']]
 
+    sql = f"SELECT datahora_captacao FROM radiacao_global WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        rad = rad[~(rad['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
+
     rad = rad.rename({'CODIGO (WMO)': 'cod_wmo', 'RADIACAO GLOBAL (Kj/m²)': 'radiacao_global',
                      'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    rad.to_sql('radiacao_global', db, if_exists='append', index=False)
+    if not rad.empty:
+        rad.to_sql('radiacao_global', db, if_exists='append', index=False)
+
 
     # Tabela preciptacao
     precip = df[['CODIGO (WMO)', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)', 'DATAHORA DE CAPTAÇÃO']]
 
+    sql = f"SELECT datahora_captacao FROM preciptacao WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        precip = precip[~(precip['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
+
     precip = precip.rename({'CODIGO (WMO)': 'cod_wmo', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)': 'preciptacaototal',
                             'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    precip.to_sql('preciptacao', db, if_exists='append', index=False)
+    if not precip.empty:
+        precip.to_sql('preciptacao', db, if_exists='append', index=False)
+
 
     # Tabela vento
     vento = df[['CODIGO (WMO)', 'VENTO, VELOCIDADE HORARIA (m/s)', 'VENTO, RAJADA MAXIMA (m/s)',
                 'VENTO, DIREÇÃO HORARIA (gr) (° (gr))', 'DATAHORA DE CAPTAÇÃO']]
+
+    sql = f"SELECT datahora_captacao FROM vento WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        vento = vento[~(vento['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
 
     vento = vento.rename({'CODIGO (WMO)': 'cod_wmo', 'VENTO, VELOCIDADE HORARIA (m/s)': 'vento_velocidade',
                           'VENTO, RAJADA MAXIMA (m/s)': 'vento_rajada_max',
                           'VENTO, DIREÇÃO HORARIA (gr) (° (gr))': 'vento_direcao_horario',
                           'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    vento.to_sql('vento', db, if_exists='append', index=False)
+    if not vento.empty:
+        vento.to_sql('vento', db, if_exists='append', index=False)
+
 
     # Tabela pressao_atmosferica
     atm = df[['CODIGO (WMO)', 'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)',
               'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)',
               'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)', 'DATAHORA DE CAPTAÇÃO']]
+
+    sql = f"SELECT datahora_captacao FROM pressao_atmosferica WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        atm = atm[~(atm['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
 
     atm = atm.rename({'CODIGO (WMO)': 'cod_wmo',
                       'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)': 'pressao_atm_estacao',
@@ -46,7 +84,9 @@ def povoar_banco(df):
                       'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)': 'pressao_atm_max',
                       'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    atm.to_sql('pressao_atmosferica', db, if_exists='append', index=False)
+    if not atm.empty:
+        atm.to_sql('pressao_atmosferica', db, if_exists='append', index=False)
+
 
     # Tabela temperatura
     temp = df[['CODIGO (WMO)', 'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)',
@@ -55,6 +95,14 @@ def povoar_banco(df):
               'TEMPERATURA DO PONTO DE ORVALHO (°C)',
               'TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (°C)',
               'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)', 'DATAHORA DE CAPTAÇÃO']]
+
+    sql = f"SELECT datahora_captacao FROM temperatura WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        temp = temp[~(temp['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
 
     temp = temp.rename({'CODIGO (WMO)': 'cod_wmo',
                       'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)': 'temperatura_ar',
@@ -65,12 +113,22 @@ def povoar_banco(df):
                       'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)': 'temperatura_orvalho_max',
                       'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    temp.to_sql('temperatura', db, if_exists='append', index=False)
+    if not temp.empty:
+        temp.to_sql('temperatura', db, if_exists='append', index=False)
+
 
     # Tabela umidade
     umi = df[['CODIGO (WMO)', 'UMIDADE RELATIVA DO AR, HORARIA (%)',
               'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)',
               'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)', 'DATAHORA DE CAPTAÇÃO']]
+
+    sql = f"SELECT datahora_captacao FROM umidade WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+          f"datahora_captacao DESC LIMIT 1"
+
+    try:
+        umi = umi[~(umi['DATAHORA DE CAPTAÇÃO'] <= db.execute(sql).scalar())]
+    except TypeError:
+        pass
 
     umi = umi.rename({'CODIGO (WMO)': 'cod_wmo',
                       'UMIDADE RELATIVA DO AR, HORARIA (%)': 'umidade_relativa_ar',
@@ -78,7 +136,8 @@ def povoar_banco(df):
                       'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)': 'umidade_relativa_max',
                       'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
-    umi.to_sql('umidade', db, if_exists='append', index=False)
+    if not umi.empty:
+        umi.to_sql('umidade', db, if_exists='append', index=False)
 
 
 def povoar_banco_sqlquery(df):
