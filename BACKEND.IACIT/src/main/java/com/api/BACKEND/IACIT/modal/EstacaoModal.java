@@ -8,13 +8,13 @@ import javax.persistence.Entity;
 public class EstacaoModal {
 	
 	private String codWmo;
-	private String estNome;
-	private String estRegiao;
-	private String estEstado;
-	private Double estLogintude;
-	private Double estLatidude;
-	private Double estAltidude;
-	private String dtHoraCapitacao;
-	private String estStatus;
+	private String estacaoNome;
+	private String estacaoRegiao;
+	private String estacaoEstado;
+	private Double estacaoLogintude;
+	private Double estacaoLatidude;
+	private Double estacaoAltidude;
+	private String estacaoDatafundacao;
+	private String estacaoStatus;
 	
 }

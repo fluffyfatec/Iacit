@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 public class RadiacaoGlobalModal {
 	
 	private Integer codRadiacao;
-	private String codWmoRadiacao;
-	private Double radGlobal;
-	private String dtHoraCap;
+	private String codWmo;
+	private Double radiacaoGlobal;
+	private String datahoraCaptacao;
 	
 	
 

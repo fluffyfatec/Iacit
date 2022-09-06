@@ -14,13 +14,13 @@ public class VentoModal {
 	private Integer codVento;
 	
 	@Column(length = 4, nullable = false)
-	private String codWmoVento;
-	private Double ventVelocidade;
-	private Double ventRajada;
-	private Double VentDireHorario;
+	private String codWmo;
+	private Double ventoVelocidade;
+	private Double ventoRajadaMax;
+	private Double ventoDirecaoHorario;
 	
 	@Column(nullable = false)
-	private String dtHoraCapitacao;
+	private String datahoraCaptacao;
 	
     public Integer getCodVento() {
 		return codVento;
@@ -28,41 +28,41 @@ public class VentoModal {
 	public void setCodVento(Integer codVento) {
 		this.codVento = codVento;
 	}
-	public String getCodWmoVento() {
-		return codWmoVento;
+	public String getcodWmo() {
+		return codWmo;
 	}
-	public void setCodWmoVento(String codWmoVento) {
-		this.codWmoVento = codWmoVento;
+	public void setcodWmo(String codWmo) {
+		this.codWmo = codWmo;
 	}
-	public Double getVentVelocidade() {
-		return ventVelocidade;
+	public Double getventoVelocidade() {
+		return ventoVelocidade;
 	}
-	public void setVentVelocidade(Double ventVelocidade) {
-		this.ventVelocidade = ventVelocidade;
+	public void setventoVelocidade(Double ventoVelocidade) {
+		this.ventoVelocidade = ventoVelocidade;
 	}
-	public Double getVentRajada() {
-		return ventRajada;
+	public Double getventoRajadaMax() {
+		return ventoRajadaMax;
 	}
-	public void setVentRajada(Double ventRajada) {
-		this.ventRajada = ventRajada;
+	public void setventoRajadaMax(Double ventoRajadaMax) {
+		this.ventoRajadaMax = ventoRajadaMax;
 	}
-	public Double getVentDireHorario() {
-		return VentDireHorario;
+	public Double getventoDirecaoHorario() {
+		return ventoDirecaoHorario;
 	}
-	public void setVentDireHorario(Double ventDireHorario) {
-		VentDireHorario = ventDireHorario;
+	public void setventoDirecaoHorario(Double ventoDirecaoHorario) {
+		ventoDirecaoHorario = ventoDirecaoHorario;
 	}
-	public String getDtHoraCapitacao() {
-		return dtHoraCapitacao;
+	public String getdatahoraCaptacao() {
+		return datahoraCaptacao;
 	}
-	public void setDtHoraCapitacao(String dtHoraCapitacao) {
-		this.dtHoraCapitacao = dtHoraCapitacao;
+	public void setdatahoraCaptacao(String datahoraCaptacao) {
+		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	
 	@Override
 	public String toString() {
-		return "VentoModal [codVento=" + codVento + ", codWmoVento=" + codWmoVento + ", ventVelocidade="
-				+ ventVelocidade + ", ventRajada=" + ventRajada + ", VentDireHorario=" + VentDireHorario
-				+ ", dtHoraCapitacao=" + dtHoraCapitacao + "]";
+		return "VentoModal [codVento=" + codVento + ", codWmo=" + codWmo + ", ventoVelocidade="
+				+ ventoVelocidade + ", ventoRajadaMax=" + ventoRajadaMax + ", ventoDirecaoHorario=" + ventoDirecaoHorario
+				+ ", datahoraCaptacao=" + datahoraCaptacao + "]";
 	}
 }

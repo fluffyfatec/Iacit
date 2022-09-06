@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 //@Entity
 public class PrecipitacaoModal {
 
-	private Integer codPrecipitacao;
-	private String codWmoPrec;
-	private Double precTotal;
-	private String dtHoraCapitacao;
-
+	private Integer codPreciptacao;
+	private String codWmo;
+	private Double preciptacaototal;
+	private String datahora_captacao;
+	
 }

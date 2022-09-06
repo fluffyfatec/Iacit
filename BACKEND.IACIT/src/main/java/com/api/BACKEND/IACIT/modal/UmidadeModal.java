@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 public class UmidadeModal {
 	private Integer codUmidade;
 	private String codWmo;
-	private Double umiRelAr;
-	private Double umiRelMin;
-	private Double umiRelMax;
-	private String dtHoraCapitacao; 
+	private Double umidadeRelativaAr;
+	private Double umidadeRelativaMin;
+	private Double umidadeRelativaMax;
+	private String datahoraCaptacao; 
 	
 	
 

@@ -5,10 +5,10 @@ import javax.persistence.Entity;
 //@Entity
 public class PressaoAtmosfericaModal {
  
-	private Integer codPressao;
-	private String codWmoPressao;
-	private Double presAtmEstacao;
-	private Double presAtmMin;
-	private Double presAtmMax;
-	private String dtHoraCapitacao;
+	private Integer codPressaoAtm;
+	private String codWmo;
+	private Double pressaoAtmEstacao;
+	private Double pressaoAtmMin;
+	private Double pressaoAtmMax;
+	private String datahoraCaptacao;
 }
