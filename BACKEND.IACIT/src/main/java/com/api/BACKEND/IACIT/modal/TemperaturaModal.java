@@ -8,11 +8,12 @@ import javax.persistence.Entity;
 public class TemperaturaModal {
 
 	private Integer codTemperatura;
-	private String codWmoTemp;
-	private Double tempAr;
-	private Double tempMin;
-	private Double tempMax;
-	private Double tempPontOrMin;
-	private Double tempPontOrMax;
-	private String dtHoraCap; 
+	private String codWmo;
+	private Double temperaturaAr;
+	private Double temperaturaMin;
+	private Double temperaturaMax;
+	private Double temperaturaPontoOrvalho;
+	private Double temperaturaOrvalhoMin;
+	private Double temperaturaOrvalhoMax;
+	private String datahoraCaptacao; 
 }
