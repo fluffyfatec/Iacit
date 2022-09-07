@@ -1,5 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ public class VentoModal {
 	private Double ventoDirecaoHorario;
 	
 	@Column(nullable = false)
-	private String datahoraCaptacao;
+	private Date datahoraCaptacao;
 	
     public Integer getCodVento() {
 		return codVento;
@@ -52,10 +54,10 @@ public class VentoModal {
 	public void setventoDirecaoHorario(Double ventoDirecaoHorario) {
 		ventoDirecaoHorario = ventoDirecaoHorario;
 	}
-	public String getdatahoraCaptacao() {
+	public Date getdatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setdatahoraCaptacao(String datahoraCaptacao) {
+	public void setdatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	

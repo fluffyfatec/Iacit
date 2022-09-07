@@ -20,7 +20,7 @@ public class UmidadeModal {
 	private Double umidadeRelativaMin;
 	private Double umidadeRelativaMax;
 	@Column(nullable = false)
-	private String datahoraCaptacao;
+	private Date datahoraCaptacao;
 	
 	public Integer getCodUmidade() {
 		return codUmidade;
@@ -52,10 +52,10 @@ public class UmidadeModal {
 	public void setUmidadeRelativaMax(Double umidadeRelativaMax) {
 		this.umidadeRelativaMax = umidadeRelativaMax;
 	}
-	public String getDatahoraCaptacao() {
+	public Date getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(String datahoraCaptacao) {
+	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	

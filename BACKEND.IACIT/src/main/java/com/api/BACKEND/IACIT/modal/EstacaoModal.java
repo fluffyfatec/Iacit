@@ -1,13 +1,9 @@
 package com.api.BACKEND.IACIT.modal;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "estacao")
@@ -28,7 +24,7 @@ public class EstacaoModal {
 	private String estacaoLatidude;
 	@Column( nullable = false)
 	private String estacaoAltidude;
-	private String estacaoDatafundacao;
+	private Date estacaoDatafundacao;
 	@Column(length = 1, nullable = false)
 	private String estacaoStatus;
 	public String getCodWmo() {
@@ -73,10 +69,10 @@ public class EstacaoModal {
 	public void setEstacaoAltidude(String estacaoAltidude) {
 		this.estacaoAltidude = estacaoAltidude;
 	}
-	public String getEstacaoDatafundacao() {
+	public Date getEstacaoDatafundacao() {
 		return estacaoDatafundacao;
 	}
-	public void setEstacaoDatafundacao(String estacaoDatafundacao) {
+	public void setEstacaoDatafundacao(Date estacaoDatafundacao) {
 		this.estacaoDatafundacao = estacaoDatafundacao;
 	}
 	public String getEstacaoStatus() {

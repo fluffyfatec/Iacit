@@ -23,7 +23,7 @@ public class TemperaturaModal {
 	private Double temperaturaOrvalhoMin;
 	private Double temperaturaOrvalhoMax;
 	@Column(nullable = false)
-	private String datahoraCaptacao;
+	private Date datahoraCaptacao;
 	
 	
 	public Integer getCodTemperatura() {
@@ -74,10 +74,10 @@ public class TemperaturaModal {
 	public void setTemperaturaOrvalhoMax(Double temperaturaOrvalhoMax) {
 		this.temperaturaOrvalhoMax = temperaturaOrvalhoMax;
 	}
-	public String getDatahoraCaptacao() {
+	public Date getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(String datahoraCaptacao) {
+	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	@Override

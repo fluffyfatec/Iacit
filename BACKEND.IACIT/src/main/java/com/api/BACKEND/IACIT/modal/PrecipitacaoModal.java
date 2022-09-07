@@ -2,6 +2,8 @@ package com.api.BACKEND.IACIT.modal;
 
 
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ public class PrecipitacaoModal {
 	private String codWmo;
 	private Double preciptacaototal;
 	@Column(nullable = false)
-	private String datahora_captacao;
+	private Date datahora_captacao;
 	
 	public Integer getCodPreciptacao() {
 		return codPreciptacao;
@@ -40,10 +42,10 @@ public class PrecipitacaoModal {
 	public void setPreciptacaototal(Double preciptacaototal) {
 		this.preciptacaototal = preciptacaototal;
 	}
-	public String getDatahora_captacao() {
+	public Date getDatahora_captacao() {
 		return datahora_captacao;
 	}
-	public void setDatahora_captacao(String datahora_captacao) {
+	public void setDatahora_captacao(Date datahora_captacao) {
 		this.datahora_captacao = datahora_captacao;
 	}
 	@Override
