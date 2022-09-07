@@ -1,6 +1,6 @@
 package com.api.BACKEND.IACIT.modal;
 
-import java.sql.String;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
