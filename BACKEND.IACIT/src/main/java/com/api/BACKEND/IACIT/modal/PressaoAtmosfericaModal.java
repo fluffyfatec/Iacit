@@ -1,5 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class PressaoAtmosfericaModal {
 	private Double pressaoAtmMin;
 	private Double pressaoAtmMax;
 	@Column(nullable = false)
-	private String datahoraCaptacao;
+	private Date datahoraCaptacao;
 	
 	public Integer getCodPressaoAtm() {
 		return codPressaoAtm;
@@ -50,10 +52,10 @@ public class PressaoAtmosfericaModal {
 	public void setPressaoAtmMax(Double pressaoAtmMax) {
 		this.pressaoAtmMax = pressaoAtmMax;
 	}
-	public String getDatahoraCaptacao() {
+	public Date getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(String datahoraCaptacao) {
+	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	

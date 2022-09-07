@@ -1,21 +1,32 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "umidade")
-public class UmidadeModal {
+@Entity
+@Table(name="umidade")
+public class UmidadeModal  {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cod_umidade")
 	private Integer codUmidade;
-	@Column(length = 4, nullable = false)
-	private String codWmo;
+	
+	//@Column(length = 4, nullable = false)
+	@ManyToOne
+    @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
+	private EstacaoModal cod_wmo;
 	private Double umidadeRelativaAr;
 	private Double umidadeRelativaMin;
 	private Double umidadeRelativaMax;
@@ -28,11 +39,11 @@ public class UmidadeModal {
 	public void setCodUmidade(Integer codUmidade) {
 		this.codUmidade = codUmidade;
 	}
-	public String getCodWmo() {
-		return codWmo;
+	public EstacaoModal getCodWmo() {
+		return cod_wmo;
 	}
-	public void setCodWmo(String codWmo) {
-		this.codWmo = codWmo;
+	public void setCodWmo(EstacaoModal codWmo) {
+		this.cod_wmo = codWmo;
 	}
 	public Double getUmidadeRelativaAr() {
 		return umidadeRelativaAr;
@@ -61,7 +72,7 @@ public class UmidadeModal {
 	
 	@Override
 	public String toString() {
-		return "UmidadeModal [codUmidade=" + codUmidade + ", codWmo=" + codWmo + ", umidadeRelativaAr="
+		return "UmidadeModal [codUmidade=" + codUmidade + ", codWmo=" + cod_wmo + ", umidadeRelativaAr="
 				+ umidadeRelativaAr + ", umidadeRelativaMin=" + umidadeRelativaMin + ", umidadeRelativaMax="
 				+ umidadeRelativaMax + ", datahoraCaptacao=" + datahoraCaptacao + "]";
 	} 

@@ -18,7 +18,7 @@ public class RadiacaoGlobalModal {
 	private String codWmo;
 	private Double radiacaoGlobal;
 	@Column(nullable = false)
-	private String datahoraCaptacao;
+	private Date datahoraCaptacao;
 	
 	public Integer getCodRadiacao() {
 		return codRadiacao;
@@ -38,10 +38,10 @@ public class RadiacaoGlobalModal {
 	public void setRadiacaoGlobal(Double radiacaoGlobal) {
 		this.radiacaoGlobal = radiacaoGlobal;
 	}
-	public String getDatahoraCaptacao() {
+	public Date getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(String datahoraCaptacao) {
+	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	

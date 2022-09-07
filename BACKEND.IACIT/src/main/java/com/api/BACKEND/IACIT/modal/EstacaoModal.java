@@ -2,15 +2,23 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "estacao")
+@Entity
+@Table(name= "estacao")
+
+
 public class EstacaoModal {
 	
 	@Id
-	@Column(length = 4, nullable = false)
+	@Column(name= "cod_wmo",length = 4, nullable = false)
+	
+	
 	private String codWmo;
 	@Column(length = 60, nullable = false, unique = true)
 	private String estacaoNome;
