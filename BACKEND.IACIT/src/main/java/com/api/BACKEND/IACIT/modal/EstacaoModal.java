@@ -1,5 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,21 +14,20 @@ import javax.persistence.Id;
 public class EstacaoModal {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 4, nullable = false)
 	private String codWmo;
-	@Column(length = 60, nullable = false)
+	@Column(length = 60, nullable = false, unique = true)
 	private String estacaoNome;
 	@Column(length = 60, nullable = false)
 	private String estacaoRegiao;
 	@Column(length = 2, nullable = false)
 	private String estacaoEstado;
 	@Column( nullable = false)
-	private Double estacaoLogintude;
+	private String estacaoLogintude;
 	@Column( nullable = false)
-	private Double estacaoLatidude;
+	private String estacaoLatidude;
 	@Column( nullable = false)
-	private Double estacaoAltidude;
+	private String estacaoAltidude;
 	private String estacaoDatafundacao;
 	@Column(length = 1, nullable = false)
 	private String estacaoStatus;
@@ -54,22 +55,22 @@ public class EstacaoModal {
 	public void setEstacaoEstado(String estacaoEstado) {
 		this.estacaoEstado = estacaoEstado;
 	}
-	public Double getEstacaoLogintude() {
+	public String getEstacaoLogintude() {
 		return estacaoLogintude;
 	}
-	public void setEstacaoLogintude(Double estacaoLogintude) {
+	public void setEstacaoLogintude(String estacaoLogintude) {
 		this.estacaoLogintude = estacaoLogintude;
 	}
-	public Double getEstacaoLatidude() {
+	public String getEstacaoLatidude() {
 		return estacaoLatidude;
 	}
-	public void setEstacaoLatidude(Double estacaoLatidude) {
+	public void setEstacaoLatidude(String estacaoLatidude) {
 		this.estacaoLatidude = estacaoLatidude;
 	}
-	public Double getEstacaoAltidude() {
+	public String getEstacaoAltidude() {
 		return estacaoAltidude;
 	}
-	public void setEstacaoAltidude(Double estacaoAltidude) {
+	public void setEstacaoAltidude(String estacaoAltidude) {
 		this.estacaoAltidude = estacaoAltidude;
 	}
 	public String getEstacaoDatafundacao() {
