@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name= "estacao")
 
@@ -17,23 +19,23 @@ public class EstacaoModal {
 	
 	@Id
 	@Column(name= "cod_wmo",length = 4, nullable = false)
-	
-	
 	private String codWmo;
-	@Column(length = 60, nullable = false, unique = true)
+	@Column(name= "estacao_nome",length = 60, nullable = false, unique = true)
 	private String estacaoNome;
-	@Column(length = 60, nullable = false)
+	@Column(name= "estacao_regiao",length = 60, nullable = false)
 	private String estacaoRegiao;
-	@Column(length = 2, nullable = false)
+	@Column(name= "estacao_estado",length = 2, nullable = false)
 	private String estacaoEstado;
-	@Column( nullable = false)
+	@Column( name= "estacaoLogintude",nullable = false)
 	private String estacaoLogintude;
-	@Column( nullable = false)
-	private String estacaoLatidude;
-	@Column( nullable = false)
+	@Column(name ="estacao_latitude",nullable = false)
+	private String estacaoLatitude;
+	@Column(name="estacao_altidude", nullable = false)
 	private String estacaoAltidude;
+	@ColumnDefault(value = "A")
+	//@Column(name="estacao_datafundacao", nullable = false)
 	private Date estacaoDatafundacao;
-	@Column(length = 1, nullable = false)
+	@Column(name = "estacao_status", length = 1, nullable = false)
 	private String estacaoStatus;
 	public String getCodWmo() {
 		return codWmo;
@@ -65,11 +67,11 @@ public class EstacaoModal {
 	public void setEstacaoLogintude(String estacaoLogintude) {
 		this.estacaoLogintude = estacaoLogintude;
 	}
-	public String getEstacaoLatidude() {
-		return estacaoLatidude;
+	public String getEstacaoLatitude() {
+		return estacaoLatitude;
 	}
-	public void setEstacaoLatidude(String estacaoLatidude) {
-		this.estacaoLatidude = estacaoLatidude;
+	public void setEstacaoLatitude(String estacaoLatitude) {
+		this.estacaoLatitude = estacaoLatitude;
 	}
 	public String getEstacaoAltidude() {
 		return estacaoAltidude;
@@ -92,8 +94,9 @@ public class EstacaoModal {
 	@Override
 	public String toString() {
 		return "EstacaoModal [codWmo=" + codWmo + ", estacaoNome=" + estacaoNome + ", estacaoRegiao=" + estacaoRegiao
-				+ ", estacaoEstado=" + estacaoEstado + ", estacaoLogintude=" + estacaoLogintude + ", estacaoLatidude="
-				+ estacaoLatidude + ", estacaoAltidude=" + estacaoAltidude + ", estacaoDatafundacao="
+				+ ", estacaoEstado=" + estacaoEstado + ", estacaoLogintude=" + estacaoLogintude + ", estacaoLatitude="
+				+ estacaoLatitude + ", estacaoAltidude=" + estacaoAltidude + ", estacaoDatafundacao="
 				+ estacaoDatafundacao + ", estacaoStatus=" + estacaoStatus + "]";
 	}
+	
 }

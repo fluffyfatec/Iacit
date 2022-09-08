@@ -9,49 +9,57 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "Preciptacao")
+@Entity
+@Table(name = "precipitacao")
 
 public class PrecipitacaoModal {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codPreciptacao;
+	@Column(name = "cod_preciptacao")
+	private Integer codPrecipitacao;
 	
-	@Column(length = 4, nullable = false)
-	private String codWmo;
-	private Double preciptacaototal;
-	@Column(nullable = false)
-	private Date datahora_captacao;
+	@ManyToOne
+    @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
+	private EstacaoModal codWmo;
+	
+	@Column(name = "precipitacaototal")
+	private Double precipitacaototal;
+	@Column(name= "datahora_captacao",nullable = false)
+	private Date datahoraCaptacao;
 	
 	public Integer getCodPreciptacao() {
-		return codPreciptacao;
+		return codPrecipitacao;
 	}
 	public void setCodPreciptacao(Integer codPreciptacao) {
-		this.codPreciptacao = codPreciptacao;
+		this.codPrecipitacao = codPreciptacao;
 	}
-	public String getCodWmo() {
+	public EstacaoModal getCodWmo() {
 		return codWmo;
 	}
-	public void setCodWmo(String codWmo) {
+	public void EstacaoModal (EstacaoModal codWmo) {
 		this.codWmo = codWmo;
 	}
 	public Double getPreciptacaototal() {
-		return preciptacaototal;
+		return precipitacaototal;
 	}
 	public void setPreciptacaototal(Double preciptacaototal) {
-		this.preciptacaototal = preciptacaototal;
+		this.precipitacaototal = preciptacaototal;
 	}
 	public Date getDatahora_captacao() {
-		return datahora_captacao;
+		return datahoraCaptacao;
 	}
 	public void setDatahora_captacao(Date datahora_captacao) {
-		this.datahora_captacao = datahora_captacao;
+		this.datahoraCaptacao = datahora_captacao;
 	}
 	@Override
 	public String toString() {
-		return "PrecipitacaoModal [codPreciptacao=" + codPreciptacao + ", codWmo=" + codWmo + ", preciptacaototal="
-				+ preciptacaototal + ", datahora_captacao=" + datahora_captacao + "]";
+		return "PrecipitacaoModal [codPreciptacao=" + codPrecipitacao + ", codWmo=" + codWmo + ", preciptacaototal="
+				+ precipitacaototal + ", datahora_captacao=" + datahoraCaptacao + "]";
 	}
 	
 	

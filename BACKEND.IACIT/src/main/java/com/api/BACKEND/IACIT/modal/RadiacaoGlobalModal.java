@@ -7,29 +7,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "radiacaoGlobal")
+@Entity
+@Table(name="radiacao_global")
 public class RadiacaoGlobalModal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_radiacao")
 	private Integer codRadiacao;
-	@Column(length = 4, nullable = false)
-	private String codWmo;
-	private Double radiacaoGlobal;
-	@Column(nullable = false)
-	private Date datahoraCaptacao;
+	@ManyToOne
+    @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
+	private EstacaoModal codWmo;
 	
+	@Column(name = "radiacao_global")
+	private Double radiacaoGlobal;
+	@Column(name= "datahora_captacao", nullable = false)
+	private Date datahoraCaptacao;
 	public Integer getCodRadiacao() {
 		return codRadiacao;
 	}
 	public void setCodRadiacao(Integer codRadiacao) {
 		this.codRadiacao = codRadiacao;
 	}
-	public String getCodWmo() {
+	public EstacaoModal getCodWmo() {
 		return codWmo;
 	}
-	public void setCodWmo(String codWmo) {
+	public void setCodWmo(EstacaoModal codWmo) {
 		this.codWmo = codWmo;
 	}
 	public Double getRadiacaoGlobal() {
@@ -44,11 +51,11 @@ public class RadiacaoGlobalModal {
 	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
-	
 	@Override
 	public String toString() {
 		return "RadiacaoGlobalModal [codRadiacao=" + codRadiacao + ", codWmo=" + codWmo + ", radiacaoGlobal="
 				+ radiacaoGlobal + ", datahoraCaptacao=" + datahoraCaptacao + "]";
 	}
+	
 
 }

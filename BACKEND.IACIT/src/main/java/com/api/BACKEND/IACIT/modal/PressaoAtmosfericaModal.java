@@ -7,31 +7,39 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "pressaoAtmosferica")
+@Entity
+@Table(name="pressao_atmosferica")
 public class PressaoAtmosfericaModal {
  
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "cod_pressao_atm")
 	private Integer codPressaoAtm;
-	@Column(length = 4, nullable = false)
-	private String codWmo;
+	@ManyToOne
+    @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
+	private EstacaoModal codWmo;
+	@Column(name = "pressao_atm_estacao")
 	private Double pressaoAtmEstacao;
+	@Column(name = "pressao_atm_min")
 	private Double pressaoAtmMin;
+	@Column(name = "pressao_atm_max")
 	private Double pressaoAtmMax;
-	@Column(nullable = false)
+	@Column(name = "datahora_captacao", nullable = false)
 	private Date datahoraCaptacao;
-	
 	public Integer getCodPressaoAtm() {
 		return codPressaoAtm;
 	}
 	public void setCodPressaoAtm(Integer codPressaoAtm) {
 		this.codPressaoAtm = codPressaoAtm;
 	}
-	public String getCodWmo() {
+	public EstacaoModal getCodWmo() {
 		return codWmo;
 	}
-	public void setCodWmo(String codWmo) {
+	public void setCodWmo(EstacaoModal codWmo) {
 		this.codWmo = codWmo;
 	}
 	public Double getPressaoAtmEstacao() {
@@ -58,7 +66,6 @@ public class PressaoAtmosfericaModal {
 	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
-	
 	@Override
 	public String toString() {
 		return "PressaoAtmosfericaModal [codPressaoAtm=" + codPressaoAtm + ", codWmo=" + codWmo + ", pressaoAtmEstacao="
@@ -66,5 +73,5 @@ public class PressaoAtmosfericaModal {
 				+ ", datahoraCaptacao=" + datahoraCaptacao + "]";
 	}
 	
-
+	
 }

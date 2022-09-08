@@ -22,28 +22,29 @@ public class UmidadeModal  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_umidade")
 	private Integer codUmidade;
-	
-	//@Column(length = 4, nullable = false)
+
 	@ManyToOne
     @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
 	private EstacaoModal cod_wmo;
+    @Column(name = "umidade_relativa_ar")
 	private Double umidadeRelativaAr;
+    @Column(name = "umidade_relativa_min")
 	private Double umidadeRelativaMin;
+	@Column(name = "umidade_relativa_max")
 	private Double umidadeRelativaMax;
-	@Column(nullable = false)
+	@Column(name = "datahora_captacao" ,nullable = false)
 	private Date datahoraCaptacao;
-	
 	public Integer getCodUmidade() {
 		return codUmidade;
 	}
 	public void setCodUmidade(Integer codUmidade) {
 		this.codUmidade = codUmidade;
 	}
-	public EstacaoModal getCodWmo() {
+	public EstacaoModal getCod_wmo() {
 		return cod_wmo;
 	}
-	public void setCodWmo(EstacaoModal codWmo) {
-		this.cod_wmo = codWmo;
+	public void setCod_wmo(EstacaoModal cod_wmo) {
+		this.cod_wmo = cod_wmo;
 	}
 	public Double getUmidadeRelativaAr() {
 		return umidadeRelativaAr;
@@ -69,12 +70,13 @@ public class UmidadeModal  {
 	public void setDatahoraCaptacao(Date datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
-	
 	@Override
 	public String toString() {
-		return "UmidadeModal [codUmidade=" + codUmidade + ", codWmo=" + cod_wmo + ", umidadeRelativaAr="
+		return "UmidadeModal [codUmidade=" + codUmidade + ", cod_wmo=" + cod_wmo + ", umidadeRelativaAr="
 				+ umidadeRelativaAr + ", umidadeRelativaMin=" + umidadeRelativaMin + ", umidadeRelativaMax="
 				+ umidadeRelativaMax + ", datahoraCaptacao=" + datahoraCaptacao + "]";
-	} 
+	}
+	
+	
 	
 }
