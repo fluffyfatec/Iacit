@@ -1,6 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,14 +26,14 @@ public class VentoModal {
 	private EstacaoModal codWmo;
 	@Column(name = "vento_velocidade")
 
-	private Double ventoVelocidade;
+	private BigDecimal ventoVelocidade;
 	@Column(name = "vento_rajada_max")
-	private Double ventoRajadaMax;
+	private BigDecimal ventoRajadaMax;
 	@Column(name = "vento_direcao_horario")
-	Double ventoDirecaoHorario;
+	BigDecimal ventoDirecaoHorario;
 	
 	@Column(name ="datahoraCaptacao",nullable = false)
-	private Date datahoraCaptacao;
+	private Timestamp datahoraCaptacao;
 
 	public Integer getCodVento() {
 		return codVento;
@@ -50,35 +51,35 @@ public class VentoModal {
 		this.codWmo = codWmo;
 	}
 
-	public Double getVentoVelocidade() {
+	public BigDecimal getVentoVelocidade() {
 		return ventoVelocidade;
 	}
 
-	public void setVentoVelocidade(Double ventoVelocidade) {
+	public void setVentoVelocidade(BigDecimal ventoVelocidade) {
 		this.ventoVelocidade = ventoVelocidade;
 	}
 
-	public Double getVentoRajadaMax() {
+	public BigDecimal getVentoRajadaMax() {
 		return ventoRajadaMax;
 	}
 
-	public void setVentoRajadaMax(Double ventoRajadaMax) {
+	public void setVentoRajadaMax(BigDecimal ventoRajadaMax) {
 		this.ventoRajadaMax = ventoRajadaMax;
 	}
 
-	public Double getVentoDirecaoHorario() {
+	public BigDecimal getVentoDirecaoHorario() {
 		return ventoDirecaoHorario;
 	}
 
-	public void setVentoDirecaoHorario(Double ventoDirecaoHorario) {
+	public void setVentoDirecaoHorario(BigDecimal ventoDirecaoHorario) {
 		this.ventoDirecaoHorario = ventoDirecaoHorario;
 	}
 
-	public Date getDatahoraCaptacao() {
+	public Timestamp getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
 
-	public void setDatahoraCaptacao(Date datahoraCaptacao) {
+	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 

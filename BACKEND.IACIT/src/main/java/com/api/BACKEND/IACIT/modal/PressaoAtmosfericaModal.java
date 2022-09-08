@@ -1,6 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.type.BigDecimalType;
+import org.hibernate.type.descriptor.sql.BigDecimalType;
 
 @Entity
 @Table(name="pressao_atmosferica")
@@ -23,13 +27,13 @@ public class PressaoAtmosfericaModal {
     @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
 	private EstacaoModal codWmo;
 	@Column(name = "pressao_atm_estacao")
-	private Double pressaoAtmEstacao;
+	private BigDecimalType pressaoAtmEstacao;
 	@Column(name = "pressao_atm_min")
-	private Double pressaoAtmMin;
+	private BigDecimalType pressaoAtmMin;
 	@Column(name = "pressao_atm_max")
-	private Double pressaoAtmMax;
+	private BigDecimalType pressaoAtmMax;
 	@Column(name = "datahora_captacao", nullable = false)
-	private Date datahoraCaptacao;
+	private Timestamp datahoraCaptacao;
 	public Integer getCodPressaoAtm() {
 		return codPressaoAtm;
 	}
@@ -42,28 +46,28 @@ public class PressaoAtmosfericaModal {
 	public void setCodWmo(EstacaoModal codWmo) {
 		this.codWmo = codWmo;
 	}
-	public Double getPressaoAtmEstacao() {
+	public BigDecimalType getPressaoAtmEstacao() {
 		return pressaoAtmEstacao;
 	}
-	public void setPressaoAtmEstacao(Double pressaoAtmEstacao) {
+	public void setPressaoAtmEstacao(BigDecimalType pressaoAtmEstacao) {
 		this.pressaoAtmEstacao = pressaoAtmEstacao;
 	}
-	public Double getPressaoAtmMin() {
+	public BigDecimalType getPressaoAtmMin() {
 		return pressaoAtmMin;
 	}
-	public void setPressaoAtmMin(Double pressaoAtmMin) {
+	public void setPressaoAtmMin(BigDecimalType pressaoAtmMin) {
 		this.pressaoAtmMin = pressaoAtmMin;
 	}
-	public Double getPressaoAtmMax() {
+	public BigDecimalType getPressaoAtmMax() {
 		return pressaoAtmMax;
 	}
-	public void setPressaoAtmMax(Double pressaoAtmMax) {
+	public void setPressaoAtmMax(BigDecimalType pressaoAtmMax) {
 		this.pressaoAtmMax = pressaoAtmMax;
 	}
-	public Date getDatahoraCaptacao() {
+	public Timestamp getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(Date datahoraCaptacao) {
+	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	@Override

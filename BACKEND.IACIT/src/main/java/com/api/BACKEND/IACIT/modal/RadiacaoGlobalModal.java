@@ -1,5 +1,6 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.type.BigDecimalType;
+import org.hibernate.type.descriptor.sql.BigDecimalType;
 
 @Entity
 @Table(name="radiacao_global")
@@ -24,9 +28,9 @@ public class RadiacaoGlobalModal {
 	private EstacaoModal codWmo;
 	
 	@Column(name = "radiacao_global")
-	private Double radiacaoGlobal;
+	private BigDecimalType radiacaoGlobal;
 	@Column(name= "datahora_captacao", nullable = false)
-	private Date datahoraCaptacao;
+	private Timestamp datahoraCaptacao;
 	public Integer getCodRadiacao() {
 		return codRadiacao;
 	}
@@ -39,16 +43,16 @@ public class RadiacaoGlobalModal {
 	public void setCodWmo(EstacaoModal codWmo) {
 		this.codWmo = codWmo;
 	}
-	public Double getRadiacaoGlobal() {
+	public BigDecimalType getRadiacaoGlobal() {
 		return radiacaoGlobal;
 	}
-	public void setRadiacaoGlobal(Double radiacaoGlobal) {
+	public void setRadiacaoGlobal(BigDecimalType radiacaoGlobal) {
 		this.radiacaoGlobal = radiacaoGlobal;
 	}
-	public Date getDatahoraCaptacao() {
+	public Timestamp getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(Date datahoraCaptacao) {
+	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	@Override

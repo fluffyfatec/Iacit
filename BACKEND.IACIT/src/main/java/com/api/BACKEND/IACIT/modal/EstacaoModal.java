@@ -1,15 +1,15 @@
 package com.api.BACKEND.IACIT.modal;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.type.descriptor.sql.BigDecimal;
 
 @Entity
 @Table(name= "estacao")
@@ -26,15 +26,15 @@ public class EstacaoModal {
 	private String estacaoRegiao;
 	@Column(name= "estacao_estado",length = 2, nullable = false)
 	private String estacaoEstado;
-	@Column( name= "estacaoLogintude",nullable = false)
-	private String estacaoLogintude;
-	@Column(name ="estacao_latitude",nullable = false)
-	private String estacaoLatitude;
-	@Column(name="estacao_altidude", nullable = false)
-	private String estacaoAltidude;
+	@Column( name= "estacaoLongitude",length = 20,nullable = false)
+	private BigDecimal estacaoLongitude;
+	@Column(name ="estacao_latitude",length = 20,nullable = false)
+	private BigDecimal estacaoLatitude;
+	@Column(name="estacao_altitude",length = 20, nullable = false)
+	private BigDecimal estacaoAltitude;
 	@ColumnDefault(value = "A")
 	//@Column(name="estacao_datafundacao", nullable = false)
-	private Date estacaoDatafundacao;
+	private Timestamp estacaoDatafundacao;
 	@Column(name = "estacao_status", length = 1, nullable = false)
 	private String estacaoStatus;
 	public String getCodWmo() {
@@ -61,28 +61,28 @@ public class EstacaoModal {
 	public void setEstacaoEstado(String estacaoEstado) {
 		this.estacaoEstado = estacaoEstado;
 	}
-	public String getEstacaoLogintude() {
-		return estacaoLogintude;
+	public BigDecimal getestacaoLongitude() {
+		return estacaoLongitude;
 	}
-	public void setEstacaoLogintude(String estacaoLogintude) {
-		this.estacaoLogintude = estacaoLogintude;
+	public void setestacaoLongitude(BigDecimal estacaoLongitude) {
+		this.estacaoLongitude = estacaoLongitude;
 	}
-	public String getEstacaoLatitude() {
+	public BigDecimal getEstacaoLatitude() {
 		return estacaoLatitude;
 	}
-	public void setEstacaoLatitude(String estacaoLatitude) {
+	public void setEstacaoLatitude(BigDecimal estacaoLatitude) {
 		this.estacaoLatitude = estacaoLatitude;
 	}
-	public String getEstacaoAltidude() {
-		return estacaoAltidude;
+	public BigDecimal getestacaoAltitude() {
+		return estacaoAltitude;
 	}
-	public void setEstacaoAltidude(String estacaoAltidude) {
-		this.estacaoAltidude = estacaoAltidude;
+	public void setestacaoAltitude(BigDecimal estacaoAltitude) {
+		this.estacaoAltitude = estacaoAltitude;
 	}
-	public Date getEstacaoDatafundacao() {
+	public Timestamp getEstacaoDatafundacao() {
 		return estacaoDatafundacao;
 	}
-	public void setEstacaoDatafundacao(Date estacaoDatafundacao) {
+	public void setEstacaoDatafundacao(Timestamp estacaoDatafundacao) {
 		this.estacaoDatafundacao = estacaoDatafundacao;
 	}
 	public String getEstacaoStatus() {
@@ -94,8 +94,8 @@ public class EstacaoModal {
 	@Override
 	public String toString() {
 		return "EstacaoModal [codWmo=" + codWmo + ", estacaoNome=" + estacaoNome + ", estacaoRegiao=" + estacaoRegiao
-				+ ", estacaoEstado=" + estacaoEstado + ", estacaoLogintude=" + estacaoLogintude + ", estacaoLatitude="
-				+ estacaoLatitude + ", estacaoAltidude=" + estacaoAltidude + ", estacaoDatafundacao="
+				+ ", estacaoEstado=" + estacaoEstado + ", estacaoLongitude=" + estacaoLongitude + ", estacaoLatitude="
+				+ estacaoLatitude + ", estacaoAltitude=" + estacaoAltitude + ", estacaoDatafundacao="
 				+ estacaoDatafundacao + ", estacaoStatus=" + estacaoStatus + "]";
 	}
 	

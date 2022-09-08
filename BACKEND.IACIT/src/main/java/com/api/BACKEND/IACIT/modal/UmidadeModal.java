@@ -1,6 +1,7 @@
 package com.api.BACKEND.IACIT.modal;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.type.BigDecimalType;
+import org.hibernate.type.descriptor.sql.BigDecimalType;
 
 @Entity
 @Table(name="umidade")
@@ -27,13 +31,13 @@ public class UmidadeModal  {
     @JoinColumn(name = "cod_wmo", referencedColumnName = "cod_wmo")
 	private EstacaoModal cod_wmo;
     @Column(name = "umidade_relativa_ar")
-	private Double umidadeRelativaAr;
+	private BigDecimalType umidadeRelativaAr;
     @Column(name = "umidade_relativa_min")
-	private Double umidadeRelativaMin;
+	private BigDecimalType umidadeRelativaMin;
 	@Column(name = "umidade_relativa_max")
-	private Double umidadeRelativaMax;
+	private BigDecimalType umidadeRelativaMax;
 	@Column(name = "datahora_captacao" ,nullable = false)
-	private Date datahoraCaptacao;
+	private Timestamp datahoraCaptacao;
 	public Integer getCodUmidade() {
 		return codUmidade;
 	}
@@ -46,28 +50,28 @@ public class UmidadeModal  {
 	public void setCod_wmo(EstacaoModal cod_wmo) {
 		this.cod_wmo = cod_wmo;
 	}
-	public Double getUmidadeRelativaAr() {
+	public BigDecimalType getUmidadeRelativaAr() {
 		return umidadeRelativaAr;
 	}
-	public void setUmidadeRelativaAr(Double umidadeRelativaAr) {
+	public void setUmidadeRelativaAr(BigDecimalType umidadeRelativaAr) {
 		this.umidadeRelativaAr = umidadeRelativaAr;
 	}
-	public Double getUmidadeRelativaMin() {
+	public BigDecimalType getUmidadeRelativaMin() {
 		return umidadeRelativaMin;
 	}
-	public void setUmidadeRelativaMin(Double umidadeRelativaMin) {
+	public void setUmidadeRelativaMin(BigDecimalType umidadeRelativaMin) {
 		this.umidadeRelativaMin = umidadeRelativaMin;
 	}
-	public Double getUmidadeRelativaMax() {
+	public BigDecimalType getUmidadeRelativaMax() {
 		return umidadeRelativaMax;
 	}
-	public void setUmidadeRelativaMax(Double umidadeRelativaMax) {
+	public void setUmidadeRelativaMax(BigDecimalType umidadeRelativaMax) {
 		this.umidadeRelativaMax = umidadeRelativaMax;
 	}
-	public Date getDatahoraCaptacao() {
+	public Timestamp getDatahoraCaptacao() {
 		return datahoraCaptacao;
 	}
-	public void setDatahoraCaptacao(Date datahoraCaptacao) {
+	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
 		this.datahoraCaptacao = datahoraCaptacao;
 	}
 	@Override
