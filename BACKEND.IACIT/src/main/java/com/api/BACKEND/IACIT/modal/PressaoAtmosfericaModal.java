@@ -1,6 +1,5 @@
 package com.api.BACKEND.IACIT.modal;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -13,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
-import org.hibernate.type.descriptor.sql.BigDecimalType;
 
 @Entity
 @Table(name="pressao_atmosferica")

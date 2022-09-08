@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.type.descriptor.sql.BigDecimal;
 
 @Entity
 @Table(name= "estacao")
