@@ -22,7 +22,7 @@ public class PrecipitacaoModal {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_preciptacao")
+	@Column(name = "cod_precipitacao")
 	private Integer codPrecipitacao;
 	
 	@ManyToOne
