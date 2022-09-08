@@ -1,25 +1,25 @@
---CRIAÇÃO DA TABELA ESTACAO
+--CRIACAO DA TABELA ESTACAO
 CREATE TABLE estacao (
 	cod_wmo VARCHAR(4) NOT NULL,
 	estacao_nome VARCHAR(60) UNIQUE NOT NULL,
 	estacao_regiao VARCHAR(60) NOT NULL,
 	estacao_estado CHAR(2) NOT NULL,
-	estacao_longitude DECIMAL NOT NULL,
-	estacao_latitude DECIMAL NOT NULL,
-	estacao_altitude DECIMAL NOT NULL,
+	estacao_longitude NUMERIC NOT NULL,
+	estacao_latitude NUMERIC NOT NULL,
+	estacao_altitude NUMERIC NOT NULL,
 	estacao_datafundacao DATE,
 	estacao_status CHAR(1) NOT NULL DEFAULT('A'),
 	
 	--CHAVE PRIMARIA ESTACAO
-	PRIMARY KEY (cod_wmo)
+	CONSTRAINT pk_est_cod_wmo PRIMARY KEY (cod_wmo)
 );
 
 
---CRIAÇÃO DA TABELA RADICACAO GLOBAL
+--CRIACAO DA TABELA RADICACAO GLOBAL
 CREATE TABLE radiacao_global(
 	cod_radiacao SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	radiacao_global DECIMAL,
+	radiacao_global NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
 	--UNIQUE RADIACAO_GLOBAL
@@ -33,31 +33,31 @@ CREATE TABLE radiacao_global(
 ); 
 
 
---CRIAÇÃO DA TABELA PRECIPTACAO
-CREATE TABLE preciptacao(
-	cod_preciptacao SERIAL,
+--CRIACAO DA TABELA PRECIPITACAO
+CREATE TABLE precipitacao(
+	cod_precipitacao SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	preciptacaototal DECIMAL,
+	precipitacaototal NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
-	--UNIQUE PRECIPTAÇÃO
+	--UNIQUE PRECIPTACAO
 	CONSTRAINT uk_prec_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
 	
 	--CHAVE PRIMARIA PRECIPTACAO
-	CONSTRAINT pk_cod_preciptacao PRIMARY KEY (cod_preciptacao),
+	CONSTRAINT pk_cod_precipitacao PRIMARY KEY (cod_precipitacao),
 	--CHAVE ESTRANGEIRA TABELA ESTACAO(COD_WMO)
 	CONSTRAINT fk_prec_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
 
---CRIAÇÃO DA TABELA VENTO
+--CRIACAO DA TABELA VENTO
 CREATE TABLE vento(
 	cod_vento SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	vento_velocidade DECIMAL,
-	vento_rajada_max DECIMAL,
-	vento_direcao_horario DECIMAL,
+	vento_velocidade NUMERIC,
+	vento_rajada_max NUMERIC,
+	vento_direcao_horario NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
 	--UNIQUE VENTO
@@ -71,13 +71,13 @@ CREATE TABLE vento(
 );
 
 
---CRIAÇÃO DA TABELA PRESSAO ATMOSFERICA
+--CRIACAO DA TABELA PRESSAO ATMOSFERICA
 CREATE TABLE pressao_atmosferica(
 	cod_pressao_atm SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	pressao_atm_estacao DECIMAL,
-	pressao_atm_min DECIMAL,
-	pressao_atm_max DECIMAL,
+	pressao_atm_estacao NUMERIC,
+	pressao_atm_min NUMERIC,
+	pressao_atm_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
 	--UNIQUE PRESSAO ATMOSFERICA
@@ -91,16 +91,16 @@ CREATE TABLE pressao_atmosferica(
 );
 
 
---CRIAÇÃO DA TEMPERATURA
+--CRIACAO DA TEMPERATURA
 CREATE TABLE temperatura(
 	cod_temperatura SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	temperatura_ar DECIMAL,
-	temperatura_min DECIMAL,
-	temperatura_max DECIMAL,
-	temperatura_ponto_orvalho DECIMAL,
-	temperatura_orvalho_min DECIMAL,
-	temperatura_orvalho_max DECIMAL,
+	temperatura_ar NUMERIC,
+	temperatura_min NUMERIC,
+	temperatura_max NUMERIC,
+	temperatura_ponto_orvalho NUMERIC,
+	temperatura_orvalho_min NUMERIC,
+	temperatura_orvalho_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
 	--UNIQUE TEMPERATURA
@@ -118,9 +118,9 @@ CREATE TABLE temperatura(
 CREATE TABLE umidade(
 	cod_umidade SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	umidade_relativa_ar DECIMAL,
-	umidade_relativa_min DECIMAL,
-	umidade_relativa_max DECIMAL,
+	umidade_relativa_ar NUMERIC,
+	umidade_relativa_min NUMERIC,
+	umidade_relativa_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
 	--UNIQUE UMIDADE

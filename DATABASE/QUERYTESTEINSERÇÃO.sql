@@ -9,10 +9,10 @@ INSERT INTO radiacao_global (cod_wmo, datahora_captacao, radiacao_global) VALUES
 INSERT INTO radiacao_global (cod_wmo, datahora_captacao, radiacao_global) VALUES ('A702','31-08-2022 23:00:00', 6);
 
 --INSERT PRECIPTAÇÃO
-INSERT INTO preciptacao (cod_wmo, datahora_captacao, preciptacaototal) VALUES ('A701','28-08-2022 20:00:00', 9);
-INSERT INTO preciptacao (cod_wmo, datahora_captacao, preciptacaototal) VALUES ('A701','29-08-2022 21:00:00', 1);
-INSERT INTO preciptacao (cod_wmo, datahora_captacao, preciptacaototal) VALUES ('A702','30-08-2022 22:00:00', 7);
-INSERT INTO preciptacao (cod_wmo, datahora_captacao, preciptacaototal) VALUES ('A702','31-08-2022 23:00:00', 3);
+INSERT INTO precipitacao (cod_wmo, datahora_captacao, precipitacaototal) VALUES ('A701','28-08-2022 20:00:00', 9);
+INSERT INTO precipitacao (cod_wmo, datahora_captacao, precipitacaototal) VALUES ('A701','29-08-2022 21:00:00', 1);
+INSERT INTO precipitacao (cod_wmo, datahora_captacao, precipitacaototal) VALUES ('A702','30-08-2022 22:00:00', 7);
+INSERT INTO precipitacao (cod_wmo, datahora_captacao, precipitacaototal) VALUES ('A702','31-08-2022 23:00:00', 3);
 
 --INSERT VENTO
 INSERT INTO vento (cod_wmo,datahora_captacao,vento_direcao_horario,vento_rajada_max,vento_velocidade) 

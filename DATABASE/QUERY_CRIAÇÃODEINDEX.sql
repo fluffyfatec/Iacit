@@ -1,7 +1,7 @@
---CRIAÇÃO DE INDEX PARA OTIMIZAÇÃO DAS BUSCAS
+--CRIACAO DE INDEX PARA OTIMIZACAO DAS BUSCAS
 
 CREATE INDEX idx_estacao ON estacao (estacao_nome);
-CREATE INDEX idx_preciptacao ON preciptacao (datahora_captacao);
+CREATE INDEX idx_precipitacao ON precipitacao (datahora_captacao);
 CREATE INDEX idx_pressao_atmosferica ON pressao_atmosferica (datahora_captacao);
 CREATE INDEX idx_radiacao_global ON radiacao_global (datahora_captacao);
 CREATE INDEX idx_temperatura ON temperatura (datahora_captacao);
