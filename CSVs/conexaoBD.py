@@ -10,7 +10,7 @@ class ConexaoBD:
 
         try:
             # Conectando ao banco de dados
-            db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+            db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
 
             # Tabela radiacao_global
             rad = df[['CODIGO (WMO)', 'RADIACAO GLOBAL (Kj/m²)', 'DATAHORA DE CAPTAÇÃO']]
@@ -30,10 +30,10 @@ class ConexaoBD:
                 rad.to_sql('radiacao_global', db, if_exists='append', index=False)
 
 
-            # Tabela preciptacao
+            # Tabela precipitacao
             precip = df[['CODIGO (WMO)', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)', 'DATAHORA DE CAPTAÇÃO']]
 
-            sql = f"SELECT datahora_captacao FROM preciptacao WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+            sql = f"SELECT datahora_captacao FROM precipitacao WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
                   f"datahora_captacao DESC LIMIT 1"
 
             try:
@@ -41,11 +41,11 @@ class ConexaoBD:
             except TypeError:
                 pass
 
-            precip = precip.rename({'CODIGO (WMO)': 'cod_wmo', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)': 'preciptacaototal',
+            precip = precip.rename({'CODIGO (WMO)': 'cod_wmo', 'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)': 'precipitacaototal',
                                     'DATAHORA DE CAPTAÇÃO': 'datahora_captacao'}, axis=1)
 
             if not precip.empty:
-                precip.to_sql('preciptacao', db, if_exists='append', index=False)
+                precip.to_sql('precipitacao', db, if_exists='append', index=False)
 
 
             # Tabela vento
@@ -154,7 +154,7 @@ class ConexaoBD:
 
         try:
             # Conectando ao banco de dados
-            db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+            db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
 
             # Inserindo os dados no banco de dados
             for index, row in df.iterrows():
@@ -234,7 +234,7 @@ class ConexaoBD:
 
         try:
             # Conectando ao banco de dados
-            db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+            db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
 
             # Tabela estacao
             estacao = df[['CODIGO (WMO)', 'ESTACAO', 'REGIAO', 'UF', 'LONGITUDE', 'LATITUDE',
@@ -262,7 +262,7 @@ class ConexaoBD:
 
         try:
             # Conectando ao banco de dados
-            db = create_engine('postgresql://postgres:123456@[localhost]/db_iacit_api')
+            db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
 
             for index, row in df.iterrows():
                 try:
