@@ -1,5 +1,6 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -13,8 +14,15 @@ import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="radiacao_global")
+@Getter
+@Setter
+@ToString
 public class RadiacaoGlobalModal {
 	
 	@Id
@@ -29,35 +37,7 @@ public class RadiacaoGlobalModal {
 	private BigDecimalType radiacaoGlobal;
 	@Column(name= "datahora_captacao", nullable = false)
 	private Timestamp datahoraCaptacao;
-	public Integer getCodRadiacao() {
-		return codRadiacao;
-	}
-	public void setCodRadiacao(Integer codRadiacao) {
-		this.codRadiacao = codRadiacao;
-	}
-	public EstacaoModal getCodWmo() {
-		return codWmo;
-	}
-	public void setCodWmo(EstacaoModal codWmo) {
-		this.codWmo = codWmo;
-	}
-	public BigDecimalType getRadiacaoGlobal() {
-		return radiacaoGlobal;
-	}
-	public void setRadiacaoGlobal(BigDecimalType radiacaoGlobal) {
-		this.radiacaoGlobal = radiacaoGlobal;
-	}
-	public Timestamp getDatahoraCaptacao() {
-		return datahoraCaptacao;
-	}
-	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
-		this.datahoraCaptacao = datahoraCaptacao;
-	}
-	@Override
-	public String toString() {
-		return "RadiacaoGlobalModal [codRadiacao=" + codRadiacao + ", codWmo=" + codWmo + ", radiacaoGlobal="
-				+ radiacaoGlobal + ", datahoraCaptacao=" + datahoraCaptacao + "]";
-	}
+	
 	
 
 }

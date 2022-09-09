@@ -1,5 +1,6 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -13,9 +14,16 @@ import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 
 @Entity
 @Table (name = "temperatura")
+@Getter
+@Setter
+@ToString
 public class TemperaturaModal {
 
 	@Id
@@ -40,69 +48,5 @@ public class TemperaturaModal {
 	private BigDecimalType temperaturaOrvalhoMax;
 	@Column(name= "datahora_captacao",nullable = false)
 	private Timestamp datahoraCaptacao;
-	public Integer getCodTemperatura() {
-		return codTemperatura;
-	}
-	public void setCodTemperatura(Integer codTemperatura) {
-		this.codTemperatura = codTemperatura;
-	}
-	public EstacaoModal getCodWmo() {
-		return codWmo;
-	}
-	public void setCodWmo(EstacaoModal codWmo) {
-		this.codWmo = codWmo;
-	}
-	public BigDecimalType getTemperaturaAr() {
-		return temperaturaAr;
-	}
-	public void setTemperaturaAr(BigDecimalType temperaturaAr) {
-		this.temperaturaAr = temperaturaAr;
-	}
-	public BigDecimalType getTemperaturaMin() {
-		return temperaturaMin;
-	}
-	public void setTemperaturaMin(BigDecimalType temperaturaMin) {
-		this.temperaturaMin = temperaturaMin;
-	}
-	public BigDecimalType getTemperaturaMax() {
-		return temperaturaMax;
-	}
-	public void setTemperaturaMax(BigDecimalType temperaturaMax) {
-		this.temperaturaMax = temperaturaMax;
-	}
-	public BigDecimalType getTemperaturaPontoOrvalho() {
-		return temperaturaPontoOrvalho;
-	}
-	public void setTemperaturaPontoOrvalho(BigDecimalType temperaturaPontoOrvalho) {
-		this.temperaturaPontoOrvalho = temperaturaPontoOrvalho;
-	}
-	public BigDecimalType getTemperaturaOrvalhoMin() {
-		return temperaturaOrvalhoMin;
-	}
-	public void setTemperaturaOrvalhoMin(BigDecimalType temperaturaOrvalhoMin) {
-		this.temperaturaOrvalhoMin = temperaturaOrvalhoMin;
-	}
-	public BigDecimalType getTemperaturaOrvalhoMax() {
-		return temperaturaOrvalhoMax;
-	}
-	public void setTemperaturaOrvalhoMax(BigDecimalType temperaturaOrvalhoMax) {
-		this.temperaturaOrvalhoMax = temperaturaOrvalhoMax;
-	}
-	public Timestamp getDatahoraCaptacao() {
-		return datahoraCaptacao;
-	}
-	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
-		this.datahoraCaptacao = datahoraCaptacao;
-	}
-	@Override
-	public String toString() {
-		return "TemperaturaModal [codTemperatura=" + codTemperatura + ", codWmo=" + codWmo + ", temperaturaAr="
-				+ temperaturaAr + ", temperaturaMin=" + temperaturaMin + ", temperaturaMax=" + temperaturaMax
-				+ ", temperaturaPontoOrvalho=" + temperaturaPontoOrvalho + ", temperaturaOrvalhoMin="
-				+ temperaturaOrvalhoMin + ", temperaturaOrvalhoMax=" + temperaturaOrvalhoMax + ", datahoraCaptacao="
-				+ datahoraCaptacao + "]";
-	}
 	
-	
-
 }

@@ -13,8 +13,15 @@ import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="umidade")
+@Getter
+@Setter
+@ToString
 public class UmidadeModal  {
 	
 	@Id
@@ -33,49 +40,6 @@ public class UmidadeModal  {
 	private BigDecimalType umidadeRelativaMax;
 	@Column(name = "datahora_captacao" ,nullable = false)
 	private Timestamp datahoraCaptacao;
-	public Integer getCodUmidade() {
-		return codUmidade;
-	}
-	public void setCodUmidade(Integer codUmidade) {
-		this.codUmidade = codUmidade;
-	}
-	public EstacaoModal getCod_wmo() {
-		return cod_wmo;
-	}
-	public void setCod_wmo(EstacaoModal cod_wmo) {
-		this.cod_wmo = cod_wmo;
-	}
-	public BigDecimalType getUmidadeRelativaAr() {
-		return umidadeRelativaAr;
-	}
-	public void setUmidadeRelativaAr(BigDecimalType umidadeRelativaAr) {
-		this.umidadeRelativaAr = umidadeRelativaAr;
-	}
-	public BigDecimalType getUmidadeRelativaMin() {
-		return umidadeRelativaMin;
-	}
-	public void setUmidadeRelativaMin(BigDecimalType umidadeRelativaMin) {
-		this.umidadeRelativaMin = umidadeRelativaMin;
-	}
-	public BigDecimalType getUmidadeRelativaMax() {
-		return umidadeRelativaMax;
-	}
-	public void setUmidadeRelativaMax(BigDecimalType umidadeRelativaMax) {
-		this.umidadeRelativaMax = umidadeRelativaMax;
-	}
-	public Timestamp getDatahoraCaptacao() {
-		return datahoraCaptacao;
-	}
-	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
-		this.datahoraCaptacao = datahoraCaptacao;
-	}
-	@Override
-	public String toString() {
-		return "UmidadeModal [codUmidade=" + codUmidade + ", cod_wmo=" + cod_wmo + ", umidadeRelativaAr="
-				+ umidadeRelativaAr + ", umidadeRelativaMin=" + umidadeRelativaMin + ", umidadeRelativaMax="
-				+ umidadeRelativaMax + ", datahoraCaptacao=" + datahoraCaptacao + "]";
-	}
-	
 	
 	
 }

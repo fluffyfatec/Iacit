@@ -2,17 +2,20 @@ package com.api.BACKEND.IACIT.modal;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.ColumnDefault;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name= "estacao")
-
+@Getter
+@Setter
+@ToString
 
 public class EstacaoModal {
 	
@@ -36,66 +39,6 @@ public class EstacaoModal {
 	private Timestamp estacaoDatafundacao;
 	@Column(name = "estacao_status", length = 1, nullable = false)
 	private String estacaoStatus;
-	public String getCodWmo() {
-		return codWmo;
-	}
-	public void setCodWmo(String codWmo) {
-		this.codWmo = codWmo;
-	}
-	public String getEstacaoNome() {
-		return estacaoNome;
-	}
-	public void setEstacaoNome(String estacaoNome) {
-		this.estacaoNome = estacaoNome;
-	}
-	public String getEstacaoRegiao() {
-		return estacaoRegiao;
-	}
-	public void setEstacaoRegiao(String estacaoRegiao) {
-		this.estacaoRegiao = estacaoRegiao;
-	}
-	public String getEstacaoEstado() {
-		return estacaoEstado;
-	}
-	public void setEstacaoEstado(String estacaoEstado) {
-		this.estacaoEstado = estacaoEstado;
-	}
-	public BigDecimal getestacaoLongitude() {
-		return estacaoLongitude;
-	}
-	public void setestacaoLongitude(BigDecimal estacaoLongitude) {
-		this.estacaoLongitude = estacaoLongitude;
-	}
-	public BigDecimal getEstacaoLatitude() {
-		return estacaoLatitude;
-	}
-	public void setEstacaoLatitude(BigDecimal estacaoLatitude) {
-		this.estacaoLatitude = estacaoLatitude;
-	}
-	public BigDecimal getestacaoAltitude() {
-		return estacaoAltitude;
-	}
-	public void setestacaoAltitude(BigDecimal estacaoAltitude) {
-		this.estacaoAltitude = estacaoAltitude;
-	}
-	public Timestamp getEstacaoDatafundacao() {
-		return estacaoDatafundacao;
-	}
-	public void setEstacaoDatafundacao(Timestamp estacaoDatafundacao) {
-		this.estacaoDatafundacao = estacaoDatafundacao;
-	}
-	public String getEstacaoStatus() {
-		return estacaoStatus;
-	}
-	public void setEstacaoStatus(String estacaoStatus) {
-		this.estacaoStatus = estacaoStatus;
-	}
-	@Override
-	public String toString() {
-		return "EstacaoModal [codWmo=" + codWmo + ", estacaoNome=" + estacaoNome + ", estacaoRegiao=" + estacaoRegiao
-				+ ", estacaoEstado=" + estacaoEstado + ", estacaoLongitude=" + estacaoLongitude + ", estacaoLatitude="
-				+ estacaoLatitude + ", estacaoAltitude=" + estacaoAltitude + ", estacaoDatafundacao="
-				+ estacaoDatafundacao + ", estacaoStatus=" + estacaoStatus + "]";
-	}
+	
 	
 }

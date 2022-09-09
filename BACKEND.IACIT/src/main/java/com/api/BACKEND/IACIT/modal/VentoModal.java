@@ -12,8 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="vento")
+@Getter
+@Setter
+@ToString
 
 public class VentoModal {
 	
@@ -35,63 +42,6 @@ public class VentoModal {
 	@Column(name ="datahoraCaptacao",nullable = false)
 	private Timestamp datahoraCaptacao;
 
-	public Integer getCodVento() {
-		return codVento;
-	}
-
-	public void setCodVento(Integer codVento) {
-		this.codVento = codVento;
-	}
-
-	public EstacaoModal getCodWmo() {
-		return codWmo;
-	}
-
-	public void setCodWmo(EstacaoModal codWmo) {
-		this.codWmo = codWmo;
-	}
-
-	public BigDecimal getVentoVelocidade() {
-		return ventoVelocidade;
-	}
-
-	public void setVentoVelocidade(BigDecimal ventoVelocidade) {
-		this.ventoVelocidade = ventoVelocidade;
-	}
-
-	public BigDecimal getVentoRajadaMax() {
-		return ventoRajadaMax;
-	}
-
-	public void setVentoRajadaMax(BigDecimal ventoRajadaMax) {
-		this.ventoRajadaMax = ventoRajadaMax;
-	}
-
-	public BigDecimal getVentoDirecaoHorario() {
-		return ventoDirecaoHorario;
-	}
-
-	public void setVentoDirecaoHorario(BigDecimal ventoDirecaoHorario) {
-		this.ventoDirecaoHorario = ventoDirecaoHorario;
-	}
-
-	public Timestamp getDatahoraCaptacao() {
-		return datahoraCaptacao;
-	}
-
-	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
-		this.datahoraCaptacao = datahoraCaptacao;
-	}
-
-	@Override
-	public String toString() {
-		return "VentoModal [codVento=" + codVento + ", codWmo=" + codWmo + ", ventoVelocidade=" + ventoVelocidade
-				+ ", ventoRajadaMax=" + ventoRajadaMax + ", ventoDirecaoHorario=" + ventoDirecaoHorario
-				+ ", datahoraCaptacao=" + datahoraCaptacao + "]";
-	}
 	
-	
-	
-
 
 }

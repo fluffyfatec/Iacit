@@ -1,5 +1,6 @@
 package com.api.BACKEND.IACIT.modal;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -13,8 +14,15 @@ import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name="pressao_atmosferica")
+@Getter
+@Setter
+@ToString
 public class PressaoAtmosfericaModal {
  
 	@Id
@@ -32,48 +40,8 @@ public class PressaoAtmosfericaModal {
 	private BigDecimalType pressaoAtmMax;
 	@Column(name = "datahora_captacao", nullable = false)
 	private Timestamp datahoraCaptacao;
-	public Integer getCodPressaoAtm() {
-		return codPressaoAtm;
-	}
-	public void setCodPressaoAtm(Integer codPressaoAtm) {
-		this.codPressaoAtm = codPressaoAtm;
-	}
-	public EstacaoModal getCodWmo() {
-		return codWmo;
-	}
-	public void setCodWmo(EstacaoModal codWmo) {
-		this.codWmo = codWmo;
-	}
-	public BigDecimalType getPressaoAtmEstacao() {
-		return pressaoAtmEstacao;
-	}
-	public void setPressaoAtmEstacao(BigDecimalType pressaoAtmEstacao) {
-		this.pressaoAtmEstacao = pressaoAtmEstacao;
-	}
-	public BigDecimalType getPressaoAtmMin() {
-		return pressaoAtmMin;
-	}
-	public void setPressaoAtmMin(BigDecimalType pressaoAtmMin) {
-		this.pressaoAtmMin = pressaoAtmMin;
-	}
-	public BigDecimalType getPressaoAtmMax() {
-		return pressaoAtmMax;
-	}
-	public void setPressaoAtmMax(BigDecimalType pressaoAtmMax) {
-		this.pressaoAtmMax = pressaoAtmMax;
-	}
-	public Timestamp getDatahoraCaptacao() {
-		return datahoraCaptacao;
-	}
-	public void setDatahoraCaptacao(Timestamp datahoraCaptacao) {
-		this.datahoraCaptacao = datahoraCaptacao;
-	}
-	@Override
-	public String toString() {
-		return "PressaoAtmosfericaModal [codPressaoAtm=" + codPressaoAtm + ", codWmo=" + codWmo + ", pressaoAtmEstacao="
-				+ pressaoAtmEstacao + ", pressaoAtmMin=" + pressaoAtmMin + ", pressaoAtmMax=" + pressaoAtmMax
-				+ ", datahoraCaptacao=" + datahoraCaptacao + "]";
-	}
+	
+	
 	
 	
 }
