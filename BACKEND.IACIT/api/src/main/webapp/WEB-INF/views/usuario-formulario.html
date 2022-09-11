@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div style="width: 500px;
+                height: 500px; 
+                border: 0px solid black; 
+                border-radius: 10px;
+                /* margin: 0 auto; */
+                margin: 20px;
+                padding: 10px;">
+
+<!-- 
+        <form action='#' th:action="@{/usuario/salvar}" method="POST" th:object="${registroAtual}">
+            <input type="hidden" th:field="*{codUsuario}" />
+
+            <div style="text-align: center;">
+                <h5>Cadastro de Usuarios</h5>
+                <br>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    Nome: 
+                    <input class="form-control" type="text" th:field="*{nome}"></input>
+                </div>
+
+                <div class="col-md-6">
+                    Senha: 
+                    <input class="form-control" type="password" th:field="*{senha}"></input>
+                </div>
+            </div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Salvar"/>
+        </form> -->
+
+
+
+        <br>
+
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                <th scope="col">cod_wmo</th>
+                <th scope="col">estacao_nome</th>
+                <th scope="col">estacao_regiao</th>
+                <th scope="col">estacao_estado</th>
+                <th scope="col">estacao_longitude</th>
+                <th scope="col">estacao_latitude</th>
+                <th scope="col">estacao_altitude</th>
+                <th scope="col">estacao_datafundacao</th>
+                <th scope="col">estacao_status</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="AA : ${AA}">
+                    <td>[[${AA.cod_wmo}]]</td>
+                    <td>[[${AA.estacao_nome}]]</td>
+                    <td>[[${AA.estacao_regiao}]]</td>
+                    <td>[[${AA.estacao_estado}]]</td>
+                    <td>[[${AA.estacao_longitude}]]</td>
+                    <td>[[${AA.estacao_latitude}]]</td>
+                    <td>[[${AA.estacao_altitude}]]</td>
+                    <td>[[${AA.estacao_datafundacao}]]</td>
+                    <td>[[${AA.estacao_status}]]</td>
+                    
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+ 
+</body>
+</html>
