@@ -43,7 +43,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 <summary>Requisitos Não Funcionais</summary>
 
 <p>•Linguagem Java
-<p>•Linguagem Java
+<p>•Banco de Dados Relacional
 <p>•Sistema WEB
 <p>•Documentações
 
@@ -53,7 +53,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 
 ## Solução
 
-A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas de visualizações, sendo possível gerar relatórios e filtrar esses dados metereológicos, obtidos a partir de CSV's. 
+A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possibilita a automatização desde o download, o processamento dos dados e a persistência dos dados no banco de dados de forma simplificada. Além disso também será possível realizar a filtragem desses dados por temperatura,umidade,estações,vento,pressão atmosférica, radiação global e precipitação, além da diversa visualizações desses dados. Contudo vamos entregar também diferentes níveis de usuários juntamente com o painel administrativo possibilitando a exportação dos relatórios a partir dos dados
 
 
 
@@ -62,15 +62,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Cronograma
 
 <p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
-## Proposta do Projeto
-
-<p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cronograma.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -78,16 +70,14 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Backlog do Produto
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/proposta.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Metas das Sprints
 
-<p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
+
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
@@ -184,7 +174,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/rodape.jpg" width="100%" height="100%">
 <p align="center">
 
 ---
