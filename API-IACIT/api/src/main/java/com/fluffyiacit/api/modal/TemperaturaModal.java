@@ -16,8 +16,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-@Entity
-@Table (name = "temperatura")
+@Entity(name = "temperatura")
+@Table(name = "temperatura")
 @Getter
 @Setter
 @ToString
@@ -26,24 +26,31 @@ public class TemperaturaModal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cod_temperatura")
-	private Integer codTemperatura;
+	private Integer cod_temperatura;
+	
 	@ManyToOne
     @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
 	private EstacaoModal codWmo;
+	
 	@Column(name = "temperatura_ar")
-	private BigDecimalType temperaturaAr;
+	private BigDecimalType temperatura_ar;
+	
 	@Column(name = "temperatura_min")
-	private BigDecimalType temperaturaMin;
+	private BigDecimalType temperatura_min;
+	
 	@Column(name = "temperatura_max")
-	private BigDecimalType temperaturaMax;
+	private BigDecimalType temperatura_max;
+	
 	@Column(name = "temperatura_ponto_orvalho")
-	private BigDecimalType temperaturaPontoOrvalho;
+	private BigDecimalType temperatura_ponto_orvalho;
+	
 	@Column(name = "temperatura_ponto_min")
-
-	private BigDecimalType temperaturaOrvalhoMin;
+	private BigDecimalType temperatura_ponto_min;
+	
 	@Column(name = "temperatura_ponto_max")
-	private BigDecimalType temperaturaOrvalhoMax;
+	private BigDecimalType temperatura_ponto_max;
+	
 	@Column(name= "datahora_captacao",nullable = false)
-	private Timestamp datahoraCaptacao;
+	private Timestamp datahora_captacao;
 	
 }

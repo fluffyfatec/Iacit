@@ -23,9 +23,9 @@ public class UsuarioController{
 	private UsuarioRepository usuariorepository;
 	
 	@Autowired(required=true)
-	private EstacaoRepository aaaaaaaaaaa;
+	private EstacaoRepository estacaorepository;
 	
-	//PAGINA CADASTRAR
+	//ENTRAR PAGINA CADASTRAR
 	@RequestMapping(value = {"/novo"}, method = RequestMethod.GET)
 	public ModelAndView formulario() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -37,23 +37,15 @@ public class UsuarioController{
 		modelAndView.addObject("registroAtual", usuariomodal);
 		
 		//BORA BILL
-		List<EstacaoModal> usu = (List<EstacaoModal>) aaaaaaaaaaa.listar("A702");
-		modelAndView.addObject("AA", usu);
+		List<EstacaoModal> usu = (List<EstacaoModal>) estacaorepository.listar("A702");
+		modelAndView.addObject("lista", usu);
 		
 		//INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("usuario-formulario");
 		return modelAndView;
 	}
 	
-	
-//	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
-//	public RedirectView redirecionamento() {
-//		RedirectView redirectView = new RedirectView();
-//	    redirectView.setUrl("http://localhost:8080/usuario/");
-//	    return redirectView;
-//	}
-	
-	
+		
 	//EVENTO CADASTRAR
 		@RequestMapping(value = {"/salvar"}, method = RequestMethod.POST)
 		public ModelAndView salvar(UsuarioModal usuariomodal) {
@@ -102,6 +94,12 @@ public class UsuarioController{
 		return listagem();
 	}
 	
+//	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+//	public RedirectView redirecionamento() {
+//		RedirectView redirectView = new RedirectView();
+//	    redirectView.setUrl("http://localhost:8080/usuario/");
+//	    return redirectView;
+//	}
 	
 
 

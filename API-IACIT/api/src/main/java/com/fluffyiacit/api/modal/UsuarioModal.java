@@ -1,18 +1,18 @@
 package com.fluffyiacit.api.modal;
 
 
-import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity(name="usuario")
 @Table(name="usuario")
 @Getter
 @Setter

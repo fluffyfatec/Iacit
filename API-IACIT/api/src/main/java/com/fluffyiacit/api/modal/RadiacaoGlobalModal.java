@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity(name="radiacao_global")
 @Table(name="radiacao_global")
 @Getter
 @Setter
@@ -25,15 +25,17 @@ public class RadiacaoGlobalModal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cod_radiacao")
-	private Integer codRadiacao;
+	private Integer cod_radiacao;
+	
 	@ManyToOne
     @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
 	private EstacaoModal codWmo;
 	
 	@Column(name = "radiacao_global")
-	private BigDecimalType radiacaoGlobal;
+	private BigDecimalType radiacao_global;
+	
 	@Column(name= "datahora_captacao", nullable = false)
-	private Timestamp datahoraCaptacao;
+	private Timestamp datahora_captacao;
 	
 	
 

@@ -19,7 +19,7 @@
                 margin: 20px;
                 padding: 10px;">
 
-<!-- 
+
         <form action='#' th:action="@{/usuario/salvar}" method="POST" th:object="${registroAtual}">
             <input type="hidden" th:field="*{codUsuario}" />
 
@@ -41,7 +41,7 @@
             </div>
             <br>
             <input class="btn btn-primary" type="submit" value="Salvar"/>
-        </form> -->
+        </form>
 
 
 
@@ -63,16 +63,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="AA : ${AA}">
-                    <td>[[${AA.cod_wmo}]]</td>
-                    <td>[[${AA.estacao_nome}]]</td>
-                    <td>[[${AA.estacao_regiao}]]</td>
-                    <td>[[${AA.estacao_estado}]]</td>
-                    <td>[[${AA.estacao_longitude}]]</td>
-                    <td>[[${AA.estacao_latitude}]]</td>
-                    <td>[[${AA.estacao_altitude}]]</td>
-                    <td>[[${AA.estacao_datafundacao}]]</td>
-                    <td>[[${AA.estacao_status}]]</td>
+                <tr th:each="lista : ${lista}">
+                    <td>[[${lista.cod_wmo}]]</td>
+                    <td>[[${lista.estacao_nome}]]</td>
+                    <td>[[${lista.estacao_regiao}]]</td>
+                    <td>[[${lista.estacao_estado}]]</td>
+                    <td>[[${lista.estacao_longitude}]]</td>
+                    <td>[[${lista.estacao_latitude}]]</td>
+                    <td>[[${lista.estacao_altitude}]]</td>
+                    <td>[[${lista.estacao_datafundacao}]]</td>
+                    <td>[[${lista.estacao_status}]]</td>
                     
                 </tr>
             </tbody>

@@ -19,7 +19,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity(name = "precipitacao")
 @Table(name = "precipitacao")
 @Getter
 @Setter
@@ -29,7 +29,7 @@ public class PrecipitacaoModal {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cod_precipitacao")
-	private Integer codPrecipitacao;
+	private Integer cod_precipitacao;
 	
 	@ManyToOne
     @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
@@ -37,8 +37,9 @@ public class PrecipitacaoModal {
 	
 	@Column(name = "precipitacaototal")
 	private BigDecimalType precipitacaototal;
+	
 	@Column(name= "datahora_captacao",nullable = false)
-	private Timestamp datahoraCaptacao;
+	private Timestamp datahora_captacao;
 	
 
 	

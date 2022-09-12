@@ -17,7 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity(name="umidade")
 @Table(name="umidade")
 @Getter
 @Setter
@@ -27,19 +27,23 @@ public class UmidadeModal  {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_umidade")
-	private Integer codUmidade;
+	private Integer cod_umidade;
 
 	@ManyToOne
     @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
 	private EstacaoModal cod_wmo;
-    @Column(name = "umidade_relativa_ar")
-	private BigDecimalType umidadeRelativaAr;
-    @Column(name = "umidade_relativa_min")
-	private BigDecimalType umidadeRelativaMin;
+    
+	@Column(name = "umidade_relativa_ar")
+	private BigDecimalType umidade_relativa_ar;
+   
+	@Column(name = "umidade_relativa_min")
+	private BigDecimalType umidade_relativa_min;
+	
 	@Column(name = "umidade_relativa_max")
-	private BigDecimalType umidadeRelativaMax;
+	private BigDecimalType umidade_relativa_max;
+	
 	@Column(name = "datahora_captacao" ,nullable = false)
-	private Timestamp datahoraCaptacao;
+	private Timestamp datahora_captacao;
 	
 	
 }
