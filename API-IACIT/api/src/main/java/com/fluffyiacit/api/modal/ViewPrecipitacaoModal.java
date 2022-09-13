@@ -1,45 +1,35 @@
 package com.fluffyiacit.api.modal;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.Immutable;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.hibernate.annotations.Subselect;
+import org.hibernate.type.BigDecimalType;
 
 
 @Entity (name = "view_precipitacao_dados")
-@Table(name = "view_precipitacao_dados")
 @Immutable
-@Getter
-@Setter
-@ToString
-public class ViewPrecipitacaoModal implements Serializable{
+@Subselect(value = "SELECT * FROM view_precipitacao_dados vp WHERE vp.estacao_estado = estacao_estado AND vp.estacao_nome = estacao_nome AND vp.cod_wmo = cod_wmo")
+public class ViewPrecipitacaoModal {
 		
-	private static final long serialVersionUID = 1L;
 
 		@Column(name = "precipitacaototal")
 		private String precipitacaototal;
 		
 		@Id
-		@Column(name= "cod_wmo",length = 4, nullable = false)
-		private Integer cod_wmo;
+		@Column(name= "cod_wmo")
+		private String cod_wmo;
 		
-		@Column(name= "estacao_estado",length = 2, nullable = false)
+		@Column(name= "estacao_estado")
 		private String estacao_estado;
 		
-		@Column(name= "estacao_nome",length = 60, nullable = false, unique = true)
+		@Column(name= "estacao_nome")
 		private String estacao_nome;
 		
-		@Column(name= "datahora_captacao",nullable = false)
+		@Column(name= "datahora_captacao")
 		private Timestamp datahora_captacao;
 	}
