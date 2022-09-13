@@ -7,6 +7,9 @@ class RunFunctions:
     @staticmethod
     def dados_inicial():
 
+        print("Iniciando script de download automático...\n")
+        Automacao.auto_run()
+
         print("Iniciando povoamento tabela estação...\n")
         LeituraDfs.leitura_cabecalho2022()
         LeituraDfs.leitura_cabecalho2021()

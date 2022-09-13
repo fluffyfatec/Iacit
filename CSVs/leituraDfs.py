@@ -13,7 +13,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2020\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -44,7 +44,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2021\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -74,7 +74,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2022\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -104,7 +104,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2020\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -126,7 +126,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2021\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -148,7 +148,7 @@ class LeituraDfs:
 
         try:
             # Path dos dataframes
-            files = glob.glob(r"C:\Users\Felipe Sobral\Downloads\Dfs 2022\*.csv")
+            files = glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True)
 
             i = 1
             for f in files:
