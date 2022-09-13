@@ -22,7 +22,4 @@ public interface PrecipitacaoRepository extends JpaRepository<ViewPrecipitacaoMo
 
 							
 										   
-	
-	
-
 }

@@ -25,8 +25,8 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 	
 	// BORA BILL
-	List<ViewPrecipitacaoModal> usu = (List<ViewPrecipitacaoModal>) precipitacao.listar("DF", "BRASILIA", "A001");
-	modelAndView.addObject("lista",usu);
+	List<ViewPrecipitacaoModal> envioteste = (List<ViewPrecipitacaoModal>) precipitacao.listar("SP", "São Paulo", "A702");
+	modelAndView.addObject("teste_envio",envioteste);
 	
 	//INFORMANDO A PAGINA QUE SERA MOSTRADA
 			modelAndView.setViewName("teste");
