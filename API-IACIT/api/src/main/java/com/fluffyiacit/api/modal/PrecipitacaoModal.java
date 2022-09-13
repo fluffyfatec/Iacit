@@ -33,7 +33,7 @@ public class PrecipitacaoModal {
 	
 	@ManyToOne
     @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
-	private EstacaoModal codWmo;
+	private EstacaoModal cod_wmo;
 	
 	@Column(name = "precipitacaototal")
 	private BigDecimalType precipitacaototal;
