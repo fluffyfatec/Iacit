@@ -12,7 +12,7 @@ import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
 import com.fluffyiacit.api.modal.ViewUmidadeModal;
 
 public interface UmidadeRepository   extends JpaRepository<ViewUmidadeModal, String> {
-	@Query ("SELECT u.umidade_relativa_ar,u.umidade_relativa_max,u.umidade_relativa_min FROM umidade AS u INNER JOIN estacao AS e ON e.cod_wmo = u.cod_wmo WHERE e.estacao_estado = :estacao_estado  AND e.estacao_nome = :estacao_nome AND e.cod_wmo = :cod_wmo AND u.datahora_captacao = :datahora_captacao ")
+	@Query ("SELECT u FROM view_umidade_dados u WHERE u.estacao_estado = :estacao_estado AND u.estacao_nome = :estacao_nome AND u.cod_wmo = :cod_wmo AND u.datahora_captacao = :datahora_captacao")
 	public List<ViewUmidadeModal> listar(@Param("estacao_estado") String estacao_estado,
 										        @Param("estacao_nome") String estacao_nome,
 										        @Param("cod_wmo") String cod_wmo,

@@ -19,13 +19,13 @@ import lombok.Setter;
 public class ViewUmidadeModal {
 
 	@Column(name = "umidade_relativa_ar")
-	private BigDecimalType umidade_relativa_ar;
+	private String umidade_relativa_ar;
 
 	@Column(name = "umidade_relativa_min")
-	private BigDecimalType umidade_relativa_min;
+	private String umidade_relativa_min;
 
 	@Column(name = "umidade_relativa_max")
-	private BigDecimalType umidade_relativa_max;
+	private String umidade_relativa_max;
 
 	@Id
 	@Column(name = "cod_wmo", length = 4, nullable = false)

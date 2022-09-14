@@ -12,7 +12,7 @@ import com.fluffyiacit.api.modal.ViewUmidadeModal;
 import com.fluffyiacit.api.modal.ViewVentoModal;
 
 public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
-	@Query ("SELECT v.vento_direcao_horario,v.vento_rajada_max,v.vento_velocidade,v.datahora_captacao,v.cod_wmo FROM vento AS v INNER JOIN estacao AS e ON e.cod_wmo = v.cod_wmo WHERE e.estacao_estado = :estacao_estado AND e.estacao_nome = :estacao_nome AND e.cod_wmo = :cod_wmo AND v.datahora_captacao = :datahora_captacao ")
+	@Query ("SELECT v FROM view_vento_dados v WHERE v.estacao_estado = :estacao_estado AND v.estacao_nome = :estacao_nome AND v.cod_wmo = :cod_wmo AND v.datahora_captacao = :datahora_captacao")
 	public List<ViewVentoModal> listar(@Param("estacao_estado") String estacao_estado,
 										        @Param("estacao_nome") String estacao_nome,
 										        @Param("cod_wmo") String cod_wmo,

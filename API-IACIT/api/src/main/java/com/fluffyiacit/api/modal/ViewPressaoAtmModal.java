@@ -1,6 +1,7 @@
 package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,13 +22,13 @@ public class ViewPressaoAtmModal {
 	
 	
 	@Column(name = "pressao_atm_estacao")
-	private BigDecimalType pressao_atm_estacao;
-	
-	@Column(name = "pressao_atm_min")
-	private BigDecimalType pressao_atm_min;
+	private String pressao_atm_estacao;
 	
 	@Column(name = "pressao_atm_max")
-	private BigDecimalType pressao_atm_max;
+	private String pressao_atm_max;
+	
+	@Column(name = "pressao_atm_min")
+	private String pressao_atm_min;
 	
     @Id
 	@Column(name= "cod_wmo",length = 4, nullable = false)

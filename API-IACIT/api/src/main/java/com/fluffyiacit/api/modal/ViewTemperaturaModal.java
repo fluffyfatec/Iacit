@@ -22,22 +22,22 @@ import lombok.Setter;
 public class ViewTemperaturaModal {
 	
 	@Column(name = "temperatura_ar")
-	private BigDecimalType temperatura_ar;
+	private String temperatura_ar;
 	
 	@Column(name = "temperatura_min")
-	private BigDecimalType temperatura_min;
+	private String temperatura_min;
 	
 	@Column(name = "temperatura_max")
-	private BigDecimalType temperatura_max;
+	private String temperatura_max;
+	
+	@Column(name = "temperatura_orvalho_min")
+	private String temperatura_orvalho_min;
+	
+	@Column(name = "temperatura_orvalho_max")
+	private String temperatura_orvalho_max;
 	
 	@Column(name = "temperatura_ponto_orvalho")
-	private BigDecimalType temperatura_ponto_orvalho;
-	
-	@Column(name = "temperatura_ponto_min")
-	private BigDecimalType temperatura_ponto_min;
-	
-	@Column(name = "temperatura_ponto_max")
-	private BigDecimalType temperatura_ponto_max;
+	private String temperatura_ponto_orvalho;
 	
     @Id
 	@Column(name= "cod_wmo",length = 4, nullable = false)
