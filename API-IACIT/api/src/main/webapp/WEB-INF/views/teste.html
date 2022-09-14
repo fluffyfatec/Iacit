@@ -16,10 +16,11 @@
         <div style="width: 500px; margin: 10px;">
 
             <div style="text-align: center;">
-                <h5>TREM FLUFFY PASSANDO NOVAMENTE</h5>
+                <h5>TABELAS TESTE</h5>
                 <br>
             </div>
 
+                view_precipitacao_dados
                 <table class="table table-striped" cellspacing="0" cellpadding="0">
                     <thead>
                         <tr>
@@ -31,18 +32,162 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="teste : ${teste_envio}">
-                            <td>[[${teste.precipitacaototal}]]</td>
-                            <td>[[${teste.cod_wmo}]]</td>
-                            <td>[[${teste.estacao_estado}]]</td>
-                            <td>[[${teste.estacao_nome}]]</td>
-                            <td>[[${teste.datahora_captacao}]]</td>
+                        <tr th:each="aa : ${teste_precipitacao}">
+                            <td>[[${aa.precipitacaototal}]]</td>
+                            <td>[[${aa.cod_wmo}]]</td>
+                            <td>[[${aa.estacao_estado}]]</td>
+                            <td>[[${aa.estacao_nome}]]</td>
+                            <td>[[${aa.datahora_captacao}]]</td>
                         </tr>
                     </tbody>
-
                 </table>
 
- 
+                <br>
+
+                view_atm_dados
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                        <th scope="col">pressao_atm_estacao</th>
+                        <th scope="col">pressao_atm_min</th>
+                        <th scope="col">pressao_atm_max</th>
+                        <th scope="col">cod_wmo</th>
+                        <th scope="col">estacao_estado</th>
+                        <th scope="col">estacao_nome</th>
+                        <th scope="col">datahora_captacao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="bb : ${teste_atm}">
+                            <td>[[${bb.pressao_atm_estacao}]]</td>
+                            <td>[[${bb.pressao_atm_min}]]</td>
+                            <td>[[${bb.pressao_atm_max}]]</td>
+                            <td>[[${bb.cod_wmo}]]</td>
+                            <td>[[${bb.estacao_estado}]]</td>
+                            <td>[[${bb.estacao_nome}]]</td>
+                            <td>[[${bb.datahora_captacao}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                view_radiacaoglobal_dados
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                        <th scope="col">radiacao_global</th>
+                        <th scope="col">cod_wmo</th>
+                        <th scope="col">estacao_estado</th>
+                        <th scope="col">estacao_nome</th>
+                        <th scope="col">datahora_captacao</th>
+                   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cc : ${teste_radiacaoglobal}">
+                            <td>[[${cc.radiacao_global}]]</td>
+                            <td>[[${cc.cod_wmo}]]</td>
+                            <td>[[${cc.estacao_estado}]]</td>
+                            <td>[[${cc.estacao_nome}]]</td>
+                            <td>[[${cc.datahora_captacao}]]</td>
+                          
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                view_temperatura_dados
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                        <th scope="col">temperatura_ar</th>
+                        <th scope="col">temperatura_min</th>
+                        <th scope="col">temperatura_max</th>
+                        <th scope="col">temperatura_ponto_orvalho</th>
+                        <th scope="col">temperatura_ponto_min</th>
+                        <th scope="col">temperatura_ponto_max</th>
+                        <th scope="col">cod_wmo</th>
+                        <th scope="col">estacao_estado</th>
+                        <th scope="col">estacao_nome</th>
+                        <th scope="col">datahora_captacao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="dd : ${teste_temperatura}">
+                            <td>[[${dd.temperatura_ar}]]</td>
+                            <td>[[${dd.temperatura_min}]]</td>
+                            <td>[[${dd.temperatura_max}]]</td>
+                            <td>[[${dd.temperatura_ponto_orvalho}]]</td>
+                            <td>[[${dd.temperatura_ponto_min}]]</td>
+                            <td>[[${dd.temperatura_ponto_max}]]</td>
+                            <td>[[${dd.cod_wmo}]]</td>
+                            <td>[[${dd.estacao_estado}]]</td>
+                            <td>[[${dd.estacao_nome}]]</td>
+                            <td>[[${dd.datahora_captacao}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                
+                view_umidade_dados
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                        <th scope="col">umidade_relativa_ar</th>
+                        <th scope="col">umidade_relativa_min</th>
+                        <th scope="col">umidade_relativa_max</th>
+                        <th scope="col">cod_wmo</th>
+                        <th scope="col">estacao_estado</th>
+                        <th scope="col">estacao_nome</th>
+                        <th scope="col">datahora_captacao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ee : ${teste_umidade}">
+                            <td>[[${ee.umidade_relativa_ar}]]</td>
+                            <td>[[${ee.umidade_relativa_min}]]</td>
+                            <td>[[${ee.umidade_relativa_max}]]</td>
+                            <td>[[${ee.cod_wmo}]]</td>
+                            <td>[[${ee.estacao_estado}]]</td>
+                            <td>[[${ee.estacao_nome}]]</td>
+                            <td>[[${ee.datahora_captacao}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
+                view_vento_dados
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                        <th scope="col">vento_velocidade</th>
+                        <th scope="col">vento_rajada_max</th>
+                        <th scope="col">cod_wmo</th>
+                        <th scope="col">estacao_estado</th>
+                        <th scope="col">estacao_nome</th>
+                        <th scope="col">datahora_captacao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ff : ${teste_vento}">
+                            <td>[[${ff.vento_velocidade}]]</td>
+                            <td>[[${ff.vento_rajada_max}]]</td>
+                            <td>[[${ff.cod_wmo}]]</td>
+                            <td>[[${ff.estacao_estado}]]</td>
+                            <td>[[${ff.estacao_nome}]]</td>
+                            <td>[[${ff.datahora_captacao}]]</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+
         </div>
         
     </body>
