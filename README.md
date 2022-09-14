@@ -13,7 +13,6 @@
 <p align="center">
   <a href="#desafio">Sobre o Projeto</a> •
   <a href="#cronograma">Cronograma</a> •
-  <a href="#proposta-do-projeto">Proposta do Projeto</a> •
   <a href="#burndown">Burndown</a> •
   <a href="#equipe">Equipe</a> •
   <a href="#manual-do-usuario">Manual do Usuario</a> •
@@ -76,8 +75,14 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Metas das Sprints
-
-
+<details>
+<summary>Sprint 1</summary>
+                  <details>
+                  <summary>Dowload e processamento de dados automatizado</summary>
+                        <p>• Dowload e processamento de dados automatizado
+                        <p>• FIltro de dados por estação e data   
+                  </details>
+</details>
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
