@@ -12,7 +12,7 @@ import org.hibernate.type.BigDecimalType;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity (name = "view_temperatura_dados")
+@Entity (name = "view_pressaoatmosferica_dados")
 @Immutable
 @Getter	
 @Setter
