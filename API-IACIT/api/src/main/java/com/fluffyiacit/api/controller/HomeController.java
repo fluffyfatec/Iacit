@@ -24,7 +24,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 	
 	// BORA BILL
-	List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("DF", "BRASILIA", Timestamp.valueOf("2020-02-20 00:00:00"));
+	List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
 	
 	
 	modelAndView.addObject("teste_envio", envioteste);

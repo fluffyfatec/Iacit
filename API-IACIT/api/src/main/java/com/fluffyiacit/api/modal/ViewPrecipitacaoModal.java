@@ -18,7 +18,7 @@ import lombok.ToString;
 @Immutable
 @Getter
 @Setter
-//@Subselect(value = "SELECT * FROM view_precipitacao_dados vp WHERE vp.estacao_estado = estacao_estado AND vp.estacao_nome = estacao_nome AND vp.cod_wmo = cod_wmo")
+
 public class ViewPrecipitacaoModal {
 		
         
