@@ -74,6 +74,14 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
+## Sprints
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/BACKLOG.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 ## Metas das Sprints
 <details>
 <summary>Sprint 1</summary>
@@ -97,7 +105,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## DER 
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
