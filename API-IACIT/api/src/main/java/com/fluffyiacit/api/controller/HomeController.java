@@ -53,29 +53,29 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 	
 	// BORA BILL
-	List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
+	List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
 	
 
 	// BORA BILL
-	List<ViewPressaoAtmModal> teste_atm = pressao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
+	List<ViewPressaoAtmModal> teste_atm = pressao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
 	
 
 	// BORA BILL
-	List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
+	List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
+	
+																									
+	// BORA BILL
+	List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
 	
 
 	// BORA BILL
-	List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
+	List<ViewUmidadeModal> teste_umidade = umidade.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
 	
 
 	// BORA BILL
-	List<ViewUmidadeModal> teste_umidade = umidade.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
-	
-
-	// BORA BILL
-	List<ViewVentoModal> teste_vento = vento.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-02-20 00:00:00"));
-	
-	
+	List<ViewVentoModal> teste_vento = vento.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-31 23:00:00"));
+																							
+		
 	modelAndView.addObject("teste_precipitacao", envioteste);
 	System.out.println("teste_precipitacao:" + envioteste );
 	
@@ -96,8 +96,6 @@ public class HomeController {
 	
 	modelAndView.addObject("teste_vento", teste_vento);
 	System.out.println("teste_vento:" + teste_vento);
-	
-	
 	
 	//INFORMANDO A PAGINA QUE SERA MOSTRADA
 			modelAndView.setViewName("teste");

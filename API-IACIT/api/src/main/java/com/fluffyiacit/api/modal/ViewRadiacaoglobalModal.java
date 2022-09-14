@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.Immutable;
-import org.hibernate.type.BigDecimalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +18,7 @@ import lombok.Setter;
 public class ViewRadiacaoglobalModal {
 
 	@Column(name = "radiacao_global")
-	private BigDecimalType radiacao_global;
+	private String radiacao_global;
 
 	@Id
 	@Column(name = "cod_wmo", length = 4, nullable = false)

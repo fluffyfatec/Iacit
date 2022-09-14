@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.Immutable;
-import org.hibernate.type.BigDecimalType;
 
 import lombok.Getter;
 import lombok.Setter;
