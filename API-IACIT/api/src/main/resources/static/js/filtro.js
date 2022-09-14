@@ -1,20 +1,24 @@
-function filtroEstado(){
-    var opcestado = document.getElementById('selectestado').value;
-    console.log(opcestado);
-}
+let estacao =  document.getElementById('estacao')
+let estado =  document.getElementById('estado')
+let data =  document.getElementById('data')
 
 function filtroEstacao(){
     var opcestacao = document.getElementById('selectestacao').value;
-    console.log(opcestacao);
+    estacao.innerHTML = `${opcestacao}`
 }
+
+function filtroEstado(){
+    var opcestado = document.getElementById('selectestado').value;
+    estado.innerHTML = `${opcestado}` 
+}
+
 function filtroData(){
     var opcdata = document.getElementById('selectdata').value;
-    console.log(opcdata);
+    data.innerHTML = `${opcdata}`
 }
 
 function filtrar(){
-    filtroEstado();
     filtroEstacao();
+    filtroEstado();
     filtroData();
-
 }
