@@ -1,4 +1,4 @@
-package com.fluffyiacit.api.repositorios;
+package com.fluffyiacit.api.repository;
 
 import java.sql.Timestamp;
 import java.util.List;

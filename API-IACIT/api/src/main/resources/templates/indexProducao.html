@@ -12,7 +12,7 @@
     <body>
        
 
-        <form action='#' th:action="@{/home/a}" method="POST" th:object="${filtro}">
+        <form action='#' th:action="@{/a}" method="POST" th:object="${filtro}">
    
             Estado:
             <select class="form-control" id="jsEstado">
@@ -58,8 +58,6 @@
             Cod Estação:
             <input type="text" class="form-control" id="" th:field="*{cod_wmo}"></input>
             <br>
-
-
 
             Data:
             <input type="text" class="form-control" id="" th:field="*{datahora_captacao}"></input>

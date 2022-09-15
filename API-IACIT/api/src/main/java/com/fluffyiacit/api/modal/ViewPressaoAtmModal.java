@@ -1,14 +1,12 @@
 package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
-import java.text.DecimalFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.Immutable;
-import org.hibernate.type.BigDecimalType;
 
 import lombok.Getter;
 import lombok.Setter;

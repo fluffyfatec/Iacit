@@ -2,9 +2,7 @@ package com.fluffyiacit.api.modal;
 
 
 
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +15,6 @@ import javax.persistence.Table;
 
 import org.hibernate.type.BigDecimalType;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

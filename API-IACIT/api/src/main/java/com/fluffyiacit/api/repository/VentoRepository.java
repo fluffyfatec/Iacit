@@ -1,4 +1,4 @@
-package com.fluffyiacit.api.repositorios;
+package com.fluffyiacit.api.repository;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.fluffyiacit.api.modal.VentoModal;
-import com.fluffyiacit.api.modal.ViewUmidadeModal;
 import com.fluffyiacit.api.modal.ViewVentoModal;
 
 public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
