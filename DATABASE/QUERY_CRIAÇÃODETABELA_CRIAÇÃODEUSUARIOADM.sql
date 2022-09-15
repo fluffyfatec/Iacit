@@ -1,114 +1,115 @@
---CRIAÇÃO DA BASE DE DADOS
-CREATE DATABASE db_iacit_api;
-    WITH
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'Portuguese_Brazil.1252'
-    LC_CTYPE = 'Portuguese_Brazil.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
-
-COMMENT ON DATABASE db_iacit_api
-    IS 'Banco de dados da API do 3º Semestre - Cliente Iacit';
-
---CRIAÇÃO DA TABELA ESTACAO
+--CRIACAO DA TABELA ESTACAO
 CREATE TABLE estacao (
 	cod_wmo VARCHAR(4) NOT NULL,
 	estacao_nome VARCHAR(60) UNIQUE NOT NULL,
 	estacao_regiao VARCHAR(60) NOT NULL,
 	estacao_estado CHAR(2) NOT NULL,
-	estacao_longitude DECIMAL NOT NULL,
-	estacao_latitude DECIMAL NOT NULL,
-	estacao_altitude DECIMAL NOT NULL,
+	estacao_longitude NUMERIC NOT NULL,
+	estacao_latitude NUMERIC NOT NULL,
+	estacao_altitude NUMERIC NOT NULL,
 	estacao_datafundacao DATE,
 	estacao_status CHAR(1) NOT NULL DEFAULT('A'),
 	
 	--CHAVE PRIMARIA ESTACAO
-	PRIMARY KEY (cod_wmo)
+	CONSTRAINT pk_est_cod_wmo PRIMARY KEY (cod_wmo)
 );
 
 
---CRIAÇÃO DA TABELA RADICACAO GLOBAL
+--CRIACAO DA TABELA RADICACAO GLOBAL
 CREATE TABLE radiacao_global(
 	cod_radiacao SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	radiacao_global DECIMAL,
+	radiacao_global NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE RADIACAO_GLOBAL
+	CONSTRAINT uk_rad_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA RADIACAO_GLOBAL
-	PRIMARY KEY (cod_radiacao),
+	CONSTRAINT pk_cod_radiacao PRIMARY KEY (cod_radiacao),
 	--CHAVE ESTRANGEIRA TABELA ESTACAO(COD_WMO)
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_rad_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 ); 
 
 
---CRIAÇÃO DA TABELA PRECIPTACAO
-CREATE TABLE preciptacao(
-	cod_preciptacao SERIAL,
+--CRIACAO DA TABELA PRECIPITACAO
+CREATE TABLE precipitacao(
+	cod_precipitacao SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	preciptacaototal DECIMAL,
+	precipitacaototal NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE PRECIPTACAO
+	CONSTRAINT uk_prec_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA PRECIPTACAO
-	PRIMARY KEY (cod_preciptacao),
+	CONSTRAINT pk_cod_precipitacao PRIMARY KEY (cod_precipitacao),
 	--CHAVE ESTRANGEIRA TABELA ESTACAO(COD_WMO)
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_prec_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
 
---CRIAÇÃO DA TABELA VENTO
+--CRIACAO DA TABELA VENTO
 CREATE TABLE vento(
 	cod_vento SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	vento_velocidade DECIMAL,
-	vento_rajada_max DECIMAL,
-	vento_direcao_horario DECIMAL,
+	vento_velocidade NUMERIC,
+	vento_rajada_max NUMERIC,
+	vento_direcao_horario NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE VENTO
+	CONSTRAINT uk_vento_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA VENTO
-	PRIMARY KEY (cod_vento),
+	CONSTRAINT pk_cod_vento PRIMARY KEY (cod_vento),
 	--CHAVE ESTRANGEIRA TABELA ESTACAO(COD_WMO)
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_vento_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
 
---CRIAÇÃO DA TABELA PRESSAO ATMOSFERICA
+--CRIACAO DA TABELA PRESSAO ATMOSFERICA
 CREATE TABLE pressao_atmosferica(
 	cod_pressao_atm SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	pressao_atm_estacao DECIMAL,
-	pressao_atm_min DECIMAL,
-	pressao_atm_max DECIMAL,
+	pressao_atm_estacao NUMERIC,
+	pressao_atm_min NUMERIC,
+	pressao_atm_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE PRESSAO ATMOSFERICA
+	CONSTRAINT uk_pressao_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA PRESSAO ATMOSFERICA
-	PRIMARY KEY (cod_pressao_atm),
+	CONSTRAINT pk_cod_pressao_atm PRIMARY KEY (cod_pressao_atm),
 	--CHAVE ESTRANGEIRA TABELA PRESSAO ATMOSFERICA(COD_WMO)
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_pressao_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
 
---CRIAÇÃO DA TEMPERATURA
+--CRIACAO DA TEMPERATURA
 CREATE TABLE temperatura(
 	cod_temperatura SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	temperatura_ar DECIMAL,
-	temperatura_min DECIMAL,
-	temperatura_max DECIMAL,
-	temperatura_ponto_orvalho DECIMAL,
-	temperatura_orvalho_min DECIMAL,
-	temperatura_orvalho_max DECIMAL,
+	temperatura_ar NUMERIC,
+	temperatura_min NUMERIC,
+	temperatura_max NUMERIC,
+	temperatura_ponto_orvalho NUMERIC,
+	temperatura_orvalho_min NUMERIC,
+	temperatura_orvalho_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE TEMPERATURA
+	CONSTRAINT uk_temp_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA TEMPERATURA
-	PRIMARY KEY (cod_temperatura),
+	CONSTRAINT pk_cod_temperatura PRIMARY KEY (cod_temperatura),
 	--CHAVE ESTRANGEIRA TABELA TEMPERATURA
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_temp_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
@@ -117,15 +118,18 @@ CREATE TABLE temperatura(
 CREATE TABLE umidade(
 	cod_umidade SERIAL,
 	cod_wmo VARCHAR(4) NOT NULL,
-	umidade_relativa_ar DECIMAL,
-	umidade_relativa_min DECIMAL,
-	umidade_relativa_max DECIMAL,
+	umidade_relativa_ar NUMERIC,
+	umidade_relativa_min NUMERIC,
+	umidade_relativa_max NUMERIC,
 	datahora_captacao TIMESTAMP NOT NULL,
 	
+	--UNIQUE UMIDADE
+	CONSTRAINT uk_umid_wmo_datahora UNIQUE (cod_wmo, datahora_captacao),
+	
 	--CHAVE PRIMARIA TEMPERATURA
-	PRIMARY KEY (cod_umidade),
+	CONSTRAINT pk_cod_umidade PRIMARY KEY (cod_umidade),
 	--CHAVE ESTRANGEIRA TABELA UMIDADE
-	FOREIGN KEY (cod_wmo)
+	CONSTRAINT fk_umid_cod_wmo FOREIGN KEY (cod_wmo)
 		REFERENCES estacao(cod_wmo)
 );
 
