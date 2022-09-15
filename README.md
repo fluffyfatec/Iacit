@@ -87,8 +87,13 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 <summary>Sprint 1</summary>
                   <details>
                   <summary>Dowload e processamento de dados automatizado</summary>
-                        <p>• Dowload e processamento de dados automatizado
-                        <p>• FIltro de dados por estação e data   
+                        Story User
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de temperatura e umidade Para que eu possa                                   analisar e ter uma visão simplificada dos dados gerais das estações 
+                  </details>
+                  <details>
+                  <summary>Filtrar dados por estações e data</summary>
+                        Story User
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de vento  e pressão atmosférica Para que eu                           possa analisar e ter uma visão simplificada dos dados gerais das estações
                   </details>
 </details>
 
@@ -102,10 +107,18 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## DER 
+## Diagrama Lógico
 
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## DER 
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
