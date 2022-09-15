@@ -107,18 +107,18 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## Diagrama Lógico
-
-<p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
 ## DER 
 
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Diagrama Lógico
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -133,6 +133,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 ## Manual do usuario
 
+[Clique aqui para acessar o manual do usuario](https://github.com/fluffyfatec/Iacit/blob/Sprint-1/Manual%20do%20Usuario/ManualdoUsuario.md)
 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
