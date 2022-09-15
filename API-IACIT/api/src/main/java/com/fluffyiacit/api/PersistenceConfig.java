@@ -49,6 +49,7 @@ public class PersistenceConfig {
 		emf.setJpaProperties(jpaProperties());
 		return emf;
 	}
+	
 
 	private Properties jpaProperties() {
 		Properties properties = new Properties();

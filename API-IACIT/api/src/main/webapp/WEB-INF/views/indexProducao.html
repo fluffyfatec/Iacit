@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Usuario</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/302b2cb8e2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+       
+
+        <form action='#' th:action="@{/home/a}" method="POST" th:object="${filtro}">
+   
+            Estado:
+            <select class="form-control" id="jsEstado">
+                <option selected>Escolha o Estado</option>
+                <option value="AC">AC - Acre</option>
+                <option value="AL">AL - Alagoas</option>
+                <option value="AM">AM - Amazonas</option>
+                <option value="AP">AP - Amapá</option>
+                <option value="BA">BA - Bahia</option>
+                <option value="CE">CE - Ceará</option>
+                <option value="DF">DF - Distrito Federal</option>
+                <option value="ES">ES - Espírito Santo</option>
+                <option value="GO">GO - Goiás</option>
+                <option value="MA">MA - Maranhão</option>
+                <option value="MG">MG - Minas Gerais</option>
+                <option value="MS">MS - Mato Grosso do Sul</option>
+                <option value="MT">MT - Mato Grosso</option>
+                <option value="PA">PA - Pará</option>
+                <option value="PB">PB - Paraíba</option>
+                <option value="PE">PE - Pernambuco</option>
+                <option value="PI">PI - Piauí</option>
+                <option value="PR">PR - Paraná</option>
+                <option value="RJ">RJ - Rio de Janeiro</option>
+                <option value="RN">RN - Rio Grande do Norte</option>
+                <option value="RO">RO - Rondônia</option>
+                <option value="RR">RR - Roraima</option>
+                <option value="RS">RS - Rio Grande do Sul</option>
+                <option value="SC">SC - Santa Catarina</option>
+                <option value="SE">SE - Sergipe</option>
+                <option value="SP">SP - São Paulo</option>
+                <option value="TO">TO - Tocantins</option>
+            </select>
+            <br>
+            
+            Estação:
+            <input type="hidden" class="form-control" id="jsCodEstado" th:field="*{estacao_nome}"></input>
+            <br>
+            
+            Estado:
+            <input type="text" class="form-control" th:field="*{estacao_estado}"></input>
+            <br>
+
+            Cod Estação:
+            <input type="text" class="form-control" id="" th:field="*{cod_wmo}"></input>
+            <br>
+
+
+
+            Data:
+            <input type="text" class="form-control" id="" th:field="*{datahora_captacao}"></input>
+            <br>
+            
+            <input class="btn btn-primary" type="submit" value="Salvar"/>
+            
+        </form>
+        
+        <script>
+
+            document.getElementById("jsEstado").onchange = function() {filtro()};
+        
+            function filtro() {
+                var jsFiltro = document.getElementById("jsEstado").value;
+                document.getElementById("jsCodEstado").value = jsFiltro;
+            }
+        
+        </script>
+    
+    <br><br>
+    <!--TABELA-->
+   <div style="width: 500px; margin: 10px;">
+
+       <div style="text-align: center;">
+           <h5>TABELAS TESTE</h5>
+           <br>
+       </div>
+
+           view_precipitacao_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">precipitacaototal</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="aa : ${teste_precipitacao}">
+                       <td>[[${aa.precipitacaototal}]]</td>
+                       <td>[[${aa.cod_wmo}]]</td>
+                       <td>[[${aa.estacao_estado}]]</td>
+                       <td>[[${aa.estacao_nome}]]</td>
+                       <td>[[${aa.datahora_captacao}]]</td>
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+           view_atm_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">pressao_atm_estacao</th>
+                   <th scope="col">pressao_atm_min</th>
+                   <th scope="col">pressao_atm_max</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="bb : ${teste_atm}">
+                       <td>[[${bb.pressao_atm_estacao}]]</td>
+                       <td>[[${bb.pressao_atm_min}]]</td>
+                       <td>[[${bb.pressao_atm_max}]]</td>
+                       <td>[[${bb.cod_wmo}]]</td>
+                       <td>[[${bb.estacao_estado}]]</td>
+                       <td>[[${bb.estacao_nome}]]</td>
+                       <td>[[${bb.datahora_captacao}]]</td>
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+           view_radiacaoglobal_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">radiacao_global</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+              
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="cc : ${teste_radiacaoglobal}">
+                       <td>[[${cc.radiacao_global}]]</td>
+                       <td>[[${cc.cod_wmo}]]</td>
+                       <td>[[${cc.estacao_estado}]]</td>
+                       <td>[[${cc.estacao_nome}]]</td>
+                       <td>[[${cc.datahora_captacao}]]</td>
+                     
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+           view_temperatura_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">temperatura_ar</th>
+                   <th scope="col">temperatura_min</th>
+                   <th scope="col">temperatura_max</th>
+                   <th scope="col">temperatura_ponto_orvalho</th>
+                   <th scope="col">temperatura_orvalho_min</th>
+                   <th scope="col">temperatura_orvalho_max</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="dd : ${teste_temperatura}">
+                       <td>[[${dd.temperatura_ar}]]</td>
+                       <td>[[${dd.temperatura_min}]]</td>
+                       <td>[[${dd.temperatura_max}]]</td>
+                       <td>[[${dd.temperatura_ponto_orvalho}]]</td>
+                       <td>[[${dd.temperatura_orvalho_min}]]</td>
+                       <td>[[${dd.temperatura_orvalho_max}]]</td>
+                       <td>[[${dd.cod_wmo}]]</td>
+                       <td>[[${dd.estacao_estado}]]</td>
+                       <td>[[${dd.estacao_nome}]]</td>
+                       <td>[[${dd.datahora_captacao}]]</td>
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+           
+           view_umidade_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">umidade_relativa_ar</th>
+                   <th scope="col">umidade_relativa_min</th>
+                   <th scope="col">umidade_relativa_max</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="ee : ${teste_umidade}">
+                       <td>[[${ee.umidade_relativa_ar}]]</td>
+                       <td>[[${ee.umidade_relativa_min}]]</td>
+                       <td>[[${ee.umidade_relativa_max}]]</td>
+                       <td>[[${ee.cod_wmo}]]</td>
+                       <td>[[${ee.estacao_estado}]]</td>
+                       <td>[[${ee.estacao_nome}]]</td>
+                       <td>[[${ee.datahora_captacao}]]</td>
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+           view_vento_dados
+           <table class="table table-striped" cellspacing="0" cellpadding="0">
+               <thead>
+                   <tr>
+                   <th scope="col">vento_velocidade</th>
+                   <th scope="col">vento_rajada_max</th>
+                   <th scope="col">cod_wmo</th>
+                   <th scope="col">estacao_estado</th>
+                   <th scope="col">estacao_nome</th>
+                   <th scope="col">datahora_captacao</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr th:each="ff : ${teste_vento}">
+                       <td>[[${ff.vento_velocidade}]]</td>
+                       <td>[[${ff.vento_rajada_max}]]</td>
+                       <td>[[${ff.cod_wmo}]]</td>
+                       <td>[[${ff.estacao_estado}]]</td>
+                       <td>[[${ff.estacao_nome}]]</td>
+                       <td>[[${ff.datahora_captacao}]]</td>
+                       
+                   </tr>
+               </tbody>
+           </table>
+
+           <br>
+
+   </div>
+        
+    </body>
+</html>
+

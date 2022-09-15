@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluffy</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Main CSS-->
+  <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+<!-- sidebar-collapse sidebar-mini hold-transition-->
+<body class="sidebar-collapse">
+
+  <div class="wrapper">
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150" style="border-radius: 50px;">
+    </div>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Navbar - MENU HORIZONTAL -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li> -->
+
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+      
+        <!-- FullScreen -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+ 
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <!-- Content Header (Page header) -->
+      <div class="content-header" style="padding: 10px;">
+        <div class="container-fluid">
+
+          <div class="row mb-2">
+
+            <div class="col-sm-8">
+              <h1 class="m-0">Dashboard - Resumo</h1> 
+            </div><!-- /.col -->
+
+            <div class="col-sm-4">
+              <ol class="breadcrumb float-sm-right" onclick="teste()">
+                <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
+              </ol>
+            </div><!-- /.col -->
+
+         
+
+          </div><!-- /.row -->
+
+          <div class="row mb-2">
+
+            <div class="col-sm-12">
+              Estação: <a id="estacao">xxxxxxx</a>   /   Estado: <a id="estado">xx</a>   /   Data: <a id="data">xxxx-xx-xx</a>
+            </div><!-- /.col -->
+
+            <div class="col-sm-4">
+             
+            </div><!-- /.col -->
+
+          </div><!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+      </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="container-fluid">
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+
+          <!-- Temperatura -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Temperatua" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>23<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temperatura Min</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+    
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>36<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temperatura Max</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+    
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>29<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temperatura Ar</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>25<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temp Orvalho Min</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>29<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temp Orvalho Max</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>28<sup style="font-size: 20px">°C</sup></h3>
+
+                      <p style="font-size: 14px;">Temp Orvalho Ponto</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Temperatua" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Temperatua" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Umidade -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Umidade" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                  <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                    <div class="inner">
+                      <h3>49<sup style="font-size: 20px">%</sup></h3>
+
+                      <p style="font-size: 14px;">Umidade Min</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-water"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                  
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                    <div class="inner">
+                      <h3>55<sup style="font-size: 20px">%</sup></h3>
+
+                      <p style="font-size: 14px;">Umidade Max</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-water"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                    <div class="inner">
+                      <h3>50<sup style="font-size: 20px">%</sup></h3>
+
+                      <p style="font-size: 14px;">Umidade Relativa Ar</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-water"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+          
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Umidade" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Umidade" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Vento -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Vento" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
+                    <div class="inner">
+                      <h3>32<sup style="font-size: 20px">m/s</sup></h3>
+
+                      <p style="font-size: 14px;">Vento - Velociade</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-wind"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                  
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
+                    <div class="inner">
+                      <h3>45<sup style="font-size: 20px">m/s</sup></h3>
+
+                      <p style="font-size: 14px;">Vento Rajada Max</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-wind"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
+                    <div class="inner">
+                      <h3>350<sup style="font-size: 20px">°gr</sup></h3>
+
+                      <p style="font-size: 14px;">Vento Direção</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-wind"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+    
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Vento" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Vento" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Pressão Atmosferica -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Pressao_Atm" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>857,1<sup style="font-size: 20px">mB</sup></h3>
+
+                      <p style="font-size: 14px;">Pressão Atmosferica Min</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-umbrella"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                  
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>921,7<sup style="font-size: 20px">mB</sup></h3>
+                      <p style="font-size: 14px;">Pressão Atmosferica Max</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-umbrella"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>   
+                
+                <div class="carousel-item">
+                  <!-- small box -->
+                  <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                    <div class="inner">
+                      <h3>850,3<sup style="font-size: 20px">mB</sup></h3>
+                      <p style="font-size: 14px;">Pressão Atmosferica Estação</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-umbrella"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>  
+    
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Pressao_Atm" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Pressao_Atm" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Radiação Global -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Radiacao" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                <div class="small-box bg-success"  style="background-color: #277AE6 !important;">
+                  <div class="inner">
+                    <h3>85<sup style="font-size: 20px">Kj/m²</sup></h3>
+                    <p style="font-size: 14px;">Radição Global</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-radiation"></i>
+                  </div>
+                  <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                </div>
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Radiacao" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Radiacao" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Precipitação -->
+          <div class="col-lg-2 col-5">
+
+            <div id="Carrosel_Precipitacao" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+              <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                  <!-- small box -->
+                  <div class="small-box bg-primary" style="background-color: #4596FF !important;">
+                    <div class="inner">
+                      <h3>8<sup style="font-size: 20px">%</sup></h3>
+                      
+                      <p style="font-size: 14px;">Precipitação</p>
+                    </div>
+                    <div class="icon">
+                      <i class="fas fa-cloud-showers-heavy"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>              
+    
+              </div>
+    
+              <a class="carousel-control-prev" href="#Carrosel_Precipitacao" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#Carrosel_Precipitacao" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+
+          <!-- Left col -->
+          <section class="col-lg-7 connectedSortable">
+
+
+
+              <div class="col-md-6">
+                  <!-- MAP DATA-->
+                  
+                  <div class="map-data m-b-40">
+                      <div class="map-wrap">
+                          <div class="vmap" id="vmap6"></div>
+                      </div>
+                  </div>
+                  <!-- END MAP DATA-->
+                  <!-- END PAGE CONTAINER-->
+              </div>
+              <br>
+
+
+
+
+
+
+          </section>
+          <!-- /.Left col -->
+
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5 connectedSortable">
+
+
+            
+            
+
+          </section>
+          <!-- right col -->
+
+        </div>
+        <!-- /.row (main row) -->
+
+    </div><!-- /.container-fluid -->
+      
+    </section>
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- Jquery JS-->
+  <script src="vendor/jquery-3.2.1.min.js"></script>
+  <script src="vendor/vector-map/jquery.vmap.js"></script>
+  <script src="vendor/vector-map/jquery.vmap.brazil.js"></script>
+  <!-- Main JS-->
+  <script src="js/main.js"></script>
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>$.widget.bridge('uibutton', $.ui.button)</script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- JQVMap -->
+  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+ 
+
+
+  <script>
+    function teste(){
+       $("#ModalFiltro").modal({
+        show: true
+      });
+    }
+  </script>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-filter"></i> Filtro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="row">
+            <div class="col-md-4">
+              Estado:
+              <select class="custom-select" id="selectestado">
+                <option selected>Escolha o Estado</option>
+                <option value="AC">AC - Acre</option>
+                <option value="AL">AL - Alagoas</option>
+                <option value="AM">AM - Amazonas</option>
+                <option value="AP">AP - Amapá</option>
+                <option value="BA">BA - Bahia</option>
+                <option value="CE">CE - Ceará</option>
+                <option value="DF">DF - Distrito Federal</option>
+                <option value="ES">ES - Espírito Santo</option>
+                <option value="GO">GO - Goiás</option>
+                <option value="MA">MA - Maranhão</option>
+                <option value="MG">MG - Minas Gerais</option>
+                <option value="MS">MS - Mato Grosso do Sul</option>
+                <option value="MT">MT - Mato Grosso</option>
+                <option value="PA">PA - Pará</option>
+                <option value="PB">PB - Paraíba</option>
+                <option value="PE">PE - Pernambuco</option>
+                <option value="PI">PI - Piauí</option>
+                <option value="PR">PR - Paraná</option>
+                <option value="RJ">RJ - Rio de Janeiro</option>
+                <option value="RN">RN - Rio Grande do Norte</option>
+                <option value="RO">RO - Rondônia</option>
+                <option value="RR">RR - Roraima</option>
+                <option value="RS">RS - Rio Grande do Sul</option>
+                <option value="SC">SC - Santa Catarina</option>
+                <option value="SE">SE - Sergipe</option>
+                <option value="SP">SP - São Paulo</option>
+                <option value="TO">TO - Tocantins</option>
+              </select>
+            </div>
+  
+            <div class="col-md-4">
+              Estação:
+              <select class="custom-select" id="selectestacao">
+                <option selected>Escolha a Estação</option>
+                <option value="1">Estação 1</option>
+                <option value="2">Estação 2</option>
+                <option value="3">Estação 3</option>
+                <option value="4">Estação 4</option>
+              </select>
+            </div>
+            <br>
+
+            <div class="col-md-4">
+              Data:
+              <input type="date" class="form-control" id="selectdata">
+            </div>
+            <br>
+  
+  
+          </div>
+          <br>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="filtrar()">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/filtro.js"></script>
+  
+</body>
+</html>
+

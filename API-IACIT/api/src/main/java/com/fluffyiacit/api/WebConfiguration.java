@@ -63,7 +63,7 @@ public class WebConfiguration implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		//registry.addResourceHandler("/assets/**", "/plugins/**").addResourceLocations("/WEB-INF/assets/", "/WEB-INF/plugins/");
+	 registry.addResourceHandler("/assets/**", "/plugins/**").addResourceLocations("/WEB-INF/assets/", "/WEB-INF/plugins/");
 	}
 
 
