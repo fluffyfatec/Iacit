@@ -26,7 +26,7 @@
 No diretório "C:" da maquina criar uma pasta "sql" e adicionar o backup dentro da pasta, depois ir até em variavéis de ambientes, ir até path, adicionar um novo, ir até arquivos de programas, postgre, bin e subir a pioridade do bin dentro do path com o botão mover pra cima e depois rodar o bat que foi instalado e adicionado na pasta "sql" no diretório "C:"
 
 #### Python 
-Adicionar a pasta "CSV" do projeto no diretório "C:" depois abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
+Abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
 
 #### Eclipse 
 
