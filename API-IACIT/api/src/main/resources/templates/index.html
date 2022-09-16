@@ -234,7 +234,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>23<sup style="font-size: 20px">°C</sup></h3>
+                     
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_min}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Min</p>
                     </div>
@@ -249,7 +250,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>36<sup style="font-size: 20px">°C</sup></h3>
+                    
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_max}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Max</p>
                     </div>
@@ -264,7 +266,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>29<sup style="font-size: 20px">°C</sup></h3>
+                      
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_ar}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Ar</p>
                     </div>
@@ -279,7 +282,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>25<sup style="font-size: 20px">°C</sup></h3>
+                      
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_orvalho_min}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Min</p>
                     </div>
@@ -294,7 +298,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>29<sup style="font-size: 20px">°C</sup></h3>
+                   
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_orvalho_max}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Max</p>
                     </div>
@@ -309,7 +314,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
-                      <h3>28<sup style="font-size: 20px">°C</sup></h3>
+                
+                      <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperatura_ponto_orvalho}]]<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Ponto</p>
                     </div>
@@ -344,7 +350,8 @@
                   <!-- small box -->
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
-                      <h3>49<sup style="font-size: 20px">%</sup></h3>
+                  
+                      <h3 th:each="ee : ${teste_umidade}">[[${ee.umidade_relativa_min}]]<sup style="font-size: 20px">%</sup></h3>
 
                       <p style="font-size: 14px;">Umidade Min</p>
                     </div>
@@ -359,8 +366,8 @@
                   <!-- small box -->
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
-                      <h3>55<sup style="font-size: 20px">%</sup></h3>
-
+         
+                      <h3 th:each="ee : ${teste_umidade}">[[${ee.umidade_relativa_max}]]<sup style="font-size: 20px">%</sup></h3>
                       <p style="font-size: 14px;">Umidade Max</p>
                     </div>
                     <div class="icon">
@@ -374,8 +381,8 @@
                   <!-- small box -->
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
-                      <h3>50<sup style="font-size: 20px">%</sup></h3>
 
+                      <h3 th:each="ee : ${teste_umidade}">[[${ee.umidade_relativa_ar}]]<sup style="font-size: 20px">%</sup></h3>
                       <p style="font-size: 14px;">Umidade Relativa Ar</p>
                     </div>
                     <div class="icon">
@@ -410,7 +417,8 @@
                   <!-- small box -->
                   <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                     <div class="inner">
-                      <h3>32<sup style="font-size: 20px">m/s</sup></h3>
+                    
+                      <h3 th:each="ff : ${teste_vento}">[[${ff.vento_velocidade}]]<sup style="font-size: 20px">m/s</sup></h3>
 
                       <p style="font-size: 14px;">Vento - Velociade</p>
                     </div>
@@ -425,24 +433,10 @@
                   <!-- small box -->
                   <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                     <div class="inner">
-                      <h3>45<sup style="font-size: 20px">m/s</sup></h3>
+            
+                      <h3 th:each="ff : ${teste_vento}">[[${ff.vento_rajada_max}]]<sup style="font-size: 20px">m/s</sup></h3>
 
                       <p style="font-size: 14px;">Vento Rajada Max</p>
-                    </div>
-                    <div class="icon">
-                      <i class="fas fa-wind"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
-                  </div>
-                </div>
-                
-                <div class="carousel-item">
-                  <!-- small box -->
-                  <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
-                    <div class="inner">
-                      <h3>350<sup style="font-size: 20px">°gr</sup></h3>
-
-                      <p style="font-size: 14px;">Vento Direção</p>
                     </div>
                     <div class="icon">
                       <i class="fas fa-wind"></i>
@@ -658,7 +652,7 @@
     
     <footer class="main-footer">
       <strong>Copyright &copy; 2022 <a href="https://github.com/fluffyfatec">Grupo Fluffy</a>.</strong>
-      All rights reserved.
+      Todos os direitos reservados.
       <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 1.22
       </div>
@@ -719,7 +713,7 @@
             <div class="row">
               <div class="col-3">
                 Cod Estado:
-                <select class="form-control" id="jsEstado" required>
+                <select class="form-control" id="jsEnviaEstado" required>
                     <option selected>Escolha o Estado</option>
                     <option value="AC">AC - Acre</option>
                     <option value="AL">AL - Alagoas</option>
@@ -763,40 +757,62 @@
 
               <div class="col-3">
                 Data:
-                <input type="text" class="form-control" id="" th:field="*{datahora_captacao}" required></input>
+                <input type="datetime-local" class="form-control" id="jsEnviaData" required>
+               
               </div>
 
             </div>
-      
-            <input type="hidden" class="form-control" id="jsCodEstado" th:field="*{estacao_nome}" ></input>
-            <br>
             
+
+            <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacao_nome}" ></input>
+            
+            
+            <input type="hidden" class="form-control" id="jsRecebeData" th:field="*{datahora_captacao}"></input>
+            
+
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> 
             <input class="btn btn-primary" type="submit" value="Filtrar"></input>
-            
+          
+          </div>
           </form>
 
-        <script>
-
-            document.getElementById("jsEstado").onchange = function() {filtro()};
+     
         
-            function filtro() {
-                var jsFiltro = document.getElementById("jsEstado").value;
-                document.getElementById("jsCodEstado").value = jsFiltro;
-            }
-        
-        </script>
-          <br>
-          
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> -->
-          <!-- <button type="button" class="btn btn-primary" onclick="filtrar()">Filtrar</button> -->
-        </div>
+       
       </div>
     </div>
   </div>
 
-  <!-- <script src="js/filtro.js"></script> -->
+
+  <script>
+
+    //Tratando o Filtro Estado
+     document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado()};
+ 
+     function filtroEstado() {
+         var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
+         document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
+     }
+
+   //Tratando o Filtro Data
+     document.getElementById("jsEnviaData").onchange = function() {filtroData()};
+ 
+     function filtroData() {
+         
+         var jsFiltroData = document.getElementById("jsEnviaData").value;
+         var jsData = jsFiltroData.substring(0, 10);
+         var jsHora = jsFiltroData.substring(11);
+         var jsHora = jsHora.substring(0,2);
+         var jsHora = jsHora + ':00:00';
+
+         document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
+     }
+ </script>
+
+
       <!--TABELA-->
    <div style="width: 500px; margin: 10px;">
 

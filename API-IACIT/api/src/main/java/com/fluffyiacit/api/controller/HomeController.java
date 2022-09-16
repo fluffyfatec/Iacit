@@ -54,35 +54,40 @@ public class HomeController {
 
 		FiltroModal filtromodal = new FiltroModal();
 		
-		filtromodal.setEstacao_nome("SP");
-		filtromodal.setEstacao_estado("São Paulo");
-		filtromodal.setCod_wmo("A702");
-		filtromodal.setDatahora_captacao("2022-08-30 22:00:00");
+		filtromodal.setEstacao_nome("");
+		filtromodal.setEstacao_estado("BRASILIA");
+		filtromodal.setCod_wmo("A001");
+		filtromodal.setDatahora_captacao("2020-01-01 00:00:00");
+		
+//		filtromodal.setEstacao_nome("");
+//		filtromodal.setEstacao_estado("");
+//		filtromodal.setCod_wmo("");
+//		filtromodal.setDatahora_captacao("");
 		modelAndView.addObject("filtro", filtromodal);
 		
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
+		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_precipitacao", envioteste);
 		
 		// Lista Precipitacao
-		List<ViewPressaoAtmModal> teste_atm = pressao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-		modelAndView.addObject("teste_atm", teste_atm);
+		List<ViewPressaoAtmModal> teste_atm = pressao.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
+		modelAndView.addObject("teste_atm", teste_atm);														
 		
 		// Lista Radiacao
-		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
+		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_radiacaoglobal", teste_radiacaoglobal);
 		
 		// Lista Temperatura
-		List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
+		List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_temperatura", teste_temperatura);
 		
 		
 		// Lista Umidade
-		List<ViewUmidadeModal> teste_umidade = umidade.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
+		List<ViewUmidadeModal> teste_umidade = umidade.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_umidade", teste_umidade);
 		
 		// Lista Vento
-		List<ViewVentoModal> teste_vento = vento.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
+		List<ViewVentoModal> teste_vento = vento.listar("0", "0","0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_vento", teste_vento);
 		
 		//INFORMANDO A PAGINA QUE SERA MOSTRADA
@@ -138,63 +143,40 @@ public class HomeController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//ENTRAR PAGINA TESTE
-		@RequestMapping(value = {"/teste"}, method = RequestMethod.GET)
-		public ModelAndView formulario() {
-			ModelAndView modelAndView = new ModelAndView();
-		
-			// Lista Precipitacao
-			List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_precipitacao", envioteste);
-			
-			// Lista Precipitacao
-			List<ViewPressaoAtmModal> teste_atm = pressao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_atm", teste_atm);
-			
-			// Lista Radiacao
-			List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_radiacaoglobal", teste_radiacaoglobal);
-			
-			// Lista Temperatura
-			List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_temperatura", teste_temperatura);
-			
-			// Lista Umidade
-			List<ViewUmidadeModal> teste_umidade = umidade.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_umidade", teste_umidade);
-			
-			// Lista Vento
-			List<ViewVentoModal> teste_vento = vento.listar("SP", "São Paulo","A702", Timestamp.valueOf("2022-08-30 22:00:00"));
-			modelAndView.addObject("teste_vento", teste_vento);
-																					
-			//INFORMANDO A PAGINA QUE SERA MOSTRADA
-				modelAndView.setViewName("teste");
-				return modelAndView;
-			
-			}
-	
-		
-		
-		
-		//ENTRAR PAGINA TESTE
-				@RequestMapping(value = {"/testeindex"})
-				public ModelAndView aa() {
-					ModelAndView modelAndView = new ModelAndView();
-																							
-					//INFORMANDO A PAGINA QUE SERA MOSTRADA
-						modelAndView.setViewName("indexx");
-						return modelAndView;
-					//
-					}
+	//PAGINA PARA TESTE//
+//	@RequestMapping(value = {"/teste"}, method = RequestMethod.GET)
+//	public ModelAndView formulario() {
+//		ModelAndView modelAndView = new ModelAndView();
+//	
+//		// Lista Precipitacao
+//		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_precipitacao", envioteste);
+//		
+//		// Lista Precipitacao
+//		List<ViewPressaoAtmModal> teste_atm = pressao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_atm", teste_atm);
+//		
+//		// Lista Radiacao
+//		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_radiacaoglobal", teste_radiacaoglobal);
+//		
+//		// Lista Temperatura
+//		List<ViewTemperaturaModal> teste_temperatura = temperatura.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_temperatura", teste_temperatura);
+//		
+//		// Lista Umidade
+//		List<ViewUmidadeModal> teste_umidade = umidade.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_umidade", teste_umidade);
+//		
+//		// Lista Vento
+//		List<ViewVentoModal> teste_vento = vento.listar("DF", "BRASILIA","A001", Timestamp.valueOf("2020-01-01 00:00:00"));
+//		modelAndView.addObject("teste_vento", teste_vento);
+//																				
+//		//INFORMANDO A PAGINA QUE SERA MOSTRADA
+//			modelAndView.setViewName("teste");
+//			return modelAndView;
+//		
+//		}
+
+
 }
