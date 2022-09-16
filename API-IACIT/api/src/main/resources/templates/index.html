@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body id="jsBody" onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
 
   <div class="wrapper">
     <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -91,7 +91,8 @@
       
             <li class="nav-header">MENU</li>
 
-            <li class="nav-item">
+
+            <!-- <li class="nav-item">
               <a href="pages/examples/404.html" class="nav-link">
                 <i class="fas fa-temperature-low"></i>
                 <p>
@@ -163,7 +164,8 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -201,8 +203,11 @@
 
           <div class="row mb-2">
 
+           
+
+            
             <div class="col-sm-12">
-              Estação: <a id="estacao" th:each="aa : ${teste_precipitacao}">[[${aa.cod_wmo}]]</a>   /   Estado: <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_estado}]]</a>   /   Data: <a id="data" th:each="aa : ${teste_precipitacao}">[[${aa.datahora_captacao}]]</a>
+              Estação: <a id="estacao" th:each="aa : ${teste_precipitacao}">[[${aa.cod_wmo}]]</a>   /   Estado: <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_estado}]]</a> - <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_nome}]]</a>    /   Data: <a id="ano"></a>
             </div><!-- /.col -->
 
             <div class="col-sm-4">
@@ -604,19 +609,18 @@
           <section class="col-lg-7 connectedSortable">
 
 
-
+<!-- 
               <div class="col-md-6">
-                  <!-- MAP DATA-->
+                 
                   
                   <div class="map-data m-b-40">
                       <div class="map-wrap">
                           <div class="vmap" id="vmap6"></div>
                       </div>
                   </div>
-                  <!-- END MAP DATA-->
-                  <!-- END PAGE CONTAINER-->
+                a
               </div>
-              <br>
+              <br> -->
 
 
 
@@ -711,7 +715,7 @@
           <form action='#' th:action="@{/a}" method="POST" th:object="${filtro}">
    
             <div class="row">
-              <div class="col-3">
+              <div class="col-4">
                 Cod Estado:
                 <select class="form-control" id="jsEnviaEstado" required>
                     <option selected>Escolha o Estado</option>
@@ -745,17 +749,12 @@
                 </select>
               </div>
               
-              <div class="col-3">
+              <div class="col-4">
                 Estado:
                 <input type="text" class="form-control" th:field="*{estacao_estado}" required></input>
               </div>
 
-              <div class="col-3">
-                Cod Estação:
-                <input type="text" class="form-control" id="" th:field="*{cod_wmo}" required></input>
-              </div>
-
-              <div class="col-3">
+              <div class="col-4">
                 Data:
                 <input type="datetime-local" class="form-control" id="jsEnviaData" required>
                
@@ -763,13 +762,8 @@
 
             </div>
             
-
             <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacao_nome}" ></input>
-            
-            
             <input type="hidden" class="form-control" id="jsRecebeData" th:field="*{datahora_captacao}"></input>
-            
-
             
           </div>
           <div class="modal-footer">
@@ -778,218 +772,52 @@
           
           </div>
           </form>
-
-     
-        
-       
+          
       </div>
     </div>
   </div>
-
-
-  <script>
-
-    //Tratando o Filtro Estado
-     document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado()};
- 
-     function filtroEstado() {
-         var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
-         document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
-     }
-
-   //Tratando o Filtro Data
-     document.getElementById("jsEnviaData").onchange = function() {filtroData()};
- 
-     function filtroData() {
-         
-         var jsFiltroData = document.getElementById("jsEnviaData").value;
-         var jsData = jsFiltroData.substring(0, 10);
-         var jsHora = jsFiltroData.substring(11);
-         var jsHora = jsHora.substring(0,2);
-         var jsHora = jsHora + ':00:00';
-
-         document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
-     }
- </script>
-
-
-      <!--TABELA-->
-   <div style="width: 500px; margin: 10px;">
-
-       <div style="text-align: center;">
-           <h5>TABELAS TESTE</h5>
-           <br>
-       </div>
-
-           view_precipitacao_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">precipitacaototal</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="aa : ${teste_precipitacao}">
-                       <td>[[${aa.precipitacaototal}]]</td>
-                       <td>[[${aa.cod_wmo}]]</td>
-                       <td>[[${aa.estacao_estado}]]</td>
-                       <td>[[${aa.estacao_nome}]]</td>
-                       <td>[[${aa.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_atm_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">pressao_atm_estacao</th>
-                   <th scope="col">pressao_atm_min</th>
-                   <th scope="col">pressao_atm_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="bb : ${teste_atm}">
-                       <td>[[${bb.pressao_atm_estacao}]]</td>
-                       <td>[[${bb.pressao_atm_min}]]</td>
-                       <td>[[${bb.pressao_atm_max}]]</td>
-                       <td>[[${bb.cod_wmo}]]</td>
-                       <td>[[${bb.estacao_estado}]]</td>
-                       <td>[[${bb.estacao_nome}]]</td>
-                       <td>[[${bb.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_radiacaoglobal_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">radiacao_global</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-              
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="cc : ${teste_radiacaoglobal}">
-                       <td>[[${cc.radiacao_global}]]</td>
-                       <td>[[${cc.cod_wmo}]]</td>
-                       <td>[[${cc.estacao_estado}]]</td>
-                       <td>[[${cc.estacao_nome}]]</td>
-                       <td>[[${cc.datahora_captacao}]]</td>
-                     
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_temperatura_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">temperatura_ar</th>
-                   <th scope="col">temperatura_min</th>
-                   <th scope="col">temperatura_max</th>
-                   <th scope="col">temperatura_ponto_orvalho</th>
-                   <th scope="col">temperatura_orvalho_min</th>
-                   <th scope="col">temperatura_orvalho_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="dd : ${teste_temperatura}">
-                       <td>[[${dd.temperatura_ar}]]</td>
-                       <td>[[${dd.temperatura_min}]]</td>
-                       <td>[[${dd.temperatura_max}]]</td>
-                       <td>[[${dd.temperatura_ponto_orvalho}]]</td>
-                       <td>[[${dd.temperatura_orvalho_min}]]</td>
-                       <td>[[${dd.temperatura_orvalho_max}]]</td>
-                       <td>[[${dd.cod_wmo}]]</td>
-                       <td>[[${dd.estacao_estado}]]</td>
-                       <td>[[${dd.estacao_nome}]]</td>
-                       <td>[[${dd.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           
-           view_umidade_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">umidade_relativa_ar</th>
-                   <th scope="col">umidade_relativa_min</th>
-                   <th scope="col">umidade_relativa_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="ee : ${teste_umidade}">
-                       <td>[[${ee.umidade_relativa_ar}]]</td>
-                       <td>[[${ee.umidade_relativa_min}]]</td>
-                       <td>[[${ee.umidade_relativa_max}]]</td>
-                       <td>[[${ee.cod_wmo}]]</td>
-                       <td>[[${ee.estacao_estado}]]</td>
-                       <td>[[${ee.estacao_nome}]]</td>
-                       <td>[[${ee.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_vento_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">vento_velocidade</th>
-                   <th scope="col">vento_rajada_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="ff : ${teste_vento}">
-                       <td>[[${ff.vento_velocidade}]]</td>
-                       <td>[[${ff.vento_rajada_max}]]</td>
-                       <td>[[${ff.cod_wmo}]]</td>
-                       <td>[[${ff.estacao_estado}]]</td>
-                       <td>[[${ff.estacao_nome}]]</td>
-                       <td>[[${ff.datahora_captacao}]]</td>
-                       
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-   </div>
 </body>
+
+<script>
+
+  //Tratando o Filtro Estado
+   document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado()};
+
+   function filtroEstado() {
+       var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
+       document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
+   }
+
+ //Tratando o Filtro Data
+   document.getElementById("jsEnviaData").onchange = function() {filtroData()};
+
+   function filtroData() {
+       
+       var jsFiltroData = document.getElementById("jsEnviaData").value;
+       var jsData = jsFiltroData.substring(0, 10);
+       var jsHora = jsFiltroData.substring(11);
+       var jsHora = jsHora.substring(0,2);
+       var jsHora = jsHora + ':00:00';
+       document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
+   }
+
+
+  function jsFiltroDashboard() {
+ 
+      var jsFiltroData = document.getElementById("jsRecebeData").value;
+      var jsAno = jsFiltroData.substring(0, 10);
+      var jsAno = jsAno.split('-').reverse().join('/');
+      var jsHora = jsFiltroData.substring(11);
+      var jsHora = jsHora.substring(0,2);
+      var jsHora = jsHora + ':00:00';
+      var jsConsolidado = jsAno + ' ' + jsHora;
+      var jsValida = Consolidado.length;
+      
+      if(jsValida > 10){
+        document.getElementById("ano").innerHTML = jsConsolidado;
+      }
+      
+   }
+</script>
 </html>
 
