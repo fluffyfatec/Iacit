@@ -126,14 +126,14 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Burndown
  
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/WhatsApp%20Image%202022-09-16%20at%2020.11.47.jpeg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Manual do usuario
 
-
+[Clique aqui para acessar o manual do usuario](https://github.com/fluffyfatec/Iacit/blob/Sprint-1/Manual%20do%20Usuario/ManualdoUsuario.md)
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
