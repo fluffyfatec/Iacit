@@ -735,10 +735,10 @@
 
               <div class="col-4">
                 Data:
-                <input type="datetime-local" class="form-control" id="jsEnviaData" required>
-               
+                <input type="datetime-local" class="form-control" id="jsEnviaData" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>
+                                                                                        
               </div>
-
+                                                                                                                 
             </div>
             <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacao_estado}"></input>
             <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacao_nome}" ></input>
