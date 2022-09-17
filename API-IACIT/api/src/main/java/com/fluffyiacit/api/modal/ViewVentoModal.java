@@ -18,13 +18,13 @@ import lombok.Setter;
 @Setter
 public class ViewVentoModal {
 	@Column(name = "vento_velocidade")
-	private BigDecimal vento_velocidade;
+	private String vento_velocidade;
 
 	@Column(name = "vento_rajada_max")
-	private BigDecimal vento_rajada_max;
+	private String vento_rajada_max;
 
 	@Column(name = "vento_direcao_horario")
-	private BigDecimal vento_direcao_horario;
+	private String vento_direcao_horario;
 	@Id
 	@Column(name = "cod_wmo", length = 4, nullable = false)
 	private String cod_wmo;

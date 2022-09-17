@@ -24,13 +24,13 @@ public class ViewPrecipitacaoModal {
 		private String precipitacaototal;
 		
         @Id
-    	@Column(name= "cod_wmo",length = 4, nullable = false)
+    	@Column(name= "cod_wmo",length = 4, nullable = true)
 		private String cod_wmo;
 		
-    	@Column(name= "estacao_estado",length = 2, nullable = false)
+    	@Column(name= "estacao_estado",length = 2, nullable = true)
 		private String estacao_estado;
 		
-    	@Column(name= "estacao_nome",length = 60, nullable = false, unique = true)
+    	@Column(name= "estacao_nome",length = 60, nullable = true, unique = true)
 		private String estacao_nome;
 		
 		@Column(name= "datahora_captacao")

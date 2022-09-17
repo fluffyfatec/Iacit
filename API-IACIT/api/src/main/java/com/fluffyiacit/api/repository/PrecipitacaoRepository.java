@@ -17,6 +17,5 @@ public interface PrecipitacaoRepository extends JpaRepository<ViewPrecipitacaoMo
 										  //@Param("cod_wmo") String cod_wmo,
 	  									  @Param("datahora_captacao") Timestamp datahora_captacao);
 
-							
 										   
 }

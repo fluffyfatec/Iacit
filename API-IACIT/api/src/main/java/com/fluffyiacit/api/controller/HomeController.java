@@ -1,5 +1,7 @@
 package com.fluffyiacit.api.controller;
 
+
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -53,7 +55,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		FiltroModal filtromodal = new FiltroModal();
-		
+
 		//filtromodal.setEstacao_nome("DF");
 		//filtromodal.setEstacao_estado("BRASILIA");
 		//filtromodal.setCod_wmo("A001");
@@ -66,9 +68,13 @@ public class HomeController {
 		modelAndView.addObject("filtro", filtromodal);
 		
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("0", "0", Timestamp.valueOf("2020-01-01 00:00:00"));
-		modelAndView.addObject("teste_precipitacao", envioteste);
 		
+		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar("0", "0", Timestamp.valueOf("2020-01-01 00:00:00"));	
+		
+		modelAndView.addObject("teste_precipitacao", envioteste);
+	    
+	
+	
 		// Lista Precipitacao
 		List<ViewPressaoAtmModal> teste_atm = pressao.listar("0", "0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_atm", teste_atm);														
@@ -90,11 +96,15 @@ public class HomeController {
 		List<ViewVentoModal> teste_vento = vento.listar("0", "0", Timestamp.valueOf("2020-01-01 00:00:00"));
 		modelAndView.addObject("teste_vento", teste_vento);
 		
+		
+		
+		
 		//INFORMANDO A PAGINA QUE SERA MOSTRADA
 			modelAndView.setViewName("index");
 			return modelAndView;
 		//
 	}
+
 	
 	//ENTRAR PAGINA INDEX
 	@RequestMapping(value = {"/a"}, method = RequestMethod.POST)
@@ -108,26 +118,69 @@ public class HomeController {
 		
 		// Lista Precipitacao
 		List<ViewPrecipitacaoModal> envioteste = precipitacao.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		
+		for (ViewPrecipitacaoModal objviewPrecipitacao:envioteste) {
+			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
+				objviewPrecipitacao.setPrecipitacaototal("N/A");
+			}
+		}
 		modelAndView.addObject("teste_precipitacao", envioteste);
 		
 		// Lista Precipitacao
 		List<ViewPressaoAtmModal> teste_atm = pressao.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		
+		for (ViewPressaoAtmModal objviewPressao:teste_atm) {
+			if (objviewPressao.getPressao_atm_estacao() == null && objviewPressao.getPressao_atm_max() == null && objviewPressao.getPressao_atm_min() == null) {
+				objviewPressao.setPressao_atm_estacao("N/A");
+				objviewPressao.setPressao_atm_max("N/A");
+				objviewPressao.setPressao_atm_min("N/A");
+			}
+		}
 		modelAndView.addObject("teste_atm", teste_atm);
 		
 		// Lista Radiacao
 		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		for (ViewRadiacaoglobalModal objviewRadiacao:teste_radiacaoglobal) {
+			if (objviewRadiacao.getRadiacao_global() == null) {
+				objviewRadiacao.setRadiacao_global("N/A");
+			}
+		}
 		modelAndView.addObject("teste_radiacaoglobal", teste_radiacaoglobal);
 		
 		// Lista Temperatura
 		List<ViewTemperaturaModal> teste_temperatura = temperatura.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		for (ViewTemperaturaModal objviewTemperatura:teste_temperatura) {
+			if (objviewTemperatura.getTemperatura_ar() == null && objviewTemperatura.getTemperatura_max()== null && objviewTemperatura.getTemperatura_min() == null && objviewTemperatura.getTemperatura_orvalho_max() == null && objviewTemperatura.getTemperatura_orvalho_min() == null && objviewTemperatura.getTemperatura_ponto_orvalho() == null){
+				objviewTemperatura.setTemperatura_ar("N/A");
+				objviewTemperatura.setTemperatura_max("N/A");
+				objviewTemperatura.setTemperatura_min("N/A");
+				objviewTemperatura.setTemperatura_orvalho_max("N/A");
+				objviewTemperatura.setTemperatura_orvalho_min("N/A");
+				objviewTemperatura.setTemperatura_ponto_orvalho("N/A");
+			}
+		}
 		modelAndView.addObject("teste_temperatura", teste_temperatura);
 		
 		// Lista Umidade
 		List<ViewUmidadeModal> teste_umidade = umidade.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		for (ViewUmidadeModal objviewUmidade:teste_umidade) {
+			if (objviewUmidade.getUmidade_relativa_ar() == null && objviewUmidade.getUmidade_relativa_max() == null && objviewUmidade.getUmidade_relativa_min() == null ) {
+				objviewUmidade.setUmidade_relativa_ar("N/A");
+				objviewUmidade.setUmidade_relativa_max("N/A");
+				objviewUmidade.setUmidade_relativa_min("N/A");
+			}
+		}
 		modelAndView.addObject("teste_umidade", teste_umidade);
 		
 		// Lista Vento
 		List<ViewVentoModal> teste_vento = vento.listar(filtromodal.getEstacao_nome(), filtromodal.getEstacao_estado(), Timestamp.valueOf(filtromodal.getDatahora_captacao()));
+		for (ViewVentoModal objviewVento:teste_vento) {
+			if (objviewVento.getVento_direcao_horario() == null && objviewVento.getVento_rajada_max() == null && objviewVento.getVento_velocidade() == null) {
+				objviewVento.setVento_direcao_horario("N/A");
+				objviewVento.setVento_rajada_max("N/A");
+				objviewVento.setVento_velocidade("N/A");
+			}
+		}
 		modelAndView.addObject("teste_vento", teste_vento);
 		
 		filtromodal.getEstacao_nome();
