@@ -1,0 +1,18 @@
+/backup padrao
+pg_dump -h localhost -U postgres -Ft -p 5432 -f c:\sql\db_iacit_api.backup db_iacit_api
+
+/backup comprimido
+pg_dump -h localhost -U postgres -Fc -p 5432 -Z5 -f c:\sql\db_iacit_api.backup db_iacit_api
+
+/backup Apenas Schema
+pg_dump -h localhost -U postgres -Ft -s -p 5432 -f c:\sql\db_iacit_api.backup db_iacit_api
+
+
+/restore
+pg_restore -h localhost -U postgres -p 5432 -d iacit_teste c:\sql\db_iacit_api.backup
+
+/restore completo
+set "PGPASSWORD=admin"
+dropdb -h localhost -U postgres -p 5432 --if-exists db_iacit_api
+createdb -h localhost -U postgres -p 5432 -T template0 db_iacit_api
+pg_restore -h localhost -U postgres -p 5432 -d db_iacit_api c:\sql\db_iacit_api.backup

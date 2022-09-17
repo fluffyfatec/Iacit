@@ -11,3 +11,8 @@ CREATE INDEX idx_vento ON vento (datahora_captacao);
 SELECT * FROM radiacao_global;
 
 DROP INDEX idx_preciptacao;
+DROP INDEX idx_estacao
+DROP INDEX idx_pressao_atmosferica
+DROP INDEX idx_radiacao_global
+DROP INDEX idx_umidade
+DROP INDEX idx_vento

@@ -1,3 +1,13 @@
+-- VIEW DE ESTADO, ESTACAO, COD_WMO, ESTADO, NOME
+CREATE VIEW view_filtro_estacao AS
+SELECT cod_wmo, estacao_estado, estacao_nome FROM estacao e;
+
+-- SELECT VIEW ESTADO
+SELECT * FROM view_filtro_estacao v 
+WHERE estacao_estado = 'DF'
+AND estacao_nome = 'BRAZLANDIA'
+
+
 -- VIEW DE PRECIPITACAO TOTAL POR ESTADO, ESTACAO, COD_WMO, DATA HORA
 CREATE VIEW view_precipitacao_dados AS
 SELECT p.precipitacaototal, e.cod_wmo, e.estacao_estado, e.estacao_nome, p.datahora_captacao
@@ -84,6 +94,13 @@ AND v.cod_wmo = 'A001'
 AND v.datahora_captacao = '2020-01-01 00:00:00';
 
 
-DROP VIEW view_precipitacao_dados
+--DROP VIEWS
+DROP VIEW view_precipitacao_dados;
+DROP VIEW view_filtro_estacao;
+DROP VIEW view_pressaoatmosferica_dados;
+DROP VIEW view_radiacaoglobal_dados;
+DROP VIEW view_temperatura_dados;
+DROP VIEW view_umidade_dados;
+DROP VIEW view_vento_dados;
 
 
