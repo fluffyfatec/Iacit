@@ -272,10 +272,10 @@ public class HomeController {
 
 			}
 
-			System.out.println("1:" + objviewTemperatura.getTemperatura_max());
-			System.out.println("1:" + objviewTemperatura.getTemperatura_orvalho_max());
-			System.out.println("2:" + objviewTemperatura.getTemperatura_orvalho_min());
-			System.out.println("3:" + objviewTemperatura.getTemperatura_ponto_orvalho());
+			//System.out.println("1:" + objviewTemperatura.getTemperatura_max());
+			//System.out.println("1:" + objviewTemperatura.getTemperatura_orvalho_max());
+			//System.out.println("2:" + objviewTemperatura.getTemperatura_orvalho_min());
+			//System.out.println("3:" + objviewTemperatura.getTemperatura_ponto_orvalho());
 		}
 
 		modelAndView.addObject("teste_temperatura", teste_temperatura);
