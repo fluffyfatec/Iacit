@@ -19,7 +19,7 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body id="jsBody" onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
 
   <div class="wrapper">
     <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -65,11 +65,9 @@
     <!-- Main Sidebar Container - MENU VERTICAL -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #0F2F59 !important;">
       <!-- Brand Logo -->
-      <a href="index.html" class="brand-link">
+      <a href="/" class="brand-link">
         <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">IACIT</span>      
-
-
       </a>
 
       <!-- Sidebar -->
@@ -91,7 +89,7 @@
       
             <li class="nav-header">MENU</li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="pages/examples/404.html" class="nav-link">
                 <i class="fas fa-temperature-low"></i>
                 <p>
@@ -163,7 +161,8 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -190,19 +189,18 @@
             </div><!-- /.col -->
 
             <div class="col-sm-4">
-              <ol class="breadcrumb float-sm-right" onclick="teste()">
+              <ol class="breadcrumb float-sm-right" onclick="jsAbrirModalFiltro()">
                 <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
               </ol>
             </div><!-- /.col -->
-
-         
-
           </div><!-- /.row -->
 
           <div class="row mb-2">
 
             <div class="col-sm-12">
-              Estação: <a id="estacao" th:each="aa : ${teste_precipitacao}">[[${aa.cod_wmo}]]</a>   /   Estado: <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_estado}]]</a>   /   Data: <a id="data" th:each="aa : ${teste_precipitacao}">[[${aa.datahora_captacao}]]</a>
+              Estação: <a id="estacao" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_nome}]]</a>   /   
+              Estado: <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacao_estado}]]</a>   /   
+              Data: <a id="ano" th:each="aa : ${teste_precipitacao}">[[${aa.datahora_captacao}]]</a>
             </div><!-- /.col -->
 
             <div class="col-sm-4">
@@ -604,24 +602,18 @@
           <section class="col-lg-7 connectedSortable">
 
 
-
+            <!-- 
               <div class="col-md-6">
-                  <!-- MAP DATA-->
+                 
                   
                   <div class="map-data m-b-40">
                       <div class="map-wrap">
                           <div class="vmap" id="vmap6"></div>
                       </div>
                   </div>
-                  <!-- END MAP DATA-->
-                  <!-- END PAGE CONTAINER-->
+                a
               </div>
-              <br>
-
-
-
-
-
+              <br> -->
 
           </section>
           <!-- /.Left col -->
@@ -629,9 +621,6 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
 
-
-            
-            
 
           </section>
           <!-- right col -->
@@ -677,44 +666,34 @@
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>$.widget.bridge('uibutton', $.ui.button)</script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- JQVMap -->
-  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
- 
 
-
-  <script>
-    function teste(){
-       $("#ModalFiltro").modal({
-        show: true
-      });
-    }
-  </script>
-  
   <!-- Modal -->
   <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content ">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-filter"></i> Filtro</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Filtro</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
   
-          <form action='#' th:action="@{/a}" method="POST" th:object="${filtro}">
-   
+        
+          <form action='#' th:action="@{/index}" method="POST" th:object="${filtro}">
             <div class="row">
-              <div class="col-3">
+            
+              <div class="col-4">
                 Cod Estado:
                 <select class="form-control" id="jsEnviaEstado" required>
-                    <option selected>Escolha o Estado</option>
+                    <option value="" selected>Escolha o Estado</option>
                     <option value="AC">AC - Acre</option>
                     <option value="AL">AL - Alagoas</option>
                     <option value="AM">AM - Amazonas</option>
@@ -745,251 +724,38 @@
                 </select>
               </div>
               
-              <div class="col-3">
-                Estado:
-                <input type="text" class="form-control" th:field="*{estacao_estado}" required></input>
+              <div class="col-4">
+                Estação:
+                <div id="jv_classe">
+                <select class="form-control" id="" disabled>
+                  <option value="" selected>Selecione...</option>
+                </select>
+                </div>
               </div>
 
-              <div class="col-3">
-                Cod Estação:
-                <input type="text" class="form-control" id="" th:field="*{cod_wmo}" required></input>
-              </div>
-
-              <div class="col-3">
+              <div class="col-4">
                 Data:
-                <input type="datetime-local" class="form-control" id="jsEnviaData" required>
-               
+                <input type="datetime-local" class="form-control" id="jsEnviaData" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>
+                                                                                        
               </div>
-
+                                                                                                                 
             </div>
-            
-
+            <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacao_estado}"></input>
             <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacao_nome}" ></input>
-            
-            
             <input type="hidden" class="form-control" id="jsRecebeData" th:field="*{datahora_captacao}"></input>
-            
-
-            
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button> 
-            <input class="btn btn-primary" type="submit" value="Filtrar"></input>
-          
-          </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+          <button class="btn btn-primary" type="submit"><i class="fas fa-filter"></i> Filtrar</button>
           </form>
 
-     
-        
-       
+          </div>
+         
+          
       </div>
     </div>
   </div>
-
-
-  <script>
-
-    //Tratando o Filtro Estado
-     document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado()};
- 
-     function filtroEstado() {
-         var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
-         document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
-     }
-
-   //Tratando o Filtro Data
-     document.getElementById("jsEnviaData").onchange = function() {filtroData()};
- 
-     function filtroData() {
-         
-         var jsFiltroData = document.getElementById("jsEnviaData").value;
-         var jsData = jsFiltroData.substring(0, 10);
-         var jsHora = jsFiltroData.substring(11);
-         var jsHora = jsHora.substring(0,2);
-         var jsHora = jsHora + ':00:00';
-
-         document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
-     }
- </script>
-
-
-      <!--TABELA-->
-   <div style="width: 500px; margin: 10px;">
-
-       <div style="text-align: center;">
-           <h5>TABELAS TESTE</h5>
-           <br>
-       </div>
-
-           view_precipitacao_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">precipitacaototal</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="aa : ${teste_precipitacao}">
-                       <td>[[${aa.precipitacaototal}]]</td>
-                       <td>[[${aa.cod_wmo}]]</td>
-                       <td>[[${aa.estacao_estado}]]</td>
-                       <td>[[${aa.estacao_nome}]]</td>
-                       <td>[[${aa.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_atm_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">pressao_atm_estacao</th>
-                   <th scope="col">pressao_atm_min</th>
-                   <th scope="col">pressao_atm_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="bb : ${teste_atm}">
-                       <td>[[${bb.pressao_atm_estacao}]]</td>
-                       <td>[[${bb.pressao_atm_min}]]</td>
-                       <td>[[${bb.pressao_atm_max}]]</td>
-                       <td>[[${bb.cod_wmo}]]</td>
-                       <td>[[${bb.estacao_estado}]]</td>
-                       <td>[[${bb.estacao_nome}]]</td>
-                       <td>[[${bb.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_radiacaoglobal_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">radiacao_global</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-              
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="cc : ${teste_radiacaoglobal}">
-                       <td>[[${cc.radiacao_global}]]</td>
-                       <td>[[${cc.cod_wmo}]]</td>
-                       <td>[[${cc.estacao_estado}]]</td>
-                       <td>[[${cc.estacao_nome}]]</td>
-                       <td>[[${cc.datahora_captacao}]]</td>
-                     
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_temperatura_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">temperatura_ar</th>
-                   <th scope="col">temperatura_min</th>
-                   <th scope="col">temperatura_max</th>
-                   <th scope="col">temperatura_ponto_orvalho</th>
-                   <th scope="col">temperatura_orvalho_min</th>
-                   <th scope="col">temperatura_orvalho_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="dd : ${teste_temperatura}">
-                       <td>[[${dd.temperatura_ar}]]</td>
-                       <td>[[${dd.temperatura_min}]]</td>
-                       <td>[[${dd.temperatura_max}]]</td>
-                       <td>[[${dd.temperatura_ponto_orvalho}]]</td>
-                       <td>[[${dd.temperatura_orvalho_min}]]</td>
-                       <td>[[${dd.temperatura_orvalho_max}]]</td>
-                       <td>[[${dd.cod_wmo}]]</td>
-                       <td>[[${dd.estacao_estado}]]</td>
-                       <td>[[${dd.estacao_nome}]]</td>
-                       <td>[[${dd.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           
-           view_umidade_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">umidade_relativa_ar</th>
-                   <th scope="col">umidade_relativa_min</th>
-                   <th scope="col">umidade_relativa_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="ee : ${teste_umidade}">
-                       <td>[[${ee.umidade_relativa_ar}]]</td>
-                       <td>[[${ee.umidade_relativa_min}]]</td>
-                       <td>[[${ee.umidade_relativa_max}]]</td>
-                       <td>[[${ee.cod_wmo}]]</td>
-                       <td>[[${ee.estacao_estado}]]</td>
-                       <td>[[${ee.estacao_nome}]]</td>
-                       <td>[[${ee.datahora_captacao}]]</td>
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-           view_vento_dados
-           <table class="table table-striped" cellspacing="0" cellpadding="0">
-               <thead>
-                   <tr>
-                   <th scope="col">vento_velocidade</th>
-                   <th scope="col">vento_rajada_max</th>
-                   <th scope="col">cod_wmo</th>
-                   <th scope="col">estacao_estado</th>
-                   <th scope="col">estacao_nome</th>
-                   <th scope="col">datahora_captacao</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr th:each="ff : ${teste_vento}">
-                       <td>[[${ff.vento_velocidade}]]</td>
-                       <td>[[${ff.vento_rajada_max}]]</td>
-                       <td>[[${ff.cod_wmo}]]</td>
-                       <td>[[${ff.estacao_estado}]]</td>
-                       <td>[[${ff.estacao_nome}]]</td>
-                       <td>[[${ff.datahora_captacao}]]</td>
-                       
-                   </tr>
-               </tbody>
-           </table>
-
-           <br>
-
-   </div>
+  <script src="js/filtro.js"></script>
 </body>
 </html>
 

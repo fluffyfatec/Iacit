@@ -16,14 +16,24 @@
 
 [Eclipse](https://www.eclipse.org/downloads/)
 
-[Backup de dados](https://1drv.ms/u/s!AlsConaaX-pJ9XX8ajy6nostN9ML?e=TbT21y)
+[Backup de dados](https://drive.google.com/drive/u/1/folders/13slRhWn9fGm5K1iX7diME-HEfcZbHMt0)
 
 
 ## Segundo Passo
 
 #### Postgresql
 
-No diretório "C:" da maquina criar uma pasta "sql" e adicionar o backup dentro da pasta, depois ir até em variavéis de ambientes, ir até path, adicionar um novo, ir até arquivos de programas, postgre, bin e subir a pioridade do bin dentro do path com o botão mover pra cima e depois rodar o bat que foi instalado e adicionado na pasta "sql" no diretório "C:"
+
+1- No diretório "C:" da maquina criar uma pasta "sql" e adicionar o backup dentro da pasta
+
+2- Ir até em variavéis de ambientes, duplo click no ir "path", adicionar um novo, selecionar a opção "browser" no lado direito, ir até o diretório C>Arquivos de Programa>Postgreesql>bin e adicionar.
+
+3- Subir a pioridade do bin dentro do path com o botão mover pra cima 
+
+4- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress"
+
+5- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto
+
 
 #### Python 
 Abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
