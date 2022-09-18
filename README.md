@@ -1,6 +1,6 @@
 <div id="top"></div>
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cabecario%20(1).jpg" width="100%" height="100%">
+      <img src="" width="100%" height="100%">
 <p align="center">
 
 <p align="center"> 
@@ -158,6 +158,9 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 <summary>Front-End</summary>
 
 * [JavaScript](https://www.javascript.com)
+* [HTML](https://www.w3schools.com/css/)
+* [CSS](https://www.w3schools.com/css/)
+ 
 
 </details>
 
@@ -165,6 +168,8 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 <summary>Back-End</summary>
 
 * [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
+ 
+* [Python](https://www.python.org/downloads/)
 
 </details>
 
