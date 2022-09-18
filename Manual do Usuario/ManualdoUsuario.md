@@ -31,7 +31,8 @@
 3- Subir a pioridade do bin dentro do path com o botão mover pra cima 
 
 4- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress"
-5- Por fim rodar o bat que foi instalado e adicionado na pasta "sql" no diretório "C:"
+
+5- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto
 
 
 #### Python 
