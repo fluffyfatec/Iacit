@@ -1,6 +1,6 @@
 <div id="top"></div>
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cabecario%20(3).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="center"> 
@@ -102,15 +102,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Protótipo
 
 <p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
-## Diagrama Lógico
-
-<p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/prototipo.gif" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -119,6 +111,14 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Diagrama Lógico
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
