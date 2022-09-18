@@ -36,7 +36,7 @@
 
 
 #### Python 
-Adicionar a pasta "CSV" do projeto no diretório "C:" depois abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
+Abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
 
 #### Eclipse 
 

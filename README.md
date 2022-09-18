@@ -135,6 +135,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 [Clique aqui para acessar o manual do usuario](https://github.com/fluffyfatec/Iacit/blob/Sprint-1/Manual%20do%20Usuario/ManualdoUsuario.md)
 
+
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Equipe
