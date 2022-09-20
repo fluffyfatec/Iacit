@@ -1,6 +1,6 @@
 <div id="top"></div>
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cabecario%20(3).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="center"> 
@@ -13,7 +13,6 @@
 <p align="center">
   <a href="#desafio">Sobre o Projeto</a> •
   <a href="#cronograma">Cronograma</a> •
-  <a href="#proposta-do-projeto">Proposta do Projeto</a> •
   <a href="#burndown">Burndown</a> •
   <a href="#equipe">Equipe</a> •
   <a href="#manual-do-usuario">Manual do Usuario</a> •
@@ -43,7 +42,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 <summary>Requisitos Não Funcionais</summary>
 
 <p>•Linguagem Java
-<p>•Linguagem Java
+<p>•Banco de Dados Relacional
 <p>•Sistema WEB
 <p>•Documentações
 
@@ -53,7 +52,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 
 ## Solução
 
-A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas de visualizações, sendo possível gerar relatórios e filtrar esses dados metereológicos, obtidos a partir de CSV's. 
+A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possibilita a automatização desde o download, o processamento dos dados e a persistência dos dados no banco de dados de forma simplificada. Além disso também será possível realizar a filtragem desses dados por temperatura,umidade,estações,vento,pressão atmosférica, radiação global e precipitação, além da diversa visualizações desses dados. Contudo vamos entregar também diferentes níveis de usuários juntamente com o painel administrativo possibilitando a exportação dos relatórios a partir dos dados
 
 
 
@@ -62,15 +61,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Cronograma
 
 <p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
-## Proposta do Projeto
-
-<p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cronograma.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -78,23 +69,40 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Backlog do Produto
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/proposta.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Sprints
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/BACKLOG.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Metas das Sprints
-
-<p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
+<details>
+<summary>Sprint 1</summary>
+                  <details>
+                  <summary>Dowload e processamento de dados automatizado</summary>
+                        Story User
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de temperatura e umidade Para que eu possa                                   analisar e ter uma visão simplificada dos dados gerais das estações 
+                  </details>
+                  <details>
+                  <summary>Filtrar dados por estações e data</summary>
+                        Story User
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de vento  e pressão atmosférica Para que eu                           possa analisar e ter uma visão simplificada dos dados gerais das estações
+                  </details>
+</details>
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Protótipo
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/prototipo.gif" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -102,7 +110,15 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## DER 
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Diagrama Lógico
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -110,13 +126,14 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Burndown
  
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/WhatsApp%20Image%202022-09-16%20at%2020.11.47.jpeg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Manual do usuario
 
+[Clique aqui para acessar o manual do usuario](https://github.com/fluffyfatec/Iacit/blob/Sprint-1/Manual%20do%20Usuario/ManualdoUsuario.md)
 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -142,6 +159,9 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <summary>Front-End</summary>
 
 * [JavaScript](https://www.javascript.com)
+* [HTML](https://www.w3schools.com/css/)
+* [CSS](https://www.w3schools.com/css/)
+ 
 
 </details>
 
@@ -149,6 +169,8 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <summary>Back-End</summary>
 
 * [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
+ 
+* [Python](https://www.python.org/downloads/)
 
 </details>
 
@@ -184,7 +206,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/rodape.jpg" width="100%" height="100%">
 <p align="center">
 
 ---
