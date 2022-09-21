@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fluffyiacit.api.modal.FiltroModal;
+import DTO.FiltroDTO;
+
+
 import com.fluffyiacit.api.modal.ViewFiltroEstacao;
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
@@ -54,11 +56,11 @@ public class HomeController {
 	//
 
 	// ENTRAR PAGINA INDEX
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "" }, method = RequestMethod.GET)
 	public ModelAndView PaginaIndex() {
 		ModelAndView modelAndView = new ModelAndView();
 
-		FiltroModal filtromodal = new FiltroModal();
+		FiltroDTO filtromodal = new FiltroDTO();
 
 		filtromodal.setEstacao_nome("");
 		filtromodal.setEstacao_estado("");
@@ -192,7 +194,7 @@ public class HomeController {
 
 	// ENTRAR PAGINA INDEX FILTRADA
 	@RequestMapping(value = { "/index" }, method = RequestMethod.POST)
-	public ModelAndView PaginaIndexFiltrada(FiltroModal filtromodal) {
+	public ModelAndView PaginaIndexFiltrada(FiltroDTO filtromodal) {
 		ModelAndView modelAndView = new ModelAndView();
 		// System.out.println("1:" + filtromodal.getEstacao_nome());
 
