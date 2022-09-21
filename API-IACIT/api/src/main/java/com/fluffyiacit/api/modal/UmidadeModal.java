@@ -1,4 +1,4 @@
-package com.fluffyiacit.api.modal;
+ package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
 
