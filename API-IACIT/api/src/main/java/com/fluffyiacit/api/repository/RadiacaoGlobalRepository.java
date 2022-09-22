@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
 
 public interface RadiacaoGlobalRepository  extends JpaRepository<ViewRadiacaoglobalModal, String> {
-	@Query ("SELECT rg FROM view_radiacaoglobal_dados rg WHERE rg.estacao_estado = :estacao_estado AND rg.estacao_nome = :estacao_nome AND rg.datahora_captacao = :datahora_captacao")
-	public List<ViewRadiacaoglobalModal> listar(@Param("estacao_estado") String estacao_estado,
-										        @Param("estacao_nome") String estacao_nome,
-										        //@Param("cod_wmo") String cod_wmo,
-	  									        @Param("datahora_captacao") Timestamp datahora_captacao);
+	@Query ("SELECT rg FROM view_radiacaoglobal_dados rg WHERE rg.estacaoEstado = :estacaoEstado AND rg.estacaoNome = :estacaoNome AND rg.datahoraCaptacao = :datahoraCaptacao")
+	public List<ViewRadiacaoglobalModal> listar(@Param("estacaoEstado") String estacaoEstado,
+											  @Param("estacaoNome") String estacaoNome,
+											  //@Param("cod_wmo") String cod_wmo,
+											  @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 }

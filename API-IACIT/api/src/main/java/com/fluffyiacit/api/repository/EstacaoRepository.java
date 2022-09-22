@@ -12,7 +12,7 @@ import com.fluffyiacit.api.modal.EstacaoModal;
 @Repository
 public interface EstacaoRepository  extends JpaRepository<EstacaoModal, String>{
 	
-	@Query("SELECT u FROM estacao u WHERE u.cod_wmo = :cod_wmo")
-	public List<EstacaoModal> listar(@Param("cod_wmo") String cod_wmo);
+	@Query("SELECT u FROM estacao u WHERE u.codWmo = :codWmo")
+	public List<EstacaoModal> listar(@Param("codWmo") String codWmo);
 	
 }

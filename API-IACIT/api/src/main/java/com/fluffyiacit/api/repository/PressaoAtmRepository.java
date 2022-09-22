@@ -11,11 +11,11 @@ import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
 
 public interface PressaoAtmRepository   extends JpaRepository<ViewPressaoAtmModal, Integer>{
 	
-	@Query ("SELECT pa FROM view_pressaoatmosferica_dados pa WHERE pa.estacao_estado = :estacao_estado AND pa.estacao_nome = :estacao_nome AND pa.datahora_captacao = :datahora_captacao")
-	public List<ViewPressaoAtmModal> listar(@Param("estacao_estado") String estacao_estado,
-										  @Param("estacao_nome") String estacao_nome,
+	@Query ("SELECT pa FROM view_pressaoatmosferica_dados pa WHERE pa.estacaoEstado = :estacaoEstado AND pa.estacaoNome = :estacaoNome AND pa.datahoraCaptacao = :datahoraCaptacao")
+	public List<ViewPressaoAtmModal> listar(@Param("estacaoEstado") String estacaoEstado,
+										  @Param("estacaoNome") String estacaoNome,
 										  //@Param("cod_wmo") String cod_wmo,
-	  									  @Param("datahora_captacao") Timestamp datahora_captacao);
+	  									  @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 
 
 }
