@@ -2,7 +2,7 @@ color 2
 
 echo RESTORE BANCO DE DADOS IACIT
 
-set "PGPASSWORD=31elaine"
+set "PGPASSWORD=123"
 dropdb -h localhost -U postgres -p 5432 --if-exists -f db_iacit_api
 timeout /t 5
 createdb -h localhost -U postgres -p 5432 -T template0 db_iacit_api
