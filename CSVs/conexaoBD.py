@@ -146,7 +146,7 @@ class ConexaoBD:
         except:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: falha na tentativa de povoar o banco com os dados dos CSVs (CSVs/conexaoBD.py)")
             raise
 
     @staticmethod
@@ -226,8 +226,9 @@ class ConexaoBD:
         except:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: falha na tentativa de povoar o banco com os dados dos CSVs (CSVs/conexaoBD.py)")
             raise
+
 
     @staticmethod
     def estacao_banco(df):
@@ -254,8 +255,9 @@ class ConexaoBD:
         except:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: falha na tentativa de atualizar as estações cadastradas no banco (CSVs/conexaoBD.py)")
             raise
+
 
     @staticmethod
     def estacao_banco_sqlquery(df):
@@ -279,5 +281,6 @@ class ConexaoBD:
         except:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: falha na tentativa de atualizar as estações cadastradas no banco (CSVs/conexaoBD.py)")
             raise
+

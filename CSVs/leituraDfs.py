@@ -1,5 +1,8 @@
+import sys
 import pandas as pd
 import glob
+import sqlalchemy
+from sqlalchemy import create_engine
 from conexaoBD import ConexaoBD
 from cleaningData import CleaningData
 from cabeçalho import Cabecalho
@@ -10,6 +13,19 @@ class LeituraDfs:
 
     @staticmethod
     def leitura_dfs2020():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -33,14 +49,28 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2020 CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2020 não realizada (CSVs/leituraDfs.py)")
             raise
+
 
     @staticmethod
     def leitura_dfs2021():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -63,14 +93,27 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2021 CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2021 não realizada (CSVs/leituraDfs.py)")
             raise
 
     @staticmethod
     def leitura_dfs2022():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -93,14 +136,27 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2022 CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2022 não realizada (CSVs/leituraDfs.py)")
             raise
 
     @staticmethod
     def leitura_cabecalho2020():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -115,14 +171,27 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2020 não realizada (CSVs/leituraDfs.py)")
             raise
 
     @staticmethod
     def leitura_cabecalho2021():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -137,14 +206,26 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2021 não realizada (CSVs/leituraDfs.py)")
             raise
 
     @staticmethod
     def leitura_cabecalho2022():
+
+        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                            format="%(asctime)s %(message)s", filemode="a")
+
+        # Conectando ao banco de dados
+        db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        if db.execute("select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
         try:
             # Path dos dataframes
@@ -159,8 +240,8 @@ class LeituraDfs:
 
                 print(i)
                 i += 1
+
+            logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
-            logging.exception("- ERRO")
+            logging.debug("- ERRO: leitura dos CSVs de 2022 não realizada (CSVs/leituraDfs.py)")
             raise
