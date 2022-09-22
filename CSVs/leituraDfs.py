@@ -53,6 +53,7 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2020 CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2020 não realizada (CSVs/leituraDfs.py)")
+            raise
 
 
     @staticmethod
@@ -96,6 +97,7 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2021 CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2021 não realizada (CSVs/leituraDfs.py)")
+            raise
 
     @staticmethod
     def leitura_dfs2022():
@@ -138,6 +140,7 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2022 CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2022 não realizada (CSVs/leituraDfs.py)")
+            raise
 
     @staticmethod
     def leitura_cabecalho2020():
@@ -172,6 +175,7 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2020 não realizada (CSVs/leituraDfs.py)")
+            raise
 
     @staticmethod
     def leitura_cabecalho2021():
@@ -206,6 +210,7 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2021 não realizada (CSVs/leituraDfs.py)")
+            raise
 
     @staticmethod
     def leitura_cabecalho2022():
@@ -239,3 +244,4 @@ class LeituraDfs:
             logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2022 não realizada (CSVs/leituraDfs.py)")
+            raise

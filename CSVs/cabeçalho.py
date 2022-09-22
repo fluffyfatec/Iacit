@@ -41,6 +41,7 @@ class Cabecalho:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: tratamento do cabeçalho não pode ser concluída (CSVs/cabeçalho.py)")
+            raise
 
 
 

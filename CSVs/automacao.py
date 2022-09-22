@@ -53,6 +53,7 @@ class Automacao:
                 logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                     format="%(asctime)s %(message)s", filemode="a")
                 logging.debug("- ERRO: o download dos CSVs não foi realizado (CSVs/automacao.py)")
+                raise
 
 
             try:    
@@ -62,5 +63,6 @@ class Automacao:
                 logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                     format="%(asctime)s %(message)s", filemode="a")
                 logging.debug("- ERRO: a extração dos CSVs não foi realizada (CSVs/automacao.py")
+                raise
         return
 

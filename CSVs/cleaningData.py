@@ -115,4 +115,5 @@ class CleaningData:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                                 format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: tratamento dos CSVs não pode ser concluída (CSVs/cleaningData.py)")
+            raise
 
