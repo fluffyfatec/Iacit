@@ -34,7 +34,6 @@ public class HomeController {
 
 	// REPOSITORY
 
-
 	@Autowired(required = true)
 	private PrecipitacaoRepository precipitacao;
 

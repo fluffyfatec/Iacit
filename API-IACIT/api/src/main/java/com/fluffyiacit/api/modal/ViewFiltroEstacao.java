@@ -17,7 +17,7 @@ public class ViewFiltroEstacao {
 	
 	@Id
 	@Column(name = "codWmo", length = 4, nullable = false)
-	private String cod_wmo;
+	private String codWmo;
 	
 	@Column(name = "estacaoEstado")
 	private String estacaoEstado;
