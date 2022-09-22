@@ -21,7 +21,7 @@ public class UsuarioModal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_usuario")
+	@Column(name = "codUsuario")
 	private Integer codUsuario;
 	
 	@Column(name = "nome")

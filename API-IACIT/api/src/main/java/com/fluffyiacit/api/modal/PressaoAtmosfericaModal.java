@@ -1,6 +1,7 @@
 package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import org.hibernate.type.BigDecimalType;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,24 +26,24 @@ public class PressaoAtmosfericaModal {
  
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_pressao_atm")
-	private Integer cod_pressao_atm;
+	@Column(name = "codPressaoAtm")
+	private Integer codPressaoAtm;
 	
 	@ManyToOne
-    @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
+    @JoinColumn(name = "estacao", referencedColumnName = "codWmo")
 	private EstacaoModal codWmo;
 	
-	@Column(name = "pressao_atm_estacao")
-	private BigDecimalType pressao_atm_estacao;
+	@Column(name = "pressaoAtmEstacao")
+	private BigDecimalType pressaoAtmEstacao;
 	
-	@Column(name = "pressao_atm_min")
-	private BigDecimalType pressao_atm_min;
+	@Column(name = "pressaoAtmMin")
+	private BigDecimalType pressaoAtmMin;
 	
-	@Column(name = "pressao_atm_max")
-	private BigDecimalType pressao_atm_max;
+	@Column(name = "pressaoAtmMax")
+	private BigDecimalType pressaoAtmMax;
 	
-	@Column(name = "datahora_captacao", nullable = false)
-	private Timestamp datahora_captacao;
+	@Column(name = "datahoraCaptacao", nullable = false)
+	private Timestamp datahoraCaptacao;
 	
 	
 	

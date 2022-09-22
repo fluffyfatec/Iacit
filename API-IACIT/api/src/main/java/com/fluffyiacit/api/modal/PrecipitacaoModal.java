@@ -28,18 +28,18 @@ public class PrecipitacaoModal {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_precipitacao")
-	private Integer cod_precipitacao;
+	@Column(name = "codPrecipitacao")
+	private Integer codPrecipitacao;
 	
 	@ManyToOne
-    @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
-	private EstacaoModal cod_wmo;
+    @JoinColumn(name = "estacao", referencedColumnName = "codWmo")
+	private EstacaoModal codWmo;
 	
 	@Column(name = "precipitacaototal")
 	private BigDecimalType precipitacaototal;
 	
-	@Column(name= "datahora_captacao",nullable = false)
-	private Timestamp datahora_captacao;
+	@Column(name= "datahoraCaptacao",nullable = false)
+	private Timestamp datahoraCaptacao;
 	
 
 	
