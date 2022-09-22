@@ -207,9 +207,9 @@
           <div class="row mb-2">
 
             <div class="col-sm-12">
-              Estação: <a id="estacao" th:each="pre : ${teste_precipitacao}">[[${pre.estacao_nome}]]</a>   /   
-              Estado: <a id="estado" th:each="pre : ${teste_precipitacao}">[[${pre.estacao_estado}]]</a>   /   
-              Data: <a id="ano" th:each="pre : ${teste_precipitacao}">[[${pre.datahora_captacao}]]</a>
+              Estação: <a id="estacao" th:each="pre : ${teste_precipitacao}">N/A</a>   /   
+              Estado: <a id="estado" th:each="pre : ${teste_precipitacao}">N/A</a>   /   
+              Data: <a id="ano" th:each="pre : ${teste_precipitacao}">00/00/0000</a>
             </div><!-- /.col -->
 
             <div class="col-sm-4">
@@ -242,7 +242,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                      
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_min}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Min</p>
                     </div>
@@ -258,7 +258,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                     
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_max}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Max</p>
                     </div>
@@ -274,7 +274,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                       
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_ar}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temperatura Ar</p>
                     </div>
@@ -290,7 +290,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                       
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_orvalho_min}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Min</p>
                     </div>
@@ -306,7 +306,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                    
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_orvalho_max}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Max</p>
                     </div>
@@ -322,7 +322,7 @@
                   <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                     <div class="inner">
                 
-                      <h3 th:each="temp : ${teste_temperatura}">[[${temp.temperatura_ponto_orvalho}]]<sup style="font-size: 20px">°C</sup></h3>
+                      <h3 th:each="temp : ${teste_temperatura}">N/A<sup style="font-size: 20px">°C</sup></h3>
 
                       <p style="font-size: 14px;">Temp Orvalho Ponto</p>
                     </div>
@@ -358,7 +358,7 @@
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
                   
-                      <h3 th:each="umi : ${teste_umidade}">[[${umi.umidade_relativa_min}]]<sup style="font-size: 20px">%</sup></h3>
+                      <h3 th:each="umi : ${teste_umidade}">N/A<sup style="font-size: 20px">%</sup></h3>
 
                       <p style="font-size: 14px;">Umidade Min</p>
                     </div>
@@ -374,7 +374,7 @@
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
          
-                      <h3 th:each="umi : ${teste_umidade}">[[${umi.umidade_relativa_max}]]<sup style="font-size: 20px">%</sup></h3>
+                      <h3 th:each="umi : ${teste_umidade}">N/A<sup style="font-size: 20px">%</sup></h3>
                       <p style="font-size: 14px;">Umidade Max</p>
                     </div>
                     <div class="icon">
@@ -389,7 +389,7 @@
                   <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                     <div class="inner">
 
-                      <h3 th:each="umi : ${teste_umidade}">[[${umi.umidade_relativa_ar}]]<sup style="font-size: 20px">%</sup></h3>
+                      <h3 th:each="umi : ${teste_umidade}">N/A<sup style="font-size: 20px">%</sup></h3>
                       <p style="font-size: 14px;">Umidade Relativa Ar</p>
                     </div>
                     <div class="icon">
@@ -425,7 +425,7 @@
                   <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                     <div class="inner">
                     
-                      <h3 th:each="vent : ${teste_vento}">[[${vent.vento_velocidade}]]<sup style="font-size: 20px">m/s</sup></h3>
+                      <h3 th:each="vent : ${teste_vento}">N/A<sup style="font-size: 20px">m/s</sup></h3>
 
                       <p style="font-size: 14px;">Vento - Velociade</p>
                     </div>
@@ -441,7 +441,7 @@
                   <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                     <div class="inner">
             
-                      <h3 th:each="vent : ${teste_vento}">[[${vent.vento_rajada_max}]]<sup style="font-size: 20px">m/s</sup></h3>
+                      <h3 th:each="vent : ${teste_vento}">N/A<sup style="font-size: 20px">m/s</sup></h3>
 
                       <p style="font-size: 14px;">Vento Rajada Max</p>
                     </div>
@@ -478,7 +478,7 @@
                   <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                     <div class="inner">
           
-                      <h3 th:each="atm : ${teste_atm}">[[${atm.pressao_atm_min}]]<sup style="font-size: 20px">mB</sup></h3>
+                      <h3 th:each="atm : ${teste_atm}">N/A<sup style="font-size: 20px">mB</sup></h3>
                       <p style="font-size: 14px;">Pressão Atmosferica Min</p>
                     </div>
                     <div class="icon">
@@ -493,7 +493,7 @@
                   <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                     <div class="inner">
                
-                      <h3 th:each="atm : ${teste_atm}">[[${atm.pressao_atm_max}]]<sup style="font-size: 20px">mB</sup></h3>
+                      <h3 th:each="atm : ${teste_atm}">N/A<sup style="font-size: 20px">mB</sup></h3>
                       <p style="font-size: 14px;">Pressão Atmosferica Max</p>
                     </div>
                     <div class="icon">
@@ -508,7 +508,7 @@
                   <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                     <div class="inner">
                
-                      <h3 th:each="atm : ${teste_atm}">[[${atm.pressao_atm_estacao}]]<sup style="font-size: 20px">mB</sup></h3>
+                      <h3 th:each="atm : ${teste_atm}">N/A<sup style="font-size: 20px">mB</sup></h3>
                       <p style="font-size: 14px;">Pressão Atmosferica Estação</p>
                     </div>
                     <div class="icon">
@@ -541,9 +541,9 @@
 
                 <div class="carousel-item active">
                   <!-- small box -->
-                <div class="small-box bg-suatmess"  style="background-color: #277AE6 !important;">
+                <div class="small-box bg-suatmess"  style="background-color: #277AE6 !important; color: white;">
                   <div class="inner">
-                    <h3 th:each="atm : ${teste_radiacaoglobal}">[[${atm.radiacao_global}]]<sup style="font-size: 20px">Kj/m²</sup></h3>
+                    <h3 th:each="atm : ${teste_radiacaoglobal}">N/A<sup style="font-size: 20px">Kj/m²</sup></h3>
                     <p style="font-size: 14px;">Radição Global</p>
                   </div>
                   <div class="icon">
@@ -577,7 +577,7 @@
                   <!-- small box -->
                   <div class="small-box bg-primary" style="background-color: #4596FF !important;">
                     <div class="inner">
-                      <h3 th:each="pre : ${teste_precipitacao}">[[${pre.precipitacaototal}]]<sup style="font-size: 20px">%</sup></h3>
+                      <h3 th:each="pre : ${teste_precipitacao}">N/A<sup style="font-size: 20px">%</sup></h3>
                       <p style="font-size: 14px;">Precipitação</p>
                     </div>
                     <div class="icon">
