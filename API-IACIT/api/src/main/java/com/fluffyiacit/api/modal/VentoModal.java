@@ -26,22 +26,22 @@ public class VentoModal {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_vento")
-	private Integer cod_vento;
+	@Column(name = "codVento")
+	private Integer codVento;
 	
 	@ManyToOne
-    @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
+    @JoinColumn(name = "estacao", referencedColumnName = "codWmo")
 	private EstacaoModal codWmo;
 	
-	@Column(name = "vento_velocidade")
-	private BigDecimal vento_velocidade;
+	@Column(name = "ventoVelocidade")
+	private BigDecimal ventoVelocidade;
 	
 	
-	@Column(name = "vento_rajada_max")
-	private BigDecimal vento_rajada_max;
+	@Column(name = "ventoRajadaMax")
+	private BigDecimal ventoRajadaMax;
 	
-	@Column(name = "vento_direcao_horario")
-	private BigDecimal vento_direcao_horario;
+	@Column(name = "ventoDirecaoHorario")
+	private BigDecimal ventoDirecaoHorario;
 	
 	@Column(name ="datahoraCaptacao",nullable = false)
 	private Timestamp datahoraCaptacao;

@@ -2,6 +2,7 @@ package com.fluffyiacit.api.modal;
 
 
 import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 import org.hibernate.type.BigDecimalType;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,32 +28,32 @@ public class TemperaturaModal {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "cod_temperatura")
-	private Integer cod_temperatura;
+	@Column(name = "codTemperatura")
+	private Integer codTemperatura;
 	
 	@ManyToOne
-    @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
+    @JoinColumn(name = "estacao", referencedColumnName = "codWmo")
 	private EstacaoModal codWmo;
 	
-	@Column(name = "temperatura_ar")
-	private BigDecimalType temperatura_ar;
+	@Column(name = "temperaturaAr")
+	private BigDecimalType temperaturaAr;
 	
-	@Column(name = "temperatura_min")
-	private BigDecimalType temperatura_min;
+	@Column(name = "temperaturaMin")
+	private BigDecimalType temperaturaMin;
 	
-	@Column(name = "temperatura_max")
-	private BigDecimalType temperatura_max;
+	@Column(name = "temperaturaMax")
+	private BigDecimalType temperaturaMax;
 	
-	@Column(name = "temperatura_ponto_orvalho")
-	private BigDecimalType temperatura_ponto_orvalho;
+	@Column(name = "temperaturaPontoOrvalho")
+	private BigDecimalType temperaturaPontoOrvalho;
 	
-	@Column(name = "temperatura_ponto_min")
-	private BigDecimalType temperatura_ponto_min;
+	@Column(name = "temperaturaPontoMin")
+	private BigDecimalType temperaturaPontoMin;
 	
-	@Column(name = "temperatura_ponto_max")
-	private BigDecimalType temperatura_ponto_max;
+	@Column(name = "temperaturaPontoMax")
+	private BigDecimalType temperaturaPontoMax;
 	
-	@Column(name= "datahora_captacao",nullable = false)
-	private Timestamp datahora_captacao;
+	@Column(name= "datahoraCaptacao",nullable = false)
+	private Timestamp datahoraCaptacao;
 	
 }

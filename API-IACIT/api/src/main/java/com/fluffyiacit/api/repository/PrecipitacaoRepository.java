@@ -11,11 +11,11 @@ import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 
 
 public interface PrecipitacaoRepository extends JpaRepository<ViewPrecipitacaoModal, String> {
-	@Query ("SELECT vp FROM view_precipitacao_dados vp WHERE vp.estacao_estado = :estacao_estado AND vp.estacao_nome = :estacao_nome AND vp.datahora_captacao = :datahora_captacao ")
-	public List<ViewPrecipitacaoModal> listar(@Param("estacao_estado") String estacao_estado,
-										  @Param("estacao_nome") String estacao_nome,
+	@Query ("SELECT vp FROM view_precipitacao_dados vp WHERE vp.estacaoEstado = :estacaoEstado AND vp.estacaoNome = :estacaoNome AND vp.datahoraCaptacao = :datahoraCaptacao ")
+	public List<ViewPrecipitacaoModal> listar(@Param("estacaoEstado") String estacaoEstado,
+										  @Param("estacaoNome") String estacaoNome,
 										  //@Param("cod_wmo") String cod_wmo,
-	  									  @Param("datahora_captacao") Timestamp datahora_captacao);
+	  									  @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 
 										   
 }

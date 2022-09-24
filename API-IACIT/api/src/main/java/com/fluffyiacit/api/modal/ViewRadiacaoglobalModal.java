@@ -17,20 +17,20 @@ import lombok.Setter;
 @Setter
 public class ViewRadiacaoglobalModal {
 
-	@Column(name = "radiacao_global")
-	private String radiacao_global;
+	@Column(name = "radiacaoGlobal")
+	private String radiacaoGlobal;
 
 	@Id
-	@Column(name = "cod_wmo", length = 4, nullable = false)
-	private String cod_wmo;
+	@Column(name = "codWmo", length = 4, nullable = false)
+	private String codWmo;
 
-	@Column(name = "estacao_estado", length = 2, nullable = false)
-	private String estacao_estado;
+	@Column(name = "estacaoEstado", length = 2, nullable = false)
+	private String estacaoEstado;
 
-	@Column(name = "estacao_nome", length = 60, nullable = false, unique = true)
-	private String estacao_nome;
+	@Column(name = "estacaoNome", length = 60, nullable = false, unique = true)
+	private String estacaoNome;
 
-	@Column(name = "datahora_captacao")
-	private Timestamp datahora_captacao;
+	@Column(name = "datahoraCaptacao")
+	private Timestamp datahoraCaptacao;
 
 }
