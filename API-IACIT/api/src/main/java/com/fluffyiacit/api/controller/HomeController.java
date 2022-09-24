@@ -347,6 +347,16 @@ public class HomeController {
 		return modelAndView;
 
 	}
+	
+	
+	
+	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
+	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName(id);
+		return modelAndView;
+
+	}
 
 	// FILTRO AJAX - ESTACAO NULO
 	@RequestMapping(value = { "/filtro/ajax" }, method = RequestMethod.GET)

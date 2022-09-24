@@ -1,4 +1,10 @@
 
+  //MENU LATERAL
+  function jsMenuAjax(dado){
+    //alert(dado);
+    $('#js_body').load('/' + dado);
+  }
+
   //ABRE A MODAL FILTRO
   function jsAbrirModalFiltro(){
       $("#ModalFiltro").modal({
