@@ -12,6 +12,15 @@
     });
   }
 
+  
+  //ABRE A MODAL FILTRO
+  function jsAbrirModalInfo(){
+      $("#ModalInfo").modal({
+      show: true
+    });
+  }
+
+
   //EXECUTA O AJAX FILTRO
   function filtroAjax() {
     var jsEstasdo = document.getElementById("jsEnviaEstado").value;

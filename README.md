@@ -52,7 +52,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 
 ## Solução
 
-A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possibilita a automatização desde o download, o processamento dos dados e a persistência dos dados no banco de dados de forma simplificada. Além disso também será possível realizar a filtragem desses dados por temperatura,umidade,estações,vento,pressão atmosférica, radiação global e precipitação, além da diversa visualizações desses dados. Contudo vamos entregar também diferentes níveis de usuários juntamente com o painel administrativo possibilitando a exportação dos relatórios a partir dos dados
+A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possibilita a automatização desde o download, o processamento dos dados e a persistência dos dados no banco de dados de forma simplificada. Além disso, também será possível realizar a filtragem desses dados por temperatura, umidade, estações, vento, pressão atmosférica, radiação global e precipitação, além da diversa visualizações desses dados. Contudo, vamos entregar também diferentes níveis de usuários juntamente com o painel administrativo possibilitando a exportação dos relatórios a partir dos dados.
 
 
 
@@ -99,7 +99,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## Protótipo
+## Mockup
 
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/prototipo.gif" width="100%" height="100%">
@@ -172,6 +172,8 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
  
 * [Python](https://www.python.org/downloads/)
 
+* [Spring boot](https://spring.io/projects/spring-boot)
+
 </details>
 
 <details>
@@ -206,7 +208,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/rodape.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/main/GIT/rodape.jpg" height="100%">
 <p align="center">
 
 ---
