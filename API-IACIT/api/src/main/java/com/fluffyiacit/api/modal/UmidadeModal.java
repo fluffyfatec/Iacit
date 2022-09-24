@@ -1,4 +1,4 @@
- package com.fluffyiacit.api.modal;
+package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
 
@@ -26,24 +26,24 @@ public class UmidadeModal  {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cod_umidade")
-	private Integer cod_umidade;
+    @Column(name = "codUmidade")
+	private Integer codUmidade;
 
 	@ManyToOne
-    @JoinColumn(name = "estacao", referencedColumnName = "cod_wmo")
-	private EstacaoModal cod_wmo;
+    @JoinColumn(name = "estacao", referencedColumnName = "codWmo")
+	private EstacaoModal codWmo;
     
-	@Column(name = "umidade_relativa_ar")
-	private BigDecimalType umidade_relativa_ar;
+	@Column(name = "umidadeRelativaAr")
+	private BigDecimalType umidadeRelativaAr;
    
-	@Column(name = "umidade_relativa_min")
-	private BigDecimalType umidade_relativa_min;
+	@Column(name = "umidadeRelativaMin")
+	private BigDecimalType umidadeRelativaMin;
 	
-	@Column(name = "umidade_relativa_max")
-	private BigDecimalType umidade_relativa_max;
+	@Column(name = "umidadeRelativaMax")
+	private BigDecimalType umidadeRelativaMax;
 	
-	@Column(name = "datahora_captacao" ,nullable = false)
-	private Timestamp datahora_captacao;
+	@Column(name = "datahoraCaptacao" ,nullable = false)
+	private Timestamp datahoraCaptacao;
 	
 	
 }

@@ -16,12 +16,12 @@ import lombok.Setter;
 public class ViewFiltroEstacao {
 	
 	@Id
-	@Column(name = "cod_wmo", length = 4, nullable = false)
-	private String cod_wmo;
+	@Column(name = "codWmo", length = 4, nullable = false)
+	private String codWmo;
 	
-	@Column(name = "estacao_estado")
-	private String estacao_estado;
+	@Column(name = "estacaoEstado")
+	private String estacaoEstado;
 
-	@Column(name = "estacao_nome")
-	private String estacao_nome;
+	@Column(name = "estacaoNome")
+	private String estacaoNome;
 }

@@ -19,27 +19,27 @@ public class ViewPressaoAtmModal {
 	
 	
 	
-	@Column(name = "pressao_atm_estacao")
-	private String pressao_atm_estacao;
+	@Column(name = "pressaoAtmEstacao")
+	private String pressaoAtmEstacao;
 	
-	@Column(name = "pressao_atm_max")
-	private String pressao_atm_max;
+	@Column(name = "pressaoAtmMax")
+	private String pressaoAtmMax;
 	
-	@Column(name = "pressao_atm_min")
-	private String pressao_atm_min;
+	@Column(name = "pressaoAtmMin")
+	private String pressaoAtmMin;
 	
     @Id
-	@Column(name= "cod_wmo",length = 4, nullable = false)
-	private String cod_wmo;
+	@Column(name= "codWmo",length = 4, nullable = false)
+	private String codWmo;
 	
-	@Column(name= "estacao_estado",length = 2, nullable = false)
-	private String estacao_estado;
+	@Column(name= "estacaoEstado",length = 2, nullable = false)
+	private String estacaoEstado;
 	
-	@Column(name= "estacao_nome",length = 60, nullable = false, unique = true)
-	private String estacao_nome;
+	@Column(name= "estacaoNome",length = 60, nullable = false, unique = true)
+	private String estacaoNome;
 	
-	@Column(name= "datahora_captacao")
-	private Timestamp datahora_captacao;
+	@Column(name= "datahoraCaptacao")
+	private Timestamp datahoraCaptacao;
 
 
 }

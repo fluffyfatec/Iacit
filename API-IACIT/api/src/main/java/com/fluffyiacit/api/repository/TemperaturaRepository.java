@@ -11,11 +11,11 @@ import com.fluffyiacit.api.modal.ViewTemperaturaModal;
 
 public interface TemperaturaRepository   extends JpaRepository<ViewTemperaturaModal, Integer>{
 	
-	@Query ("SELECT t FROM view_temperatura_dados t WHERE t.estacao_estado = :estacao_estado AND t.estacao_nome = :estacao_nome AND t.datahora_captacao = :datahora_captacao")
-	public List<ViewTemperaturaModal> listar(@Param("estacao_estado") String estacao_estado,
-										  @Param("estacao_nome") String estacao_nome,
+	@Query ("SELECT t FROM view_temperatura_dados t WHERE t.estacaoEstado = :estacaoEstado AND t.estacaoNome = :estacaoNome AND t.datahoraCaptacao = :datahoraCaptacao")
+	public List<ViewTemperaturaModal> listar(@Param("estacaoEstado") String estacaoEstado,
+										  @Param("estacaoNome") String estacaoNome,
 										  //@Param("cod_wmo") String cod_wmo,
-	  									  @Param("datahora_captacao") Timestamp datahora_captacao);
+	  									  @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 	
 	
 	

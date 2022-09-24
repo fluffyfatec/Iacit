@@ -20,35 +20,35 @@ import lombok.Setter;
 
 public class ViewTemperaturaModal {
 	
-	@Column(name = "temperatura_ar")
-	private String temperatura_ar;
+	@Column(name = "temperaturaAr")
+	private String temperaturaAr;
 	
-	@Column(name = "temperatura_min")
-	private String temperatura_min;
+	@Column(name = "temperaturaMin")
+	private String temperaturaMin;
 	
-	@Column(name = "temperatura_max")
-	private String temperatura_max;
+	@Column(name = "temperaturaMax")
+	private String temperaturaMax;
 	
-	@Column(name = "temperatura_orvalho_min")
-	private String temperatura_orvalho_min;
+	@Column(name = "temperaturaOrvalhoMin")
+	private String temperaturaOrvalhoMin;
 	
-	@Column(name = "temperatura_orvalho_max")
-	private String temperatura_orvalho_max;
+	@Column(name = "temperaturaOrvalhoMax")
+	private String temperaturaOrvalhoMax;
 	
-	@Column(name = "temperatura_ponto_orvalho")
-	private String temperatura_ponto_orvalho;
+	@Column(name = "temperaturaPontoOrvalho")
+	private String temperaturaPontoOrvalho;
 	
     @Id
-	@Column(name= "cod_wmo",length = 4, nullable = false)
-	private String cod_wmo;
+	@Column(name= "codWmo",length = 4, nullable = false)
+	private String codWmo;
 	
-	@Column(name= "estacao_estado",length = 2, nullable = false)
-	private String estacao_estado;
+	@Column(name= "estacaoEstado",length = 2, nullable = false)
+	private String estacaoEstado;
 	
-	@Column(name= "estacao_nome",length = 60, nullable = false, unique = true)
-	private String estacao_nome;
+	@Column(name= "estacaoNome",length = 60, nullable = false, unique = true)
+	private String estacaoNome;
 	
-	@Column(name= "datahora_captacao")
-	private Timestamp datahora_captacao;
+	@Column(name= "datahoraCaptacao")
+	private Timestamp datahoraCaptacao;
 
 }
