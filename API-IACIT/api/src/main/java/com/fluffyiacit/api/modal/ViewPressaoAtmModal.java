@@ -28,7 +28,6 @@ public class ViewPressaoAtmModal {
 	@Column(name = "pressaoAtmMin")
 	private String pressaoAtmMin;
 	
-    @Id
 	@Column(name= "codWmo",length = 4, nullable = false)
 	private String codWmo;
 	
@@ -38,6 +37,7 @@ public class ViewPressaoAtmModal {
 	@Column(name= "estacaoNome",length = 60, nullable = false, unique = true)
 	private String estacaoNome;
 	
+    @Id
 	@Column(name= "datahoraCaptacao")
 	private Timestamp datahoraCaptacao;
 

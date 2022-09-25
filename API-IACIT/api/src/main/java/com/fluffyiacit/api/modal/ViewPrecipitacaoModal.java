@@ -23,7 +23,6 @@ public class ViewPrecipitacaoModal {
 		@Column(name = "precipitacaototal")
 		private String precipitacaototal;
 		
-        @Id
     	@Column(name= "codWmo",length = 4, nullable = true)
 		private String codWmo;
 		
@@ -33,6 +32,7 @@ public class ViewPrecipitacaoModal {
     	@Column(name= "estacaoNome",length = 60, nullable = true, unique = true)
 		private String estacaoNome;
 		
+    	@Id
 		@Column(name= "datahoraCaptacao")
 		private Timestamp datahoraCaptacao;
 		

@@ -38,7 +38,6 @@ public class ViewTemperaturaModal {
 	@Column(name = "temperaturaPontoOrvalho")
 	private String temperaturaPontoOrvalho;
 	
-    @Id
 	@Column(name= "codWmo",length = 4, nullable = false)
 	private String codWmo;
 	
@@ -48,6 +47,7 @@ public class ViewTemperaturaModal {
 	@Column(name= "estacaoNome",length = 60, nullable = false, unique = true)
 	private String estacaoNome;
 	
+	@Id
 	@Column(name= "datahoraCaptacao")
 	private Timestamp datahoraCaptacao;
 

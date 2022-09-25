@@ -266,6 +266,27 @@ public class HomeController {
 		}
 		modelAndView.addObject("teste_vento", teste_vento);
 
+		
+		//FILTRO GRAFICOS RANGE DE 7 DIAS
+		//GRAFICO PRECIPITACAO
+		List<ViewPrecipitacaoModal> precipitacaoGraph = precipitacao.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("precipitacaoGraph", precipitacaoGraph);
+		modelAndView.setViewName("index");
+		
+		//GRAFICO TEMPERATURA
+		List<ViewTemperaturaModal> temperaturaGraph = temperatura.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("temperaturaGraph", temperaturaGraph);
+		modelAndView.setViewName("index");
+		
+		//GRAFICO UMIDADE
+		List<ViewUmidadeModal> umidadeGraph = umidade.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("umidadeGraph", umidadeGraph);
+		modelAndView.setViewName("index");
+		
+		//FILTROS DE DADOS
 		filtromodal.getEstacaoNome();
 		filtromodal.getEstacaoEstado();
 		filtromodal.getDatahoraCaptacao();
@@ -274,7 +295,7 @@ public class HomeController {
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("index");
 		return modelAndView;
-	}
+}
 
 	// FILTRO AJAX - ESTACAO
 	@RequestMapping(value = { "/filtro/ajax/{id}" }, method = RequestMethod.GET)

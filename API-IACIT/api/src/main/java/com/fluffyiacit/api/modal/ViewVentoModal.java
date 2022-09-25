@@ -24,7 +24,7 @@ public class ViewVentoModal {
 
 	@Column(name = "ventoDirecaoHorario")
 	private String ventoDirecaoHorario;
-	@Id
+	
 	@Column(name = "codWmo", length = 4, nullable = false)
 	private String codWmo;
 
@@ -34,6 +34,7 @@ public class ViewVentoModal {
 	@Column(name = "estacaoNome", length = 60, nullable = false, unique = true)
 	private String estacaoNome;
 
+	@Id
 	@Column(name = "datahoraCaptacao")
 	private Timestamp datahoraCaptacao;
 }

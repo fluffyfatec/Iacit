@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
+import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
 
 public interface PressaoAtmRepository   extends JpaRepository<ViewPressaoAtmModal, Integer>{
 	
@@ -17,5 +18,8 @@ public interface PressaoAtmRepository   extends JpaRepository<ViewPressaoAtmModa
 										  //@Param("cod_wmo") String cod_wmo,
 	  									  @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 
-
+	@Query(value = "SELECT * FROM view_pressaoatmosferica_dados pa WHERE pa.estacao_estado = :estacaoEstado AND pa.estacao_nome = :estacaoNome AND pa.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
+    public List<ViewPressaoAtmModal> listarGraph (@Param("estacaoEstado") String estacaoEstado, 
+    		@Param("estacaoNome") String estacaoNome,
+    		@Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 }
