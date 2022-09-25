@@ -20,7 +20,6 @@ public class ViewRadiacaoglobalModal {
 	@Column(name = "radiacaoGlobal")
 	private String radiacaoGlobal;
 
-	@Id
 	@Column(name = "codWmo", length = 4, nullable = false)
 	private String codWmo;
 
@@ -30,6 +29,7 @@ public class ViewRadiacaoglobalModal {
 	@Column(name = "estacaoNome", length = 60, nullable = false, unique = true)
 	private String estacaoNome;
 
+	@Id
 	@Column(name = "datahoraCaptacao")
 	private Timestamp datahoraCaptacao;
 

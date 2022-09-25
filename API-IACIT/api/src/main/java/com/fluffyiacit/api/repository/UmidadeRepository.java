@@ -15,4 +15,9 @@ public interface UmidadeRepository   extends JpaRepository<ViewUmidadeModal, Str
 										        @Param("estacaoNome") String estacaoNome,
 										        //@Param("cod_wmo") String cod_wmo,
 	  									        @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
+	
+	@Query(value = "SELECT * FROM view_umidade_dados u WHERE u.estacao_estado = :estacaoEstado AND u.estacao_nome = :estacaoNome AND u.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
+    public List<ViewUmidadeModal> listarGraph (@Param("estacaoEstado") String estacaoEstado, 
+    		@Param("estacaoNome") String estacaoNome,
+    		@Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 }
