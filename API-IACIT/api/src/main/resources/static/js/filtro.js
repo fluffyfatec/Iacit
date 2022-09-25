@@ -1,5 +1,5 @@
 
-  //MENU LATERAL
+  //MENU LATERAL / DETALHES
   function jsMenuAjax(dado){
     //alert(dado);
     $('#js_body').load('/' + dado);
@@ -12,14 +12,13 @@
     });
   }
 
-  
+
   //ABRE A MODAL FILTRO
   function jsAbrirModalInfo(){
       $("#ModalInfo").modal({
       show: true
     });
   }
-
 
   //EXECUTA O AJAX FILTRO
   function filtroAjax() {
