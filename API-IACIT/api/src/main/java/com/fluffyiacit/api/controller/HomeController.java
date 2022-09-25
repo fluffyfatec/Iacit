@@ -286,6 +286,24 @@ public class HomeController {
 		modelAndView.addObject("umidadeGraph", umidadeGraph);
 		modelAndView.setViewName("index");
 		
+		//GRAFICO RADIACAO
+		List<ViewRadiacaoglobalModal> radiacaoGraph = radiacao.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("radiacaoGraph", radiacaoGraph);
+		modelAndView.setViewName("index");
+		
+		//GRAFICO PRESSAO ATM
+		List<ViewPressaoAtmModal> pressaoAtmGraph = pressao.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("pressaoAtmGraph", pressaoAtmGraph);
+		modelAndView.setViewName("index");
+		
+		//GRAFICO VENTO
+		List<ViewVentoModal> ventoGraph = vento.listarGraph(filtromodal.getEstacaoNome(),
+				filtromodal.getEstacaoEstado(), Timestamp.valueOf(filtromodal.getDatahoraCaptacao()));
+		modelAndView.addObject("ventoGraph", ventoGraph);
+		modelAndView.setViewName("index");
+		
 		//FILTROS DE DADOS
 		filtromodal.getEstacaoNome();
 		filtromodal.getEstacaoEstado();
