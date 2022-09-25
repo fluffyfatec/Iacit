@@ -86,17 +86,11 @@ public class HomeController {
 			if (objviewPressao.getPressaoAtmEstacao() == null) {
 				objviewPressao.setPressaoAtmEstacao("N/A");
 			}
-		}
-		for (ViewPressaoAtmModal objviewPressaoMax : teste_atm) {
-			if (objviewPressaoMax.getPressaoAtmMax() == null) {
-				objviewPressaoMax.setPressaoAtmMax("N/A");
-
+			if (objviewPressao.getPressaoAtmMax() == null) {
+				objviewPressao.setPressaoAtmMax("N/A");
 			}
-		}
-		for (ViewPressaoAtmModal objviewPressaoMin : teste_atm) {
-			if (objviewPressaoMin.getPressaoAtmMin() == null) {
-				objviewPressaoMin.setPressaoAtmMin("N/A");
-
+			if (objviewPressao.getPressaoAtmMin() == null) {
+				objviewPressao.setPressaoAtmMin("N/A");
 			}
 		}
 		modelAndView.addObject("teste_atm", teste_atm);
@@ -118,32 +112,21 @@ public class HomeController {
 			if (objviewTemperatura.getTemperaturaAr() == null) {
 				objviewTemperatura.setTemperaturaAr("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaMax : teste_temperatura) {
-				if (objviewTemperaturaMax.getTemperaturaMax() == null) {
-					objviewTemperaturaMax.setTemperaturaMax("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaMax() == null) {
+				objviewTemperatura.setTemperaturaMax("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaMin : teste_temperatura) {
-				if (objviewTemperaturaMin.getTemperaturaMin() == null) {
-					objviewTemperaturaMin.setTemperaturaMin("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaMin() == null) {
+				objviewTemperatura.setTemperaturaMin("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaOrvalhoMax : teste_temperatura) {
-				if (objviewTemperaturaOrvalhoMax.getTemperaturaOrvalhoMax() == null) {
-					objviewTemperaturaOrvalhoMax.setTemperaturaOrvalhoMax("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaOrvalhoMin : teste_temperatura) {
-				if (objviewTemperaturaOrvalhoMin.getTemperaturaOrvalhoMin() == null) {
-					objviewTemperaturaOrvalhoMin.setTemperaturaOrvalhoMin("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaPontoOrvalho : teste_temperatura) {
-				if (objviewTemperaturaPontoOrvalho.getTemperaturaPontoOrvalho() == null) {
-					objviewTemperaturaPontoOrvalho.setTemperaturaPontoOrvalho("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
+				objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
 			}
-
 		}
 		modelAndView.addObject("teste_temperatura", teste_temperatura);
 
@@ -154,15 +137,11 @@ public class HomeController {
 			if (objviewUmidade.getUmidadeRelativaAr() == null) {
 				objviewUmidade.setUmidadeRelativaAr("N/A");
 			}
-		}
-		for (ViewUmidadeModal objviewUmidadeRelativaMax : teste_umidade) {
-			if (objviewUmidadeRelativaMax.getUmidadeRelativaMax() == null) {
-				objviewUmidadeRelativaMax.setUmidadeRelativaMax("N/A");
+			if (objviewUmidade.getUmidadeRelativaMax() == null) {
+				objviewUmidade.setUmidadeRelativaMax("N/A");
 			}
-		}
-		for (ViewUmidadeModal objviewUmidadeRelativaMin : teste_umidade) {
-			if (objviewUmidadeRelativaMin.getUmidadeRelativaMin() == null) {
-				objviewUmidadeRelativaMin.setUmidadeRelativaMin("N/A");
+			if (objviewUmidade.getUmidadeRelativaMin() == null) {
+				objviewUmidade.setUmidadeRelativaMin("N/A");
 			}
 		}
 		modelAndView.addObject("teste_umidade", teste_umidade);
@@ -174,15 +153,11 @@ public class HomeController {
 			if (objviewVento.getVentoDirecaoHorario() == null) {
 				objviewVento.setVentoDirecaoHorario("N/A");
 			}
-		}
-		for (ViewVentoModal objviewVentoMax : teste_vento) {
-			if (objviewVentoMax.getVentoRajadaMax() == null) {
-				objviewVentoMax.setVentoRajadaMax("N/A");
+			if (objviewVento.getVentoRajadaMax() == null) {
+				objviewVento.setVentoRajadaMax("N/A");
 			}
-		}
-		for (ViewVentoModal objviewVentoVelocidade : teste_vento) {
-			if (objviewVentoVelocidade.getVentoVelocidade() == null) {
-				objviewVentoVelocidade.setVentoVelocidade("N/A");
+			if (objviewVento.getVentoVelocidade() == null) {
+				objviewVento.setVentoVelocidade("N/A");
 			}
 		}
 		modelAndView.addObject("teste_vento", teste_vento);
@@ -197,7 +172,6 @@ public class HomeController {
 	@RequestMapping(value = { "/index" }, method = RequestMethod.POST)
 	public ModelAndView PaginaIndexFiltrada(FiltroModal filtromodal) {
 		ModelAndView modelAndView = new ModelAndView();
-		// System.out.println("1:" + filtromodal.getEstacao_nome());
 
 		// Lista Precipitacao
 		List<ViewPrecipitacaoModal> teste_precipitacao = precipitacao.listar(filtromodal.getEstacaoNome(),
@@ -216,17 +190,11 @@ public class HomeController {
 			if (objviewPressao.getPressaoAtmEstacao() == null) {
 				objviewPressao.setPressaoAtmEstacao("N/A");
 			}
-		}
-		for (ViewPressaoAtmModal objviewPressaoMax : teste_atm) {
-			if (objviewPressaoMax.getPressaoAtmMax() == null) {
-				objviewPressaoMax.setPressaoAtmMax("N/A");
-
+			if (objviewPressao.getPressaoAtmMax() == null) {
+				objviewPressao.setPressaoAtmMax("N/A");
 			}
-		}
-		for (ViewPressaoAtmModal objviewPressaoMin : teste_atm) {
-			if (objviewPressaoMin.getPressaoAtmMin() == null) {
-				objviewPressaoMin.setPressaoAtmMin("N/A");
-
+			if (objviewPressao.getPressaoAtmMin() == null) {
+				objviewPressao.setPressaoAtmMin("N/A");
 			}
 		}
 		modelAndView.addObject("teste_atm", teste_atm);
@@ -248,39 +216,22 @@ public class HomeController {
 			if (objviewTemperatura.getTemperaturaAr() == null) {
 				objviewTemperatura.setTemperaturaAr("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaMax : teste_temperatura) {
-				if (objviewTemperaturaMax.getTemperaturaMax() == null) {
-					objviewTemperaturaMax.setTemperaturaMax("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaMax() == null) {
+				objviewTemperatura.setTemperaturaMax("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaMin : teste_temperatura) {
-				if (objviewTemperaturaMin.getTemperaturaMin() == null) {
-					objviewTemperaturaMin.setTemperaturaMin("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaMin() == null) {
+				objviewTemperatura.setTemperaturaMin("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaOrvalhoMax : teste_temperatura) {
-				if (objviewTemperaturaOrvalhoMax.getTemperaturaOrvalhoMax() == null) {
-					objviewTemperaturaOrvalhoMax.setTemperaturaOrvalhoMax("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaOrvalhoMin : teste_temperatura) {
-				if (objviewTemperaturaOrvalhoMin.getTemperaturaOrvalhoMin() == null) {
-					objviewTemperaturaOrvalhoMin.setTemperaturaOrvalhoMin("N/A");
-				}
+			if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
 			}
-			for (ViewTemperaturaModal objviewTemperaturaPontoOrvalho : teste_temperatura) {
-				if (objviewTemperaturaPontoOrvalho.getTemperaturaPontoOrvalho() == null) {
-					objviewTemperaturaPontoOrvalho.setTemperaturaPontoOrvalho("N/A");
-				}
-
+			if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
+				objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
 			}
-
-			// System.out.println("1:" + objviewTemperatura.getTemperatura_max());
-			// System.out.println("1:" + objviewTemperatura.getTemperatura_orvalho_max());
-			// System.out.println("2:" + objviewTemperatura.getTemperatura_orvalho_min());
-			// System.out.println("3:" + objviewTemperatura.getTemperatura_ponto_orvalho());
 		}
-
 		modelAndView.addObject("teste_temperatura", teste_temperatura);
 
 		// Lista Umidade
@@ -290,17 +241,13 @@ public class HomeController {
 			if (objviewUmidade.getUmidadeRelativaAr() == null) {
 				objviewUmidade.setUmidadeRelativaAr("N/A");
 			}
-		}
-		for (ViewUmidadeModal objviewUmidadeRelativaMax : teste_umidade) {
-			if (objviewUmidadeRelativaMax.getUmidadeRelativaMax() == null) {
-				objviewUmidadeRelativaMax.setUmidadeRelativaMax("N/A");
+			if (objviewUmidade.getUmidadeRelativaMax() == null) {
+				objviewUmidade.setUmidadeRelativaMax("N/A");
 			}
-		}
-		for (ViewUmidadeModal objviewUmidadeRelativaMin : teste_umidade) {
-			if (objviewUmidadeRelativaMin.getUmidadeRelativaMin() == null) {
-				objviewUmidadeRelativaMin.setUmidadeRelativaMin("N/A");
+			if (objviewUmidade.getUmidadeRelativaMin() == null) {
+				objviewUmidade.setUmidadeRelativaMin("N/A");
 			}
-		}
+		}	
 		modelAndView.addObject("teste_umidade", teste_umidade);
 
 		// Lista Vento
@@ -310,15 +257,11 @@ public class HomeController {
 			if (objviewVento.getVentoDirecaoHorario() == null) {
 				objviewVento.setVentoDirecaoHorario("N/A");
 			}
-		}
-		for (ViewVentoModal objviewVentoMax : teste_vento) {
-			if (objviewVentoMax.getVentoRajadaMax() == null) {
-				objviewVentoMax.setVentoRajadaMax("N/A");
+			if (objviewVento.getVentoRajadaMax() == null) {
+				objviewVento.setVentoRajadaMax("N/A");
 			}
-		}
-		for (ViewVentoModal objviewVentoVelocidade : teste_vento) {
-			if (objviewVentoVelocidade.getVentoVelocidade() == null) {
-				objviewVentoVelocidade.setVentoVelocidade("N/A");
+			if (objviewVento.getVentoVelocidade() == null) {
+				objviewVento.setVentoVelocidade("N/A");
 			}
 		}
 		modelAndView.addObject("teste_vento", teste_vento);
@@ -348,14 +291,11 @@ public class HomeController {
 
 	}
 	
-	
-	
 	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
 	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName(id);
 		return modelAndView;
-
 	}
 
 	// FILTRO AJAX - ESTACAO NULO
@@ -366,6 +306,5 @@ public class HomeController {
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("AjaxFiltroNulo");
 		return modelAndView;
-}
-
+	}
 }
