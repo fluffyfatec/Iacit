@@ -20,7 +20,7 @@ public class UmidadeAjaxController {
 	@Autowired(required = true)
 	private UmidadeRepository umidade;
 	
-	@RequestMapping(value = { "/Umidade" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Umidade" }, method = RequestMethod.GET) //
 	public ModelAndView filtroMenuLateral() {
 		ModelAndView modelAndView = new ModelAndView();
 		
@@ -30,7 +30,7 @@ public class UmidadeAjaxController {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 		
-		modelAndView.setViewName("Umidade");
+		modelAndView.setViewName("Umidade"); //
 		return modelAndView;
 	}
 
