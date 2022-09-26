@@ -18,7 +18,6 @@ import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
 import com.fluffyiacit.api.modal.ViewTemperaturaModal;
 import com.fluffyiacit.api.modal.ViewUmidadeModal;
 import com.fluffyiacit.api.modal.ViewVentoModal;
-import com.fluffyiacit.api.repository.FiltroDatasUmidade;
 import com.fluffyiacit.api.repository.FiltroEstacaoRepository;
 import com.fluffyiacit.api.repository.PrecipitacaoRepository;
 import com.fluffyiacit.api.repository.PressaoAtmRepository;
@@ -26,8 +25,6 @@ import com.fluffyiacit.api.repository.RadiacaoGlobalRepository;
 import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
-
-import DTO.FiltroDatasDTO;
 
 
 @Controller
@@ -56,9 +53,6 @@ public class HomeController {
 
 	@Autowired(required = true)
 	private FiltroEstacaoRepository filtroestacaorepository;
-	
-	@Autowired(required = true)
-	private FiltroDatasUmidade filtrodatasumidade;
 
 	// ENTRAR PAGINA INDEX
 	
@@ -335,14 +329,19 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
-	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
-		ModelAndView modelAndView = new ModelAndView();
-		List<FiltroDatasDTO> teste_filtro = filtrodatasumidade.listarGraph("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-		modelAndView.addObject("teste_filtro", teste_filtro);
-		modelAndView.setViewName(id);
-		return modelAndView;
-	}
+//	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
+//	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		
+//		List<ViewUmidadeModal> graUmidade = umidade.listarGraphUmidade("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+//		modelAndView.addObject("graUmidade", graUmidade);
+//		for (ViewUmidadeModal objview : graUmidade) {
+//			System.out.println("1:" + objview.getDatahoraCaptacao());
+//		}
+//		
+//		modelAndView.setViewName(id);
+//		return modelAndView;
+//	}
 
 	// FILTRO AJAX - ESTACAO NULO
 	@RequestMapping(value = { "/filtro/ajax" }, method = RequestMethod.GET)
