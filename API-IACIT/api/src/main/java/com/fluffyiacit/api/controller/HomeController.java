@@ -3,7 +3,6 @@ package com.fluffyiacit.api.controller;
 import java.sql.Timestamp;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -330,12 +329,19 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
-	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName(id);
-		return modelAndView;
-	}
+//	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
+//	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		
+//		List<ViewUmidadeModal> graUmidade = umidade.listarGraphUmidade("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+//		modelAndView.addObject("graUmidade", graUmidade);
+//		for (ViewUmidadeModal objview : graUmidade) {
+//			System.out.println("1:" + objview.getDatahoraCaptacao());
+//		}
+//		
+//		modelAndView.setViewName(id);
+//		return modelAndView;
+//	}
 
 	// FILTRO AJAX - ESTACAO NULO
 	@RequestMapping(value = { "/filtro/ajax" }, method = RequestMethod.GET)
