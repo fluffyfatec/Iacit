@@ -13,5 +13,7 @@ public class FiltroModal {
 	private String estacaoNome;
 	private String codWmo;
 	private String datahoraCaptacao;
+	private String dataHoraInicial;
+	private String dataHoraFinal;
 	
 }
