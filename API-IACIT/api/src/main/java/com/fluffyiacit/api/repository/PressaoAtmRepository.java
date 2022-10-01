@@ -28,5 +28,8 @@ public interface PressaoAtmRepository   extends JpaRepository<ViewPressaoAtmModa
     public List<ViewPressaoAtmModal> listarGraphPressao (@Param("estacaoEstado") String estacaoEstado, 
     		@Param("estacaoNome") String estacaoNome,
     		@Param("dataHoraInicial") Timestamp dataHoraInicial,
-    		@Param("dataHoraFinal") Timestamp dataHoraFinal);	
+    		@Param("dataHoraFinal") Timestamp dataHoraFinal);
+
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM pressao_atmosferica WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
 }
