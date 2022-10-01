@@ -50,11 +50,27 @@ public class TemperaturaAjaxController {
         filtroModal.setDataHoraFinal("2022-04-28 10:00:00");
 
 
+        if (!temperaturaRepository.dataLimite(Timestamp.valueOf(filtroModal.getDataHoraInicial()))) {
+            System.out.println("A data inserida é inferior a primeira data presente no banco");
+            modelAndView.addObject("dataLimiteInicial", "A data inserida é inferior a primeira data presente no banco");
+            modelAndView.setViewName("Temperatura");
+            return modelAndView;
+        }
+
+        if (!temperaturaRepository.dataLimite(Timestamp.valueOf(filtroModal.getDataHoraFinal()))) {
+            System.out.println("A data inserida é posterior a ultima data presente no banco");
+            modelAndView.addObject("dataLimiteFinal", "A data inserida é posterior a última data presente no banco");
+            modelAndView.setViewName("Temperatura");
+            return modelAndView;
+        }
+
+
         List<ViewTemperaturaModal> graTemperaturaFiltro = temperaturaRepository.listarGraphTemperatura(filtroModal.getEstacaoEstado(), filtroModal.getEstacaoNome(),Timestamp.valueOf(filtroModal.getDataHoraInicial()),Timestamp.valueOf(filtroModal.getDataHoraFinal()));
         modelAndView.addObject("graTemperaturaFiltro", graTemperaturaFiltro);
         for (ViewTemperaturaModal objview : graTemperaturaFiltro) {
             System.out.println("1:" + objview.getDatahoraCaptacao());
         }
+
 
 
         modelAndView.setViewName("Temperatura");
