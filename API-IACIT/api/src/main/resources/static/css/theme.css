@@ -30,3 +30,20 @@
     width: 100%;
     height: 400px;
 }
+
+
+    
+th {
+    background-color: #0D4A99;
+    color:#fff;
+    text-align: center;
+
+
+}
+th.font{
+    color:#fff;
+}
+
+td{
+    text-align: center;
+}
