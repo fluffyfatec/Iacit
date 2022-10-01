@@ -190,9 +190,9 @@
           <div class="row mb-2">
 
             <div class="col-sm-12">
-              Estação: <a id="estacao" th:each="aa : ${teste_precipitacao}">[[${aa.estacaoNome}]]</a>   /   
-              Estado: <a id="estado" th:each="aa : ${teste_precipitacao}">[[${aa.estacaoEstado}]]</a>   /   
-              Data: <a id="ano" th:each="aa : ${teste_precipitacao}">[[${aa.datahoraCaptacao}]]</a>
+              Estação: <a id="estacao" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoNome}]]</a>   /   
+              Estado: <a id="estado" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoEstado}]]</a>   /   
+              Data: <a id="ano" th:each="aa : ${unicaPrecipitacao}">[[${aa.datahoraCaptacao}]]</a>
             </div><!-- /.col -->
 
             <div class="col-sm-4">
@@ -225,7 +225,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                       
-                        <h3 th:each="dd : ${teste_temperatura}">[[${dd.temperaturaMin}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}">[[${dd.temperaturaMin}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temperatura Min</p>
                       </div>
@@ -241,7 +241,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                       
-                        <h3 th:each="dd : ${teste_temperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaMax}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaMax}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temperatura Max</p>
                       </div>
@@ -257,7 +257,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                         
-                        <h3 th:each="dd : ${teste_temperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaAr}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaAr}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temperatura Ar</p>
                       </div>
@@ -273,7 +273,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                         
-                        <h3 th:each="dd : ${teste_temperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMin}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMin}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temp Orvalho Min</p>
                       </div>
@@ -289,7 +289,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                     
-                        <h3 th:each="dd : ${teste_temperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMax}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMax}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temp Orvalho Max</p>
                       </div>
@@ -305,7 +305,7 @@
                     <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                       <div class="inner">
                   
-                        <h3 th:each="dd : ${teste_temperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaPontoOrvalho}]]<sup style="font-size: 20px">°C</sup></h3>
+                        <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaPontoOrvalho}]]<sup style="font-size: 20px">°C</sup></h3>
 
                         <p style="font-size: 14px;">Temp Orvalho Ponto</p>
                       </div>
@@ -341,7 +341,7 @@
                     <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                       <div class="inner">
                     
-                        <h3 th:each="ee : ${teste_umidade}">[[${ee.umidadeRelativaMin}]]<sup style="font-size: 20px">%</sup></h3>
+                        <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaMin}]]<sup style="font-size: 20px">%</sup></h3>
 
                         <p style="font-size: 14px;">Umidade Min</p>
                       </div>
@@ -357,7 +357,7 @@
                     <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                       <div class="inner">
           
-                        <h3 th:each="ee : ${teste_umidade}">[[${ee.umidadeRelativaMax}]]<sup style="font-size: 20px">%</sup></h3>
+                        <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaMax}]]<sup style="font-size: 20px">%</sup></h3>
                         <p style="font-size: 14px;">Umidade Max</p>
                       </div>
                       <div class="icon">
@@ -372,7 +372,7 @@
                     <div class="small-box bg-info" style="background-color: #277AE6 !important;">
                       <div class="inner">
 
-                        <h3 th:each="ee : ${teste_umidade}">[[${ee.umidadeRelativaAr}]]<sup style="font-size: 20px">%</sup></h3>
+                        <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaAr}]]<sup style="font-size: 20px">%</sup></h3>
                         <p style="font-size: 14px;">Umidade Relativa Ar</p>
                       </div>
                       <div class="icon">
@@ -408,7 +408,7 @@
                     <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                       <div class="inner">
                       
-                        <h3 th:each="ff : ${teste_vento}">[[${ff.ventoVelocidade}]]<sup style="font-size: 20px">m/s</sup></h3>
+                        <h3 th:each="ff : ${unicaVento}">[[${ff.ventoVelocidade}]]<sup style="font-size: 20px">m/s</sup></h3>
 
                         <p style="font-size: 14px;">Vento - Velociade</p>
                       </div>
@@ -424,7 +424,7 @@
                     <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
                       <div class="inner">
               
-                        <h3 th:each="ff : ${teste_vento}">[[${ff.ventoRajadaMax}]]<sup style="font-size: 20px">m/s</sup></h3>
+                        <h3 th:each="ff : ${unicaVento}">[[${ff.ventoRajadaMax}]]<sup style="font-size: 20px">m/s</sup></h3>
 
                         <p style="font-size: 14px;">Vento Rajada Max</p>
                       </div>
@@ -461,7 +461,7 @@
                     <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                       <div class="inner">
             
-                        <h3 th:each="bb : ${teste_atm}">[[${bb.pressaoAtmMin}]]<sup style="font-size: 20px">mB</sup></h3>
+                        <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmMin}]]<sup style="font-size: 20px">mB</sup></h3>
                         <p style="font-size: 14px;">Pressão Atmosferica Min</p>
                       </div>
                       <div class="icon">
@@ -476,7 +476,7 @@
                     <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                       <div class="inner">
                 
-                        <h3 th:each="bb : ${teste_atm}">[[${bb.pressaoAtmMax}]]<sup style="font-size: 20px">mB</sup></h3>
+                        <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmMax}]]<sup style="font-size: 20px">mB</sup></h3>
                         <p style="font-size: 14px;">Pressão Atmosferica Max</p>
                       </div>
                       <div class="icon">
@@ -491,7 +491,7 @@
                     <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
                       <div class="inner">
                 
-                        <h3 th:each="bb : ${teste_atm}">[[${bb.pressaoAtmEstacao}]]<sup style="font-size: 20px">mB</sup></h3>
+                        <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmEstacao}]]<sup style="font-size: 20px">mB</sup></h3>
                         <p style="font-size: 14px;">Pressão Atmosferica Estação</p>
                       </div>
                       <div class="icon">
@@ -526,7 +526,7 @@
                     <!-- small box -->
                   <div class="small-box bg-success"  style="background-color: #277AE6 !important;">
                     <div class="inner">
-                      <h3 th:each="cc : ${teste_radiacaoglobal}">[[${cc.radiacaoGlobal}]]<sup style="font-size: 20px">Kj/m²</sup></h3>
+                      <h3 th:each="cc : ${unicaRadiacaoglobal}">[[${cc.radiacaoGlobal}]]<sup style="font-size: 20px">Kj/m²</sup></h3>
                       <p style="font-size: 14px;">Radição Global</p>
                     </div>
                     <div class="icon">
@@ -560,7 +560,7 @@
                     <!-- small box -->
                     <div class="small-box bg-primary" style="background-color: #4596FF !important;">
                       <div class="inner">
-                        <h3 th:each="aa : ${teste_precipitacao}">[[${aa.precipitacaototal}]]<sup style="font-size: 20px">%</sup></h3>
+                        <h3 th:each="aa : ${unicaPrecipitacao}">[[${aa.precipitacaototal}]]<sup style="font-size: 20px">%</sup></h3>
                         <p style="font-size: 14px;">Precipitação</p>
                       </div>
                       <div class="icon">
@@ -609,6 +609,363 @@
         
       </section>
       <!-- /.content -->
+
+       <!--TABELA LISTA UNICA-->
+      <div style="margin-left: 100px; margin-right: 100px;">
+
+        <div style="text-align: center;">
+            <h5>TABELAS - DATA UNICA</h5>
+            <br>
+        </div>
+
+          view_precipitacao_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">precipitacaototal</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="aa : ${unicaPrecipitacao}">
+                      <td>[[${aa.precipitacaototal}]]</td>
+                      <td>[[${aa.codWmo}]]</td>
+                      <td>[[${aa.estacaoEstado}]]</td>
+                      <td>[[${aa.estacaoNome}]]</td>
+                      <td>[[${aa.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_atm_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">pressaoAtmEstacao</th>
+                  <th scope="col">pressaoAtmMin</th>
+                  <th scope="col">pressaoAtmMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="bb : ${unicaAtm}">
+                      <td>[[${bb.pressaoAtmEstacao}]]</td>
+                      <td>[[${bb.pressaoAtmMin}]]</td>
+                      <td>[[${bb.pressaoAtmMax}]]</td>
+                      <td>[[${bb.codWmo}]]</td>
+                      <td>[[${bb.estacaoEstado}]]</td>
+                      <td>[[${bb.estacaoNome}]]</td>
+                      <td>[[${bb.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_radiacaoglobal_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">radiacaoGlobal</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+            
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="cc : ${unicaRadiacaoglobal}">
+                      <td>[[${cc.radiacaoGlobal}]]</td>
+                      <td>[[${cc.codWmo}]]</td>
+                      <td>[[${cc.estacaoEstado}]]</td>
+                      <td>[[${cc.estacaoNome}]]</td>
+                      <td>[[${cc.datahoraCaptacao}]]</td>
+                    
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_temperatura_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">temperaturaAr</th>
+                  <th scope="col">temperaturaMin</th>
+                  <th scope="col">temperaturaMax</th>
+                  <th scope="col">temperaturaPontoOrvalho</th>
+                  <th scope="col">temperaturaOrvalhoMin</th>
+                  <th scope="col">temperaturaOrvalhoMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="dd : ${unicaTemperatura}">
+                      <td>[[${dd.temperaturaAr}]]</td>
+                      <td>[[${dd.temperaturaMin}]]</td>
+                      <td>[[${dd.temperaturaMax}]]</td>
+                      <td>[[${dd.temperaturaPontoOrvalho}]]</td>
+                      <td>[[${dd.temperaturaOrvalhoMin}]]</td>
+                      <td>[[${dd.temperaturaOrvalhoMax}]]</td>
+                      <td>[[${dd.codWmo}]]</td>
+                      <td>[[${dd.estacaoEstado}]]</td>
+                      <td>[[${dd.estacaoNome}]]</td>
+                      <td>[[${dd.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          
+          view_umidade_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">umidadeRelativaAr</th>
+                  <th scope="col">umidadeRelativaMin</th>
+                  <th scope="col">umidadeRelativaMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="ee : ${unicaUmidade}">
+                      <td>[[${ee.umidadeRelativaAr}]]</td>
+                      <td>[[${ee.umidadeRelativaMin}]]</td>
+                      <td>[[${ee.umidadeRelativaMax}]]</td>
+                      <td>[[${ee.codWmo}]]</td>
+                      <td>[[${ee.estacaoEstado}]]</td>
+                      <td>[[${ee.estacaoNome}]]</td>
+                      <td>[[${ee.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_vento_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">ventoVelocidade</th>
+                  <th scope="col">ventoRajadaMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="ff : ${unicaVento}">
+                      <td>[[${ff.ventoVelocidade}]]</td>
+                      <td>[[${ff.ventoRajadaMax}]]</td>
+                      <td>[[${ff.codWmo}]]</td>
+                      <td>[[${ff.estacaoEstado}]]</td>
+                      <td>[[${ff.estacaoNome}]]</td>
+                      <td>[[${ff.datahoraCaptacao}]]</td>
+                      
+                  </tr>
+              </tbody>
+          </table>
+          
+      </div> 
+
+      <br><br><br><br>
+
+       <!--TABELA LISTA RANGE-->
+      <div style="margin-left: 100px; margin-right: 100px;">
+
+        <div style="text-align: center;">
+            <h5>TABELAS - DATA RANGE</h5>
+            <br>
+        </div>
+
+          view_precipitacao_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">precipitacaototal</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="aaa : ${rangePrecipitacao}">
+                      <td>[[${aaa.precipitacaototal}]]</td>
+                      <td>[[${aaa.codWmo}]]</td>
+                      <td>[[${aaa.estacaoEstado}]]</td>
+                      <td>[[${aaa.estacaoNome}]]</td>
+                      <td>[[${aaa.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_atm_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">pressaoAtmEstacao</th>
+                  <th scope="col">pressaoAtmMin</th>
+                  <th scope="col">pressaoAtmMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="bbb : ${rangeAtm}">
+                      <td>[[${bbb.pressaoAtmEstacao}]]</td>
+                      <td>[[${bbb.pressaoAtmMin}]]</td>
+                      <td>[[${bbb.pressaoAtmMax}]]</td>
+                      <td>[[${bbb.codWmo}]]</td>
+                      <td>[[${bbb.estacaoEstado}]]</td>
+                      <td>[[${bbb.estacaoNome}]]</td>
+                      <td>[[${bbb.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_radiacaoglobal_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">radiacaoGlobal</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+            
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="ccc : ${rangeRadiacaoglobal}">
+                      <td>[[${ccc.radiacaoGlobal}]]</td>
+                      <td>[[${ccc.codWmo}]]</td>
+                      <td>[[${ccc.estacaoEstado}]]</td>
+                      <td>[[${ccc.estacaoNome}]]</td>
+                      <td>[[${ccc.datahoraCaptacao}]]</td>
+                    
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_temperatura_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">temperaturaAr</th>
+                  <th scope="col">temperaturaMin</th>
+                  <th scope="col">temperaturaMax</th>
+                  <th scope="col">temperaturaPontoOrvalho</th>
+                  <th scope="col">temperaturaOrvalhoMin</th>
+                  <th scope="col">temperaturaOrvalhoMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="ddd : ${rangeTemperatura}">
+                      <td>[[${ddd.temperaturaAr}]]</td>
+                      <td>[[${ddd.temperaturaMin}]]</td>
+                      <td>[[${ddd.temperaturaMax}]]</td>
+                      <td>[[${ddd.temperaturaPontoOrvalho}]]</td>
+                      <td>[[${ddd.temperaturaOrvalhoMin}]]</td>
+                      <td>[[${ddd.temperaturaOrvalhoMax}]]</td>
+                      <td>[[${ddd.codWmo}]]</td>
+                      <td>[[${ddd.estacaoEstado}]]</td>
+                      <td>[[${ddd.estacaoNome}]]</td>
+                      <td>[[${ddd.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          
+          view_umidade_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">umidadeRelativaAr</th>
+                  <th scope="col">umidadeRelativaMin</th>
+                  <th scope="col">umidadeRelativaMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="eee : ${rangeUmidade}">
+                      <td>[[${eee.umidadeRelativaAr}]]</td>
+                      <td>[[${eee.umidadeRelativaMin}]]</td>
+                      <td>[[${eee.umidadeRelativaMax}]]</td>
+                      <td>[[${eee.codWmo}]]</td>
+                      <td>[[${eee.estacaoEstado}]]</td>
+                      <td>[[${eee.estacaoNome}]]</td>
+                      <td>[[${eee.datahoraCaptacao}]]</td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <br>
+
+          view_vento_dados
+          <table class="table table-striped" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                  <th scope="col">ventoVelocidade</th>
+                  <th scope="col">ventoRajadaMax</th>
+                  <th scope="col">codWmo</th>
+                  <th scope="col">estacaoEstado</th>
+                  <th scope="col">estacaoNome</th>
+                  <th scope="col">datahoraCaptacao</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr th:each="fff : ${rangeVento}">
+                      <td>[[${fff.ventoVelocidade}]]</td>
+                      <td>[[${fff.ventoRajadaMax}]]</td>
+                      <td>[[${fff.codWmo}]]</td>
+                      <td>[[${fff.estacaoEstado}]]</td>
+                      <td>[[${fff.estacaoNome}]]</td>
+                      <td>[[${fff.datahoraCaptacao}]]</td>
+                      
+                  </tr>
+              </tbody>
+          </table>
+          <br><br><br><br>
+      </div> 
+      
+      
+
     </div>
     <!-- /.content-wrapper -->
 
@@ -634,6 +991,190 @@
   </div>
   <!-- ./wrapper -->
 
+ <!-- Modal filtro -->
+ <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Filtro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      
+        <form action='#' th:action="@{/index}" method="POST" th:object="${filtro}">
+          <div class="row">
+          
+            <div class="col-4">
+              Cod Estado:
+              <select class="form-control" id="jsEnviaEstado" required>
+                  <option value="" selected>Escolha o Estado</option>
+                  <option value="AC">AC - Acre</option>
+                  <option value="AL">AL - Alagoas</option>
+                  <option value="AM">AM - Amazonas</option>
+                  <option value="AP">AP - Amapá</option>
+                  <option value="BA">BA - Bahia</option>
+                  <option value="CE">CE - Ceará</option>
+                  <option value="DF">DF - Distrito Federal</option>
+                  <option value="ES">ES - Espírito Santo</option>
+                  <option value="GO">GO - Goiás</option>
+                  <option value="MA">MA - Maranhão</option>
+                  <option value="MG">MG - Minas Gerais</option>
+                  <option value="MS">MS - Mato Grosso do Sul</option>
+                  <option value="MT">MT - Mato Grosso</option>
+                  <option value="PA">PA - Pará</option>
+                  <option value="PB">PB - Paraíba</option>
+                  <option value="PE">PE - Pernambuco</option>
+                  <option value="PI">PI - Piauí</option>
+                  <option value="PR">PR - Paraná</option>
+                  <option value="RJ">RJ - Rio de Janeiro</option>
+                  <option value="RN">RN - Rio Grande do Norte</option>
+                  <option value="RO">RO - Rondônia</option>
+                  <option value="RR">RR - Roraima</option>
+                  <option value="RS">RS - Rio Grande do Sul</option>
+                  <option value="SC">SC - Santa Catarina</option>
+                  <option value="SE">SE - Sergipe</option>
+                  <option value="SP">SP - São Paulo</option>
+                  <option value="TO">TO - Tocantins</option>
+              </select>
+            </div>
+            
+            <div class="col-8">
+              Estação:
+              <div id="jv_classe">
+              <select class="form-control" id="" disabled>
+                <option value="" selected>Selecione...</option>
+              </select>
+              </div>
+            </div>
+
+            <br><br><br>
+
+            <div class="col-6">
+              Data Minima:
+              <input type="datetime-local" class="form-control" id="jsEnviaDataMin" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+            </div>
+
+            <div class="col-6">
+              Data Maxima:
+              <input type="datetime-local" class="form-control" id="jsEnviaDataMax" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+            </div>
+                                                                                                               
+          </div>
+
+          <!-- <br><br><br><br> -->
+          <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacaoEstado}"></input>
+          <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacaoNome}" ></input>
+          <input type="hidden" class="form-control" id="jsRecebeDataMin" th:field="*{dataHoraInicial}"></input>
+          <input type="hidden" class="form-control" id="jsRecebeDataMax" th:field="*{dataHoraFinal}"></input>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+        <button class="btn btn-primary" type="submit"><i class="fas fa-filter"></i> Filtrar</button>
+        </form>
+
+        </div>
+       
+        
+    </div>
+  </div>
+</div>
+
+<!-- Modal legenda -->
+<div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Legenda</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style=" text-align: justify; text-justify: inter-word;">
+        <b>PRECIPITAÇÃO TOTAL (mm) -</b>
+        Nas estações automáticas é a medida total de precipitação (chuva), ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais É a medida do total de precipitação (chuva) que ocorreu no espaço de 24 hora.
+        <br><br><br>
+
+        <b>PRESSÃO ATMOSFÉRICA AO NÍVEL DA ESTAÇÃO, HORÁRIA (mb/hPa) -</b>
+        Nas estações convencionais é a medida da pressão atmosférica que foi medida na estação, e a partir deste valor, também é calculada a pressão ao nível do mar (para fins sinóticos). Nas estações automáticas é a medida média da pressão atmosférica, também ao nível da estação, ocorrida na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>PRESSÃO ATMOSFÉRICA MÁXIMA HORA ANTERIOR (AUT) (mb/hPa) -</b>
+        Nas estações automáticas é a medida da pressão atmosférica máxima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+        <b>PRESSÃO ATMOSFÉRICA MÍNIMA NA HORA ANTERIOR (AUT) (mb/hpa) -</b>
+        Nas estações automáticas é medida da pressão atmosférica mínima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+        <b>RADIAÇÃO GLOBAL (KJ/m²) -</b>
+        Nas estações automáticas é a medida de toda radiação solar que chegou a superfície terrestre, na última hora antes de cada mensagem de dados. Nas estações convencionais a radiação solar global é medida de forma indireta, cujo registro necessita de processamento posterior, para que se tenha o total de radiação solar global que chegou ao respectivo local.
+        <br><br><br>
+
+        <b>TEMPERATURA DO AR - BULBO SECO, HORÁRIA (°C) -</b>
+        Nas estações convencionais é a medida da temperatura do ar, a partir do termômetro de bulbo seco do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido). Nas estações automáticas é medida média da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>TEMPERATURA DO PONTO DE ORVALHO (°C) -</b>
+        Nas estações convencionais é uma medida determinada de forma indireta (a partir dos valores de temperatura do ar e da umidade relativa), através de valores tabulares. E indica a temperatura que o ar deveria ter, para que ele se tornasse saturado, e assim produzir orvalho. Nas estações automáticas este parâmetro é calculado a partir dos valores de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>TEMPERATURA MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+        Nas estações convencionais é a medida máxima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é medida máxima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>TEMPERATURA MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+        Nas estações convencionais é a medida mínima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é a medida mínima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>TEMPERATURA DO PONTO DE ORVALHO MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+        Nas estações automáticas este parâmetro é calculado a partir dos valores máximos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+        <b>TEMPERATURA DO PONTO DE ORVALHO MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+        Nas estações automáticas este parâmetro é calculado a partir dos valores mínimos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+        <b>UMIDADE RELATIVA MÁXIMA NA HORA ANTERIOR (AUT) (%) -</b>
+        Nas estações automáticas é a medida máxima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+
+        <b>UMIDADE RELATIVA MÍNIMA NA HORA ANTERIOR (AUT) (%) -</b>
+        Nas estações automáticas é a medida mínima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+        <br><br><br>
+
+        <b>UMIDADE RELATIVA DO AR, HORÁRIA (%) -</b>
+        Nas estações convencionais é uma medida determinada de forma indireta, a partir do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido), e o uso de valores tabulares. Nas estações automáticas é a medida da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados.
+        <br><br><br>
+
+        <b>DIREÇÃO DO VENTO, HORÁRIA (°) -</b>
+        Nas estações automáticas é a medida em graus angulares da direção do vento (de onde o vento vem). Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da direção do vento, determinada pelas indicações de setor da rosa dos ventos, e se constitui na média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
+        <br><br><br>
+
+        <b>RAJADA MÁXIMA DO VENTO (m/s) -</b>
+        Nas estações automáticas é a medida máxima da velocidade do vento, ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais é a máxima medida da velocidade do vento ocorrida no período de 24 horas.
+        <br><br><br>
+
+        <b>VELOCIDADE DO VENTO HORÁRIA (m/s) -</b>
+        Nas estações automáticas é a medida da velocidade do vento. Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da velocidade do vento, e determinada a partir da média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
+        <br><br><br>
+
+        <b>UTC -</b>
+        Coordenada de Tempo Universal, com referência ao Meridiano de Greenwich (Inglaterra), equivalente ao horário de Londres, que corresponde a 3 horas a mais em relação ao horário de Brasília.
+        <br>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+    </div>
+
+
+  </div>
+</div>
+
   <!-- Jquery JS-->
   <script src="vendor/jquery-3.2.1.min.js"></script>
   <script src="vendor/vector-map/jquery.vmap.js"></script>
@@ -650,404 +1191,13 @@
   <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
-
-  <!-- Modal -->
-  <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content ">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Filtro</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-  
-        
-          <form action='#' th:action="@{/index}" method="POST" th:object="${filtro}">
-            <div class="row">
-            
-              <div class="col-4">
-                Cod Estado:
-                <select class="form-control" id="jsEnviaEstado" required>
-                    <option value="" selected>Escolha o Estado</option>
-                    <option value="AC">AC - Acre</option>
-                    <option value="AL">AL - Alagoas</option>
-                    <option value="AM">AM - Amazonas</option>
-                    <option value="AP">AP - Amapá</option>
-                    <option value="BA">BA - Bahia</option>
-                    <option value="CE">CE - Ceará</option>
-                    <option value="DF">DF - Distrito Federal</option>
-                    <option value="ES">ES - Espírito Santo</option>
-                    <option value="GO">GO - Goiás</option>
-                    <option value="MA">MA - Maranhão</option>
-                    <option value="MG">MG - Minas Gerais</option>
-                    <option value="MS">MS - Mato Grosso do Sul</option>
-                    <option value="MT">MT - Mato Grosso</option>
-                    <option value="PA">PA - Pará</option>
-                    <option value="PB">PB - Paraíba</option>
-                    <option value="PE">PE - Pernambuco</option>
-                    <option value="PI">PI - Piauí</option>
-                    <option value="PR">PR - Paraná</option>
-                    <option value="RJ">RJ - Rio de Janeiro</option>
-                    <option value="RN">RN - Rio Grande do Norte</option>
-                    <option value="RO">RO - Rondônia</option>
-                    <option value="RR">RR - Roraima</option>
-                    <option value="RS">RS - Rio Grande do Sul</option>
-                    <option value="SC">SC - Santa Catarina</option>
-                    <option value="SE">SE - Sergipe</option>
-                    <option value="SP">SP - São Paulo</option>
-                    <option value="TO">TO - Tocantins</option>
-                </select>
-              </div>
-              
-              <div class="col-4">
-                Estação:
-                <div id="jv_classe">
-                <select class="form-control" id="" disabled>
-                  <option value="" selected>Selecione...</option>
-                </select>
-                </div>
-              </div>
-
-              <div class="col-4">
-                Data:
-                <input type="datetime-local" class="form-control" id="jsEnviaData" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>
-                                                                                        
-              </div>
-                                                                                                                 
-            </div>
-            <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacaoEstado}"></input>
-            <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacaoNome}" ></input>
-            <input type="hidden" class="form-control" id="jsRecebeData" th:field="*{datahoraCaptacao}"></input>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
-          <button class="btn btn-primary" type="submit"><i class="fas fa-filter"></i> Filtrar</button>
-          </form>
-
-          </div>
-         
-          
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content ">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Legenda</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" style=" text-align: justify; text-justify: inter-word;">
-          <b>PRECIPITAÇÃO TOTAL (mm) -</b>
-          Nas estações automáticas é a medida total de precipitação (chuva), ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais É a medida do total de precipitação (chuva) que ocorreu no espaço de 24 hora.
-          <br><br><br>
-
-          <b>PRESSÃO ATMOSFÉRICA AO NÍVEL DA ESTAÇÃO, HORÁRIA (mb/hPa) -</b>
-          Nas estações convencionais é a medida da pressão atmosférica que foi medida na estação, e a partir deste valor, também é calculada a pressão ao nível do mar (para fins sinóticos). Nas estações automáticas é a medida média da pressão atmosférica, também ao nível da estação, ocorrida na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>PRESSÃO ATMOSFÉRICA MÁXIMA HORA ANTERIOR (AUT) (mb/hPa) -</b>
-          Nas estações automáticas é a medida da pressão atmosférica máxima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-          <b>PRESSÃO ATMOSFÉRICA MÍNIMA NA HORA ANTERIOR (AUT) (mb/hpa) -</b>
-          Nas estações automáticas é medida da pressão atmosférica mínima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-          <b>RADIAÇÃO GLOBAL (KJ/m²) -</b>
-          Nas estações automáticas é a medida de toda radiação solar que chegou a superfície terrestre, na última hora antes de cada mensagem de dados. Nas estações convencionais a radiação solar global é medida de forma indireta, cujo registro necessita de processamento posterior, para que se tenha o total de radiação solar global que chegou ao respectivo local.
-          <br><br><br>
-
-          <b>TEMPERATURA DO AR - BULBO SECO, HORÁRIA (°C) -</b>
-          Nas estações convencionais é a medida da temperatura do ar, a partir do termômetro de bulbo seco do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido). Nas estações automáticas é medida média da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>TEMPERATURA DO PONTO DE ORVALHO (°C) -</b>
-          Nas estações convencionais é uma medida determinada de forma indireta (a partir dos valores de temperatura do ar e da umidade relativa), através de valores tabulares. E indica a temperatura que o ar deveria ter, para que ele se tornasse saturado, e assim produzir orvalho. Nas estações automáticas este parâmetro é calculado a partir dos valores de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>TEMPERATURA MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
-          Nas estações convencionais é a medida máxima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é medida máxima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>TEMPERATURA MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
-          Nas estações convencionais é a medida mínima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é a medida mínima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>TEMPERATURA DO PONTO DE ORVALHO MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
-          Nas estações automáticas este parâmetro é calculado a partir dos valores máximos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-          <b>TEMPERATURA DO PONTO DE ORVALHO MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
-          Nas estações automáticas este parâmetro é calculado a partir dos valores mínimos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-          <b>UMIDADE RELATIVA MÁXIMA NA HORA ANTERIOR (AUT) (%) -</b>
-          Nas estações automáticas é a medida máxima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-
-          <b>UMIDADE RELATIVA MÍNIMA NA HORA ANTERIOR (AUT) (%) -</b>
-          Nas estações automáticas é a medida mínima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
-          <br><br><br>
-
-          <b>UMIDADE RELATIVA DO AR, HORÁRIA (%) -</b>
-          Nas estações convencionais é uma medida determinada de forma indireta, a partir do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido), e o uso de valores tabulares. Nas estações automáticas é a medida da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados.
-          <br><br><br>
-
-          <b>DIREÇÃO DO VENTO, HORÁRIA (°) -</b>
-          Nas estações automáticas é a medida em graus angulares da direção do vento (de onde o vento vem). Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da direção do vento, determinada pelas indicações de setor da rosa dos ventos, e se constitui na média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
-          <br><br><br>
-
-          <b>RAJADA MÁXIMA DO VENTO (m/s) -</b>
-          Nas estações automáticas é a medida máxima da velocidade do vento, ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais é a máxima medida da velocidade do vento ocorrida no período de 24 horas.
-          <br><br><br>
-
-          <b>VELOCIDADE DO VENTO HORÁRIA (m/s) -</b>
-          Nas estações automáticas é a medida da velocidade do vento. Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da velocidade do vento, e determinada a partir da média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
-          <br><br><br>
-
-          <b>UTC -</b>
-          Coordenada de Tempo Universal, com referência ao Meridiano de Greenwich (Inglaterra), equivalente ao horário de Londres, que corresponde a 3 horas a mais em relação ao horário de Brasília.
-          <br>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
-      </div>
-
-
-    </div>
-  </div>
-
   <script src="js/filtro.js"></script>
+
+
+
+
+
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       <!--TABELA-->
-       <div style="width: 500px; margin: 10px;">
-
-        <div style="text-align: center;">
-            <h5>TABELAS TESTE</h5>
-            <br>
-        </div>
-
-            view_precipitacao_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">precipitacaototal</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="aa : ${teste_precipitacao}">
-                        <td>[[${aa.precipitacaototal}]]</td>
-                        <td>[[${aa.codWmo}]]</td>
-                        <td>[[${aa.estacaoEstado}]]</td>
-                        <td>[[${aa.estacaoNome}]]</td>
-                        <td>[[${aa.datahoraCaptacao}]]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            view_atm_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">pressaoAtmEstacao</th>
-                    <th scope="col">pressaoAtmMin</th>
-                    <th scope="col">pressaoAtmMax</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="bb : ${teste_atm}">
-                        <td>[[${bb.pressaoAtmEstacao}]]</td>
-                        <td>[[${bb.pressaoAtmMin}]]</td>
-                        <td>[[${bb.pressaoAtmMax}]]</td>
-                        <td>[[${bb.codWmo}]]</td>
-                        <td>[[${bb.estacaoEstado}]]</td>
-                        <td>[[${bb.estacaoNome}]]</td>
-                        <td>[[${bb.datahoraCaptacao}]]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            view_radiacaoglobal_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">radiacaoGlobal</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-               
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="cc : ${teste_radiacaoglobal}">
-                        <td>[[${cc.radiacaoGlobal}]]</td>
-                        <td>[[${cc.codWmo}]]</td>
-                        <td>[[${cc.estacaoEstado}]]</td>
-                        <td>[[${cc.estacaoNome}]]</td>
-                        <td>[[${cc.datahoraCaptacao}]]</td>
-                      
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            view_temperatura_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">temperaturaAr</th>
-                    <th scope="col">temperaturaMin</th>
-                    <th scope="col">temperaturaMax</th>
-                    <th scope="col">temperaturaPontoOrvalho</th>
-                    <th scope="col">temperaturaOrvalhoMin</th>
-                    <th scope="col">temperaturaOrvalhoMax</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="dd : ${teste_temperatura}">
-                        <td>[[${dd.temperaturaAr}]]</td>
-                        <td>[[${dd.temperaturaMin}]]</td>
-                        <td>[[${dd.temperaturaMax}]]</td>
-                        <td>[[${dd.temperaturaPontoOrvalho}]]</td>
-                        <td>[[${dd.temperaturaOrvalhoMin}]]</td>
-                        <td>[[${dd.temperaturaOrvalhoMax}]]</td>
-                        <td>[[${dd.codWmo}]]</td>
-                        <td>[[${dd.estacaoEstado}]]</td>
-                        <td>[[${dd.estacaoNome}]]</td>
-                        <td>[[${dd.datahoraCaptacao}]]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            
-            view_umidade_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">umidadeRelativaAr</th>
-                    <th scope="col">umidadeRelativaMin</th>
-                    <th scope="col">umidadeRelativaMax</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="ee : ${teste_umidade}">
-                        <td>[[${ee.umidadeRelativaAr}]]</td>
-                        <td>[[${ee.umidadeRelativaMin}]]</td>
-                        <td>[[${ee.umidadeRelativaMax}]]</td>
-                        <td>[[${ee.codWmo}]]</td>
-                        <td>[[${ee.estacaoEstado}]]</td>
-                        <td>[[${ee.estacaoNome}]]</td>
-                        <td>[[${ee.datahoraCaptacao}]]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            view_vento_dados
-            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                    <th scope="col">ventoVelocidade</th>
-                    <th scope="col">ventoRajadaMax</th>
-                    <th scope="col">codWmo</th>
-                    <th scope="col">estacaoEstado</th>
-                    <th scope="col">estacaoNome</th>
-                    <th scope="col">datahoraCaptacao</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="ff : ${teste_vento}">
-                        <td>[[${ff.ventoVelocidade}]]</td>
-                        <td>[[${ff.ventoRajadaMax}]]</td>
-                        <td>[[${ff.codWmo}]]</td>
-                        <td>[[${ff.estacaoEstado}]]</td>
-                        <td>[[${ff.estacaoNome}]]</td>
-                        <td>[[${ff.datahoraCaptacao}]]</td>
-                        
-                    </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-    </div>
-    
