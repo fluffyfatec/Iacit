@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
 import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
 
@@ -22,4 +23,10 @@ public interface PressaoAtmRepository   extends JpaRepository<ViewPressaoAtmModa
     public List<ViewPressaoAtmModal> listarGraph (@Param("estacaoEstado") String estacaoEstado, 
     		@Param("estacaoNome") String estacaoNome,
     		@Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
+
+	@Query(value = "SELECT * FROM view_pressaoatmosferica_dados u WHERE u.estacao_estado = :estacaoEstado AND u.estacao_nome = :estacaoNome AND u.datahora_captacao BETWEEN CAST(:dataHoraInicial AS TIMESTAMP) AND CAST(:dataHoraFinal AS TIMESTAMP) ORDER BY u.datahora_captacao ASC", nativeQuery = true)
+    public List<ViewPressaoAtmModal> listarGraphPressao (@Param("estacaoEstado") String estacaoEstado, 
+    		@Param("estacaoNome") String estacaoNome,
+    		@Param("dataHoraInicial") Timestamp dataHoraInicial,
+    		@Param("dataHoraFinal") Timestamp dataHoraFinal);	
 }
