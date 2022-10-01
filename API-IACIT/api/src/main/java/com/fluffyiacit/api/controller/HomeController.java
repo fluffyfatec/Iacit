@@ -303,6 +303,28 @@ public class HomeController {
 		modelAndView.addObject("ventoGraph", ventoGraph);
 		modelAndView.setViewName("index");
 		
+		//FILTRO GRAFICOS RANGE
+		//GRAFICO PRECIPITACAO
+		List<ViewPrecipitacaoModal> graPrecipitacao = precipitacao.listarGraphPrecipitacao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+		modelAndView.addObject("graPrecipitacao", graPrecipitacao);
+		modelAndView.setViewName("index"); 
+		
+		//GRAFICO TEMPERATURA
+		List<ViewTemperaturaModal> graTemperatura = temperatura.listarGraphTemperatura("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+		modelAndView.addObject("graTemperatura", graTemperatura);
+		modelAndView.setViewName("index"); 
+		
+		//GRAFICO UMIDADE
+		List<ViewUmidadeModal> graUmidade = umidade.listarGraphUmidade("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+		modelAndView.addObject("graUmidade", graUmidade);
+		modelAndView.setViewName("index");
+				
+		//GRAFICO RADIACAO
+		List<ViewRadiacaoglobalModal> graRadiacao = radiacao.listarGraphRadicao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+		modelAndView.addObject("graRadiacao", graRadiacao);
+		modelAndView.setViewName("index");
+
+				
 		//FILTROS DE DADOS
 		filtromodal.getEstacaoNome();
 		filtromodal.getEstacaoEstado();
@@ -312,6 +334,8 @@ public class HomeController {
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("index");
 		return modelAndView;
+	
+		
 }
 
 	// FILTRO AJAX - ESTACAO

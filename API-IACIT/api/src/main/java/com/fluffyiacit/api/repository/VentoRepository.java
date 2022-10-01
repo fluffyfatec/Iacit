@@ -20,4 +20,10 @@ public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
     public List<ViewVentoModal> listarGraph (@Param("estacaoEstado") String estacaoEstado, 
     		@Param("estacaoNome") String estacaoNome,
     		@Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
+	
+	@Query(value = "SELECT * FROM view_vento_dados u WHERE u.estacao_estado = :estacaoEstado AND u.estacao_nome = :estacaoNome AND u.datahora_captacao BETWEEN CAST(:dataHoraInicial AS TIMESTAMP) AND CAST(:dataHoraFinal AS TIMESTAMP) ORDER BY u.datahora_captacao ASC", nativeQuery = true)
+    public List<ViewVentoModal> listarGraphVento (@Param("estacaoEstado") String estacaoEstado, 
+    		@Param("estacaoNome") String estacaoNome,
+    		@Param("dataHoraInicial") Timestamp dataHoraInicial,
+    		@Param("dataHoraFinal") Timestamp dataHoraFinal);
 }
