@@ -65,7 +65,7 @@ public class RadiacaoGlobalAjaxController {
         }
 
 
-        List<ViewRadiacaoglobalmodal> graRadiacaoFiltro = radiacaoGlobalRepository.listarGraphRadiacao(filtroModal.getEstacaoEstado(), filtroModal.getEstacaoNome(),Timestamp.valueOf(filtroModal.getDataHoraInicial()),Timestamp.valueOf(filtroModal.getDataHoraFinal()));
+        List<ViewRadiacaoglobalModal> graRadiacaoFiltro = radiacaoGlobalRepository.listarGraphRadiacao(filtroModal.getEstacaoEstado(), filtroModal.getEstacaoNome(),Timestamp.valueOf(filtroModal.getDataHoraInicial()),Timestamp.valueOf(filtroModal.getDataHoraFinal()));
         modelAndView.addObject("graRadiacaoFiltro", graRadiacaoFiltro);
         for (ViewRadiacaoglobalModal objview : graRadiacaoFiltro) {
             System.out.println("1:" + objview.getDatahoraCaptacao());

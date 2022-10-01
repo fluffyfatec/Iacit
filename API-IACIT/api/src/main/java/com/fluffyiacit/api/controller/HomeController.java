@@ -320,7 +320,7 @@ public class HomeController {
 		modelAndView.setViewName("index");
 				
 		//GRAFICO RADIACAO
-		List<ViewRadiacaoglobalModal> graRadiacao = radiacao.listarGraphRadicao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
+		List<ViewRadiacaoglobalModal> graRadiacao = radiacao.listarGraphRadiacao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graRadiacao", graRadiacao);
 		modelAndView.setViewName("index");
 
