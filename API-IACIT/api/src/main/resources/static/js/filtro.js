@@ -48,18 +48,6 @@
       document.getElementById("jsRecebeEstacao").value = opcaoTexto;
   }
 
-  //RECEBENDO DATA CAPTAÇÃO
-  // document.getElementById("jsEnviaData").onchange = function() {filtroData()};
-  // function filtroData() {
-  //      var jsFiltroData = document.getElementById("jsEnviaData").value;
-  //      var jsData = jsFiltroData.substring(0, 10);
-  //      var jsHora = jsFiltroData.substring(11);
-  //      var jsHora = jsHora.substring(0,2);
-  //      var jsHora = jsHora + ':00:00';
-  //      document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
-  // }
-
-
   //RECEBENDO DATA CAPTAÇÃO MINIMA
   document.getElementById("jsEnviaDataMin").onchange = function() {filtroDataMin()};
   function filtroDataMin() {

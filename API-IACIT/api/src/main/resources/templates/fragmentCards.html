@@ -1,0 +1,380 @@
+<div th:fragment="Cards">
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+
+    <!-- Temperatura -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Temperatua" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+                
+                <h3 th:each="dd : ${unicaTemperatura}">[[${dd.temperaturaMin}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temperatura Min</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+                
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaMax}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temperatura Max</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+                
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaAr}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temperatura Ar</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+                
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMin}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temp Orvalho Min</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+            
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMax}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temp Orvalho Max</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                <div class="inner">
+            
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaPontoOrvalho}]]<sup style="font-size: 20px">°C</sup></h3>
+
+                <p style="font-size: 14px;">Temp Orvalho Ponto</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-temperature-low"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Temperatua" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Temperatua" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    <!-- Umidade -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Umidade" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                <div class="inner">
+            
+                <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaMin}]]<sup style="font-size: 20px">%</sup></h3>
+
+                <p style="font-size: 14px;">Umidade Min</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-water"></i>
+                </div>
+                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+            
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                <div class="inner">
+
+                <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaMax}]]<sup style="font-size: 20px">%</sup></h3>
+                <p style="font-size: 14px;">Umidade Max</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-water"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-info" style="background-color: #277AE6 !important;">
+                <div class="inner">
+
+                <h3 th:each="ee : ${unicaUmidade}">[[${ee.umidadeRelativaAr}]]<sup style="font-size: 20px">%</sup></h3>
+                <p style="font-size: 14px;">Umidade Relativa Ar</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-water"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Umidade" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Umidade" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    <!-- Vento -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Vento" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
+                <div class="inner">
+                
+                <h3 th:each="ff : ${unicaVento}">[[${ff.ventoVelocidade}]]<sup style="font-size: 20px">m/s</sup></h3>
+
+                <p style="font-size: 14px;">Vento - Velociade</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-wind"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+            
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger"  style="background-color: #4596FF !important;">
+                <div class="inner">
+        
+                <h3 th:each="ff : ${unicaVento}">[[${ff.ventoRajadaMax}]]<sup style="font-size: 20px">m/s</sup></h3>
+
+                <p style="font-size: 14px;">Vento Rajada Max</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-wind"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Vento" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Vento" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    <!-- Pressão Atmosferica -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Pressao_Atm" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                <div class="inner">
+
+                <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmMin}]]<sup style="font-size: 20px">mB</sup></h3>
+                <p style="font-size: 14px;">Pressão Atmosferica Min</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+            
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                <div class="inner">
+        
+                <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmMax}]]<sup style="font-size: 20px">mB</sup></h3>
+                <p style="font-size: 14px;">Pressão Atmosferica Max</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>   
+            
+            <div class="carousel-item">
+            <!-- small box -->
+            <div class="small-box bg-danger"  style="background-color: #0D4A99 !important;">
+                <div class="inner">
+        
+                <h3 th:each="bb : ${unicaAtm}">[[${bb.pressaoAtmEstacao}]]<sup style="font-size: 20px">mB</sup></h3>
+                <p style="font-size: 14px;">Pressão Atmosferica Estação</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>  
+
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Pressao_Atm" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Pressao_Atm" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    <!-- Radiação Global -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Radiacao" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-success"  style="background-color: #277AE6 !important;">
+            <div class="inner">
+                <h3 th:each="cc : ${unicaRadiacaoglobal}">[[${cc.radiacaoGlobal}]]<sup style="font-size: 20px">Kj/m²</sup></h3>
+                <p style="font-size: 14px;">Radição Global</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-radiation"></i>
+            </div>
+            <a href="#" class="small-box-footer"onclick="jsMenuAjax('Radiacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Radiacao" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Radiacao" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    <!-- Precipitação -->
+    <div class="col-lg-2 col-5">
+
+        <div id="Carrosel_Precipitacao" class="carousel slide" data-ride="carousel" data-interval="10000">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+            <!-- small box -->
+            <div class="small-box bg-primary" style="background-color: #4596FF !important;">
+                <div class="inner">
+                <h3 th:each="aa : ${unicaPrecipitacao}">[[${aa.precipitacaototal}]]<sup style="font-size: 20px">%</sup></h3>
+                <p style="font-size: 14px;">Precipitação</p>
+                </div>
+                <div class="icon">
+                <i class="fas fa-cloud-showers-heavy"></i>
+                </div>
+                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Precipitacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+            </div>              
+
+        </div>
+
+        <a class="carousel-control-prev" href="#Carrosel_Precipitacao" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#Carrosel_Precipitacao" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        </div>
+
+    </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
