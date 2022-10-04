@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.fluffyiacit.api.modal.ViewUmidadeModal;
 import com.fluffyiacit.api.modal.ViewVentoModal;
 
 public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
@@ -23,12 +24,12 @@ public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
 									      @Param("dataHoraInicial") Timestamp dataHoraInicial,
 									      @Param("dataHoraFinal") Timestamp dataHoraFinal);
 	
-//	@Query(value = "SELECT * FROM view_vento_dados pa WHERE pa.estacao_estado = :estacaoEstado AND pa.estacao_nome = :estacaoNome AND pa.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
-//  public List<ViewUmidadeModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
-//									    	   @Param("estacaoNome") String estacaoNome,
-//									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
+	@Query(value = "SELECT * FROM view_vento_dados pa WHERE pa.estacao_estado = :estacaoEstado AND pa.estacao_nome = :estacaoNome AND pa.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
+  public List<ViewUmidadeModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
+									    	   @Param("estacaoNome") String estacaoNome,
+									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 
-//	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_vento_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
-//	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_vento_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
 	
 }

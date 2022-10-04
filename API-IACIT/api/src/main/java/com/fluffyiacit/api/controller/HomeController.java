@@ -27,7 +27,6 @@ import com.fluffyiacit.api.repository.VentoRepository;
 
 import DTO.FiltroDatasDTO;
 
-
 @Controller
 @RequestMapping
 public class HomeController {
@@ -60,7 +59,7 @@ public class HomeController {
 	public ModelAndView PaginaIndex() {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
-		
+
 		filtrodatas.setEstacaoNome("SP");
 		filtrodatas.setEstacaoEstado("SAO PAULO - INTERLAGOS");
 		filtrodatas.setCodWmo("");
@@ -68,14 +67,15 @@ public class HomeController {
 		filtrodatas.setDataHoraFinal("2022-06-28 10:00:00");
 		modelAndView.addObject("filtro", filtrodatas);
 
-		
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//LISTA RANGE//
-		
+		// LISTA RANGE//
+
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPrecipitacaoModal objviewPrecipitacao : rangePrecipitacao) {
 			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
 				objviewPrecipitacao.setPrecipitacaototal("N/A");
@@ -84,7 +84,9 @@ public class HomeController {
 		modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
 
 		// Lista Pressao
-		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPressaoAtmModal objviewPressao : rangeAtm) {
 			if (objviewPressao.getPressaoAtmEstacao() == null) {
 				objviewPressao.setPressaoAtmEstacao("N/A");
@@ -99,7 +101,9 @@ public class HomeController {
 		modelAndView.addObject("rangeAtm", rangeAtm);
 
 		// Lista Radiacao
-		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewRadiacaoglobalModal objviewRadiacao : rangeRadiacaoglobal) {
 			if (objviewRadiacao.getRadiacaoGlobal() == null) {
 				objviewRadiacao.setRadiacaoGlobal("N/A");
@@ -108,7 +112,9 @@ public class HomeController {
 		modelAndView.addObject("rangeRadiacaoglobal", rangeRadiacaoglobal);
 
 		// Lista Temperatura
-		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewTemperaturaModal objviewTemperatura : rangeTemperatura) {
 			if (objviewTemperatura.getTemperaturaAr() == null) {
 				objviewTemperatura.setTemperaturaAr("N/A");
@@ -132,7 +138,9 @@ public class HomeController {
 		modelAndView.addObject("rangeTemperatura", rangeTemperatura);
 
 		// Lista Umidade
-		List<ViewUmidadeModal> rangeUmidade = umidade.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewUmidadeModal> rangeUmidade = umidade.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewUmidadeModal objviewUmidade : rangeUmidade) {
 			if (objviewUmidade.getUmidadeRelativaAr() == null) {
 				objviewUmidade.setUmidadeRelativaAr("N/A");
@@ -143,11 +151,12 @@ public class HomeController {
 			if (objviewUmidade.getUmidadeRelativaMin() == null) {
 				objviewUmidade.setUmidadeRelativaMin("N/A");
 			}
-		}	
+		}
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 
 		// Lista Vento
-		List<ViewVentoModal> rangeVento = vento.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewVentoModal> rangeVento = vento.listRange(filtrodatas.getEstacaoNome(), filtrodatas.getEstacaoEstado(),
+				Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewVentoModal objviewVento : rangeVento) {
 			if (objviewVento.getVentoDirecaoHorario() == null) {
 				objviewVento.setVentoDirecaoHorario("N/A");
@@ -164,16 +173,15 @@ public class HomeController {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				
-		
-		
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//LISTA UNICA//
-		
+		// LISTA UNICA//
+
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> teste_precipitacao = precipitacao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPrecipitacaoModal> teste_precipitacao = precipitacao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPrecipitacaoModal objviewPrecipitacao : teste_precipitacao) {
 			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
 				objviewPrecipitacao.setPrecipitacaototal("N/A");
@@ -182,7 +190,8 @@ public class HomeController {
 		modelAndView.addObject("unicaPrecipitacao", teste_precipitacao);
 
 		// Lista Pressao
-		List<ViewPressaoAtmModal> teste_atm = pressao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPressaoAtmModal> teste_atm = pressao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPressaoAtmModal objviewPressao : teste_atm) {
 			if (objviewPressao.getPressaoAtmEstacao() == null) {
 				objviewPressao.setPressaoAtmEstacao("N/A");
@@ -197,7 +206,8 @@ public class HomeController {
 		modelAndView.addObject("unicaAtm", teste_atm);
 
 		// Lista Radiacao
-		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewRadiacaoglobalModal> teste_radiacaoglobal = radiacao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewRadiacaoglobalModal objviewRadiacao : teste_radiacaoglobal) {
 			if (objviewRadiacao.getRadiacaoGlobal() == null) {
 				objviewRadiacao.setRadiacaoGlobal("N/A");
@@ -206,7 +216,8 @@ public class HomeController {
 		modelAndView.addObject("unicaRadiacaoglobal", teste_radiacaoglobal);
 
 		// Lista Temperatura
-		List<ViewTemperaturaModal> teste_temperatura = temperatura.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewTemperaturaModal> teste_temperatura = temperatura.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewTemperaturaModal objviewTemperatura : teste_temperatura) {
 			if (objviewTemperatura.getTemperaturaAr() == null) {
 				objviewTemperatura.setTemperaturaAr("N/A");
@@ -230,7 +241,8 @@ public class HomeController {
 		modelAndView.addObject("unicaTemperatura", teste_temperatura);
 
 		// Lista Umidade
-		List<ViewUmidadeModal> teste_umidade = umidade.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewUmidadeModal> teste_umidade = umidade.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewUmidadeModal objviewUmidade : teste_umidade) {
 			if (objviewUmidade.getUmidadeRelativaAr() == null) {
 				objviewUmidade.setUmidadeRelativaAr("N/A");
@@ -245,7 +257,8 @@ public class HomeController {
 		modelAndView.addObject("unicaUmidade", teste_umidade);
 
 		// Lista Vento
-		List<ViewVentoModal> teste_vento = vento.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewVentoModal> teste_vento = vento.listUnica(filtrodatas.getEstacaoNome(), filtrodatas.getEstacaoEstado(),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewVentoModal objviewVento : teste_vento) {
 			if (objviewVento.getVentoDirecaoHorario() == null) {
 				objviewVento.setVentoDirecaoHorario("N/A");
@@ -258,7 +271,7 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("unicaVento", teste_vento);
-		
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -277,10 +290,12 @@ public class HomeController {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//LISTA RANGE//
-		
+		// LISTA RANGE//
+
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPrecipitacaoModal objviewPrecipitacao : rangePrecipitacao) {
 			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
 				objviewPrecipitacao.setPrecipitacaototal("N/A");
@@ -289,7 +304,9 @@ public class HomeController {
 		modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
 
 		// Lista Pressao
-		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPressaoAtmModal objviewPressao : rangeAtm) {
 			if (objviewPressao.getPressaoAtmEstacao() == null) {
 				objviewPressao.setPressaoAtmEstacao("N/A");
@@ -304,7 +321,9 @@ public class HomeController {
 		modelAndView.addObject("rangeAtm", rangeAtm);
 
 		// Lista Radiacao
-		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewRadiacaoglobalModal objviewRadiacao : rangeRadiacaoglobal) {
 			if (objviewRadiacao.getRadiacaoGlobal() == null) {
 				objviewRadiacao.setRadiacaoGlobal("N/A");
@@ -313,7 +332,9 @@ public class HomeController {
 		modelAndView.addObject("rangeRadiacaoglobal", rangeRadiacaoglobal);
 
 		// Lista Temperatura
-		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewTemperaturaModal objviewTemperatura : rangeTemperatura) {
 			if (objviewTemperatura.getTemperaturaAr() == null) {
 				objviewTemperatura.setTemperaturaAr("N/A");
@@ -337,7 +358,9 @@ public class HomeController {
 		modelAndView.addObject("rangeTemperatura", rangeTemperatura);
 
 		// Lista Umidade
-		List<ViewUmidadeModal> rangeUmidade = umidade.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewUmidadeModal> rangeUmidade = umidade.listRange(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewUmidadeModal objviewUmidade : rangeUmidade) {
 			if (objviewUmidade.getUmidadeRelativaAr() == null) {
 				objviewUmidade.setUmidadeRelativaAr("N/A");
@@ -348,11 +371,12 @@ public class HomeController {
 			if (objviewUmidade.getUmidadeRelativaMin() == null) {
 				objviewUmidade.setUmidadeRelativaMin("N/A");
 			}
-		}	
+		}
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 
 		// Lista Vento
-		List<ViewVentoModal> rangeVento = vento.listRange(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewVentoModal> rangeVento = vento.listRange(filtrodatas.getEstacaoNome(), filtrodatas.getEstacaoEstado(),
+				Timestamp.valueOf(filtrodatas.getDataHoraInicial()), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewVentoModal objviewVento : rangeVento) {
 			if (objviewVento.getVentoDirecaoHorario() == null) {
 				objviewVento.setVentoDirecaoHorario("N/A");
@@ -369,118 +393,120 @@ public class HomeController {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				
-		
-		
-	
-				
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//LISTA UNICA//
-		
+		// LISTA UNICA//
+
 		// Lista Precipitacao
-		List<ViewPrecipitacaoModal> unicaPrecipitacao = precipitacao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPrecipitacaoModal> unicaPrecipitacao = precipitacao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPrecipitacaoModal objviewPrecipitacao : unicaPrecipitacao) {
-		if (objviewPrecipitacao.getPrecipitacaototal() == null) {
-		objviewPrecipitacao.setPrecipitacaototal("N/A");
-		}
+			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
+				objviewPrecipitacao.setPrecipitacaototal("N/A");
+			}
 		}
 		modelAndView.addObject("unicaPrecipitacao", unicaPrecipitacao);
-		
+
 		// Lista Pressao
-		List<ViewPressaoAtmModal> unicaAtm = pressao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewPressaoAtmModal> unicaAtm = pressao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewPressaoAtmModal objviewPressao : unicaAtm) {
-		if (objviewPressao.getPressaoAtmEstacao() == null) {
-		objviewPressao.setPressaoAtmEstacao("N/A");
-		}
-		if (objviewPressao.getPressaoAtmMax() == null) {
-		objviewPressao.setPressaoAtmMax("N/A");
-		}
-		if (objviewPressao.getPressaoAtmMin() == null) {
-		objviewPressao.setPressaoAtmMin("N/A");
-		}
+			if (objviewPressao.getPressaoAtmEstacao() == null) {
+				objviewPressao.setPressaoAtmEstacao("N/A");
+			}
+			if (objviewPressao.getPressaoAtmMax() == null) {
+				objviewPressao.setPressaoAtmMax("N/A");
+			}
+			if (objviewPressao.getPressaoAtmMin() == null) {
+				objviewPressao.setPressaoAtmMin("N/A");
+			}
 		}
 		modelAndView.addObject("unicaAtm", unicaAtm);
-		
+
 		// Lista Radiacao
-		List<ViewRadiacaoglobalModal> unicaRadiacaoglobal = radiacao.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewRadiacaoglobalModal> unicaRadiacaoglobal = radiacao.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewRadiacaoglobalModal objviewRadiacao : unicaRadiacaoglobal) {
-		if (objviewRadiacao.getRadiacaoGlobal() == null) {
-		objviewRadiacao.setRadiacaoGlobal("N/A");
-		}
+			if (objviewRadiacao.getRadiacaoGlobal() == null) {
+				objviewRadiacao.setRadiacaoGlobal("N/A");
+			}
 		}
 		modelAndView.addObject("unicaRadiacaoglobal", unicaRadiacaoglobal);
-		
+
 		// Lista Temperatura
-		List<ViewTemperaturaModal> unicaTemperatura = temperatura.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewTemperaturaModal> unicaTemperatura = temperatura.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewTemperaturaModal objviewTemperatura : unicaTemperatura) {
-		if (objviewTemperatura.getTemperaturaAr() == null) {
-		objviewTemperatura.setTemperaturaAr("N/A");
-		}
-		if (objviewTemperatura.getTemperaturaMax() == null) {
-		objviewTemperatura.setTemperaturaMax("N/A");
-		}
-		if (objviewTemperatura.getTemperaturaMin() == null) {
-		objviewTemperatura.setTemperaturaMin("N/A");
-		}
-		if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
-		objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
-		}
-		if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
-		objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
-		}
-		if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
-		objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
-		}
+			if (objviewTemperatura.getTemperaturaAr() == null) {
+				objviewTemperatura.setTemperaturaAr("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaMax() == null) {
+				objviewTemperatura.setTemperaturaMax("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaMin() == null) {
+				objviewTemperatura.setTemperaturaMin("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
+				objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
+			}
 		}
 		modelAndView.addObject("unicaTemperatura", unicaTemperatura);
-		
+
 		// Lista Umidade
-		List<ViewUmidadeModal> unicaUmidade = umidade.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewUmidadeModal> unicaUmidade = umidade.listUnica(filtrodatas.getEstacaoNome(),
+				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewUmidadeModal objviewUmidade : unicaUmidade) {
-		if (objviewUmidade.getUmidadeRelativaAr() == null) {
-		objviewUmidade.setUmidadeRelativaAr("N/A");
+			if (objviewUmidade.getUmidadeRelativaAr() == null) {
+				objviewUmidade.setUmidadeRelativaAr("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMax() == null) {
+				objviewUmidade.setUmidadeRelativaMax("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMin() == null) {
+				objviewUmidade.setUmidadeRelativaMin("N/A");
+			}
 		}
-		if (objviewUmidade.getUmidadeRelativaMax() == null) {
-		objviewUmidade.setUmidadeRelativaMax("N/A");
-		}
-		if (objviewUmidade.getUmidadeRelativaMin() == null) {
-		objviewUmidade.setUmidadeRelativaMin("N/A");
-		}
-		}	
 		modelAndView.addObject("unicaUmidade", unicaUmidade);
-		
+
 		// Lista Vento
-		List<ViewVentoModal> unicaVento = vento.listUnica(filtrodatas.getEstacaoNome(),filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
+		List<ViewVentoModal> unicaVento = vento.listUnica(filtrodatas.getEstacaoNome(), filtrodatas.getEstacaoEstado(),
+				Timestamp.valueOf(filtrodatas.getDataHoraFinal()));
 		for (ViewVentoModal objviewVento : unicaVento) {
-		if (objviewVento.getVentoDirecaoHorario() == null) {
-		objviewVento.setVentoDirecaoHorario("N/A");
-		}
-		if (objviewVento.getVentoRajadaMax() == null) {
-		objviewVento.setVentoRajadaMax("N/A");
-		}
-		if (objviewVento.getVentoVelocidade() == null) {
-		objviewVento.setVentoVelocidade("N/A");
-		}
+			if (objviewVento.getVentoDirecaoHorario() == null) {
+				objviewVento.setVentoDirecaoHorario("N/A");
+			}
+			if (objviewVento.getVentoRajadaMax() == null) {
+				objviewVento.setVentoRajadaMax("N/A");
+			}
+			if (objviewVento.getVentoVelocidade() == null) {
+				objviewVento.setVentoVelocidade("N/A");
+			}
 		}
 		modelAndView.addObject("unicaVento", unicaVento);
-		
+
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		//FILTROS DE DADOS
+
+		// FILTROS DE DADOS
 		filtrodatas.getEstacaoNome();
 		filtrodatas.getEstacaoEstado();
 		filtrodatas.getDataHoraInicial();
 		filtrodatas.getDataHoraFinal();
 		modelAndView.addObject("filtro", filtrodatas);
-		
+
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("index");
 		return modelAndView;
-}
+	}
 
 	// FILTRO AJAX - ESTACAO
 	@RequestMapping(value = { "/filtro/ajax/{id}" }, method = RequestMethod.GET)
@@ -505,7 +531,7 @@ public class HomeController {
 		modelAndView.setViewName("AjaxFiltroNulo");
 		return modelAndView;
 	}
-	
+
 //	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
 //	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
 //		ModelAndView modelAndView = new ModelAndView();
@@ -519,12 +545,12 @@ public class HomeController {
 //		modelAndView.setViewName(id);
 //		return modelAndView;
 //	}
-	
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	//FILTRO GRAFICOS RANGE DE 7 DIAS
-	//GRAFICO PRECIPITACAO
+
+	// FILTRO GRAFICOS RANGE DE 7 DIAS
+	// GRAFICO PRECIPITACAO
 //	List<ViewPrecipitacaoModal> precipitacaoGraph = precipitacao.listarGraph(FiltroDatasDTO.getEstacaoNome(),
 //			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
 //	modelAndView.addObject("precipitacaoGraph", precipitacaoGraph);
@@ -580,5 +606,5 @@ public class HomeController {
 //	List<ViewRadiacaoglobalModal> graRadiacao = radiacao.listarGraphRadiacao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
 //	modelAndView.addObject("graRadiacao", graRadiacao);
 //	modelAndView.setViewName("index");	
-	
+
 }

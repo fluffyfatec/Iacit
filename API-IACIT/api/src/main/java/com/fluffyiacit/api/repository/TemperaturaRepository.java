@@ -23,12 +23,12 @@ public interface TemperaturaRepository   extends JpaRepository<ViewTemperaturaMo
 									    	    @Param("dataHoraInicial") Timestamp dataHoraInicial,
 									    	    @Param("dataHoraFinal") Timestamp dataHoraFinal);
 	
-//	@Query(value = "SELECT * FROM view_radiacaoglobal_dados pa WHERE pa.estacao_estado = :estacaoEstado AND pa.estacao_nome = :estacaoNome AND pa.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
-//  public List<ViewTemperaturaModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
-//									    	   @Param("estacaoNome") String estacaoNome,
-//									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
+	@Query(value = "SELECT * FROM view_radiacaoglobal_dados pa WHERE pa.estacao_estado = :estacaoEstado AND pa.estacao_nome = :estacaoNome AND pa.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
+  public List<ViewTemperaturaModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
+									    	   @Param("estacaoNome") String estacaoNome,
+									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 
-//	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_temperatura_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
-//	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_temperatura_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
 
 }

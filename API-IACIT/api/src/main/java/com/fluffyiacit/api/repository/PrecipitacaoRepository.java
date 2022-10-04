@@ -26,10 +26,10 @@ public interface PrecipitacaoRepository extends JpaRepository<ViewPrecipitacaoMo
 										    	  @Param("dataHoraFinal") Timestamp dataHoraFinal);
 	
 	//LISTA DATA MENOS 7 DIAS
-//	@Query(value = "SELECT * FROM view_precipitacao_dados vp WHERE vp.estacao_estado = :estacaoEstado AND vp.estacao_nome = :estacaoNome AND vp.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
-//  public List<ViewPrecipitacaoModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
-//									    		 @Param("estacaoNome") String estacaoNome,
-//									    		 @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
+	@Query(value = "SELECT * FROM view_precipitacao_dados vp WHERE vp.estacao_estado = :estacaoEstado AND vp.estacao_nome = :estacaoNome AND vp.datahora_captacao BETWEEN (CAST(:datahoraCaptacao AS TIMESTAMP) - INTERVAL '7 days') AND CAST(:datahoraCaptacao AS TIMESTAMP)", nativeQuery = true)
+  public List<ViewPrecipitacaoModal> listDays (@Param("estacaoEstado") String estacaoEstado, 
+									    		 @Param("estacaoNome") String estacaoNome,
+								    		 @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 	
 	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM precipitacao WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
 	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
