@@ -1,0 +1,94 @@
+<div th:fragment="ModalLegenda">
+    <!-- Modal legenda -->
+    <div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Legenda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body" style=" text-align: justify; text-justify: inter-word;">
+                    <b>PRECIPITAÇÃO TOTAL (mm) -</b>
+                    Nas estações automáticas é a medida total de precipitação (chuva), ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais É a medida do total de precipitação (chuva) que ocorreu no espaço de 24 hora.
+                    <br><br><br>
+            
+                    <b>PRESSÃO ATMOSFÉRICA AO NÍVEL DA ESTAÇÃO, HORÁRIA (mb/hPa) -</b>
+                    Nas estações convencionais é a medida da pressão atmosférica que foi medida na estação, e a partir deste valor, também é calculada a pressão ao nível do mar (para fins sinóticos). Nas estações automáticas é a medida média da pressão atmosférica, também ao nível da estação, ocorrida na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>PRESSÃO ATMOSFÉRICA MÁXIMA HORA ANTERIOR (AUT) (mb/hPa) -</b>
+                    Nas estações automáticas é a medida da pressão atmosférica máxima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+                    <b>PRESSÃO ATMOSFÉRICA MÍNIMA NA HORA ANTERIOR (AUT) (mb/hpa) -</b>
+                    Nas estações automáticas é medida da pressão atmosférica mínima, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+                    <b>RADIAÇÃO GLOBAL (KJ/m²) -</b>
+                    Nas estações automáticas é a medida de toda radiação solar que chegou a superfície terrestre, na última hora antes de cada mensagem de dados. Nas estações convencionais a radiação solar global é medida de forma indireta, cujo registro necessita de processamento posterior, para que se tenha o total de radiação solar global que chegou ao respectivo local.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA DO AR - BULBO SECO, HORÁRIA (°C) -</b>
+                    Nas estações convencionais é a medida da temperatura do ar, a partir do termômetro de bulbo seco do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido). Nas estações automáticas é medida média da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA DO PONTO DE ORVALHO (°C) -</b>
+                    Nas estações convencionais é uma medida determinada de forma indireta (a partir dos valores de temperatura do ar e da umidade relativa), através de valores tabulares. E indica a temperatura que o ar deveria ter, para que ele se tornasse saturado, e assim produzir orvalho. Nas estações automáticas este parâmetro é calculado a partir dos valores de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+                    Nas estações convencionais é a medida máxima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é medida máxima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+                    Nas estações convencionais é a medida mínima da temperatura do ar, ocorrida no período de 24 horas, a partir do termômetro específico para este fim. Nas estações automáticas é a medida mínima da temperatura do ar, ocorrida na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA DO PONTO DE ORVALHO MÁXIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+                    Nas estações automáticas este parâmetro é calculado a partir dos valores máximos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+                    <b>TEMPERATURA DO PONTO DE ORVALHO MÍNIMA NA HORA ANTERIOR (AUT) (°C) -</b>
+                    Nas estações automáticas este parâmetro é calculado a partir dos valores mínimos de temperatura do ar e da umidade relativa, ocorridos na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+                    <b>UMIDADE RELATIVA MÁXIMA NA HORA ANTERIOR (AUT) (%) -</b>
+                    Nas estações automáticas é a medida máxima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+            
+                    <b>UMIDADE RELATIVA MÍNIMA NA HORA ANTERIOR (AUT) (%) -</b>
+                    Nas estações automáticas é a medida mínima da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados. Este parâmetro não é determinado nas estações convencionais.
+                    <br><br><br>
+            
+                    <b>UMIDADE RELATIVA DO AR, HORÁRIA (%) -</b>
+                    Nas estações convencionais é uma medida determinada de forma indireta, a partir do psicrômetro (equipamento dotado de um termômetro de bulbo seco e um termômetro de bulbo úmido), e o uso de valores tabulares. Nas estações automáticas é a medida da umidade relativa do ar, ocorrida na última hora antes de cada mensagem de dados.
+                    <br><br><br>
+            
+                    <b>DIREÇÃO DO VENTO, HORÁRIA (°) -</b>
+                    Nas estações automáticas é a medida em graus angulares da direção do vento (de onde o vento vem). Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da direção do vento, determinada pelas indicações de setor da rosa dos ventos, e se constitui na média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
+                    <br><br><br>
+            
+                    <b>RAJADA MÁXIMA DO VENTO (m/s) -</b>
+                    Nas estações automáticas é a medida máxima da velocidade do vento, ocorrida na última hora antes de cada mensagem de dados. Nas estações convencionais é a máxima medida da velocidade do vento ocorrida no período de 24 horas.
+                    <br><br><br>
+            
+                    <b>VELOCIDADE DO VENTO HORÁRIA (m/s) -</b>
+                    Nas estações automáticas é a medida da velocidade do vento. Este valor é a média dos últimos 10 minutos antes de cada hora, de envio da mensagem de dados. Nas estações convencionais é a medida da velocidade do vento, e determinada a partir da média dos últimos 10 minutos antes da hora cheia (09:00, ..., 12:00 UTC) de cada observação.
+                    <br><br><br>
+            
+                    <b>UTC -</b>
+                    Coordenada de Tempo Universal, com referência ao Meridiano de Greenwich (Inglaterra), equivalente ao horário de Londres, que corresponde a 3 horas a mais em relação ao horário de Brasília.
+                    <br>
+                </div>
+    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

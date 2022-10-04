@@ -1,0 +1,91 @@
+<div th:fragment="ModalFiltro">
+    <!-- Modal filtro -->
+    <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Filtro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+        
+          <form action='#' th:action="@{/index}" method="POST" th:object="${filtro}">
+            <div class="row">
+            
+              <div class="col-4">
+                Cod Estado:
+                <select class="form-control" id="jsEnviaEstado" required>
+                    <option value="" selected>Escolha o Estado</option>
+                    <option value="AC">AC - Acre</option>
+                    <option value="AL">AL - Alagoas</option>
+                    <option value="AM">AM - Amazonas</option>
+                    <option value="AP">AP - Amapá</option>
+                    <option value="BA">BA - Bahia</option>
+                    <option value="CE">CE - Ceará</option>
+                    <option value="DF">DF - Distrito Federal</option>
+                    <option value="ES">ES - Espírito Santo</option>
+                    <option value="GO">GO - Goiás</option>
+                    <option value="MA">MA - Maranhão</option>
+                    <option value="MG">MG - Minas Gerais</option>
+                    <option value="MS">MS - Mato Grosso do Sul</option>
+                    <option value="MT">MT - Mato Grosso</option>
+                    <option value="PA">PA - Pará</option>
+                    <option value="PB">PB - Paraíba</option>
+                    <option value="PE">PE - Pernambuco</option>
+                    <option value="PI">PI - Piauí</option>
+                    <option value="PR">PR - Paraná</option>
+                    <option value="RJ">RJ - Rio de Janeiro</option>
+                    <option value="RN">RN - Rio Grande do Norte</option>
+                    <option value="RO">RO - Rondônia</option>
+                    <option value="RR">RR - Roraima</option>
+                    <option value="RS">RS - Rio Grande do Sul</option>
+                    <option value="SC">SC - Santa Catarina</option>
+                    <option value="SE">SE - Sergipe</option>
+                    <option value="SP">SP - São Paulo</option>
+                    <option value="TO">TO - Tocantins</option>
+                </select>
+              </div>
+              
+              <div class="col-8">
+                Estação:
+                <div id="jv_classe">
+                <select class="form-control" id="" disabled>
+                  <option value="" selected>Selecione...</option>
+                </select>
+                </div>
+              </div>
+  
+              <br><br><br>
+  
+              <div class="col-6">
+                Data Minima:
+                <input type="datetime-local" class="form-control" id="jsEnviaDataMin" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+              </div>
+  
+              <div class="col-6">
+                Data Maxima:
+                <input type="datetime-local" class="form-control" id="jsEnviaDataMax" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+              </div>
+                                                                                                                 
+            </div>
+  
+            <!-- <br><br><br><br> -->
+            <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacaoEstado}"></input>
+            <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacaoNome}" ></input>
+            <input type="hidden" class="form-control" id="jsRecebeDataMin" th:field="*{dataHoraInicial}"></input>
+            <input type="hidden" class="form-control" id="jsRecebeDataMax" th:field="*{dataHoraFinal}"></input>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+          <button class="btn btn-primary" type="submit"><i class="fas fa-filter"></i> Filtrar</button>
+          </form>
+  
+          </div>
+         
+      </div>
+    </div>
+    </div>
+</div>

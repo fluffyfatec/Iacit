@@ -7,13 +7,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FiltroDatasDTO {
-	private String estacao_estado;
-	private String estacao_nome;
-	private String cod_wmo;
+	private String estacaoEstado;
+	private String estacaoNome;
+	private String codWmo;
 	private String dataHoraInicial;
 	private String dataHoraFinal;
-	
-
 }
 
 

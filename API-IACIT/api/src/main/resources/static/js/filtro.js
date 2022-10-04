@@ -48,17 +48,27 @@
       document.getElementById("jsRecebeEstacao").value = opcaoTexto;
   }
 
-  //RECEBENDO DATA CAPTAÇÃO
-  document.getElementById("jsEnviaData").onchange = function() {filtroData()};
-  function filtroData() {
-       var jsFiltroData = document.getElementById("jsEnviaData").value;
-       var jsData = jsFiltroData.substring(0, 10);
-       var jsHora = jsFiltroData.substring(11);
+  //RECEBENDO DATA CAPTAÇÃO MINIMA
+  document.getElementById("jsEnviaDataMin").onchange = function() {filtroDataMin()};
+  function filtroDataMin() {
+       var jsEnviaDataMin = document.getElementById("jsEnviaDataMin").value;
+       var jsData = jsEnviaDataMin.substring(0, 10);
+       var jsHora = jsEnviaDataMin.substring(11);
        var jsHora = jsHora.substring(0,2);
        var jsHora = jsHora + ':00:00';
-       document.getElementById("jsRecebeData").value = jsData + ' ' + jsHora;
+       document.getElementById("jsRecebeDataMin").value = jsData + ' ' + jsHora;
   }
 
+    //RECEBENDO DATA CAPTAÇÃO MAXIMA
+    document.getElementById("jsEnviaDataMax").onchange = function() {filtroDataMax()};
+    function filtroDataMax() {
+         var jsEnviaDataMax = document.getElementById("jsEnviaDataMax").value;
+         var jsData = jsEnviaDataMax.substring(0, 10);
+         var jsHora = jsEnviaDataMax.substring(11);
+         var jsHora = jsHora.substring(0,2);
+         var jsHora = jsHora + ':00:00';
+         document.getElementById("jsRecebeDataMax").value = jsData + ' ' + jsHora;
+    }
 
 
   //TRATANDO DATA TOPO DA PAGINA
