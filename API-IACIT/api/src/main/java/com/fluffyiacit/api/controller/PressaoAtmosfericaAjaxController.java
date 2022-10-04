@@ -32,7 +32,7 @@ public class PressaoAtmosfericaAjaxController {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
-		modelAndView.setViewName("PressaoAtm");
+		modelAndView.setViewName("PressaoAtmosferica");
 		return modelAndView;
 
 	}
@@ -50,14 +50,14 @@ public class PressaoAtmosfericaAjaxController {
 		if (!pressaoAtmRepository.dataLimite(Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()))) {
 			System.out.println("A data inserida é inferior a primeira data presente no banco");
 			modelAndView.addObject("dataLimiteInicial", "A data inserida é inferior a primeira data presente no banco");
-			modelAndView.setViewName("PressaoAtm");
+			modelAndView.setViewName("PressaoAtmosferica");
 			return modelAndView;
 		}
 
 		if (!pressaoAtmRepository.dataLimite(Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()))) {
 			System.out.println("A data inserida é posterior a ultima data presente no banco");
 			modelAndView.addObject("dataLimiteFinal", "A data inserida é posterior a última data presente no banco");
-			modelAndView.setViewName("PressaoAtm");
+			modelAndView.setViewName("PressaoAtmosferica");
 			return modelAndView;
 		}
 
@@ -70,7 +70,7 @@ public class PressaoAtmosfericaAjaxController {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
-		modelAndView.setViewName("PressaoAtm");
+		modelAndView.setViewName("PressaoAtmosferica");
 		return modelAndView;
 
 	}

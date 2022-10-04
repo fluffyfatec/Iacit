@@ -25,10 +25,10 @@ public class PrecipitacaoAjaxController {
 	public ModelAndView telaPrecipitacao() {
 		ModelAndView modelAndView = new ModelAndView();
 
-		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacaorepository.listRange("SP", "SAO PAULO - INTERLAGOS",
+		List<ViewPrecipitacaoModal> graPrecipitacao = precipitacaorepository.listRange("SP", "SAO PAULO - INTERLAGOS",
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
-		modelAndView.addObject("graPrecipitacao", rangePrecipitacao);
-		for (ViewPrecipitacaoModal objview : rangePrecipitacao) {
+		modelAndView.addObject("graPrecipitacao", graPrecipitacao);
+		for (ViewPrecipitacaoModal objview : graPrecipitacao) {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 		modelAndView.setViewName("Precipitacao");
@@ -59,12 +59,12 @@ public class PrecipitacaoAjaxController {
 			return modelAndView;
 		}
 
-		List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacaorepository.listRange(
+		List<ViewPrecipitacaoModal> graPrecipitacaoFiltro = precipitacaorepository.listRange(
 				filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),
 				Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),
 				Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));
-		modelAndView.addObject("graPrecipitacaoFiltro", rangePrecipitacao);
-		for (ViewPrecipitacaoModal objview : rangePrecipitacao) {
+		modelAndView.addObject("graPrecipitacaoFiltro", graPrecipitacaoFiltro);
+		for (ViewPrecipitacaoModal objview : graPrecipitacaoFiltro) {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
