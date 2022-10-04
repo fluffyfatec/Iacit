@@ -21,17 +21,16 @@ public class TemperaturaAjaxController {
     private TemperaturaRepository temperaturaRepository;
 
 
-    @RequestMapping(value = { "/temperatura" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Temperatura" }, method = RequestMethod.GET)
     public ModelAndView telaTemperatura() {
         ModelAndView modelAndView = new ModelAndView();
-
+/*
         List<ViewTemperaturaModal> graTemperatura = temperaturaRepository.listRange("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
         modelAndView.addObject("graTemperatura", graTemperatura);
         for (ViewTemperaturaModal objview : graTemperatura) {
-            System.out.println("1:" + objview.getDatahoraCaptacao());
+            //System.out.println("1:" + objview.getDatahoraCaptacao());
         }
-
-
+*/
         modelAndView.setViewName("Temperatura");
         return modelAndView;
 
