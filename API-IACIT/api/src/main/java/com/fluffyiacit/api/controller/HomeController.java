@@ -25,6 +25,7 @@ import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
 
+import DTO.FiltroDTO;
 import DTO.FiltroDatasDTO;
 
 @Controller
@@ -53,6 +54,15 @@ public class HomeController {
 
 	@Autowired(required = true)
 	private FiltroEstacaoRepository filtroestacaorepository;
+	
+	
+	
+	
+	
+
+	
+	
+	
 
 	// ENTRAR PAGINA INDEX
 	@RequestMapping(value = { "" }, method = RequestMethod.GET)
@@ -136,6 +146,7 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("rangeTemperatura", rangeTemperatura);
+		
 
 		// Lista Umidade
 		List<ViewUmidadeModal> rangeUmidade = umidade.listRange(filtrodatas.getEstacaoNome(),
