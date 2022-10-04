@@ -26,6 +26,6 @@ public interface RadiacaoGlobalRepository extends JpaRepository<ViewRadiacaoglob
 	public List<ViewRadiacaoglobalModal> listDays(@Param("estacaoEstado") String estacaoEstado,
 			@Param("estacaoNome") String estacaoNome, @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 
-	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_radiacaoglobal_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM radiacao_global WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
 	public boolean dataLimite(@Param("dataLimite") Timestamp dataLimite);
 }

@@ -26,6 +26,6 @@ public interface UmidadeRepository extends JpaRepository<ViewUmidadeModal, Strin
 	public List<ViewUmidadeModal> listDays(@Param("estacaoEstado") String estacaoEstado,
 			@Param("estacaoNome") String estacaoNome, @Param("datahoraCaptacao") Timestamp datahoraCaptacao);
 
-	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_umidade_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM umidade WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
 	public boolean dataLimite(@Param("dataLimite") Timestamp dataLimite);
 }

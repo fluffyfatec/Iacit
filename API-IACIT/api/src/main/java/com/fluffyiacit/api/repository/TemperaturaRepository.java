@@ -28,7 +28,7 @@ public interface TemperaturaRepository   extends JpaRepository<ViewTemperaturaMo
 									    	   @Param("estacaoNome") String estacaoNome,
 									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 
-	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_temperatura_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM temperatura WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
 	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
 
 }

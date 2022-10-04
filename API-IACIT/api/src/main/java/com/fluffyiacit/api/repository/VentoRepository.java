@@ -29,7 +29,7 @@ public interface VentoRepository extends JpaRepository<ViewVentoModal, String> {
 									    	   @Param("estacaoNome") String estacaoNome,
 									    	   @Param("datahoraCaptacao") Timestamp datahoraCaptacao);	
 
-	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM view_vento_dados WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
+	@Query(value = "SELECT CASE WHEN EXISTS (SELECT datahora_captacao FROM vento WHERE datahora_captacao= :dataLimite) THEN 'TRUE' ELSE 'FALSE' END", nativeQuery = true)
 	public boolean dataLimite (@Param("dataLimite") Timestamp dataLimite);
 	
 }
