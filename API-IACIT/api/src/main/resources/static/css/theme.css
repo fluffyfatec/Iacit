@@ -47,3 +47,7 @@ th.font{
 td{
     text-align: center;
 }
+
+.chart.element.style{
+    background-color: aqua;
+}
