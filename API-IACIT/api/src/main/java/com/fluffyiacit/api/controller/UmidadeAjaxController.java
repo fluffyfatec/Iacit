@@ -21,14 +21,14 @@ public class UmidadeAjaxController {
 	@Autowired(required = true)
 	private UmidadeRepository umidaderepository;
 
-	@RequestMapping(value = { "/umidade" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Umidade" }, method = RequestMethod.GET)
 	public ModelAndView telaUmidade() {
 		ModelAndView modelAndView = new ModelAndView();
 
-		List<ViewUmidadeModal> graUmidade = umidaderepository.listRange("SP", "SAO PAULO - INTERLAGOS",
+		List<ViewUmidadeModal> rangeUmidade = umidaderepository.listRange("SP", "SAO PAULO - INTERLAGOS",
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
-		modelAndView.addObject("graUmidade", graUmidade);
-		for (ViewUmidadeModal objview : graUmidade) {
+		modelAndView.addObject("rangeUmidade", rangeUmidade);
+		for (ViewUmidadeModal objview : rangeUmidade) {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
@@ -36,7 +36,7 @@ public class UmidadeAjaxController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = { "/umidade/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Umidade/search" }, method = RequestMethod.GET)
 	public ModelAndView telaUmidadeFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();
@@ -60,11 +60,11 @@ public class UmidadeAjaxController {
 			return modelAndView;
 		}
 
-		List<ViewUmidadeModal> graUmidadeFiltro = umidaderepository.listRange(filtroDatasDto.getEstacaoEstado(),
+		List<ViewUmidadeModal> rangeUmidade = umidaderepository.listRange(filtroDatasDto.getEstacaoEstado(),
 				filtroDatasDto.getEstacaoNome(), Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),
 				Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));
-		modelAndView.addObject("graUmidadeFiltro", graUmidadeFiltro);
-		for (ViewUmidadeModal objview : graUmidadeFiltro) {
+		modelAndView.addObject("rangeUmidade", rangeUmidade);
+		for (ViewUmidadeModal objview : rangeUmidade) {
 			System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
