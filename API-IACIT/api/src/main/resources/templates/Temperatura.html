@@ -186,15 +186,18 @@
                   {
                     label: 'Temp Max',
                     data: rangeTemperaturaMax,
-                    backgroundColor: [
-                    'rgba(255, 0, 0, 1)',
-                 
-                    ],
-                    borderColor: [
-                      'rgba(255, 0, 0, 1)',
-                    ],
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(255, 0, 0, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                      return colors;
+                    },
                     borderWidth: 1,
-                  
+
 
                   },
 
@@ -202,72 +205,107 @@
                   {
                     label: 'Temp Min',
                     data: rangeTemperaturaMin,
-                    backgroundColor: [
-                    'rgba(36, 180, 224, 1)',
 
-                    ],
-                    borderColor: [
-                      'rgba(36, 180, 224, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
                   },
+
 
 
                   //Temperatura Ar
                   {
                     label: 'Temp Ar',
                     data: rangeTemperaturaAr,
-                    backgroundColor: [
-                    'rgba(127, 36, 224, 1)',
 
-                    ],
-                    borderColor: [
-                      'rgba(127, 36, 224, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
                   },
+
 
                   //Temperatura PontoOrvalho
                   {
                     label: 'Temp PontoOrvalho',
                     data: rangeTemperaturaPontoOrvalho,
-                    backgroundColor: [
-                    'rgba(17, 255, 100, 1)',
 
-                    ],
-                    borderColor: [
-                      'rgba(17, 255, 100, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
                   },
+
 
                   //Temperatura OrvalhoMin
                   {
                     label: 'Temp OrvalhoMin',
                     data: rangeTemperaturaOrvalhoMin,
-                    backgroundColor: [
-                    'rgba(255, 102, 0, 1)',
 
-                    ],
-                    borderColor: [
-                      'rgba(255, 102, 0, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
                   },
+
 
                   //Temperatura OrvalhoMax
                   {
                     label: 'Temp OrvalhoMax',
                     data: rangeTemperaturaOrvalhoMax,
-                    backgroundColor: [
-                    'rgba(221, 0, 255, 1)',
 
-                    ],
-                    borderColor: [
-                      'rgba(221, 0, 255, 1)',
-                    ],
-                    borderWidth: 1
-                  }
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
+                  },
+
 
 
                 ],
