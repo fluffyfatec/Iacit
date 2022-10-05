@@ -66,9 +66,9 @@
 
                     ],
                     borderColor: [
-                      'rgba(255, 0, 0, 1)',
+                      'rgba(200, 84, 155, 1)',
                     ],
-                    borderWidth: 1,
+                    borderWidth: 2,
                     fill: 1
 
                   },
@@ -82,9 +82,8 @@
 
                     ],
                     borderColor: [
-                      'rgba(36, 180, 224, 1)',
-                    ],
-                    borderWidth: 1
+                    'rgba(81, 142, 201, 1)',],
+                    borderWidth: 2
                   },
 
 
@@ -97,9 +96,8 @@
 
                     ],
                     borderColor: [
-                      'rgba(127, 36, 224, 1)',
-                    ],
-                    borderWidth: 1
+                      'rgba(238, 169, 35, 1)',],
+                    borderWidth: 2
                   },
 
                   //Temperatura PontoOrvalho
@@ -111,9 +109,9 @@
 
                     ],
                     borderColor: [
-                      'rgba(17, 255, 0, 1)',
+                    'rgba(215, 38, 87, 1)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                   },
 
                   //Temperatura OrvalhoMin
@@ -125,9 +123,8 @@
 
                     ],
                     borderColor: [
-                      'rgba(255, 102, 0, 1)',
-                    ],
-                    borderWidth: 1
+                    'rgba(8, 128, 123, 1)'],
+                    borderWidth: 2
                   },
 
                   //Temperatura OrvalhoMax
@@ -139,9 +136,8 @@
 
                     ],
                     borderColor: [
-                      'rgba(221, 0, 255, 1)',
-                    ],
-                    borderWidth: 1
+                    'rgba(73, 80, 162, 1)'],
+                    borderWidth: 2
                   }
 
 
@@ -188,12 +184,12 @@
                     data: rangeTemperaturaMax,
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(255, 0, 0, 1)';
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
                       return colors;
                     },
                     borderWidth: 1,
@@ -208,12 +204,12 @@
 
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
                       return colors;
                     },
                     borderWidth: 1,
@@ -230,12 +226,12 @@
 
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
                       return colors;
                     },
                     borderWidth: 1,
@@ -251,12 +247,12 @@
 
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                      let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                      let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
                       return colors;
                     },
                     borderWidth: 1,
@@ -272,12 +268,12 @@
 
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                      let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                      let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
                       return colors;
                     },
                     borderWidth: 1,
@@ -293,12 +289,12 @@
 
                     backgroundColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                      let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
                       return colors;
                     },
                     borderColor: color => {
                       console.log(color)
-                      let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                      let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
                       return colors;
                     },
                     borderWidth: 1,
