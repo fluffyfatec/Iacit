@@ -1,0 +1,1058 @@
+<!-- GRAFICOS TEMPERATURA LINHA -->
+<div th:fragment="graficoTemperaturaLinha">
+    <div id="jsTemperaturaLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="TemperaturaLinha"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeTemperatura = [[${rangeTemperatura}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeTemperatura_x =  rangeTemperatura.map(x => x["datahoraCaptacao"])
+        var rangeTemperaturaMax =  rangeTemperatura.map(x => x["temperaturaMax"])
+        var rangeTemperaturaMin =  rangeTemperatura.map(x => x["temperaturaMin"])
+        var rangeTemperaturaAr =  rangeTemperatura.map(x => x["temperaturaAr"])
+        var rangeTemperaturaPontoOrvalho =  rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
+        var rangeTemperaturaOrvalhoMin =  rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
+        var rangeTemperaturaOrvalhoMax =  rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
+
+        //GRAFICO
+        const graficoTempLinha = document.getElementById('TemperaturaLinha').getContext('2d');
+        const myChartTempLinha = new Chart(graficoTempLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangeTemperatura_x,
+                
+                
+                datasets: [
+                    //Temperatura Maxima
+                    {
+                        label: 'Temperatura Maxima',
+                        data: rangeTemperaturaMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    },
+
+                    //Temperatura Minima
+                    {
+                        label: 'Temperatura Minima',
+                        data: rangeTemperaturaMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+
+                        //Temperatura Ar
+                        {
+                        label: 'Temperatura Ar',
+                        data: rangeTemperaturaAr,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                        //Temperatura Orvalho Ponto
+                        {
+                        label: 'Temperatura Orvalho Ponto',
+                        data: rangeTemperaturaPontoOrvalho,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(17, 255, 0, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                    //Temperatura Orvalho Minima
+                    {
+                        label: 'Temperatura Orvalho Minima',
+                        data: rangeTemperaturaOrvalhoMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 102, 0, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                    //Temperatura Orvalho Maxima
+                    {
+                        label: 'Temperatura Orvalho Maxima',
+                        data: rangeTemperaturaOrvalhoMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(221, 0, 255, 1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS TEMPERATURA BAR -->
+<div th:fragment="graficoTemperaturaBar">
+    <div id="jsTemperaturaBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="TemperaturaBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeTemperatura = [[${rangeTemperatura}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeTemperatura_x =  rangeTemperatura.map(x => x["datahoraCaptacao"])
+        var rangeTemperaturaMax =  rangeTemperatura.map(x => x["temperaturaMax"])
+        var rangeTemperaturaMin =  rangeTemperatura.map(x => x["temperaturaMin"])
+        var rangeTemperaturaAr =  rangeTemperatura.map(x => x["temperaturaAr"])
+        var rangeTemperaturaPontoOrvalho =  rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
+        var rangeTemperaturaOrvalhoMin =  rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
+        var rangeTemperaturaOrvalhoMax =  rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
+
+        //GRAFICO
+        const graficoTempBar = document.getElementById('TemperaturaBar').getContext('2d');
+        const myChartTempBar = new Chart(graficoTempBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangeTemperatura_x,
+                
+                
+                datasets: [
+                    //Temperatura Maxima
+                    {
+                        label: 'Temperatura Maxima',
+                        data: rangeTemperaturaMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    },
+
+                    //Temperatura Minima
+                    {
+                        label: 'Temperatura Minima',
+                        data: rangeTemperaturaMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+
+                        //Temperatura Ar
+                        {
+                        label: 'Temperatura Ar',
+                        data: rangeTemperaturaAr,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                        //Temperatura Orvalho Ponto
+                        {
+                        label: 'Temperatura Orvalho Ponto',
+                        data: rangeTemperaturaPontoOrvalho,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(17, 255, 0, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                    //Temperatura Orvalho Minima
+                    {
+                        label: 'Temperatura Orvalho Minima',
+                        data: rangeTemperaturaOrvalhoMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 102, 0, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+                    //Temperatura Orvalho Maxima
+                    {
+                        label: 'Temperatura Orvalho Maxima',
+                        data: rangeTemperaturaOrvalhoMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(221, 0, 255, 1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- GRAFICOS UMIDADE LINHA -->
+<div th:fragment="graficoUmidadeLinha">
+    <div id="jsUmidadeLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class=" card mt-8 ">
+                        <canvas id="UmidadeLinha"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeUmidade = [[${rangeUmidade}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeUmidade_x =  rangeUmidade.map(x => x["datahoraCaptacao"])
+        var UmidadeRelativaAr =  rangeUmidade.map(x => x["umidadeRelativaAr"])
+        var UmidadeRelativaMin =  rangeUmidade.map(x => x["umidadeRelativaMin"])
+        var UmidadeRelativaMax =  rangeUmidade.map(x => x["umidadeRelativaMax"])
+
+        //GRAFICO
+        const graficoUmiLinha = document.getElementById('UmidadeLinha').getContext('2d');
+        const myChartUmiLinha = new Chart(graficoUmiLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangeUmidade_x,
+                
+                
+                datasets: [
+                    //Umidade Relativa Ar
+                    {
+                        label: 'Umidade Relativa Ar',
+                        data: UmidadeRelativaAr,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    },
+
+                    //Umidade Relativa Min
+                    {
+                        label: 'Umidade Relativa Minima',
+                        data: UmidadeRelativaMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+
+                    //Umidade Relativa Max
+                    {
+                        label: 'Umidade Relativa Maxima',
+                        data: UmidadeRelativaMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS UMIDADE BAR -->
+<div th:fragment="graficoUmidadeBar">
+    <div id="jsUmidadeBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="UmidadeBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeUmidade = [[${rangeUmidade}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeUmidade_x =  rangeUmidade.map(x => x["datahoraCaptacao"])
+        var UmidadeRelativaAr =  rangeUmidade.map(x => x["umidadeRelativaAr"])
+        var UmidadeRelativaMin =  rangeUmidade.map(x => x["umidadeRelativaMin"])
+        var UmidadeRelativaMax =  rangeUmidade.map(x => x["umidadeRelativaMax"])
+
+        //GRAFICO
+        const graficoUmiBar = document.getElementById('UmidadeBar').getContext('2d');
+        const myChartUmiBar = new Chart(graficoUmiBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangeUmidade_x,
+                
+               
+                datasets: [
+                    //Umidade Relativa Ar
+                    {
+                        label: 'Umidade Relativa Ar',
+                        data: UmidadeRelativaAr,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    },
+
+                    //Umidade Relativa Min
+                    {
+                        label: 'Umidade Relativa Minima',
+                        data: UmidadeRelativaMin,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    },
+
+
+                    //Umidade Relativa Max
+                    {
+                        label: 'Umidade Relativa Maxima',
+                        data: UmidadeRelativaMax,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- GRAFICOS VENTO LINHA -->
+<div th:fragment="graficoVentoLinha">
+    <div id="jsVentoLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="VentoLinha"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeVento = [[${rangeVento}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeVento_x =  rangeVento.map(x => x["datahoraCaptacao"])
+        var VentoVelocidade =  rangeVento.map(x => x["ventoVelocidade"])
+        var VentoRajadaMax =  rangeVento.map(x => x["ventoRajadaMax"])
+
+        //GRAFICO
+        const graficoVenLinha = document.getElementById('VentoLinha').getContext('2d');
+        const myChartVenLinha = new Chart(graficoVenLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangeVento_x,
+                
+                //Vento Velocidade
+                datasets: [
+                    {
+                    label: 'Vento Velocidade',
+                    data: VentoVelocidade,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 0, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                    fill: 1
+
+                },
+
+                //Vento Rajada Maxima
+                {
+                    label: 'Vento Rajada Maxima',
+                    data: VentoRajadaMax,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                }
+
+
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS VENTO BAR -->
+<div th:fragment="graficoVentoBar">
+    <div id="jsVentoBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="VentoBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeVento = [[${rangeVento}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeVento_x =  rangeVento.map(x => x["datahoraCaptacao"])
+        var VentoVelocidade =  rangeVento.map(x => x["ventoVelocidade"])
+        var VentoRajadaMax =  rangeVento.map(x => x["ventoRajadaMax"])
+
+        //GRAFICO
+        const graficoVenBar = document.getElementById('VentoBar').getContext('2d');
+        const myChartVenBar = new Chart(graficoVenBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangeVento_x,
+                
+                //Vento Velocidade
+                datasets: [
+                    {
+                    label: 'Vento Velocidade',
+                    data: VentoVelocidade,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 0, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                    fill: 1
+
+                },
+
+                //Vento Rajada Maxima
+                {
+                    label: 'Vento Rajada Maxima',
+                    data: VentoRajadaMax,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                }
+
+
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- GRAFICOS PRESSAO LINHA -->
+<div th:fragment="graficoPressaoLinha">
+    <div id="jsPressaoLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="PressaoLinha"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeAtm = [[${rangeAtm}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangePressao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
+        var PressaoAtmEstacao =  rangeAtm.map(x => x["pressaoAtmEstacao"])
+        var PressaoAtmMin =  rangeAtm.map(x => x["pressaoAtmMin"])
+        var PressaoAtmMax =  rangeAtm.map(x => x["pressaoAtmMax"])
+
+        //GRAFICO
+        const graficoAtmLinha = document.getElementById('PressaoLinha').getContext('2d');
+        const myChartAtmLinha = new Chart(graficoAtmLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangePressao_x,
+                
+                //Pressao Atmosferica Estação
+                datasets: [
+                    {
+                    label: 'Pressao Atmosferica Estação',
+                    data: PressaoAtmEstacao,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 0, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                    fill: 1
+
+                },
+
+                //Pressao Atmosferica Minima
+                {
+                    label: 'Pressao Atmosferica Minima',
+                    data: PressaoAtmMin,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                },
+
+                 //Pressao Atmosferica Maxima
+                 {
+                    label: 'Pressao Atmosferica Maxima',
+                    data: PressaoAtmMax,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                }
+
+
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS PRESSAO BAR -->
+<div th:fragment="graficoPressaoBar">
+    <div id="jsPressaoBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="PressaoBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeAtm = [[${rangeAtm}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangePressao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
+        var PressaoAtmEstacao =  rangeAtm.map(x => x["pressaoAtmEstacao"])
+        var PressaoAtmMin =  rangeAtm.map(x => x["pressaoAtmMin"])
+        var PressaoAtmMax =  rangeAtm.map(x => x["pressaoAtmMax"])
+
+        //GRAFICO
+        const graficoAtmBar = document.getElementById('PressaoBar').getContext('2d');
+        const myChartAtmBar = new Chart(graficoAtmBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangePressao_x,
+                
+                //Pressao Atmosferica Estação
+                datasets: [
+                    {
+                    label: 'Pressao Atmosferica Estação',
+                    data: PressaoAtmEstacao,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 0, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                    fill: 1
+
+                },
+
+                //Pressao Atmosferica Minima
+                {
+                    label: 'Pressao Atmosferica Minima',
+                    data: PressaoAtmMin,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                },
+
+                 //Pressao Atmosferica Maxima
+                 {
+                    label: 'Pressao Atmosferica Maxima',
+                    data: PressaoAtmMax,
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0)'
+                        
+                    ],
+                    borderColor: [
+                        'rgba(36, 180, 224, 1)',
+                    ],
+                    borderWidth: 1
+                }
+
+
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- GRAFICOS RADICAO LINHA -->
+<div th:fragment="graficoRadicaoLinha">
+    <div id="jsRadicaoLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="RadicaoLinha"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeAtm = [[${rangeAtm}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeRadicao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
+        var RadicaoGlobal =  rangeAtm.map(x => x["radiacaoGlobal"])
+
+        //GRAFICO
+        const graficoRadLinha = document.getElementById('RadicaoLinha').getContext('2d');
+        const myChartRadLinha = new Chart(graficoRadLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangeRadicao_x,
+
+                datasets: [
+                    //Radicao Global
+                    {
+                        label: 'Radicao Global',
+                        data: RadicaoGlobal,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS RADICAO BAR -->
+<div th:fragment="graficoRadicaoBar">
+    <div id="jsRadicaoBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="RadicaoBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangeAtm = [[${rangeAtm}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangeRadicao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
+        var RadicaoGlobal =  rangeAtm.map(x => x["radiacaoGlobal"])
+
+        //GRAFICO
+        const graficoRadBar = document.getElementById('RadicaoBar').getContext('2d');
+        const myChartRadBar = new Chart(graficoRadBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangeRadicao_x,
+
+                datasets: [
+                    //Radicao Global
+                    {
+                        label: 'Radicao Global',
+                        data: RadicaoGlobal,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- GRAFICOS PRECIPITACAO LINHA -->
+<div th:fragment="graficoPrecipitacaoLinha">
+    <div id="jsPrecipitacaoLinha" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="PrecipitacaoLinha"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangePrecipitacao = [[${rangePrecipitacao}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangePrecipitacao_x =  rangePrecipitacao.map(x => x["datahoraCaptacao"])
+        var PrecipitacaoTotal =  rangePrecipitacao.map(x => x["precipitacaototal"])
+
+        //GRAFICO
+        const graficoPreLinha = document.getElementById('PrecipitacaoLinha').getContext('2d');
+        const myChartPreLinha = new Chart(graficoPreLinha, {
+            type: 'line',
+            data: {
+                //WHILE X
+                labels: rangePrecipitacao_x,
+
+                datasets: [
+                    //Precipitacao Total
+                    {
+                        label: 'Precipitação Total',
+                        data: PrecipitacaoTotal,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
+<!-- GRAFICOS PRECIPITACAO BAR -->
+<div th:fragment="graficoPrecipitacaoBar">
+    <div id="jsPrecipitacaoBar" style="display: none;">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class=" card mt-8 ">
+                    <canvas id="PrecipitacaoBar"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPT TEMPERATURA -->
+    <script th:inline="javascript">
+
+        //RECEBE O OBJETO JAVA AQUI
+        var rangePrecipitacao = [[${rangePrecipitacao}]];
+
+        //DEFINO O CAMPO DESSE OBJETO
+        var rangePrecipitacao_x =  rangePrecipitacao.map(x => x["datahoraCaptacao"])
+        var PrecipitacaoTotal =  rangePrecipitacao.map(x => x["precipitacaototal"])
+
+        //GRAFICO
+        const graficoPreBar = document.getElementById('PrecipitacaoBar').getContext('2d');
+        const myChartPreBar = new Chart(graficoPreBar, {
+            type: 'bar',
+            data: {
+                //WHILE X
+                labels: rangePrecipitacao_x,
+
+                datasets: [
+                    //Precipitacao Total
+                    {
+                        label: 'Precipitação Total',
+                        data: PrecipitacaoTotal,
+                        backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+                            
+                        ],
+                        borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                    }
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</div>
+
