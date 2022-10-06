@@ -4,11 +4,12 @@
 
     <div class="row mb-2">
 
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <h1 class="m-0"></h1>
       </div><!-- /.col -->
 
       <div class="col-sm-4">
+
 
         <h1 th:text="${dataLimiteInicial}"></h1>
         <h1 th:text="${dataLimiteFinal}"></h1>
@@ -22,16 +23,16 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-<section class="content">
-  <!-- PLOTAR GRAFICO 1 AQUI -->
+<section class="col-lg-7 ">  
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-sm-12">
-        <div class=" card mt-6 ">
+        <div class=" card mt-12 ">
 
           <canvas id="myChart3"></canvas>
-
-          <!-- SCRIPT Umidade -->
+          <hr>
+          <button onclick="resetZoomChart()">Reset</button>
+          <!-- SCRIPT TEMPERATURA -->
           <script th:inline="javascript">
 
             //RECEBE O OBJETO JAVA AQUI
@@ -49,7 +50,7 @@
               data: {
                 //WHILE X
                 labels: rangeUmidade_x,
-                
+
                 datasets: [
                   //Umidade Minima
                   {
@@ -93,13 +94,32 @@
                 ],
               },
               options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
+                plugins: {
+                  zoom: {
+                    zoom: {
+                      //zoom scrool
+                      wheel: {
+                        enabled: true,
+                        speed:0.1,
+                        threshold:50
+                      },
+                      //zoom selecionar
+                     drag:{
+                      enabled:true,
+                      backgroundColor: 'rgb(233, 233, 233)',
+                      threshold:50
+                     },
+                      pinch: {
+                        enabled: true,
+                      },
+                    }
                   }
                 }
               }
-            });
+            });Chart.register(zoomPlugin);
+           function resetZoomChart(){
+            myChart3.resetZoom();
+           }
 
           </script>
 
@@ -113,7 +133,10 @@
 
         <div class=" card mt-6 ">
 
+
           <canvas id="myChart5" width="400" height="200"></canvas>
+          <hr>
+          <button onclick="resetZoomChart()">Reset</button>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
@@ -125,6 +148,7 @@
                 //WHILE X
                 labels: rangeUmidade_x,
 
+                //Temperatura Maxima
                 datasets: [
                   //Umidade Minima
                   {
@@ -179,13 +203,32 @@
                 ],
               },
               options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
+                plugins: {
+                  zoom: {
+                    zoom: {
+                      //zoom scrool
+                      wheel: {
+                        enabled: true,
+                        speed:0.1,
+                        threshold:50
+                      },
+                      //zoom selecionar
+                     drag:{
+                      enabled:true,
+                      backgroundColor: 'rgb(233, 233, 233)',
+                      threshold:50
+                     },
+                      pinch: {
+                        enabled: true,
+                      },
+                    }
                   }
                 }
               }
-            });
+            });Chart.register(zoomPlugin);
+           function resetZoomChart(){
+            myChart5.resetZoom();
+           }
 
           </script>
         </div>
@@ -197,9 +240,9 @@
 
 <!-- right col (We are only adding the ID to make the widgets sortable)-->
 
-<section class="col-lg-5 connectedSortable">
+<!-- <section class="col-lg-4 connectedSortable">-->
 
-</section>
+<!-- </section>-->
 <!-- right col -->
 
 </div>

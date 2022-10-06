@@ -1,0 +1,38 @@
+<div th:fragment="TabelasUmidade">
+    <!--TABELA LISTA RANGE-->
+   <div style="margin-left: 100px; margin-right: 100px;">
+   
+    <div style="text-align: center;">
+        <h5>TABELAS - DATA RANGE</h5>
+        <br>
+    </div>
+
+      view_umidade_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">umidadeRelativaAr</th>
+              <th scope="col">umidadeRelativaMin</th>
+              <th scope="col">umidadeRelativaMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="eee : ${rangeUmidade}">
+                  <td>[[${eee.umidadeRelativaAr}]]</td>
+                  <td>[[${eee.umidadeRelativaMin}]]</td>
+                  <td>[[${eee.umidadeRelativaMax}]]</td>
+                  <td>[[${eee.codWmo}]]</td>
+                  <td>[[${eee.estacaoEstado}]]</td>
+                  <td>[[${eee.estacaoNome}]]</td>
+                  <td>[[${eee.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br><br><br><br>
+   </div>
+</div>

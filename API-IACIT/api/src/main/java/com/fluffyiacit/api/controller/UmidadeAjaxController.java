@@ -26,10 +26,10 @@ public class UmidadeAjaxController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		List<ViewUmidadeModal> rangeUmidade = umidaderepository.listRange("SP", "SAO PAULO - INTERLAGOS",
-				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
+				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-06-29 10:00:00"));
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 		for (ViewUmidadeModal objview : rangeUmidade) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
 		modelAndView.setViewName("Umidade");
@@ -65,7 +65,7 @@ public class UmidadeAjaxController {
 				Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 		for (ViewUmidadeModal objview : rangeUmidade) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
 		modelAndView.setViewName("Umidade");
