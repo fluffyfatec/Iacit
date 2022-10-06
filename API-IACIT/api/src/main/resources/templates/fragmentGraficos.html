@@ -47,7 +47,7 @@
                         borderColor: [
                             'rgba(255, 0, 0, 1)',
                         ],
-                        borderWidth: 1,
+                        borderWidth: 2,
                         fill: 1
 
                     },
@@ -63,7 +63,7 @@
                         borderColor: [
                             'rgba(36, 180, 224, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     },
 
 
@@ -78,7 +78,7 @@
                         borderColor: [
                             'rgba(127, 36, 224, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     },
 
                         //Temperatura Orvalho Ponto
@@ -92,7 +92,7 @@
                         borderColor: [
                             'rgba(17, 255, 0, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     },
 
                     //Temperatura Orvalho Minima
@@ -106,7 +106,7 @@
                         borderColor: [
                             'rgba(255, 102, 0, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     },
 
                     //Temperatura Orvalho Maxima
@@ -120,7 +120,7 @@
                         borderColor: [
                             'rgba(221, 0, 255, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     }
                 ],
             },
@@ -178,15 +178,17 @@
                     {
                         label: 'Temperatura Maxima',
                         data: rangeTemperaturaMax,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                        ],
-                        borderWidth: 1,
-                        fill: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
 
                     },
 
@@ -194,14 +196,17 @@
                     {
                         label: 'Temperatura Minima',
                         data: rangeTemperaturaMin,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(36, 180, 224, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     },
 
 
@@ -209,56 +214,69 @@
                         {
                         label: 'Temperatura Ar',
                         data: rangeTemperaturaAr,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(127, 36, 224, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     },
 
                         //Temperatura Orvalho Ponto
                         {
                         label: 'Temperatura Orvalho Ponto',
                         data: rangeTemperaturaPontoOrvalho,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(17, 255, 0, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
                     },
 
                     //Temperatura Orvalho Minima
                     {
                         label: 'Temperatura Orvalho Minima',
                         data: rangeTemperaturaOrvalhoMin,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 102, 0, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     },
 
                     //Temperatura Orvalho Maxima
                     {
                         label: 'Temperatura Orvalho Maxima',
                         data: rangeTemperaturaOrvalhoMax,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(221, 0, 255, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     }
                 ],
             },
@@ -322,7 +340,7 @@
                         borderColor: [
                             'rgba(255, 0, 0, 1)',
                         ],
-                        borderWidth: 1,
+                        borderWidth: 2,
                         fill: 1
 
                     },
@@ -338,7 +356,7 @@
                         borderColor: [
                             'rgba(36, 180, 224, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     },
 
 
@@ -353,7 +371,7 @@
                         borderColor: [
                             'rgba(127, 36, 224, 1)',
                         ],
-                        borderWidth: 1
+                        borderWidth: 2
                     }
                 ],
             },
@@ -408,15 +426,17 @@
                     {
                         label: 'Umidade Relativa Ar',
                         data: UmidadeRelativaAr,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                        ],
-                        borderWidth: 1,
-                        fill: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
 
                     },
 
@@ -424,14 +444,17 @@
                     {
                         label: 'Umidade Relativa Minima',
                         data: UmidadeRelativaMin,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(36, 180, 224, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     },
 
 
@@ -439,14 +462,17 @@
                     {
                         label: 'Umidade Relativa Maxima',
                         data: UmidadeRelativaMax,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(127, 36, 224, 1)',
-                        ],
-                        borderWidth: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                     }
                 ],
             },
@@ -508,7 +534,7 @@
                     borderColor: [
                         'rgba(255, 0, 0, 1)',
                     ],
-                    borderWidth: 1,
+                    borderWidth: 2,
                     fill: 1
 
                 },
@@ -524,7 +550,7 @@
                     borderColor: [
                         'rgba(36, 180, 224, 1)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 }
 
 
@@ -579,15 +605,17 @@
                     {
                     label: 'Vento Velocidade',
                     data: VentoVelocidade,
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0)'
-                        
-                    ],
-                    borderColor: [
-                        'rgba(255, 0, 0, 1)',
-                    ],
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
                     borderWidth: 1,
-                    fill: 1
 
                 },
 
@@ -595,15 +623,18 @@
                 {
                     label: 'Vento Rajada Maxima',
                     data: VentoRajadaMax,
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0)'
-                        
-                    ],
-                    borderColor: [
-                        'rgba(36, 180, 224, 1)',
-                    ],
-                    borderWidth: 1
-                }
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+                },
 
 
                 ],
@@ -667,7 +698,7 @@
                     borderColor: [
                         'rgba(255, 0, 0, 1)',
                     ],
-                    borderWidth: 1,
+                    borderWidth: 2,
                     fill: 1
 
                 },
@@ -683,7 +714,7 @@
                     borderColor: [
                         'rgba(36, 180, 224, 1)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 },
 
                  //Pressao Atmosferica Maxima
@@ -697,7 +728,7 @@
                     borderColor: [
                         'rgba(36, 180, 224, 1)',
                     ],
-                    borderWidth: 1
+                    borderWidth: 2
                 }
 
 
@@ -753,15 +784,17 @@
                     {
                     label: 'Pressao Atmosferica Estação',
                     data: PressaoAtmEstacao,
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0)'
-                        
-                    ],
-                    borderColor: [
-                        'rgba(255, 0, 0, 1)',
-                    ],
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
                     borderWidth: 1,
-                    fill: 1
 
                 },
 
@@ -769,28 +802,36 @@
                 {
                     label: 'Pressao Atmosferica Minima',
                     data: PressaoAtmMin,
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0)'
-                        
-                    ],
-                    borderColor: [
-                        'rgba(36, 180, 224, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
                 },
 
                  //Pressao Atmosferica Maxima
                  {
                     label: 'Pressao Atmosferica Maxima',
                     data: PressaoAtmMax,
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0)'
-                        
-                    ],
-                    borderColor: [
-                        'rgba(36, 180, 224, 1)',
-                    ],
-                    borderWidth: 1
+                    backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
+
+
                 }
 
 
@@ -853,7 +894,7 @@
                         borderColor: [
                             'rgba(255, 0, 0, 1)',
                         ],
-                        borderWidth: 1,
+                        borderWidth: 2,
                         fill: 1
 
                     }
@@ -907,15 +948,17 @@
                     {
                         label: 'Radicao Global',
                         data: RadicaoGlobal,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                        ],
-                        borderWidth: 1,
-                        fill: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
 
                     }
                 ],
@@ -977,7 +1020,7 @@
                         borderColor: [
                             'rgba(255, 0, 0, 1)',
                         ],
-                        borderWidth: 1,
+                        borderWidth: 2,
                         fill: 1
 
                     }
@@ -1031,15 +1074,17 @@
                     {
                         label: 'Precipitação Total',
                         data: PrecipitacaoTotal,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                        ],
-                        borderWidth: 1,
-                        fill: 1
+                        backgroundColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderColor: color => {
+                      console.log(color)
+                      let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                      return colors;
+                    },
+                    borderWidth: 1,
 
                     }
                 ],

@@ -21,7 +21,7 @@ public class PressaoAtmosfericaAjaxController {
 	@Autowired(required = true)
 	private PressaoAtmRepository pressaoAtmRepository;
 
-	@RequestMapping(value = { "/pressao" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/PressaoAtmosferica" }, method = RequestMethod.GET)
 	public ModelAndView telaPressaoAtm() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -37,7 +37,7 @@ public class PressaoAtmosfericaAjaxController {
 
 	}
 
-	@RequestMapping(value = { "/pressaoAtm/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/PressaoAtmosferica/search" }, method = RequestMethod.GET)
 	public ModelAndView telaPressaoAtmFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();

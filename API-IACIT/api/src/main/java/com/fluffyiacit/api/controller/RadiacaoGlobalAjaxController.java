@@ -24,7 +24,7 @@ public class RadiacaoGlobalAjaxController {
     private RadiacaoGlobalRepository radiacaoGlobalRepository;
 
 
-    @RequestMapping(value = { "/radiacao" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Radiacao" }, method = RequestMethod.GET)
     public ModelAndView telaRadiacao() {
         ModelAndView modelAndView = new ModelAndView();
 
@@ -40,7 +40,7 @@ public class RadiacaoGlobalAjaxController {
 
     }
 
-    @RequestMapping(value = { "/radiacao/search" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Radiacao/search" }, method = RequestMethod.GET)
     public ModelAndView telaRadiacaoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
         ModelAndView modelAndView = new ModelAndView();

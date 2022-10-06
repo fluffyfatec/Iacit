@@ -21,7 +21,7 @@ public class VentoAjaxController {
 	@Autowired(required = true)
 	private VentoRepository ventoRepository;
 
-	@RequestMapping(value = { "/vento" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Ventos" }, method = RequestMethod.GET)
 	public ModelAndView telaVento() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -37,7 +37,7 @@ public class VentoAjaxController {
 
 	}
 
-	@RequestMapping(value = { "/vento/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Ventos/search" }, method = RequestMethod.GET)
 	public ModelAndView telaVentoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();

@@ -21,7 +21,7 @@ public class PrecipitacaoAjaxController {
 	@Autowired(required = true)
 	private PrecipitacaoRepository precipitacaorepository;
 
-	@RequestMapping(value = { "/precipitacao" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Precipitacao" }, method = RequestMethod.GET)
 	public ModelAndView telaPrecipitacao() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -35,7 +35,7 @@ public class PrecipitacaoAjaxController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = { "/precipitacao/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Precipitacao/search" }, method = RequestMethod.GET)
 	public ModelAndView telaPrecipitacaoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();
