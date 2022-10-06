@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fluffyiacit.api.modal.ViewFiltroEstacao;
+import com.fluffyiacit.api.modal.ViewFiltroRegiao;
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
 import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
@@ -18,6 +19,7 @@ import com.fluffyiacit.api.modal.ViewTemperaturaModal;
 import com.fluffyiacit.api.modal.ViewUmidadeModal;
 import com.fluffyiacit.api.modal.ViewVentoModal;
 import com.fluffyiacit.api.repository.FiltroEstacaoRepository;
+import com.fluffyiacit.api.repository.FiltroRegiaoRepository;
 import com.fluffyiacit.api.repository.PrecipitacaoRepository;
 import com.fluffyiacit.api.repository.PressaoAtmRepository;
 import com.fluffyiacit.api.repository.RadiacaoGlobalRepository;
@@ -25,7 +27,6 @@ import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
 
-import DTO.FiltroDTO;
 import DTO.FiltroDatasDTO;
 
 @Controller
@@ -55,12 +56,8 @@ public class HomeController {
 	@Autowired(required = true)
 	private FiltroEstacaoRepository filtroestacaorepository;
 	
-	
-	
-	
-	
-
-	
+	@Autowired(required = true)
+	private FiltroRegiaoRepository filtroRegiaoRepository;
 	
 	
 
@@ -523,16 +520,30 @@ public class HomeController {
 	@RequestMapping(value = { "/filtro/ajax/{id}" }, method = RequestMethod.GET)
 	public ModelAndView filtroAjax(@PathVariable("id") String id) {
 		ModelAndView modelAndView = new ModelAndView();
-
+		
 		List<ViewFiltroEstacao> teste_filtro = filtroestacaorepository.listar(id);
+	
 		modelAndView.addObject("teste_filtro", teste_filtro);
+		
 
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
 		modelAndView.setViewName("AjaxFiltro");
 		return modelAndView;
 
 	}
+	// FILTRO AJAX - REGIAO
+		@RequestMapping(value = { "/ajax/filtro/{id}" }, method = RequestMethod.GET)
+		public ModelAndView filtrRegiao(@PathVariable("id") String id) {
+			ModelAndView modelAndView = new ModelAndView();
+			
+			List<ViewFiltroRegiao> filtroRegiao = filtroRegiaoRepository.listar(id);
+			modelAndView.addObject("filtroRegiao", filtroRegiao);
 
+			//INFORMANDO A PAGINA QUE SERA MOSTRADA
+			modelAndView.setViewName("AjaxFiltroRegiao");
+			return modelAndView;
+
+		}
 	// FILTRO AJAX - ESTACAO NULO
 	@RequestMapping(value = { "/filtro/ajax" }, method = RequestMethod.GET)
 	public ModelAndView filtroAjaxNulo() {
