@@ -1,4 +1,9 @@
 <div th:fragment="ModalFiltro">
+
+    <ol class="breadcrumb float-sm-right" onclick="jsAbrirModalFiltro()">
+      <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
+    </ol>
+
     <!-- Modal filtro -->
     <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -62,8 +67,8 @@
               </div>
                                                                                                                  
             </div>
-<!--   
-            <br><br><br><br>  -->
+
+            <!-- <br><br><br><br> -->
             <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacaoEstado}"></input>
             <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacaoNome}" ></input>
             <input type="hidden" class="form-control" id="jsRecebeDataMin" th:field="*{dataHoraInicial}"></input>

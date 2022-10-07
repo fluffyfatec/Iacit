@@ -173,12 +173,11 @@
               <div class="col-sm-8">
                 <h1 class="m-0">Dashboard - Resumo</h1> 
               </div><!-- /.col -->
-
+                
               <div class="col-sm-4">
-                <ol class="breadcrumb float-sm-right" onclick="jsAbrirModalFiltro()">
-                  <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
-                </ol>
+                  <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
               </div><!-- /.col -->
+        
             </div><!-- /.row -->
 
             <div class="row mb-2">
@@ -186,7 +185,7 @@
               <div class="col-sm-12">
                 Estação: <a id="estacao" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoNome}]]</a>   /   
                 Estado: <a id="estado" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoEstado}]]</a>   /   
-                Data: <a id="ano" th:each="aa : ${unicaPrecipitacao}">[[${aa.datahoraCaptacao}]]</a>
+                Data: <a id="dtMin"></a>  -  <a id="dtMax"></a>
               </div><!-- /.col -->
 
               <div class="col-sm-4">
@@ -257,7 +256,6 @@
         <!-- /.content -->
 
       <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>      -->
-      <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
       <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> 
 
       </div>
