@@ -31,7 +31,7 @@
 
           <canvas id="myChart3"></canvas>
           <hr>
-          <button onclick="resetZoomChart()">Reset</button>
+          <button onclick="resetZoomCharts()">Reset</button>
           <!-- SCRIPT TEMPERATURA -->
           <script th:inline="javascript">
 
@@ -117,7 +117,7 @@
                 }
               }
             });Chart.register(zoomPlugin);
-           function resetZoomChart(){
+           function resetZoomCharts(){
             myChart3.resetZoom();
            }
 
@@ -140,7 +140,7 @@
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
-          <script>
+          <script  th:inline="javascript">
             const ctx5 = document.getElementById('myChart5');
             const myChart5 = new Chart(ctx5, {
               type: 'bar',
@@ -247,6 +247,7 @@
 
 </div>
 <!-- /.row (main row) -->
+<div th:replace="~{TabelaUmidade :: TabelaUmidade}"></div>
 
 </div><!-- /.container-fluid -->
 
