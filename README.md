@@ -97,6 +97,20 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
                   </details>
 </details>
 
+<details>
+<summary>Sprint 2</summary>
+<details>
+                  <summary>Desenvolvimento de telas de temperatura e umidade</summary>
+                        Story User
+                        <p>•Como usuário Quero visualizar no dashboard  uma  página individual de  temperatura  contendo filtros para poder visualizar dados específicos
+                  </details>
+                  <details>
+                  <summary>Desenvolvimento de Indexes</summary>
+                        Story User
+                        <p>•a criação de index aos dados Para  que o usuário possa analisar os dados da temperatura de forma rápida e eficaz
+                  </details>
+
+</details>
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Mockup
