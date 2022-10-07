@@ -47,9 +47,8 @@
             var rangeTemperaturaPontoOrvalho = rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
             var rangeTemperaturaOrvalhoMin = rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
             var rangeTemperaturaOrvalhoMax = rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
-            <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script>
-
           </script>
+          
           <script>
             var ctxTemp1 = document.getElementById('ChartTemp1');
             var ChartTemp1 = new Chart(ctxTemp1, {
@@ -189,12 +188,9 @@
 
         <div class=" card mt-6 ">
 
-
           <canvas id="ChartTemp2" width="400" height="200"></canvas>
           <hr>
           <button onclick="resetZoomChart()">Reset</button>
-
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
           <script>
             var ctxTemp2 = document.getElementById('ChartTemp2');
