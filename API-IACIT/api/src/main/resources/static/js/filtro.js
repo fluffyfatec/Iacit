@@ -1,5 +1,56 @@
 
-  //MENU LATERAL / DETALHES
+  document.getElementById("jsRegiao").onchange = function() {filtroRegiao()};
+  
+  function filtroRegiao(){
+    var jsFiltroRegiao= document.getElementById("jsRegiao").value;
+    $('#jsrecebeRegiao').load('/ajax/filtro/' + jsFiltroRegiao);
+
+  }
+
+  function FiltroRegiaoEstado(){
+    var jsfiltroEstado = document.getElementById("jsfiltroEstadoRegiao");
+      var jsEstasdo = jsfiltroEstado.options[jsfiltroEstado.selectedIndex].text;
+    
+
+    if(jsEstasdo == ''){
+      $('#jv_classe').load('/filtro/ajax');
+    }else{
+      $('#jv_classe').load('/filtro/ajax/' + jsEstasdo);
+  }
+ 
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //MENU LATERAL / DETALHES
   function jsMenuAjax(dado){
     //alert(dado);
     $('#js_body').load('/' + dado);
@@ -20,24 +71,24 @@
     });
   }
 
-  //EXECUTA O AJAX FILTRO
-  function filtroAjax() {
-    var jsEstasdo = document.getElementById("jsEnviaEstado").value;
+  // //EXECUTA O AJAX FILTRO
+  // function filtroAjax() {
+  //   var jsEstasdo = document.getElementById("jsEnviaEstado").value;
     
-    if(jsEstasdo == ''){
-      $('#jv_classe').load('/filtro/ajax');
-    }else{
-      $('#jv_classe').load('/filtro/ajax/' + jsEstasdo);
+  //   if(jsEstasdo == ''){
+  //     $('#jv_classe').load('/filtro/ajax');
+  //   }else{
+  //     $('#jv_classe').load('/filtro/ajax/' + jsEstasdo);
       
-    }
-  }
+  //   }
+  // }
 
-  //RECEBENDO - ESTADO
-   document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado(); filtroAjax()};
-   function filtroEstado() {
-       var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
-       document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
-   }
+  // //RECEBENDO - ESTADO
+  //  document.getElementById("jsEnviaEstado").onchange = function() {filtroEstado(); filtroAjax()};
+  //  function filtroEstado() {
+  //      var jsFiltroEstado = document.getElementById("jsEnviaEstado").value;
+  //      document.getElementById("jsRecebeEstado").value = jsFiltroEstado;
+  //  }
 
 
   //RECEBENDO ESTACAO
@@ -71,20 +122,20 @@
     }
 
 
-  //TRATANDO DATA TOPO DA PAGINA
+  // //TRATANDO DATA TOPO DA PAGINA
   function jsFiltroDashboard() {
 
-      var jsFiltroData = document.getElementById("jsRecebeData").value;
+      // var jsFiltroData = document.getElementById("jsRecebeData").value;
       
-      if(jsFiltroData == ''){
-        //alert(jsFiltroData);
-      }else{
-        var jsAno = jsFiltroData.substring(0, 10);
-        var jsAno = jsAno.split('-').reverse().join('/');
-        var jsHora = jsFiltroData.substring(11);
-        var jsHora = jsHora.substring(0,2);
-        var jsHora = jsHora + ':00:00';
-        var jsConsolidado = jsAno + ' ' + jsHora;
-        document.getElementById("ano").innerHTML = jsConsolidado;
-      }
+      // if(jsFiltroData == ''){
+      //   //alert(jsFiltroData);
+      // }else{
+      //   var jsAno = jsFiltroData.substring(0, 10);
+      //   var jsAno = jsAno.split('-').reverse().join('/');
+      //   var jsHora = jsFiltroData.substring(11);
+      //   var jsHora = jsHora.substring(0,2);
+      //   var jsHora = jsHora + ':00:00';
+      //   var jsConsolidado = jsAno + ' ' + jsHora;
+      //   document.getElementById("ano").innerHTML = jsConsolidado;
+      // }
    }

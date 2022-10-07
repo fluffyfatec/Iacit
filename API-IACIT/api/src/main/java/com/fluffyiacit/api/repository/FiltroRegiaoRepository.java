@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.fluffyiacit.api.modal.ViewFiltroRegiao;
 
 public interface FiltroRegiaoRepository extends JpaRepository<ViewFiltroRegiao, String> {
-	@Query("SELECT v FROM view_filtro_regiao v WHERE v.estacaoRegiao = :estacaoRegiao")
+	@Query("SELECT v FROM view_filtro_regiao v WHERE v.estacaoRegiao = :estacaoRegiao ORDER BY 2,1 ASC")
 	public List<ViewFiltroRegiao> listar(@Param("estacaoRegiao") String estacaoRegiao);
 
 }
