@@ -65,7 +65,7 @@ public class TemperaturaAjaxController {
         List<ViewTemperaturaModal> graTemperaturaFiltro = temperaturaRepository.listRange(filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));
         modelAndView.addObject("graTemperaturaFiltro", graTemperaturaFiltro);
         for (ViewTemperaturaModal objview : graTemperaturaFiltro) {
-            System.out.println("1:" + objview.getDatahoraCaptacao());
+            //System.out.println("1:" + objview.getDatahoraCaptacao());
         }
 
 

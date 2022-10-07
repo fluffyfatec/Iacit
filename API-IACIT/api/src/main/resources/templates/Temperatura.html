@@ -29,7 +29,7 @@
       <div class="col-lg-12 col-sm-12">
         <div class=" card mt-12 ">
 
-          <canvas id="myChart3"></canvas>
+          <canvas id="ChartTemp1"></canvas>
           <hr>
           <button onclick="resetZoomCharts()">Reset</button>
           <!-- SCRIPT TEMPERATURA -->
@@ -50,9 +50,9 @@
             <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script>
 
           </script>
-         <script>
-            const ctx3 = document.getElementById('myChart3');
-            const myChart3 = new Chart(ctx3, {
+          <script>
+            var ctxTemp1 = document.getElementById('ChartTemp1');
+            var ChartTemp1 = new Chart(ctxTemp1, {
               type: 'line',
               data: {
                 //WHILE X
@@ -174,7 +174,7 @@
               }
             });Chart.register(zoomPlugin);
            function resetZoomCharts(){
-            myChart3.resetZoom();
+            ChartTemp1.resetZoom();
            };
 
           </script>
@@ -190,15 +190,15 @@
         <div class=" card mt-6 ">
 
 
-          <canvas id="myChart5" width="400" height="200"></canvas>
+          <canvas id="ChartTemp2" width="400" height="200"></canvas>
           <hr>
           <button onclick="resetZoomChart()">Reset</button>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 
           <script>
-            const ctx5 = document.getElementById('myChart5');
-            const myChart5 = new Chart(ctx5, {
+            var ctxTemp2 = document.getElementById('ChartTemp2');
+            var ChartTemp2 = new Chart(ctxTemp2, {
               type: 'bar',
               data: {
                 //WHILE X
@@ -358,7 +358,7 @@
               }
             });Chart.register(zoomPlugin);
            function resetZoomChart(){
-            myChart5.resetZoom();
+            ChartTemp2.resetZoom();
            }
 
           </script>
