@@ -25,9 +25,9 @@ public class TemperaturaAjaxController {
     public ModelAndView telaTemperatura() {
         ModelAndView modelAndView = new ModelAndView();
 
-        List<ViewTemperaturaModal> graTemperatura = temperaturaRepository.listRange("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-        modelAndView.addObject("graTemperatura", graTemperatura);
-        for (ViewTemperaturaModal objview : graTemperatura) {
+        List<ViewTemperaturaModal> rangeTemperatura = temperaturaRepository.listRange("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-06-29 10:00:00"));
+        modelAndView.addObject("rangeTemperatura", rangeTemperatura);
+        for (ViewTemperaturaModal objview : rangeTemperatura) {
             //System.out.println("1:" + objview.getDatahoraCaptacao());
         }
 
