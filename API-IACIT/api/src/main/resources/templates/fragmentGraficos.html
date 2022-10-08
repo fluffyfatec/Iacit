@@ -7,7 +7,7 @@
               <div class=" card mt-8 ">
                   <canvas id="TemperaturaLinha"></canvas>
                   <hr>
-                  <button onclick="ResetZoomTemperaturaLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomTemperaturaLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -203,7 +203,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="TemperaturaBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomTemperaturaBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomTemperaturaBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -269,12 +269,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaMax,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' :'rgba(255, 0, 0, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba255, 0, 0, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -287,12 +287,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaMin,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -305,12 +305,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaAr,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                    let colors = color.index > 3 ?  'rgba(127, 36, 224, 1)' :  'rgba(127, 36, 224, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                    let colors = color.index > 3 ?  'rgba(127, 36, 224, 1)' :  'rgba(127, 36, 224, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -322,12 +322,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaPontoOrvalho,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
+                    let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(215, 38, 87, 1)' : 'rgba(215, 38, 87, 1)';
+                    let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -340,12 +340,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaOrvalhoMin,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(8, 128, 123, 1)' : 'rgba(8, 128, 123, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -357,12 +357,12 @@ arrayDatas.push(dataFormatada);
                       data: rangeTemperaturaOrvalhoMax,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
+                    let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(73, 80, 162, 1)' : 'rgba(73, 80, 162, 1)';
+                    let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -420,7 +420,7 @@ arrayDatas.push(dataFormatada);
                   <div class=" card mt-8 ">
                       <canvas id="UmidadeLinha"></canvas>
                       <hr>
-                      <button onclick="ResetZoomUmidadeLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                      <button onclick="ResetZoomUmidadeLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                   </div>
               </div>
           </div>
@@ -486,7 +486,7 @@ arrayDatas.push(dataFormatada);
                           
                       ],
                       borderColor: [
-                          'rgba(255, 0, 0, 1)',
+                          'rgba(200, 84, 155, 1)',
                       ],
                       borderWidth: 2,
                       fill: 1
@@ -502,7 +502,7 @@ arrayDatas.push(dataFormatada);
                           
                       ],
                       borderColor: [
-                          'rgba(36, 180, 224, 1)',
+                          'rgba(81, 142, 201, 1)',
                       ],
                       borderWidth: 2
                   },
@@ -517,7 +517,7 @@ arrayDatas.push(dataFormatada);
                           
                       ],
                       borderColor: [
-                          'rgba(127, 36, 224, 1)',
+                          'rgba(238, 169, 35, 1)',
                       ],
                       borderWidth: 2
                   }
@@ -572,7 +572,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="UmidadeBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomUmidadeBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomUmidadeBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -733,7 +733,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="VentoLinha"></canvas>
                   <hr>
-                  <button onclick="ResetZoomVentoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomVentoLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -797,7 +797,7 @@ arrayDatas.push(dataFormatada);
                       
                   ],
                   borderColor: [
-                      'rgba(255, 0, 0, 1)',
+                      'rgba(200, 84, 155, 1)',
                   ],
                   borderWidth: 2,
                   fill: 1
@@ -870,7 +870,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="VentoBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomVentoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomVentoBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1014,7 +1014,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="PressaoLinha"></canvas>
                   <hr>
-                  <button onclick="ResetZoomPressaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomPressaoLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1079,7 +1079,7 @@ arrayDatas.push(dataFormatada);
                       
                   ],
                   borderColor: [
-                      'rgba(255, 0, 0, 1)',
+                      'rgba(255, 102, 0, 1)',
                   ],
                   borderWidth: 2,
                   fill: 1
@@ -1109,7 +1109,7 @@ arrayDatas.push(dataFormatada);
                       
                   ],
                   borderColor: [
-                      'rgba(36, 180, 224, 1)',
+                      'rgba(127, 36, 224, 1)',
                   ],
                   borderWidth: 2
               }
@@ -1166,7 +1166,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="PressaoBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomPressaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomPressaoBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1228,12 +1228,12 @@ arrayDatas.push(dataFormatada);
                   data: PressaoAtmEstacao,
                   backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' :'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -1246,12 +1246,12 @@ arrayDatas.push(dataFormatada);
                   data: PressaoAtmMin,
                   backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(81, 142, 201, 1)' : 'rgba(81, 142, 201, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -1263,12 +1263,12 @@ arrayDatas.push(dataFormatada);
                   data: PressaoAtmMax,
                   backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                    let colors = color.index > 3 ?  'rgba(127, 36, 224, 1)' :  'rgba(127, 36, 224, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ?  'rgba(238, 169, 35, 1)' :  'rgba(238, 169, 35, 1)';
+                    let colors = color.index > 3 ?  'rgba(127, 36, 224, 1)' :  'rgba(127, 36, 224, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -1330,7 +1330,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="RadicaoLinha"></canvas>
                   <hr>
-                  <button onclick="ResetZoomRadicaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomRadicaoLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1393,7 +1393,7 @@ arrayDatas.push(dataFormatada);
                           
                       ],
                       borderColor: [
-                          'rgba(255, 0, 0, 1)',
+                          'rgba(36, 180, 224, 1)',
                       ],
                       borderWidth: 2,
                       fill: 1
@@ -1450,7 +1450,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="RadicaoBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomRadicaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomRadicaoBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1510,12 +1510,12 @@ arrayDatas.push(dataFormatada);
                       data: RadicaoGlobal,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' :'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
                     return colors;
                   },
                   borderWidth: 1,
@@ -1574,7 +1574,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="PrecipitacaoLinha"></canvas>
                   <hr>
-                  <button onclick="ResetZoomPrecipitacaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomPrecipitacaoLinha()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1637,7 +1637,7 @@ arrayDatas.push(dataFormatada);
                           
                       ],
                       borderColor: [
-                          'rgba(255, 0, 0, 1)',
+                          'rgba(255, 102, 0, 1)',
                       ],
                       borderWidth: 2,
                       fill: 1
@@ -1694,7 +1694,7 @@ arrayDatas.push(dataFormatada);
               <div class=" card mt-8 ">
                   <canvas id="PrecipitacaoBar"></canvas>
                   <hr>
-                  <button onclick="ResetZoomPrecipitacaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+                  <button onclick="ResetZoomPrecipitacaoBar()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               </div>
           </div>
           </div>
@@ -1754,12 +1754,12 @@ arrayDatas.push(dataFormatada);
                       data: PrecipitacaoTotal,
                       backgroundColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' :'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' :'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderColor: color => {
                     console.log(color)
-                    let colors = color.index > 3 ? 'rgba(200, 84, 155, 1)' : 'rgba(200, 84, 155, 1)';
+                    let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
                     return colors;
                   },
                   borderWidth: 1,

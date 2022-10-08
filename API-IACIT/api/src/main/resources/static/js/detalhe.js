@@ -4,44 +4,116 @@ function jsDetalheAjax(dado){
     jsDetalheLimpar();
     //$('#js_detalhe').load('/ajax/detalhe/' + dado);
 
+    document.getElementById("temperaturaMin").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaMin").style.borderRadius = "3px";
+    document.getElementById("temperaturaMax").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaMax").style.borderRadius = "3px";
+    document.getElementById("temperaturaAr").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaAr").style.borderRadius = "3px";
+    document.getElementById("temperaturaOrvalhoMin").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaOrvalhoMin").style.borderRadius = "3px";
+    document.getElementById("temperaturaOrvalhoMax").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaOrvalhoMax").style.borderRadius = "3px";
+    document.getElementById("temperaturaPontoOrvalho").style.backgroundColor = "#0c4289";
+    //document.getElementById("temperaturaPontoOrvalho").style.borderRadius = "3px";
+
+    document.getElementById("umidadeRelativaMin").style.backgroundColor = "#3e87e5";
+    //document.getElementById("umidadeRelativaMin").style.borderRadius = "3px";
+    document.getElementById("umidadeRelativaMax").style.backgroundColor = "#3e87e5";
+    //document.getElementById("umidadeRelativaMax").style.borderRadius = "3px";
+    document.getElementById("umidadeRelativaAr").style.backgroundColor = "#3e87e5";
+    //document.getElementById("umidadeRelativaAr").style.borderRadius = "3px";
+
+    document.getElementById("ventoVelocidade").style.backgroundColor = "#3e87e5";
+    //document.getElementById("ventoVelocidade").style.borderRadius = "3px";
+    document.getElementById("ventoRajadaMax").style.backgroundColor = "#3e87e5";
+    //document.getElementById("ventoRajadaMax").style.borderRadius = "3px";
+
+    document.getElementById("pressaoAtmMin").style.backgroundColor = "#0c4289";
+    //document.getElementById("pressaoAtmMin").style.borderRadius = "3px";
+    document.getElementById("pressaoAtmMax").style.backgroundColor = "#0c4289";
+    //document.getElementById("pressaoAtmMax").style.borderRadius = "3px";
+    document.getElementById("pressaoAtmEstacao").style.backgroundColor = "#0c4289";
+    //document.getElementById("pressaoAtmEstacao").style.borderRadius = "3px";
+
+    document.getElementById("radiacaoGlobal").style.backgroundColor = "#236ecf";
+    //document.getElementById("radiacaoGlobal").style.borderRadius = "3px";
+
+    document.getElementById("precipitacaototal").style.backgroundColor = "#3e87e5";
+    //document.getElementById("precipitacaototal").style.borderRadius = "3px";
+
     if(dado == 'Temperatura'){
         document.getElementById("jsTemperaturaLinha").style.display = "inline";
         document.getElementById("jsTemperaturaBar").style.display = "none";
         document.getElementById("btn").value = dado;
 
-        // document.getElementById("temperaturaMin").style.backgroundColor = "#6c757d";
-        // document.getElementById("temperaturaMin").style.border = "#1e1e1e";
-        // document.getElementById("temperaturaMin").style.borderRadius = "5px";
+        document.getElementById("temperaturaMin").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaMin").style.borderRadius = "3px";
+        document.getElementById("temperaturaMax").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaMax").style.borderRadius = "3px";
+        document.getElementById("temperaturaAr").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaAr").style.borderRadius = "3px";
+        document.getElementById("temperaturaOrvalhoMin").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaOrvalhoMin").style.borderRadius = "3px";
+        document.getElementById("temperaturaOrvalhoMax").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaOrvalhoMax").style.borderRadius = "3px";
+        document.getElementById("temperaturaPontoOrvalho").style.backgroundColor = "#6c757d";
+        document.getElementById("temperaturaPontoOrvalho").style.borderRadius = "3px";
     }
 
     if(dado == 'Umidade'){
         document.getElementById("jsUmidadeLinha").style.display = "inline";
         document.getElementById("jsUmidadeBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        document.getElementById("umidadeRelativaMin").style.backgroundColor = "#6c757d";
+        document.getElementById("umidadeRelativaMin").style.borderRadius = "3px";
+        document.getElementById("umidadeRelativaMax").style.backgroundColor = "#6c757d";
+        document.getElementById("umidadeRelativaMax").style.borderRadius = "3px";
+        document.getElementById("umidadeRelativaAr").style.backgroundColor = "#6c757d";
+        document.getElementById("umidadeRelativaAr").style.borderRadius = "3px";
     }
 
     if(dado == 'Ventos'){
         document.getElementById("jsVentoLinha").style.display = "inline";
         document.getElementById("jsVentoBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        document.getElementById("ventoVelocidade").style.backgroundColor = "#6c757d";
+        document.getElementById("ventoVelocidade").style.borderRadius = "3px";
+        document.getElementById("ventoRajadaMax").style.backgroundColor = "#6c757d";
+        document.getElementById("ventoRajadaMax").style.borderRadius = "3px";
     }
 
     if(dado == 'PressaoAtmosferica'){
         document.getElementById("jsPressaoLinha").style.display = "inline";
         document.getElementById("jsPressaoBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        document.getElementById("pressaoAtmMin").style.backgroundColor = "#6c757d";
+        document.getElementById("pressaoAtmMin").style.borderRadius = "3px";
+        document.getElementById("pressaoAtmMax").style.backgroundColor = "#6c757d";
+        document.getElementById("pressaoAtmMax").style.borderRadius = "3px";
+        document.getElementById("pressaoAtmEstacao").style.backgroundColor = "#6c757d";
+        document.getElementById("pressaoAtmEstacao").style.borderRadius = "3px";
     }
 
     if(dado == 'Radiacao'){
         document.getElementById("jsRadicaoLinha").style.display = "inline";
         document.getElementById("jsRadicaoBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        document.getElementById("radiacaoGlobal").style.backgroundColor = "#6c757d";
+        document.getElementById("radiacaoGlobal").style.borderRadius = "3px";
     }
 
     if(dado == 'Precipitacao'){
         document.getElementById("jsPrecipitacaoLinha").style.display = "inline";
         document.getElementById("jsPrecipitacaoBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        document.getElementById("precipitacaototal").style.backgroundColor = "#6c757d";
+        document.getElementById("precipitacaototal").style.borderRadius = "3px";
     }
 
     document.getElementById("jsBotoes").style.display = "inline";
@@ -73,6 +145,8 @@ function jsDetalheAjax(dado){
 
     // #4596FF
     // precipitacaototal
+
+
 
   }
 
