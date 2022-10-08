@@ -8,6 +8,10 @@ function jsDetalheAjax(dado){
         document.getElementById("jsTemperaturaLinha").style.display = "inline";
         document.getElementById("jsTemperaturaBar").style.display = "none";
         document.getElementById("btn").value = dado;
+
+        // document.getElementById("temperaturaMin").style.backgroundColor = "#6c757d";
+        // document.getElementById("temperaturaMin").style.border = "#1e1e1e";
+        // document.getElementById("temperaturaMin").style.borderRadius = "5px";
     }
 
     if(dado == 'Umidade'){
@@ -42,18 +46,33 @@ function jsDetalheAjax(dado){
 
     document.getElementById("jsBotoes").style.display = "inline";
 
-    // jsTemperaturaLinha
-    // jsTemperaturaBar
-    // jsUmidadeLinha
-    // jsUmidadeBar
-    // jsVentoLinha
-    // jsVentoBar
-    // jsPressaoLinha
-    // jsPressaoBar
-    // jsRadicaoLinha
-    // jsRadicaoBar
-    // jsPrecipitacaoLinha
-    // jsPrecipitacaoBar
+    //#0D4A99
+    // temperaturaMin
+    // temperaturaMax
+    // temperaturaAr
+    // temperaturaOrvalhoMin
+    // temperaturaOrvalhoMax
+    // temperaturaPontoOrvalho
+
+    // #277AE6
+    // umidadeRelativaMin
+    // umidadeRelativaMax
+    // umidadeRelativaAr
+
+    // #4596FF
+    // ventoVelocidade
+    // ventoRajadaMax
+
+    // #0D4A99
+    // pressaoAtmMin
+    // pressaoAtmMax
+    // pressaoAtmEstacao
+
+    // #277AE6
+    // radiacaoGlobal
+
+    // #4596FF
+    // precipitacaototal
 
   }
 
