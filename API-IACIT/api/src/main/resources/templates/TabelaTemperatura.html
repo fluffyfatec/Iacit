@@ -1,8 +1,8 @@
 <div th:fragment="TabelaTemperatura">
     <!--TABELA LISTA RANGE-->
-    <div style="overflow: scroll; max-width: 1600px; max-height: 1035px; border-radius: 5px">
+    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
      
-       <table class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
+       <table id="tabelaTemperatura" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
         
            <thead>
                <tr>
@@ -29,11 +29,16 @@
                    <!--<td>[[${ddd.codWmo}]]</td>
                    <td>[[${ddd.estacaoEstado}]]</td>
                    <td>[[${ddd.estacaoNome}]]</td>-->
-                   <td>[[${ddd.datahoraCaptacao}]]</td>
+                   <td style="font-size: 14px;">[[${ddd.datahoraCaptacao}]]</td>
+                
                </tr>
            </tbody>
+           
        </table>
-    
-       <br><br><br><br>
+       
     </div>
+    <script src="js/tabelaTemperatura.js"></script>
+
+   
  </div>
+ 
