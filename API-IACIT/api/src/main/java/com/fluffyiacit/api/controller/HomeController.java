@@ -67,6 +67,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
 
+		filtrodatas.setEstacaoRegiao("SE");
 		filtrodatas.setEstacaoNome("SP");
 		filtrodatas.setEstacaoEstado("SAO PAULO - INTERLAGOS");
 		filtrodatas.setCodWmo("");
@@ -505,6 +506,7 @@ public class HomeController {
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// FILTROS DE DADOS
+	    filtrodatas.getEstacaoRegiao();
 		filtrodatas.getEstacaoNome();
 		filtrodatas.getEstacaoEstado();
 		filtrodatas.getDataHoraInicial();

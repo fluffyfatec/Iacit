@@ -3,7 +3,7 @@
   
   //COMBO BOX - REGIÃO
   function filtroRegiao(){
-    var jsFiltroRegiao= document.getElementById("jsRegiao").value;
+    var jsFiltroRegiao = document.getElementById("jsRegiao").value;
     if(jsFiltroRegiao == ''){
       $('#jsrecebeRegiao').load('/filtro/ajax');
       $('#jv_classe').load('/filtro/ajax');
@@ -11,6 +11,7 @@
       $('#jsrecebeRegiao').load('/filtro/ajax');
       $('#jv_classe').load('/filtro/ajax');
       $('#jsrecebeRegiao').load('/ajax/filtro/' + jsFiltroRegiao);
+      document.getElementById("jsRecebeRegiao").value = jsFiltroRegiao;
     }
   }
 
@@ -101,6 +102,8 @@
 function jsFiltroDashboard() {
   dtMin();
   dtMax();
+  jsRegiaoPag();
+  //jsDetalheAjax("Temperatura");
 }
 
 //TRATANDO DATA MAXIMA - TOPO DA PAGINA
@@ -136,5 +139,27 @@ function dtMin() {
     var jsHora = jsHora + ':00:00';
     var jsConsolidado = jsAno + ' ' + jsHora;
     document.getElementById("dtMin").innerHTML = jsConsolidado;
+  }
+}
+
+//TRATANDO REGIÃO
+function jsRegiaoPag() {
+
+  var jsRecebeRegiao = document.getElementById("jsRecebeRegiao").value;
+
+  if(jsRecebeRegiao == 'CO'){
+    document.getElementById("regiao").innerHTML = "Centro-Oeste";
+  }
+  if(jsRecebeRegiao == 'N'){
+    document.getElementById("regiao").innerHTML = "Norte";
+  }
+  if(jsRecebeRegiao == 'NE'){
+    document.getElementById("regiao").innerHTML = "Nordeste";
+  }
+  if(jsRecebeRegiao == 'SE'){
+    document.getElementById("regiao").innerHTML = "Sudeste";
+  }
+  if(jsRecebeRegiao == 'S'){
+    document.getElementById("regiao").innerHTML = "Sul";
   }
 }

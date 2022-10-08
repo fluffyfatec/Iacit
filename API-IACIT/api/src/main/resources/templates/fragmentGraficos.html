@@ -6,6 +6,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="TemperaturaLinha"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomTemperaturaLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -36,9 +38,9 @@
                 
                 
                 datasets: [
-                    //Temperatura Maxima
+                    //Temperatura Máxima
                     {
-                        label: 'Temperatura Maxima',
+                        label: 'Temperatura Máxima',
                         data: rangeTemperaturaMax,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -52,9 +54,9 @@
 
                     },
 
-                    //Temperatura Minima
+                    //Temperatura Mínima
                     {
-                        label: 'Temperatura Minima',
+                        label: 'Temperatura Mínima',
                         data: rangeTemperaturaMin,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -69,7 +71,7 @@
 
                         //Temperatura Ar
                         {
-                        label: 'Temperatura Ar',
+                        label: 'Temperatura do Ar',
                         data: rangeTemperaturaAr,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -83,7 +85,7 @@
 
                         //Temperatura Orvalho Ponto
                         {
-                        label: 'Temperatura Orvalho Ponto',
+                        label: 'Temperatura Ponto de Orvalho',
                         data: rangeTemperaturaPontoOrvalho,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -95,9 +97,9 @@
                         borderWidth: 2
                     },
 
-                    //Temperatura Orvalho Minima
+                    //Temperatura Orvalho Mínima
                     {
-                        label: 'Temperatura Orvalho Minima',
+                        label: 'Temperatura Orvalho Mínima',
                         data: rangeTemperaturaOrvalhoMin,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -109,9 +111,9 @@
                         borderWidth: 2
                     },
 
-                    //Temperatura Orvalho Maxima
+                    //Temperatura Orvalho Máxima
                     {
-                        label: 'Temperatura Orvalho Maxima',
+                        label: 'Temperatura Orvalho Máxima',
                         data: rangeTemperaturaOrvalhoMax,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -125,14 +127,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Temperatura',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
 
+        Chart.register(zoomPlugin);
+        function ResetZoomTemperaturaLinha() {
+            myChartTempLinha.resetZoom();
+        };
     </script>
 </div>
 
@@ -144,6 +173,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="TemperaturaBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomTemperaturaBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -174,9 +205,9 @@
                 
                 
                 datasets: [
-                    //Temperatura Maxima
+                    //Temperatura Máxima
                     {
-                        label: 'Temperatura Maxima',
+                        label: 'Temperatura Máxima',
                         data: rangeTemperaturaMax,
                         backgroundColor: color => {
                       console.log(color)
@@ -192,9 +223,9 @@
 
                     },
 
-                    //Temperatura Minima
+                    //Temperatura Mínima
                     {
-                        label: 'Temperatura Minima',
+                        label: 'Temperatura Mínima',
                         data: rangeTemperaturaMin,
                         backgroundColor: color => {
                       console.log(color)
@@ -212,7 +243,7 @@
 
                         //Temperatura Ar
                         {
-                        label: 'Temperatura Ar',
+                        label: 'Temperatura do Ar',
                         data: rangeTemperaturaAr,
                         backgroundColor: color => {
                       console.log(color)
@@ -229,7 +260,7 @@
 
                         //Temperatura Orvalho Ponto
                         {
-                        label: 'Temperatura Orvalho Ponto',
+                        label: 'Temperatura Ponto de Orvalho',
                         data: rangeTemperaturaPontoOrvalho,
                         backgroundColor: color => {
                       console.log(color)
@@ -245,9 +276,9 @@
 
                     },
 
-                    //Temperatura Orvalho Minima
+                    //Temperatura Orvalho Mínima
                     {
-                        label: 'Temperatura Orvalho Minima',
+                        label: 'Temperatura Orvalho Mínima',
                         data: rangeTemperaturaOrvalhoMin,
                         backgroundColor: color => {
                       console.log(color)
@@ -262,9 +293,9 @@
                     borderWidth: 1,
                     },
 
-                    //Temperatura Orvalho Maxima
+                    //Temperatura Orvalho Máxima
                     {
-                        label: 'Temperatura Orvalho Maxima',
+                        label: 'Temperatura Orvalho Máxima',
                         data: rangeTemperaturaOrvalhoMax,
                         backgroundColor: color => {
                       console.log(color)
@@ -281,13 +312,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Temperatura',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomTemperaturaBar() {
+            myChartTempBar.resetZoom();
+        };
 
     </script>
 </div>
@@ -302,6 +361,8 @@
                 <div class="col-lg-12 col-sm-12">
                     <div class=" card mt-8 ">
                         <canvas id="UmidadeLinha"></canvas>
+                        <hr>
+                        <button onclick="ResetZoomUmidadeLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                     </div>
                 </div>
             </div>
@@ -331,7 +392,7 @@
                 datasets: [
                     //Umidade Relativa Ar
                     {
-                        label: 'Umidade Relativa Ar',
+                        label: 'Umidade Relativa do Ar',
                         data: UmidadeRelativaAr,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -347,7 +408,7 @@
 
                     //Umidade Relativa Min
                     {
-                        label: 'Umidade Relativa Minima',
+                        label: 'Umidade Relativa Mínima',
                         data: UmidadeRelativaMin,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -362,7 +423,7 @@
 
                     //Umidade Relativa Max
                     {
-                        label: 'Umidade Relativa Maxima',
+                        label: 'Umidade Relativa Máxima',
                         data: UmidadeRelativaMax,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -376,13 +437,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Umidade',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomUmidadeLinha() {
+            myChartUmiLinha.resetZoom();
+        };
 
     </script>
 </div>
@@ -395,6 +484,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="UmidadeBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomUmidadeBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -424,7 +515,7 @@
                 datasets: [
                     //Umidade Relativa Ar
                     {
-                        label: 'Umidade Relativa Ar',
+                        label: 'Umidade Relativa do Ar',
                         data: UmidadeRelativaAr,
                         backgroundColor: color => {
                       console.log(color)
@@ -442,7 +533,7 @@
 
                     //Umidade Relativa Min
                     {
-                        label: 'Umidade Relativa Minima',
+                        label: 'Umidade Relativa Mínima',
                         data: UmidadeRelativaMin,
                         backgroundColor: color => {
                       console.log(color)
@@ -460,7 +551,7 @@
 
                     //Umidade Relativa Max
                     {
-                        label: 'Umidade Relativa Maxima',
+                        label: 'Umidade Relativa Máxima',
                         data: UmidadeRelativaMax,
                         backgroundColor: color => {
                       console.log(color)
@@ -477,14 +568,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Umidade',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
-
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomUmidadeBar() {
+            myChartUmiBar.resetZoom();
+        };
     </script>
 </div>
 
@@ -498,6 +616,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="VentoLinha"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomVentoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -539,9 +659,9 @@
 
                 },
 
-                //Vento Rajada Maxima
+                //Vento Rajada Máxima
                 {
-                    label: 'Vento Rajada Maxima',
+                    label: 'Vento Rajada Máxima',
                     data: VentoRajadaMax,
                     backgroundColor: [
                         'rgba(0, 0, 0, 0)'
@@ -557,13 +677,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Vento',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomVentoLinha() {
+            myChartVenLinha.resetZoom();
+        };
 
     </script>
 </div>
@@ -576,6 +724,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="VentoBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomVentoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -619,9 +769,9 @@
 
                 },
 
-                //Vento Rajada Maxima
+                //Vento Rajada Máxima
                 {
-                    label: 'Vento Rajada Maxima',
+                    label: 'Vento Rajada Máxima',
                     data: VentoRajadaMax,
                     backgroundColor: color => {
                       console.log(color)
@@ -640,13 +790,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Vento',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomVentoBar() {
+            myChartVenBar.resetZoom();
+        };
 
     </script>
 </div>
@@ -661,6 +839,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="PressaoLinha"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomPressaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -689,7 +869,7 @@
                 //Pressao Atmosferica Estação
                 datasets: [
                     {
-                    label: 'Pressao Atmosferica Estação',
+                    label: 'Pressão Atmosférica Estação',
                     data: PressaoAtmEstacao,
                     backgroundColor: [
                         'rgba(0, 0, 0, 0)'
@@ -703,9 +883,9 @@
 
                 },
 
-                //Pressao Atmosferica Minima
+                //Pressao Atmosferica Mínima
                 {
-                    label: 'Pressao Atmosferica Minima',
+                    label: 'Pressão Atmosférica Mínima',
                     data: PressaoAtmMin,
                     backgroundColor: [
                         'rgba(0, 0, 0, 0)'
@@ -717,9 +897,9 @@
                     borderWidth: 2
                 },
 
-                 //Pressao Atmosferica Maxima
+                 //Pressao Atmosferica Máxima
                  {
-                    label: 'Pressao Atmosferica Maxima',
+                    label: 'Pressão Atmosférica Máxima',
                     data: PressaoAtmMax,
                     backgroundColor: [
                         'rgba(0, 0, 0, 0)'
@@ -735,13 +915,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Pressão Atmosférica',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomPressaoLinha() {
+            myChartAtmLinha.resetZoom();
+        };
 
     </script>
 </div>
@@ -754,6 +962,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="PressaoBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomPressaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -782,7 +992,7 @@
                 //Pressao Atmosferica Estação
                 datasets: [
                     {
-                    label: 'Pressao Atmosferica Estação',
+                    label: 'Pressão Atmosférica Estação',
                     data: PressaoAtmEstacao,
                     backgroundColor: color => {
                       console.log(color)
@@ -798,9 +1008,9 @@
 
                 },
 
-                //Pressao Atmosferica Minima
+                //Pressao Atmosferica Mínima
                 {
-                    label: 'Pressao Atmosferica Minima',
+                    label: 'Pressão Atmosférica Mínima',
                     data: PressaoAtmMin,
                     backgroundColor: color => {
                       console.log(color)
@@ -815,9 +1025,9 @@
                     borderWidth: 1,
                 },
 
-                 //Pressao Atmosferica Maxima
+                 //Pressao Atmosferica Máxima
                  {
-                    label: 'Pressao Atmosferica Maxima',
+                    label: 'Pressão Atmosférica Máxima',
                     data: PressaoAtmMax,
                     backgroundColor: color => {
                       console.log(color)
@@ -838,13 +1048,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Pressão Atmosférica',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomPressaoBar() {
+            myChartAtmBar.resetZoom();
+        };
 
     </script>
 </div>
@@ -859,20 +1097,22 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="RadicaoLinha"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomRadicaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
         </div>
     </div>
-    <!-- SCRIPT TEMPERATURA -->
+    <!-- SCRIPT -->
     <script th:inline="javascript">
 
         //RECEBE O OBJETO JAVA AQUI
-        var rangeAtm = [[${rangeAtm}]];
+        var rangeRadiacaoglobal = [[${rangeRadiacaoglobal}]];
 
         //DEFINO O CAMPO DESSE OBJETO
-        var rangeRadicao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
-        var RadicaoGlobal =  rangeAtm.map(x => x["radiacaoGlobal"])
+        var rangeRadicao_x =  rangeRadiacaoglobal.map(x => x["datahoraCaptacao"])
+        var RadicaoGlobal =  rangeRadiacaoglobal.map(x => x["radiacaoGlobal"])
 
         //GRAFICO
         const graficoRadLinha = document.getElementById('RadicaoLinha').getContext('2d');
@@ -885,7 +1125,7 @@
                 datasets: [
                     //Radicao Global
                     {
-                        label: 'Radicao Global',
+                        label: 'Radiação Global',
                         data: RadicaoGlobal,
                         backgroundColor: [
                             'rgba(0, 0, 0, 0)'
@@ -901,13 +1141,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Radiação',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomRadicaoLinha() {
+            myChartRadLinha.resetZoom();
+        };
 
     </script>
 </div>
@@ -920,6 +1188,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="RadicaoBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomRadicaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -929,11 +1199,11 @@
     <script th:inline="javascript">
 
         //RECEBE O OBJETO JAVA AQUI
-        var rangeAtm = [[${rangeAtm}]];
+        var rangeRadiacaoglobal = [[${rangeRadiacaoglobal}]];
 
         //DEFINO O CAMPO DESSE OBJETO
-        var rangeRadicao_x =  rangeAtm.map(x => x["datahoraCaptacao"])
-        var RadicaoGlobal =  rangeAtm.map(x => x["radiacaoGlobal"])
+        var rangeRadicao_x =  rangeRadiacaoglobal.map(x => x["datahoraCaptacao"])
+        var RadicaoGlobal =  rangeRadiacaoglobal.map(x => x["radiacaoGlobal"])
 
         //GRAFICO
         const graficoRadBar = document.getElementById('RadicaoBar').getContext('2d');
@@ -946,7 +1216,7 @@
                 datasets: [
                     //Radicao Global
                     {
-                        label: 'Radicao Global',
+                        label: 'Radiação Global',
                         data: RadicaoGlobal,
                         backgroundColor: color => {
                       console.log(color)
@@ -964,13 +1234,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Radiação',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomRadicaoBar() {
+            myChartRadBar.resetZoom();
+        };
 
     </script>
 </div>
@@ -985,6 +1283,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="PrecipitacaoLinha"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomPrecipitacaoLinha()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -1027,13 +1327,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Precipitação',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomPrecipitacaoLinha() {
+            myChartPreLinha.resetZoom();
+        };
 
     </script>
 </div>
@@ -1046,6 +1374,8 @@
             <div class="col-lg-12 col-sm-12">
                 <div class=" card mt-8 ">
                     <canvas id="PrecipitacaoBar"></canvas>
+                    <hr>
+                    <button onclick="ResetZoomPrecipitacaoBar()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
                 </div>
             </div>
             </div>
@@ -1090,13 +1420,41 @@
                 ],
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Precipitação',
+                        font: {
+                        size: 20
                     }
-                }
-            }
-        });
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); 
+                
+        Chart.register(zoomPlugin);
+        function ResetZoomPrecipitacaoBar() {
+            myChartPreBar.resetZoom();
+        };
 
     </script>
 </div>

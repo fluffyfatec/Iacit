@@ -185,8 +185,9 @@
             <div class="row mb-2">
 
               <div class="col-sm-12">
-                Estação: <a id="estacao" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoNome}]]</a>   /   
-                Estado: <a id="estado" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoEstado}]]</a>   /   
+                Região: <a id="regiao"></a>   /   
+                Estado: <a id="estado" th:each="aa : ${filtro}">[[${aa.estacaoNome}]]</a>   /   
+                Estação: <a id="estacao" th:each="aa : ${filtro}">[[${aa.estacaoEstado}]]</a>   /   
                 Data: <a id="dtMin"></a>  -  <a id="dtMax"></a>
               </div><!-- /.col -->
 
@@ -214,37 +215,50 @@
               <section class="col-lg-12 connectedSortable">
 
                 <div id="jsBotoes" style="display: none;">
-                  
-                  Escolha o estilo do grafico:<br>
-                  <button type="button" onclick="btnfnc('inline', 'none')" class="btn btn-primary"><i class="fas fa-chart-line"></i></button>
-                  <button type="button" onclick="btnfnc('none', 'inline')" class="btn btn-primary"><i class="fas fa-chart-bar"></i></button>
-                  <input type="hidden" id="btn" class="form-control"></input>
-                  
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8" style="padding-left: 15px; padding-bottom: 5px">
+                      <!-- Escolha o estilo do grafico:<br> -->
+                      <button type="button" onclick="btnfnc('inline', 'none')" class="btn btn-primary"><i class="fas fa-chart-line"></i></button>
+                      <button type="button" onclick="btnfnc('none', 'inline')" class="btn btn-primary"><i class="fas fa-chart-bar"></i></button>
+                      <input type="hidden" id="btn" class="form-control"></input>
+                    </div>
+                    <div class="col-2"></div>
+                  </div>
                 </div>
 
-                <div th:replace="~{fragmentGraficos :: graficoTemperaturaBar}"></div>
-                
-                <div th:replace="~{fragmentGraficos :: graficoTemperaturaLinha}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoUmidadeLinha}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoUmidadeBar}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoVentoLinha}"></div> 
-  
-                <div th:replace="~{fragmentGraficos :: graficoVentoBar}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoPressaoLinha}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoPressaoBar}"></div> 
-                
-                <div th:replace="~{fragmentGraficos :: graficoRadicaoLinha}"></div> 
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-8">
+                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaBar}"></div>
 
-                <div th:replace="~{fragmentGraficos :: graficoRadicaoBar}"></div> 
-
-                <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoLinha}"></div> 
-
-                <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoBar}"></div> 
+                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaLinha}"></div> 
+                
+                    <div th:replace="~{fragmentGraficos :: graficoUmidadeLinha}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoUmidadeBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoVentoLinha}"></div> 
+      
+                    <div th:replace="~{fragmentGraficos :: graficoVentoBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoPressaoLinha}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoPressaoBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoRadicaoLinha}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoRadicaoBar}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoLinha}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoBar}"></div> 
+                  </div>
+                  <div class="col-2"></div>
+                </div>
+                
+                
+               
 
               </section>
               <!-- /.Left col -->
@@ -257,7 +271,7 @@
         </section>
         <!-- /.content -->
 
-      <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>      -->
+       <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>       -->
       <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> 
 
       </div>

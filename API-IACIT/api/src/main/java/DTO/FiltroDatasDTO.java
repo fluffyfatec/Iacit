@@ -7,6 +7,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FiltroDatasDTO {
+    private String estacaoRegiao;
 	private String estacaoEstado;
 	private String estacaoNome;
 	private String codWmo;
