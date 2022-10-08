@@ -56,9 +56,9 @@ function pageButtons($pCount,$cur) {
     ** it will creates each button and sets the onclick attribute
     ** to the "sort" function with a special ($p) number..
     */
-    $buttons = "<input type='button' value='&lt;&lt; Prev' onclick='sort("+($cur - 1)+")' "+$prevDis+">";
+    $buttons = "<input type='button' value='&lt;&lt; Anterior' onclick='sort("+($cur - 1)+")' "+$prevDis+">";
   for ($i=1; $i<=$pCount;$i++)
     $buttons += "<input type='button' id='id"+$i+"'value='"+$i+"' onclick='sort("+$i+")'>";
-  $buttons += "<input type='button' value='Next &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+">";
+  $buttons += "<input type='button' value='Próximo &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+">";
   return $buttons;
 }
