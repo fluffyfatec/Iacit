@@ -29,7 +29,7 @@ public class PressaoAtmosfericaAjaxController {
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graPressaoAtm", graPressaoAtm);
 		for (ViewPressaoAtmModal objview : graPressaoAtm) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
 		modelAndView.setViewName("PressaoAtmosferica");

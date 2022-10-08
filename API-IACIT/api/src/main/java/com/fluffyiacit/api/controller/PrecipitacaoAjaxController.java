@@ -29,7 +29,7 @@ public class PrecipitacaoAjaxController {
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graPrecipitacao", graPrecipitacao);
 		for (ViewPrecipitacaoModal objview : graPrecipitacao) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 		modelAndView.setViewName("Precipitacao");
 		return modelAndView;
