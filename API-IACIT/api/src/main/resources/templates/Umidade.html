@@ -45,7 +45,7 @@
 
               <canvas id="ChartUmid1"></canvas>
               <hr>
-              <button onclick="resetZoomCharts()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+              <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               <!-- SCRIPT TEMPERATURA -->
               <script th:inline="javascript">
 
@@ -54,6 +54,35 @@
 
                 //DEFINO O CAMPO DESSE OBJETO
                 var rangeUmidade_x = rangeUmidade.map(x => x["datahoraCaptacao"])
+                var arrayDatas = new Array();
+                rangeTemperatura_x.forEach(function(dataArray) {
+                  let data = new Date(dataArray);
+
+                  var dayInt = data.getDate();
+                  var dayString = dayInt.toString();
+                  if (dayString.length == 1){
+                      dayString = "0" + dayString;
+                      }
+                  //console.log(dayString);
+
+                  var monthInt = data.getMonth() + 1;
+                  var monthString = monthInt.toString();
+                  if (monthString.length == 1){
+                      monthString = "0" + monthString;
+                      }
+                  //console.log(monthString);
+
+                  var hoursInt = data.getHours();
+                  var hoursString = hoursInt.toString();
+                  if (hoursString.length == 1){
+                      hoursString = "0" + hoursString;
+                  }
+                  //console.log(hoursString);
+
+                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
+                  arrayDatas.push(dataFormatada);
+                  //console.log(dataFormatada);
+                });
                 var rangeUmidadeMin = rangeUmidade.map(x => x["umidadeRelativaMin"])
                 var rangeUmidadeMax = rangeUmidade.map(x => x["umidadeRelativaMax"])
                 var rangeUmidadeAr = rangeUmidade.map(x => x["umidadeRelativaAr"])
@@ -63,7 +92,7 @@
                   type: 'line',
                   data: {
                     //WHILE X
-                    labels: rangeUmidade_x,
+                    labels: arrayDatas,
 
                     datasets: [
                       //Umidade Minima
@@ -182,7 +211,7 @@
 
               <canvas id="ChartUmid2" width="400" height="200"></canvas>
               <hr>
-              <button onclick="resetZoomChart()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+              <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
               <script  th:inline="javascript">
                 var ctxUmid2 = document.getElementById('ChartUmid2');
@@ -190,7 +219,7 @@
                   type: 'bar',
                   data: {
                     //WHILE X
-                    labels: rangeUmidade_x,
+                    labels: arrayDatas,
 
                     //Temperatura Maxima
                     datasets: [
