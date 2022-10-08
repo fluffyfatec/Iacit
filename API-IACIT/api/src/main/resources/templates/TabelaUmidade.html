@@ -1,8 +1,8 @@
 <div th:fragment="TabelaUmidade">
     <!--TABELA LISTA RANGE-->
-   <div style="overflow: scroll; max-width: 1600px; max-height: 1010px;">
+   <div style="overflow: scroll; max-width: 900px; max-height: 1010px; border-radius: 5px">
 
-      <table class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
+      <table id="tabelaUmidade" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
 
           <thead>
               <tr>
@@ -23,11 +23,13 @@
                   <!--<td>[[${eee.codWmo}]]</td>
                   <td>[[${eee.estacaoEstado}]]</td>
                   <td>[[${eee.estacaoNome}]]</td>-->
-                  <td>[[${eee.datahoraCaptacao}]]</td>
+                  <td style="font-size: 14px;">[[${eee.datahoraCaptacao}]]</td>
               </tr>
           </tbody>
       </table>
-   
-      <br><br><br><br>
+
    </div>
+
+    <script src="js/tabelaUmidade.js"></script>
+
 </div>

@@ -45,7 +45,7 @@
 
               <canvas id="ChartUmid1"></canvas>
               <hr>
-              <button onclick="resetZoomCharts()">Reset</button>
+              <button onclick="resetZoomCharts()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
               <!-- SCRIPT TEMPERATURA -->
               <script th:inline="javascript">
 
@@ -68,7 +68,7 @@
                     datasets: [
                       //Umidade Minima
                       {
-                        label: 'Umid Min',
+                        label: 'Umidade Mínima',
                         data: rangeUmidadeMin,
                         backgroundColor: [
                           'rgba(0, 0, 0, 0)'
@@ -81,7 +81,7 @@
 
                       //Umidade Maxima
                       {
-                        label: 'Umid Max',
+                        label: 'Umidade Máxima',
                         data: rangeUmidadeMax,
                         backgroundColor: [
                           'rgba(0, 0, 0, 0)'
@@ -95,7 +95,7 @@
 
                       //Umidade Ar
                       {
-                        label: 'Umid Ar',
+                        label: 'Umidade Relativa do Ar',
                         data: rangeUmidadeAr,
                         backgroundColor: [
                           'rgba(0, 0, 0, 0)'
@@ -109,20 +109,27 @@
                   },
                   options: {
                     plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Umidade',
+                        font: {
+                        size: 20
+                    }
+                      },
                       zoom: {
                         zoom: {
                           //zoom scrool
                           wheel: {
                             enabled: true,
-                            speed:0.1,
-                            threshold:50
+                            speed: 0.1,
+                            threshold: 50
                           },
                           //zoom selecionar
-                         drag:{
-                          enabled:true,
-                          backgroundColor: 'rgb(233, 233, 233)',
-                          threshold:50
-                         },
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
                           pinch: {
                             enabled: true,
                           },
@@ -130,10 +137,35 @@
                       }
                     }
                   }
-                });Chart.register(zoomPlugin);
-               function resetZoomCharts(){
-                ChartUmid1.resetZoom();
-               }
+                }); Chart.register(zoomPlugin);
+                function resetZoomCharts() {
+                  ChartTemp1.resetZoom();
+                };
+                function scroller (scroll, chart){
+                  console.log(scroll)
+
+                  const dataLength = ChartTemp1.data.labels.lenght;
+                  if(scroll.deltaY > 0){
+                    if (myChart.config.options.scales.x.max >= dataLength){
+                      myChart.config.options.scales.x.min = dataLength =7;
+                      myChart.config.options.scales.x.max = dataLength =-1;
+                    } else{
+                      myChart.config.options.scales.x.min += 1;
+                      myChart.config.options.scales.x.max +=  1;
+                    }
+                  }else if (scroll.deltaY <0){
+                    if(myChart.config.options.scales.x.min  <=0){
+                      myChart.config.options.scales.x.min =0;
+                      myChart.config.options.scales.x.max =6;
+                    }else{
+                      myChart.config.options.scales.x.min -=1;
+                      myChart.config.options.scales.x.max -=1;
+                    }
+                    }else{
+
+                    }
+                    ChartUmid1.update();
+                };
 
               </script>
 
@@ -150,7 +182,7 @@
 
               <canvas id="ChartUmid2" width="400" height="200"></canvas>
               <hr>
-              <button onclick="resetZoomChart()">Reset</button>
+              <button onclick="resetZoomChart()" type="button" class="btn btn-primary" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
               <script  th:inline="javascript">
                 var ctxUmid2 = document.getElementById('ChartUmid2');
@@ -164,7 +196,7 @@
                     datasets: [
                       //Umidade Minima
                       {
-                        label: 'Umid Min',
+                        label: 'Umidade Mínima',
                         data: rangeUmidadeMin,
                         backgroundColor: color => {
                           console.log(color)
@@ -181,7 +213,7 @@
 
                       //Umidade Maxima
                       {
-                        label: 'Umid Max',
+                        label: 'Umidade Máxima',
                         data: rangeUmidadeMax,
                         backgroundColor: color => {
                           console.log(color)
@@ -198,7 +230,7 @@
 
                       //Umidade Ar
                       {
-                        label: 'Umid Ar',
+                        label: 'Umidade Relativa do Ar',
                         data: rangeUmidadeAr,
                         backgroundColor: color => {
                           console.log(color)
@@ -216,20 +248,27 @@
                   },
                   options: {
                     plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Umidade',
+                        font: {
+                        size: 20
+                    }
+                      },
                       zoom: {
                         zoom: {
                           //zoom scrool
                           wheel: {
                             enabled: true,
-                            speed:0.1,
-                            threshold:50
+                            speed: 0.1,
+                            threshold: 50
                           },
                           //zoom selecionar
-                         drag:{
-                          enabled:true,
-                          backgroundColor: 'rgb(233, 233, 233)',
-                          threshold:50
-                         },
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
                           pinch: {
                             enabled: true,
                           },
@@ -237,10 +276,35 @@
                       }
                     }
                   }
-                });Chart.register(zoomPlugin);
-               function resetZoomChart(){
-                ChartUmid2.resetZoom();
-               }
+                }); Chart.register(zoomPlugin);
+                function resetZoomCharts() {
+                  ChartTemp1.resetZoom();
+                };
+                function scroller (scroll, chart){
+                  console.log(scroll)
+
+                  const dataLength = ChartTemp1.data.labels.lenght;
+                  if(scroll.deltaY > 0){
+                    if (myChart.config.options.scales.x.max >= dataLength){
+                      myChart.config.options.scales.x.min = dataLength =7;
+                      myChart.config.options.scales.x.max = dataLength =-1;
+                    } else{
+                      myChart.config.options.scales.x.min += 1;
+                      myChart.config.options.scales.x.max +=  1;
+                    }
+                  }else if (scroll.deltaY <0){
+                    if(myChart.config.options.scales.x.min  <=0){
+                      myChart.config.options.scales.x.min =0;
+                      myChart.config.options.scales.x.max =6;
+                    }else{
+                      myChart.config.options.scales.x.min -=1;
+                      myChart.config.options.scales.x.max -=1;
+                    }
+                    }else{
+
+                    }
+                    ChartUmid1.update();
+                };
 
               </script>
             </div>
