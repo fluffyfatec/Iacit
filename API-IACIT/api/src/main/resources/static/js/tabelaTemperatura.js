@@ -1,7 +1,7 @@
 // get the table element
 var $table = document.getElementById("tabelaTemperatura"),
 // number of rows per page
-$n = 8,
+$n = 10,
 // number of rows of the table
 $rowCount = $table.rows.length,
 // get the first cell's tag name (in the first row)
@@ -42,7 +42,7 @@ function sort($p) {
   // create the pagination buttons
   document.getElementById("buttons").innerHTML = pageButtons($pageCount,$p);
   // CSS Stuff
-  document.getElementById("id"+$p).setAttribute("class","active");
+  document.getElementById("id"+$p).setAttribute("class","chart");
 }
 
 
@@ -56,9 +56,9 @@ function pageButtons($pCount,$cur) {
     ** it will creates each button and sets the onclick attribute
     ** to the "sort" function with a special ($p) number..
     */
-    $buttons = "<input type='button' value='&lt;&lt; Anterior' onclick='sort("+($cur - 1)+")' "+$prevDis+">";
+    $buttons = "<input class='chart' type='button' value='&lt;&lt; Anterior' onclick='sort("+($cur - 1)+")' "+$prevDis+">";
   for ($i=1; $i<=$pCount;$i++)
-    $buttons += "<input type='button' id='id"+$i+"'value='"+$i+"' onclick='sort("+$i+")'>";
-  $buttons += "<input type='button' value='Próximo &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+">";
+    $buttons += "<input  class='chart' type='button' id='id"+$i+"'value='"+$i+"' onclick='sort("+$i+")'>";
+  $buttons += "<input class='chart' type='button' value='Próximo &gt;&gt;' onclick='sort("+($cur + 1)+")' "+$nextDis+">";
   return $buttons;
 }

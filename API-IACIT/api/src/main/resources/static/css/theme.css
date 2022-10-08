@@ -32,22 +32,59 @@
 }
 
 
-    
+
 th {
     background-color: #0D4A99;
-    color:#fff;
+    color: #fff;
     text-align: center;
 
 
 }
-th.font{
-    color:#fff;
+
+th.font {
+    color: #fff;
 }
 
-td{
+td {
     text-align: center;
 }
 
-.chart.element.style{
+.chart.element.style {
     background-color: aqua;
 }
+
+.chart {
+
+    background-color: #0D4A99;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 15px;
+    list-style: none;
+    margin: 0.5;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border-color: #e5e5e5;
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+    
+}
+
+.gg {
+    width: 10px;
+    height:120px;
+  }
+

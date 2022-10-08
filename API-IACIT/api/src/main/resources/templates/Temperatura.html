@@ -196,7 +196,7 @@
                   const dataLength = ChartTemp1.data.labels.lenght;
                   if(scroll.deltaY > 0){
                     if (myChart.config.options.scales.x.max >= dataLength){
-                      myChart.config.options.scales.x.min = dataLength =7;
+                      myChart.config.options.scales.x.min = dataLength =2;
                       myChart.config.options.scales.x.max = dataLength =-1;
                     } else{
                       myChart.config.options.scales.x.min += 1;
@@ -419,7 +419,7 @@
     </section>
     <!-- /.Left col -->
 
-    <section class="col-lg-5 connectedSortable">
+    <section class="col-lg-5 connectedSortable ">
       <div th:replace="~{TabelaTemperatura :: TabelaTemperatura}"></div>
     </section>
 
