@@ -77,7 +77,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Sprints
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/BACKLOG.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/BACKLOG%20(1).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -107,7 +107,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
                   <details>
                   <summary>Desenvolvimento de Indexes</summary>
                         Story User
-                        <p>•a criação de index aos dados Para  que o usuário possa analisar os dados da temperatura de forma rápida e eficaz
+                        <p>•A criação de index aos dados Para que o usuário possa analisar os dados da temperatura de forma rápida e eficaz
                   </details>
 
 </details>
@@ -132,10 +132,18 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Diagrama Lógico
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/logicoCSV%20(1).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Dicionário de dados
+
+[Clique aqui para acessar o dicionário de dados](https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/LGC_CSV_API.pdf)
+
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 
 ## Burndown
  
