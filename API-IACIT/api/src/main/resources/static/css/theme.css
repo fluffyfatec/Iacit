@@ -111,5 +111,43 @@ td {
     
 }
 
+.btnOculto{
+    display: none;
+} 
 
+.content-header{
+    padding: 10px;
+}
 
+.msidebar{
+    background-color: #0F2F59 !important;
+    position: fixed;
+}
+.mt-2 .nav-header{
+    color:#fff;
+}
+.mt-2 .nav-item .nav-link{
+    color: #fff;
+}
+
+.sidebar{
+    opacity: .8
+}
+.col-8{
+    padding-left: 15px; 
+    padding-bottom: 5px
+}
+
+preloader{
+    border-radius: 50px;
+}
+
+.brand-link .brand-image{
+    margin-left: 0.4rem;
+}
+.text-colorWh{
+    color: #fff;
+}
+.sidebar-dark-primary .sidebar a{
+    color:#fff
+}

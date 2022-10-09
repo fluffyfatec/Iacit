@@ -28,7 +28,7 @@
       
       <!-- Preloader -->
       <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150" style="border-radius: 50px;">
+        <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150">
       </div>
 
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -71,11 +71,11 @@
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
       <!-- Main Sidebar Container - MENU VERTICAL -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #0F2F59 !important; position: fixed;">
+      <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
         <!-- Brand Logo -->
         <a href="/" class="brand-link">
-          <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">IACIT</span>      
+          <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 sidebar">
+          <span class="brand-text font-weight-light text-colorWh">IACIT</span>      
         </a>
 
         <!-- Sidebar -->
@@ -85,8 +85,8 @@
             <div class="image">
               <img src="dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
-            <div class="info">
-              <a href="#" class="d-block">Aldrik de Faria Alvaro</a>
+            <div class="info text-colorWh">
+              <a href="#" class="d-block text-colorWh">Aldrik de Faria Alvaro</a>
             </div>
           </div>
 
@@ -165,7 +165,7 @@
       <div id="js_body" class="content-wrapper">
 
         <!-- Content Header (Page header) -->
-        <div class="content-header" style="padding: 10px;">
+        <div class="content-header">
           <div class="container-fluid">
 
             <div class="row mb-2">
@@ -212,10 +212,10 @@
               <!-- Left col -->
               <section class="col-lg-12 connectedSortable">
 
-                <div id="jsBotoes" style="display: none;">
+                <div id="jsBotoes" class= "btnOculto">
                   <div class="row">
                     <div class="col-2"></div>
-                    <div class="col-8" style="padding-left: 15px; padding-bottom: 5px">
+                    <div class="col-8">
                       <!-- Escolha o estilo do grafico:<br> -->
                       <button type="button" onclick="btnfnc('inline', 'none')" class="btn btn-primary"><i class="fas fa-chart-line"></i></button>
                       <button type="button" onclick="btnfnc('none', 'inline')" class="btn btn-primary"><i class="fas fa-chart-bar"></i></button>
