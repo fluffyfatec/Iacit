@@ -1,0 +1,35 @@
+<div th:fragment="TabelaUmidade">
+    <!--TABELA LISTA RANGE-->
+    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
+
+      <table id="tabelaUmidade" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
+
+          <thead>
+              <tr>
+              <th scope="col">Umidade relativa do Ar</th>
+              <th scope="col">Umidade relativa Mínima</th>
+              <th scope="col">Umidade relativa Máxima</th>
+              <!--<th scope="col">CodWMO</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>-->
+              <th scope="col">Data/Hora</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="eee : ${rangeUmidade}">
+                  <td>[[${eee.umidadeRelativaAr}]]</td>
+                  <td>[[${eee.umidadeRelativaMin}]]</td>
+                  <td>[[${eee.umidadeRelativaMax}]]</td>
+                  <!--<td>[[${eee.codWmo}]]</td>
+                  <td>[[${eee.estacaoEstado}]]</td>
+                  <td>[[${eee.estacaoNome}]]</td>-->
+                  <td style="font-size: 14px;">[[${eee.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+
+   </div>
+
+    <script src="js/tabelaUmidade.js"></script>
+
+</div>

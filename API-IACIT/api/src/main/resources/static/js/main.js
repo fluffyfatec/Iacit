@@ -1250,9 +1250,6 @@
 
 })(jQuery);
 
-
-
-
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1414,6 +1411,7 @@
     console.log(error);
   }
 })(jQuery);
+
 (function ($) {
   // Use Strict
   "use strict";
@@ -1444,6 +1442,7 @@
     console.log(err);
   }
 })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1466,6 +1465,7 @@
   }
 
 })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1486,6 +1486,7 @@
 
 
 })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1585,6 +1586,7 @@
     console.log(error);
   }
 })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";
@@ -1612,6 +1614,7 @@
   }
 
 })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";

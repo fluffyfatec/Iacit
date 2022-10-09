@@ -24,14 +24,14 @@ public class RadiacaoGlobalAjaxController {
     private RadiacaoGlobalRepository radiacaoGlobalRepository;
 
 
-    @RequestMapping(value = { "/radiacao" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Radiacao" }, method = RequestMethod.GET)
     public ModelAndView telaRadiacao() {
         ModelAndView modelAndView = new ModelAndView();
 
         List<ViewRadiacaoglobalModal> graRadiacao = radiacaoGlobalRepository.listRange("SP", "SAO PAULO - INTERLAGOS", Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
         modelAndView.addObject("graRadiacao", graRadiacao);
         for (ViewRadiacaoglobalModal objview : graRadiacao) {
-            System.out.println("1:" + objview.getDatahoraCaptacao());
+            //System.out.println("1:" + objview.getDatahoraCaptacao());
         }
 
 
@@ -40,7 +40,7 @@ public class RadiacaoGlobalAjaxController {
 
     }
 
-    @RequestMapping(value = { "/radiacao/search" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Radiacao/search" }, method = RequestMethod.GET)
     public ModelAndView telaRadiacaoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
         ModelAndView modelAndView = new ModelAndView();

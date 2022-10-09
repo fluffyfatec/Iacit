@@ -77,7 +77,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Sprints
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/BACKLOG.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/BACKLOG%20(1).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -97,6 +97,20 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
                   </details>
 </details>
 
+<details>
+<summary>Sprint 2</summary>
+<details>
+                  <summary>Desenvolvimento de telas de temperatura e umidade</summary>
+                        Story User
+                        <p>•Como usuário Quero visualizar no dashboard  uma  página individual de  temperatura  contendo filtros para poder visualizar dados específicos
+                  </details>
+                  <details>
+                  <summary>Desenvolvimento de Indexes</summary>
+                        Story User
+                        <p>•A criação de index aos dados Para que o usuário possa analisar os dados da temperatura de forma rápida e eficaz
+                  </details>
+
+</details>
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Mockup
@@ -118,10 +132,18 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Diagrama Lógico
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/logicoCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/logicoCSV%20(1).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Dicionário de dados
+
+[Clique aqui para acessar o dicionário de dados](https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/LGC_CSV_API.pdf)
+
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
 
 ## Burndown
  
@@ -200,7 +222,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 * [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
 
-* [Azure DevOps](https://dev.azure.com)
+* [Azure DevOps](https://dev.azure.com/iacitAPI/iacitAPI/)
 
 * [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
 </details>

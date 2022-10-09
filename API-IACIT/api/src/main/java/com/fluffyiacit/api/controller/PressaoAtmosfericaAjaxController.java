@@ -21,7 +21,7 @@ public class PressaoAtmosfericaAjaxController {
 	@Autowired(required = true)
 	private PressaoAtmRepository pressaoAtmRepository;
 
-	@RequestMapping(value = { "/pressao" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/PressaoAtmosferica" }, method = RequestMethod.GET)
 	public ModelAndView telaPressaoAtm() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -29,7 +29,7 @@ public class PressaoAtmosfericaAjaxController {
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graPressaoAtm", graPressaoAtm);
 		for (ViewPressaoAtmModal objview : graPressaoAtm) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
 		modelAndView.setViewName("PressaoAtmosferica");
@@ -37,7 +37,7 @@ public class PressaoAtmosfericaAjaxController {
 
 	}
 
-	@RequestMapping(value = { "/pressaoAtm/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/PressaoAtmosferica/search" }, method = RequestMethod.GET)
 	public ModelAndView telaPressaoAtmFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();

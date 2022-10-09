@@ -10,22 +10,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <!-- Graficos-->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-b+q5md1qwYUeYsuOBx+E8MzhsDSZeoE80dPP1VCw9k/KA9LORQmaH3RuXjlpu3u1rfUwh7s6SHthZM3sUGzCkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   </head>
 
-  <body id="jsBody" onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
+  <body id="jsBody"  onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
 
     <div class="wrapper">
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
       
       <!-- Preloader -->
       <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150" style="border-radius: 50px;">
+        <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150">
       </div>
 
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -68,11 +71,14 @@
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
       <!-- Main Sidebar Container - MENU VERTICAL -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #0F2F59 !important;">
+      <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
         <!-- Brand Logo -->
-        <a href="/" class="brand-link">
-          <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">IACIT</span>      
+        <a href="/" class="brand-link sidebariacit" >
+          <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8;">
+          <span class="brand-text font-weight-light text-colorWh">IACIT</span>   
+          
+          <!-- <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
+          <span class="brand-text font-weight-light">IACIT</span>  -->
         </a>
 
         <!-- Sidebar -->
@@ -82,8 +88,8 @@
             <div class="image">
               <img src="dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
-            <div class="info">
-              <a href="#" class="d-block">Aldrik de Faria Alvaro</a>
+            <div class="info text-colorWh">
+              <a href="#" class="d-block text-colorWh">Aldrik de Faria Alvaro</a>
             </div>
           </div>
 
@@ -103,8 +109,8 @@
                 </a>
               </li>
 
-              <li class="nav-item"  onclick="jsMenuAjax('Umidade')">
-                <a class="nav-link">
+              <li class="nav-item">
+                <a class="nav-link" onclick="jsMenuAjax('Umidade')">
                   <i class="fas fa-water"></i>
                   <p>
                     Umidade
@@ -162,7 +168,7 @@
       <div id="js_body" class="content-wrapper">
 
         <!-- Content Header (Page header) -->
-        <div class="content-header" style="padding: 10px;">
+        <div class="content-header">
           <div class="container-fluid">
 
             <div class="row mb-2">
@@ -170,28 +176,14 @@
               <div class="col-sm-8">
                 <h1 class="m-0">Dashboard - Resumo</h1> 
               </div><!-- /.col -->
-
+                
               <div class="col-sm-4">
-                <ol class="breadcrumb float-sm-right" onclick="jsAbrirModalFiltro()">
-                  <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
-                </ol>
+                  <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
               </div><!-- /.col -->
+        
             </div><!-- /.row -->
 
-            <div class="row mb-2">
-
-              <div class="col-sm-12">
-                Estação: <a id="estacao" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoNome}]]</a>   /   
-                Estado: <a id="estado" th:each="aa : ${unicaPrecipitacao}">[[${aa.estacaoEstado}]]</a>   /   
-                Data: <a id="ano" th:each="aa : ${unicaPrecipitacao}">[[${aa.datahoraCaptacao}]]</a>
-              </div><!-- /.col -->
-
-              <div class="col-sm-4">
-              
-              </div><!-- /.col -->
-
-            </div><!-- /.row -->
-
+            <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
@@ -207,238 +199,56 @@
             <div class="row">
 
               <!-- Left col -->
-              <section class="col-lg-7 connectedSortable">
+              <section class="col-lg-12 connectedSortable">
 
-
-                <input type="button" id="btnlinha" value="LINHA" onclick="btnlinha()">
-              <input type="button" id="btnhist" value="HISTOGRAMA" onclick="btnhist()"> 
-              <br><br>
-
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12">
-
-                  <div class=" card mt-8 ">
-                    <!--<div class="card-header text-center "style="width:610px; height: 350px;">-->
-                      <canvas id="grafico"></canvas>
-                    <!--</div>-->
-                  </div>
+                <div id="jsBotoes" class= "btnOculto">
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                      <!-- Escolha o estilo do grafico:<br> -->
+                      <button type="button" onclick="btnfnc('inline', 'none')" class="btn btn-primary"><i class="fas fa-chart-line"></i></button>
+                      <button type="button" onclick="btnfnc('none', 'inline')" class="btn btn-primary"><i class="fas fa-chart-bar"></i></button>
+                      <input type="hidden" id="btn" class="form-control"></input>
+                    </div>
+                    <div class="col-2"></div>
                   </div>
                 </div>
-              </div>
 
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
-    
-            <!-- SCRIPT TEMPERATURA -->
-            <script th:inline="javascript">
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-8">
+                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaBar}"></div>
 
-              //RECEBE O OBJETO JAVA AQUI
-              var rangeTemperatura = [[${rangeTemperatura}]];
-
-              //DEFINO O CAMPO DESSE OBJETO
-              var rangeTemperatura_x =  rangeTemperatura.map(x => x["datahoraCaptacao"])
-              var rangeTemperaturaMax =  rangeTemperatura.map(x => x["temperaturaMax"])
-              var rangeTemperaturaMin =  rangeTemperatura.map(x => x["temperaturaMin"])
-              var rangeTemperaturaAr =  rangeTemperatura.map(x => x["temperaturaAr"])
-              var rangeTemperaturaPontoOrvalho =  rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
-              var rangeTemperaturaOrvalhoMin =  rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
-              var rangeTemperaturaOrvalhoMax =  rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
-
-              //GRAFICO
-              const ctx = document.getElementById('grafico').getContext('2d');
-              const myChart = new Chart(ctx, {
-                  type: 'line',
-                  data: {
-                      //WHILE X
-                      labels: rangeTemperatura_x,
-                      
-                      //Temperatura Maxima
-                      datasets: [
-                        {
-                          label: 'Temp Max',
-                          data: rangeTemperaturaMax,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                        ],
-                        borderWidth: 1,
-                        fill: 1
-
-                      },
-
-                      //Temperatura Minima
-                      {
-                          label: 'Temp Min',
-                          data: rangeTemperaturaMin,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(36, 180, 224, 1)',
-                        ],
-                        borderWidth: 1
-                      },
-
-
-                        //Temperatura Ar
-                        {
-                          label: 'Temp Ar',
-                          data: rangeTemperaturaAr,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(127, 36, 224, 1)',
-                        ],
-                        borderWidth: 1
-                      },
-
-                        //Temperatura PontoOrvalho
-                        {
-                          label: 'Temp PontoOrvalho',
-                          data: rangeTemperaturaPontoOrvalho,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(17, 255, 0, 1)',
-                        ],
-                        borderWidth: 1
-                      },
-
-                      //Temperatura OrvalhoMin
-                      {
-                        label: 'Temp OrvalhoMin',
-                        data: rangeTemperaturaOrvalhoMin,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(255, 102, 0, 1)',
-                        ],
-                        borderWidth: 1
-                      },
-
-                      //Temperatura OrvalhoMax
-                      {
-                        label: 'Temp OrvalhoMax',
-                        data: rangeTemperaturaOrvalhoMax,
-                        backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-                            
-                        ],
-                        borderColor: [
-                            'rgba(221, 0, 255, 1)',
-                        ],
-                        borderWidth: 1
-                      }
-
+                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaLinha}"></div> 
+                
+                    <div th:replace="~{fragmentGraficos :: graficoUmidadeLinha}"></div> 
                     
-                    ],
-                  },
-                  options: {
-                      scales: {
-                          y: {
-                              beginAtZero: true
-                          }
-                      }
-                  }
-              });
-
-            </script>
-            
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <div th:replace="~{fragmentGraficos :: graficoUmidadeBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoVentoLinha}"></div> 
+      
+                    <div th:replace="~{fragmentGraficos :: graficoVentoBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoPressaoLinha}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoPressaoBar}"></div> 
+                    
+                    <div th:replace="~{fragmentGraficos :: graficoRadicaoLinha}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoRadicaoBar}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoLinha}"></div> 
+    
+                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoBar}"></div> 
+                  </div>
+                  <div class="col-2"></div>
+                </div>
+                
+                
+               
 
               </section>
               <!-- /.Left col -->
-
-              <!-- right col (We are only adding the ID to make the widgets sortable)-->
-              <section class="col-lg-5 connectedSortable">
-
-              </section>
-              <!-- right col -->
 
             </div>
             <!-- /.row (main row) -->
@@ -448,9 +258,8 @@
         </section>
         <!-- /.content -->
 
-      <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>      
-      <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
-      <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> 
+       <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>       -->
+      
 
       </div>
       <!-- /.content-wrapper -->
@@ -474,7 +283,7 @@
       <!-- /.control-sidebar -->
 
       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
+      <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> 
     </div>
 
     <!-- Main JS-->
@@ -487,6 +296,8 @@
     <script src="dist/js/adminlte.js"></script>
     <!-- Js -->
     <script src="js/filtro.js"></script>
+    <script src="js/detalhe.js"></script>
+    <!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script> -->
 
   </body>
 </html>

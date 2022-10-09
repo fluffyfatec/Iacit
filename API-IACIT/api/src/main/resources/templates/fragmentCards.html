@@ -3,6 +3,14 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
 
+    <style>
+        .test:hover {
+        /* background-color: yellow !important; */
+        /* border: 4px solid #1e1e1e !important; */
+        /* background-color: #6c757d !important; */
+        /* border-radius: 3px; */
+        }
+    </style>
     <!-- Temperatura -->
     <div class="col-lg-2 col-5">
 
@@ -22,7 +30,7 @@
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaMin"  onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -31,14 +39,14 @@
             <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                 <div class="inner">
                 
-                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaMax}]]<sup style="font-size: 20px">°C</sup></h3>
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsDetalheAjax('Temperatura')">[[${dd.temperaturaMax}]]<sup style="font-size: 20px">°C</sup></h3>
 
                 <p style="font-size: 14px;">Temperatura Max</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaMax"  onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -47,14 +55,14 @@
             <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                 <div class="inner">
                 
-                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaAr}]]<sup style="font-size: 20px">°C</sup></h3>
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsDetalheAjax('Temperatura')">[[${dd.temperaturaAr}]]<sup style="font-size: 20px">°C</sup></h3>
 
                 <p style="font-size: 14px;">Temperatura Ar</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaAr" onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -63,14 +71,14 @@
             <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                 <div class="inner">
                 
-                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMin}]]<sup style="font-size: 20px">°C</sup></h3>
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsDetalheAjax('Temperatura')">[[${dd.temperaturaOrvalhoMin}]]<sup style="font-size: 20px">°C</sup></h3>
 
                 <p style="font-size: 14px;">Temp Orvalho Min</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaOrvalhoMin" onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -79,14 +87,14 @@
             <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                 <div class="inner">
             
-                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaOrvalhoMax}]]<sup style="font-size: 20px">°C</sup></h3>
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsDetalheAjax('Temperatura')">[[${dd.temperaturaOrvalhoMax}]]<sup style="font-size: 20px">°C</sup></h3>
 
                 <p style="font-size: 14px;">Temp Orvalho Max</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaOrvalhoMax" onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -95,14 +103,14 @@
             <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
                 <div class="inner">
             
-                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsMenuAjax('Temperatura')">[[${dd.temperaturaPontoOrvalho}]]<sup style="font-size: 20px">°C</sup></h3>
+                <h3 th:each="dd : ${unicaTemperatura}" onclick="jsDetalheAjax('Temperatura')">[[${dd.temperaturaPontoOrvalho}]]<sup style="font-size: 20px">°C</sup></h3>
 
                 <p style="font-size: 14px;">Temp Orvalho Ponto</p>
                 </div>
                 <div class="icon">
                 <i class="fas fa-temperature-low"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="temperaturaPontoOrvalho" onclick="jsDetalheAjax('Temperatura')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
         </div>
@@ -138,7 +146,7 @@
                 <div class="icon">
                 <i class="fas fa-water"></i>
                 </div>
-                <a href="#" class="small-box-footer" onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="umidadeRelativaMin"  onclick="jsDetalheAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
             
@@ -153,7 +161,7 @@
                 <div class="icon">
                 <i class="fas fa-water"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="umidadeRelativaMax" onclick="jsDetalheAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -168,7 +176,7 @@
                 <div class="icon">
                 <i class="fas fa-water"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="umidadeRelativaAr" onclick="jsDetalheAjax('Umidade')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -205,7 +213,7 @@
                 <div class="icon">
                 <i class="fas fa-wind"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="ventoVelocidade" onclick="jsDetalheAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
             
@@ -221,7 +229,7 @@
                 <div class="icon">
                 <i class="fas fa-wind"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="ventoRajadaMax" onclick="jsDetalheAjax('Ventos')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
 
@@ -257,7 +265,7 @@
                 <div class="icon">
                 <i class="fas fa-tachometer-alt"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="pressaoAtmMin" onclick="jsDetalheAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
             
@@ -272,7 +280,7 @@
                 <div class="icon">
                 <i class="fas fa-tachometer-alt"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="pressaoAtmMax" onclick="jsDetalheAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>   
             
@@ -287,7 +295,7 @@
                 <div class="icon">
                 <i class="fas fa-tachometer-alt"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="pressaoAtmEstacao" onclick="jsDetalheAjax('PressaoAtmosferica')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>  
 
@@ -322,7 +330,7 @@
             <div class="icon">
                 <i class="fas fa-radiation"></i>
             </div>
-            <a href="#" class="small-box-footer"onclick="jsMenuAjax('Radiacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer test" id="radiacaoGlobal" onclick="jsDetalheAjax('Radiacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>
         </div>
@@ -356,7 +364,7 @@
                 <div class="icon">
                 <i class="fas fa-cloud-showers-heavy"></i>
                 </div>
-                <a href="#" class="small-box-footer"onclick="jsMenuAjax('Precipitacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer test" id="precipitacaototal" onclick="jsDetalheAjax('Precipitacao')" >Detalhes <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             </div>              
 

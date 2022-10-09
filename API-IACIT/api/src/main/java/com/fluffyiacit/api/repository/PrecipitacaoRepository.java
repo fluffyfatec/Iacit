@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 
-
 public interface PrecipitacaoRepository extends JpaRepository<ViewPrecipitacaoModal, String> {
 	
 	//LISTA 1 DIA

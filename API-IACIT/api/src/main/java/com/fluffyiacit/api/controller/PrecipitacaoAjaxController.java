@@ -21,7 +21,7 @@ public class PrecipitacaoAjaxController {
 	@Autowired(required = true)
 	private PrecipitacaoRepository precipitacaorepository;
 
-	@RequestMapping(value = { "/precipitacao" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Precipitacao" }, method = RequestMethod.GET)
 	public ModelAndView telaPrecipitacao() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -29,13 +29,13 @@ public class PrecipitacaoAjaxController {
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graPrecipitacao", graPrecipitacao);
 		for (ViewPrecipitacaoModal objview : graPrecipitacao) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 		modelAndView.setViewName("Precipitacao");
 		return modelAndView;
 	}
 
-	@RequestMapping(value = { "/precipitacao/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Precipitacao/search" }, method = RequestMethod.GET)
 	public ModelAndView telaPrecipitacaoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();

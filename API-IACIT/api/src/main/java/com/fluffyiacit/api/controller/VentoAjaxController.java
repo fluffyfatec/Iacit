@@ -21,7 +21,7 @@ public class VentoAjaxController {
 	@Autowired(required = true)
 	private VentoRepository ventoRepository;
 
-	@RequestMapping(value = { "/vento" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Ventos" }, method = RequestMethod.GET)
 	public ModelAndView telaVento() {
 		ModelAndView modelAndView = new ModelAndView();
 
@@ -29,7 +29,7 @@ public class VentoAjaxController {
 				Timestamp.valueOf("2022-06-28 10:00:00"), Timestamp.valueOf("2022-07-01 10:00:00"));
 		modelAndView.addObject("graVento", graVento);
 		for (ViewVentoModal objview : graVento) {
-			System.out.println("1:" + objview.getDatahoraCaptacao());
+			//System.out.println("1:" + objview.getDatahoraCaptacao());
 		}
 
 		modelAndView.setViewName("Ventos");
@@ -37,7 +37,7 @@ public class VentoAjaxController {
 
 	}
 
-	@RequestMapping(value = { "/vento/search" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/Ventos/search" }, method = RequestMethod.GET)
 	public ModelAndView telaVentoFiltrada(FiltroDatasDTO filtroDatasDto) {
 
 		ModelAndView modelAndView = new ModelAndView();

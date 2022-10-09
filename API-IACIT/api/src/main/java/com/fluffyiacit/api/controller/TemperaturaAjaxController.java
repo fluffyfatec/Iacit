@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fluffyiacit.api.modal.ViewTemperaturaModal;
 import com.fluffyiacit.api.repository.TemperaturaRepository;
+
+import DTO.FiltroDatasDTO;
 
 
 @Controller
@@ -21,20 +24,51 @@ public class TemperaturaAjaxController {
     private TemperaturaRepository temperaturaRepository;
 
 
-    @RequestMapping(value = { "/Temperatura" }, method = RequestMethod.GET)
-    public ModelAndView telaTemperatura() {
+    @RequestMapping(value = { "/Temperatura/{estRegiao}/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}" }, method = RequestMethod.GET)
+    public ModelAndView telaTemperatura(@PathVariable("estRegiao") String estRegiao,
+                                        @PathVariable("estNome") String estNome,
+                                        @PathVariable("estEstado") String estEstado, 
+                                        @PathVariable("estDTinicial") String estDTinicial, 
+                                        @PathVariable("estDTfinal") String estDTfinal
+                                        ) {
+        
         ModelAndView modelAndView = new ModelAndView();
-/*
-        List<ViewTemperaturaModal> graTemperatura = temperaturaRepository.listRange("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-        modelAndView.addObject("graTemperatura", graTemperatura);
-        for (ViewTemperaturaModal objview : graTemperatura) {
+        FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
+        
+        estRegiao = estRegiao.replace('*', ' ');
+        estNome = estNome.replace('*', ' ');
+        estEstado = estEstado.replace('*', ' ');
+        estDTinicial = estDTinicial.replace('*', ' ');
+        estDTfinal = estDTfinal.replace('*', ' ');
+        
+        List<ViewTemperaturaModal> rangeTemperatura = temperaturaRepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
+        modelAndView.addObject("rangeTemperatura", rangeTemperatura);
+        
+        //for (ViewTemperaturaModal objview : rangeTemperatura) {
             //System.out.println("1:" + objview.getDatahoraCaptacao());
-        }
-*/
+        //}
+        
+        filtrodatas.setEstacaoRegiao(estRegiao);
+        filtrodatas.setEstacaoNome(estEstado);
+        filtrodatas.setEstacaoEstado(estNome);
+        filtrodatas.setCodWmo("");
+        filtrodatas.setDataHoraInicial(estDTinicial);
+        filtrodatas.setDataHoraFinal(estDTfinal);
+        modelAndView.addObject("filtro", filtrodatas);
+        
+//        System.out.println("1:" + estRegiao);
+//        System.out.println("2:" + estNome);
+//        System.out.println("3:" + estEstado);
+//        System.out.println("4:" + estDTinicial);
+//        System.out.println("5:" + estDTfinal);
+
         modelAndView.setViewName("Temperatura");
         return modelAndView;
 
     }
+   
+    
+    
 
     @RequestMapping(value = { "/temperatura/search" }, method = RequestMethod.GET)
     public ModelAndView telaTemperaturaFiltrada(DTO.FiltroDatasDTO filtroDatasDto) {
@@ -65,7 +99,7 @@ public class TemperaturaAjaxController {
         List<ViewTemperaturaModal> graTemperaturaFiltro = temperaturaRepository.listRange(filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));
         modelAndView.addObject("graTemperaturaFiltro", graTemperaturaFiltro);
         for (ViewTemperaturaModal objview : graTemperaturaFiltro) {
-            System.out.println("1:" + objview.getDatahoraCaptacao());
+            //System.out.println("1:" + objview.getDatahoraCaptacao());
         }
 
 
