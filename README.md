@@ -84,30 +84,30 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 ## Metas das Sprints
 <details>
-<summary>Sprint 1</summary>
+<summary><b>Sprint 1</b></summary>
                   <details>
                   <summary>Dowload e processamento de dados automatizado</summary>
-                        Story User
-                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de temperatura e umidade Para que eu possa                                   analisar e ter uma visão simplificada dos dados gerais das estações 
+                        <b>Story User</b>
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e persistir os dados de temperatura, umidade, vento, pressão atmosférica, radiação global e precipitação Para que eu possa analisar e ter uma visão simplificada dos dados gerais das estações.
                   </details>
                   <details>
                   <summary>Filtrar dados por estações e data</summary>
-                        Story User
-                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e                               persistir os dados de vento  e pressão atmosférica Para que eu                           possa analisar e ter uma visão simplificada dos dados gerais das estações
+                        <b>Story User</b>
+                        <p>•Como meteorologista Quero filtrar as estações por range de datas dos dados de temperatura, umidade, vento, pressão atmosférica, radiação global e precipitação Para que eu possa analisar mais precisamente os dados das estações.
                   </details>
 </details>
 
 <details>
-<summary>Sprint 2</summary>
+<summary><b>Sprint 2</b></summary>
 <details>
                   <summary>Desenvolvimento de telas de temperatura e umidade</summary>
-                        Story User
-                        <p>•Como usuário Quero visualizar no dashboard  uma  página individual de  temperatura  contendo filtros para poder visualizar dados específicos
+                        <b>Story User</b>
+                        <p>•Como usuário Quero visualizar no dashboard uma página individual de Temperatura e Umidade contendo filtros para poder visualizar dados específicos.
                   </details>
                   <details>
                   <summary>Desenvolvimento de Indexes</summary>
-                        Story User
-                        <p>•A criação de index aos dados Para que o usuário possa analisar os dados da temperatura de forma rápida e eficaz
+                        <b>Story User</b>
+                        <p>•Como usuário Quero a criação de index aos dados Para que eu possa analisar os dados da temperatura e umidade de forma rápida e eficaz.
                   </details>
 
 </details>
