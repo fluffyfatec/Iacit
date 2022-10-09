@@ -5,14 +5,11 @@
     <div class="row mb-2">
 
       <div class="col-sm-8">
-        <h1 class="m-0">Umidade</h1> 
+        <h1 class="m-0">Temperatura</h1> 
       </div><!-- /.col -->
-
+        
       <div class="col-sm-4">
-
-        <h1 th:text="${dataLimiteInicial}"></h1>
-        <h1 th:text="${dataLimiteFinal}"></h1>
-
+          <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
       </div><!-- /.col -->
 
     </div><!-- /.row -->
@@ -20,9 +17,10 @@
     <div class="row mb-2">
 
       <div class="col-sm-12">
-        Estação: <a id="estacao" th:each="ee : ${unicaPrecipitacao}">[[${ee.estacaoNome}]]</a>   /   
-        Estado: <a id="estado" th:each="ee : ${unicaPrecipitacao}">[[${ee.estacaoEstado}]]</a>   /   
-        Data: <a id="dtMin"></a>  -  <a id="dtMax"></a>
+        Região: <a id="regiao" th:each="aa : ${filtro}">[[${aa.estacaoRegiao}]]</a>   /   
+        Estado: <a id="estado" th:each="aa : ${filtro}">[[${aa.estacaoNome}]]</a>   /   
+        Estação: <a id="estacao" th:each="aa : ${filtro}">[[${aa.estacaoEstado}]]</a>   /   
+        Data: <a id="dtmin" th:each="aa : ${filtro}">[[${aa.dataHoraInicial}]]</a>  -  <a id="dtmax" th:each="aa : ${filtro}">[[${aa.dataHoraFinal}]]</a>
       </div><!-- /.col -->
 
       <div class="col-sm-4">

@@ -1,19 +1,31 @@
 <!-- Content Header (Page header) -->
 <div class="content-header" style="padding: 10px;">
 
-  <div class="container-fluid">
-    <div class="col-sm-8">
-      <h1 class="m-0">Temperatura</h1> 
-    </div><!-- /.col -->
-    <br>
+  <div class="container-fluid" >
+
     <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0"></h1>
+
+      <div class="col-sm-8">
+        <h1 class="m-0">Temperatura</h1> 
+      </div><!-- /.col -->
+        
+      <div class="col-sm-4">
+          <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+    <div class="row mb-2">
+
+      <div class="col-sm-12">
+        Região: <a id="regiao" th:each="aa : ${filtro}">[[${aa.estacaoRegiao}]]</a>   /   
+        Estado: <a id="estado" th:each="aa : ${filtro}">[[${aa.estacaoNome}]]</a>   /   
+        Estação: <a id="estacao" th:each="aa : ${filtro}">[[${aa.estacaoEstado}]]</a>   /   
+        Data: <a id="dtmin" th:each="aa : ${filtro}">[[${aa.dataHoraInicial}]]</a>  -  <a id="dtmax" th:each="aa : ${filtro}">[[${aa.dataHoraFinal}]]</a>
       </div><!-- /.col -->
 
       <div class="col-sm-4">
-        <h1 th:text="${dataLimiteInicial}"></h1>
-        <h1 th:text="${dataLimiteFinal}"></h1>
+      
       </div><!-- /.col -->
 
     </div><!-- /.row -->
@@ -26,11 +38,6 @@
     <section class="col-lg-7 ">
       <div class="container">
       
-
-
-
-
-
         <div class="row">
 
           <div class="col-lg-12 col-sm-12">
@@ -458,4 +465,7 @@
 
 </div><!-- /.container-fluid -->
 
+<!-- <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> -->
 </section>
+<!-- Js -->
+<script src="js/filtro.js"></script>

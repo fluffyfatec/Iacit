@@ -77,7 +77,36 @@
  //MENU LATERAL / DETALHES
   function jsMenuAjax(dado){
     //alert(dado);
-    $('#js_body').load('/' + dado);
+    var jsRecebeRegiao = document.getElementById("jsRecebeRegiao").value;
+     jsRecebeRegiao = jsRecebeRegiao.replaceAll(" ", "*");
+
+    var jsRecebeEstacao = document.getElementById("jsRecebeEstacao").value;
+     jsRecebeEstacao = jsRecebeEstacao.replaceAll(" ", "*");
+  
+    var jsRecebeEstado = document.getElementById("jsRecebeEstado").value;
+     jsRecebeEstado = jsRecebeEstado.replaceAll(" ", "*");
+
+    var jsRecebeDataMin = document.getElementById("jsRecebeDataMin").value;
+     jsRecebeDataMin = jsRecebeDataMin.replaceAll(" ", "*");
+
+    var jsRecebeDataMax = document.getElementById("jsRecebeDataMax").value;
+     jsRecebeDataMax = jsRecebeDataMax.replaceAll(" ", "*");
+  
+    console.log(jsRecebeRegiao);
+    console.log(jsRecebeEstacao);
+    console.log(jsRecebeEstado);
+    console.log(jsRecebeDataMin);
+    console.log(jsRecebeDataMax);
+    
+    $('#js_body').load('/' + dado + '/' + jsRecebeRegiao + '/' + jsRecebeEstacao + '/' + jsRecebeEstado + '/' + jsRecebeDataMin + '/' + jsRecebeDataMax);
+                       
+    // SE
+    // SAO PAULO - INTERLAGOS
+    // SP
+    // 2022-06-27 10:00:00
+    // 2022-06-28 10:00:00
+
+
   }
 
   //ABRE A MODAL FILTRO
