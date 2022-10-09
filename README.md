@@ -116,7 +116,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Mockup
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/prototipo.gif" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/VID-20221009-WA0013%20(2).gif" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -148,7 +148,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Burndown
  
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/WhatsApp%20Image%202022-09-16%20at%2020.11.47.jpeg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/Burndown.jpeg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
