@@ -26,14 +26,38 @@
 
 1- No diretório "C:" da maquina criar uma pasta "sql" e adicionar o backup dentro da pasta
 
-2- Ir até em variavéis de ambientes, duplo click no ir "path", adicionar um novo, selecionar a opção "browser" no lado direito, ir até o diretório C>Arquivos de Programa>Postgreesql>bin e adicionar.
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_1.jpg" width="100%" height="100%">
+<p align="center">
 
-3- Subir a pioridade do bin dentro do path com o botão mover pra cima 
+2- Ir até em variavéis de ambientes, duplo click no ir "path"
+  
+  <p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_2.jpg" width="100%" height="100%">
+<p align="center">
 
-4- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress"
+  
+3- Selecionar a opção "browser" no lado direito
+    <p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_3.jpg" width="100%" height="100%">
+<p align="center">
+  
+4- Selecionar a pasta "bin" contida dentro da pasta Postgresql
+      <p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_4.jpg" width="100%" height="100%">
+<p align="center">
+  
+5- Subir a pioridade do bin dentro do path com o botão mover pra cima 
+    <p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_5.jpg" width="100%" height="100%">
+<p align="center">
+  
+6- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress"
 
-5- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto
-
+7- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto
+    <p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/ManualUsuario_6.jpg" width="100%" height="100%">
+<p align="center">
 
 #### Python 
 Abrir o projeto no Pycharm e rodar a classe  "RunFunctions"
