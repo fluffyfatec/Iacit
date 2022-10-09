@@ -77,29 +77,31 @@
  //MENU LATERAL / DETALHES
   function jsMenuAjax(dado){
     //alert(dado);
-    var jsRecebeRegiao = document.getElementById("jsRecebeRegiao").value;
-     jsRecebeRegiao = jsRecebeRegiao.replaceAll(" ", "*");
+    var jsOutraPagRegiao = document.getElementById("jsOutraPagRegiao").value;
+     jsOutraPagRegiao = jsOutraPagRegiao.replaceAll(" ", "*");
 
-    var jsRecebeEstacao = document.getElementById("jsRecebeEstacao").value;
-     jsRecebeEstacao = jsRecebeEstacao.replaceAll(" ", "*");
+    var jsOutraPagEstacao = document.getElementById("jsOutraPagEstacao").value;
+     jsOutraPagEstacao = jsOutraPagEstacao.replaceAll(" ", "*");
   
-    var jsRecebeEstado = document.getElementById("jsRecebeEstado").value;
-     jsRecebeEstado = jsRecebeEstado.replaceAll(" ", "*");
+    var jsOutraPagEstado = document.getElementById("jsOutraPagEstado").value;
+     jsOutraPagEstado = jsOutraPagEstado.replaceAll(" ", "*");
 
-    var jsRecebeDataMin = document.getElementById("jsRecebeDataMin").value;
-     jsRecebeDataMin = jsRecebeDataMin.replaceAll(" ", "*");
+    var jsOutraPagDataMin = document.getElementById("jsOutraPagDataMin").value;
+     jsOutraPagDataMin = jsOutraPagDataMin.replaceAll(" ", "*");
 
-    var jsRecebeDataMax = document.getElementById("jsRecebeDataMax").value;
-     jsRecebeDataMax = jsRecebeDataMax.replaceAll(" ", "*");
+    var jsOutraPagDataMax = document.getElementById("jsOutraPagDataMax").value;
+     jsOutraPagDataMax = jsOutraPagDataMax.replaceAll(" ", "*");
   
-    console.log(jsRecebeRegiao);
-    console.log(jsRecebeEstacao);
-    console.log(jsRecebeEstado);
-    console.log(jsRecebeDataMin);
-    console.log(jsRecebeDataMax);
+    //console.log(jsOutraPagRegiao);
+    //console.log(jsOutraPagEstacao);
+    //console.log(jsOutraPagEstado);
+    //console.log(jsOutraPagDataMin);
+    //console.log(jsOutraPagDataMax);
+    //console.log('/' + dado + '/' + jsOutraPagRegiao + '/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax);
     
-    $('#js_body').load('/' + dado + '/' + jsRecebeRegiao + '/' + jsRecebeEstacao + '/' + jsRecebeEstado + '/' + jsRecebeDataMin + '/' + jsRecebeDataMax);
-                       
+    $('#js_body').load('/' + dado + '/' + jsOutraPagRegiao + '/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax);
+     
+    setTimeout(function(){jsFiltroDashboard();},500);
     // SE
     // SAO PAULO - INTERLAGOS
     // SP
@@ -129,10 +131,11 @@
 
 //TRATANDO DATA TOPO DA PAGINA
 function jsFiltroDashboard() {
-  dtMin();
-  dtMax();
-  jsRegiaoPag();
-  //jsDetalheAjax("Temperatura");
+  //alert('jsFiltroDashboard');
+   dtMin();
+   dtMax();
+   jsRegiaoPag();
+  // jsDetalheAjax("Temperatura");
 }
 
 //TRATANDO DATA MAXIMA - TOPO DA PAGINA

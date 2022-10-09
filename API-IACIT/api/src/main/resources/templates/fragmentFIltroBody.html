@@ -1,0 +1,24 @@
+<div th:fragment="FIltroBody">
+    <div class="row mb-2" >
+
+        <div class="col-sm-12">
+          Região: <a id="regiao"></a>   /   
+          Estado: <a id="estado" th:each="aa : ${filtro}">[[${aa.estacaoNome}]]</a>   /   
+          Estação: <a id="estacao" th:each="aa : ${filtro}">[[${aa.estacaoEstado}]]</a>   /   
+          Data: <a id="dtMin"></a>  -  <a id="dtMax"></a>
+        </div><!-- /.col -->
+
+
+        <div class="col-sm-4">
+          <form action='#' th:action="@{/pag}" method="POST" th:object="${filtro}">
+          <input type="hidden" class="form-control" id="jsOutraPagRegiao" th:field="*{estacaoRegiao}"></input>
+          <input type="hidden" class="form-control" id="jsOutraPagEstacao" th:field="*{estacaoEstado}"></input>
+          <input type="hidden" class="form-control" id="jsOutraPagEstado" th:field="*{estacaoNome}" ></input>
+          <input type="hidden" class="form-control" id="jsOutraPagDataMin" th:field="*{dataHoraInicial}"></input>
+          <input type="hidden" class="form-control" id="jsOutraPagDataMax" th:field="*{dataHoraFinal}"></input>
+          </form>
+        </div><!-- /.col -->
+
+      </div><!-- /.row -->
+
+</div>

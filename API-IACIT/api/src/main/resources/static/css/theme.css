@@ -131,7 +131,11 @@ td {
 }
 
 .sidebar{
-    opacity: .8
+    /* opacity: .8 */
+}
+
+.sidebariacit{
+    padding-left:13px;
 }
 .col-8{
     padding-left: 15px; 

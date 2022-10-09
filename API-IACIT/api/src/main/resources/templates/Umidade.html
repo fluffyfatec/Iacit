@@ -5,7 +5,7 @@
     <div class="row mb-2">
 
       <div class="col-sm-8">
-        <h1 class="m-0">Temperatura</h1> 
+        <h1 class="m-0">Umidade</h1> 
       </div><!-- /.col -->
         
       <div class="col-sm-4">
@@ -14,20 +14,7 @@
 
     </div><!-- /.row -->
 
-    <div class="row mb-2">
-
-      <div class="col-sm-12">
-        Região: <a id="regiao" th:each="aa : ${filtro}">[[${aa.estacaoRegiao}]]</a>   /   
-        Estado: <a id="estado" th:each="aa : ${filtro}">[[${aa.estacaoNome}]]</a>   /   
-        Estação: <a id="estacao" th:each="aa : ${filtro}">[[${aa.estacaoEstado}]]</a>   /   
-        Data: <a id="dtmin" th:each="aa : ${filtro}">[[${aa.dataHoraInicial}]]</a>  -  <a id="dtmax" th:each="aa : ${filtro}">[[${aa.dataHoraFinal}]]</a>
-      </div><!-- /.col -->
-
-      <div class="col-sm-4">
-      
-      </div><!-- /.col -->
-
-    </div><!-- /.row -->
+    <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
 
   </div><!-- /.container-fluid -->
 </div>
