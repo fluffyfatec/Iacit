@@ -1,6 +1,6 @@
 ## Primeiro Passo
 
-#### É necessário baixar e instalar as seguintes dependências
+#### É necessário baixar e instalar as seguintes dependências para os passos seguintes;
 
 [Java 11](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
 
@@ -8,11 +8,8 @@
 
 [PgAdmin4 v6.13](https://www.pgadmin.org/download/pgadmin-4-windows/)
 
-[Maven 3.8.6](https://maven.apache.org/download.cgi)
-
-[Eclipse](https://www.eclipse.org/downloads/)
-
 [Backup de dados](https://drive.google.com/drive/u/1/folders/13slRhWn9fGm5K1iX7diME-HEfcZbHMt0)
+
 
 
 ## Segundo Passo
@@ -27,7 +24,8 @@
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/084adf269ec6caf999976df823511c0c0852cc2b/GIT/manual/manual2.PNG" width="70%" height="70%">
 <p align="center">
-Link do arquivo dos dados: (https://drive.google.com/drive/u/1/folders/13slRhWn9fGm5K1iX7diME-HEfcZbHMt0)
+      
+
   
 2 - Pesquisar na barra do windows por "path" e clicar em "Editar as variáveis de ambiente";
 <p align="center">
@@ -49,19 +47,19 @@ Link do arquivo dos dados: (https://drive.google.com/drive/u/1/folders/13slRhWn9
 <p align="center">
   
  
-5- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress"
+5- Caso seja de interesse ir até o arquivo DB_IACIT.bat na pasta "DATABASE" do projeto e editar dentro do arquivo o password do usuário "postgress";
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/084adf269ec6caf999976df823511c0c0852cc2b/GIT/manual/manual7.png" width="60%" height="60%">
 <p align="center">
 
   
-5- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto
+6- Por fim rodar o .bat que esta na pasta DATABASE na raiz do projeto.
 <p align="center">
       <img src="https://github.com/fluffyfatec/Iacit/blob/084adf269ec6caf999976df823511c0c0852cc2b/GIT/manual/manual8.png" width="60%" height="60%">
 <p align="center">
 
-#### Eclipse 
-Instale o [Lombok](https://projectlombok.org/setup/eclipse) e siga o tutorial, 
-  
+## Terceiro passo
+#### Baixe o Jar para rodar a Aplicação:
+  [Jar](https://github.com/fluffyfatec/Iacit/blob/47b42a98d6e107e164d977d89a35c6ca0700ec14/GIT/Jar.Fluffly-Iacit.jar)
   
   
