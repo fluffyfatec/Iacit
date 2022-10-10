@@ -2,7 +2,7 @@
 
 #### É necessário baixar e instalar as seguintes dependências para os passos seguintes;
 
-[Java 11](https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
+[Java 17](https://download.oracle.com/java/17/archive/jdk-17.0.3_windows-x64_bin.exe)
 
 [Postgresql](https://www.postgresql.org/download/)
 
@@ -60,6 +60,6 @@
 
 ## Terceiro passo
 #### Baixe o Jar para rodar a Aplicação:
-  [Jar](https://github.com/fluffyfatec/Iacit/blob/47b42a98d6e107e164d977d89a35c6ca0700ec14/GIT/Jar.Fluffly-Iacit.jar)
+  [Jar](https://github.com/fluffyfatec/Iacit/raw/47b42a98d6e107e164d977d89a35c6ca0700ec14/GIT/Jar.Fluffly-Iacit.jar)
   
   
