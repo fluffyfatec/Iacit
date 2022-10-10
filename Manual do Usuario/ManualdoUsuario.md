@@ -59,7 +59,13 @@
 <p align="center">
 
 ## Terceiro passo
-#### Baixe o Jar para rodar a Aplicação:
+1- Baixe o Jar para rodar a Aplicação:
   [Jar](https://github.com/fluffyfatec/Iacit/raw/47b42a98d6e107e164d977d89a35c6ca0700ec14/GIT/Jar.Fluffly-Iacit.jar)
+  
+    
+2- Acesse a porta;
+<p align="center">
+      <img src= "https://github.com/fluffyfatec/Iacit/blob/256ad1726df7eda3bb43b56685189772c4bd20b1/GIT/manual/manual9.PNG" width="40%" height="40%">
+<p align="center">
   
   
