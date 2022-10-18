@@ -1,6 +1,6 @@
 <div id="top"></div>
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cabecario%20(3).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="center"> 
@@ -13,7 +13,6 @@
 <p align="center">
   <a href="#desafio">Sobre o Projeto</a> •
   <a href="#cronograma">Cronograma</a> •
-  <a href="#proposta-do-projeto">Proposta do Projeto</a> •
   <a href="#burndown">Burndown</a> •
   <a href="#equipe">Equipe</a> •
   <a href="#manual-do-usuario">Manual do Usuario</a> •
@@ -43,7 +42,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 <summary>Requisitos Não Funcionais</summary>
 
 <p>•Linguagem Java
-<p>•Linguagem Java
+<p>•Banco de Dados Relacional
 <p>•Sistema WEB
 <p>•Documentações
 
@@ -53,7 +52,7 @@ Somos uma empresa de consultoria meteorológica, e hoje, um dos nossos serviços
 
 ## Solução
 
-A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas de visualizações, sendo possível gerar relatórios e filtrar esses dados metereológicos, obtidos a partir de CSV's. 
+A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possibilita a automatização desde o download, o processamento dos dados e a persistência dos dados no banco de dados de forma simplificada. Além disso, também será possível realizar a filtragem desses dados por temperatura, umidade, estações, vento, pressão atmosférica, radiação global e precipitação, além da diversa visualizações desses dados. Contudo, vamos entregar também diferentes níveis de usuários juntamente com o painel administrativo possibilitando a exportação dos relatórios a partir dos dados.
 
 
 
@@ -62,15 +61,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Cronograma
 
 <p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
-
-## Proposta do Projeto
-
-<p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/cronograma.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -78,23 +69,54 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## Backlog do Produto
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/proposta.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Sprints
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/BACKLOG%20(1).jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Metas das Sprints
+<details>
+<summary><b>Sprint 1</b></summary>
+                  <details>
+                  <summary>Dowload e processamento de dados automatizado</summary>
+                        <b>Story User</b>
+                        <p>•Como meteorologista Quero filtrar as estações e baixar, tratar e persistir os dados de temperatura, umidade, vento, pressão atmosférica, radiação global e precipitação Para que eu possa analisar e ter uma visão simplificada dos dados gerais das estações.
+                  </details>
+                  <details>
+                  <summary>Filtrar dados por estações e data</summary>
+                        <b>Story User</b>
+                        <p>•Como meteorologista Quero filtrar as estações por range de datas dos dados de temperatura, umidade, vento, pressão atmosférica, radiação global e precipitação Para que eu possa analisar mais precisamente os dados das estações.
+                  </details>
+</details>
 
-<p align="center">
-      <img src="" width="100%" height="100%">
-<p align="center">
+<details>
+<summary><b>Sprint 2</b></summary>
+<details>
+                  <summary>Desenvolvimento de telas de temperatura e umidade</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero visualizar no dashboard uma página individual de Temperatura e Umidade contendo filtros para poder visualizar dados específicos.
+                  </details>
+                  <details>
+                  <summary>Desenvolvimento de Indexes</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero a criação de index aos dados Para que eu possa analisar os dados da temperatura e umidade de forma rápida e eficaz.
+                  </details>
 
+</details>
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
-## Protótipo
+## Mockup
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/VID-20221009-WA0013%20(2).gif" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -102,21 +124,38 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 ## DER 
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
+## Diagrama Lógico
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/logicoCSV%20(1).jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Dicionário de dados
+
+[Clique aqui para acessar o dicionário de dados](https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/LGC_CSV_API.pdf)
+
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+
 ## Burndown
  
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/Burndown.jpeg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Manual do usuario
 
+[Clique aqui para acessar o manual do usuario](https://github.com/fluffyfatec/Iacit/blob/Sprint-1/Manual%20do%20Usuario/ManualdoUsuario.md)
 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -142,6 +181,9 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <summary>Front-End</summary>
 
 * [JavaScript](https://www.javascript.com)
+* [HTML](https://www.w3schools.com/css/)
+* [CSS](https://www.w3schools.com/css/)
+ 
 
 </details>
 
@@ -149,6 +191,10 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <summary>Back-End</summary>
 
 * [Java](https://www.java.com/pt-BR/?msclkid=7faa842eb8f811ecab39772d4c1ae90b)
+ 
+* [Python](https://www.python.org/downloads/)
+
+* [Spring boot](https://spring.io/projects/spring-boot)
 
 </details>
 
@@ -176,7 +222,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 
 * [IntelliJ IDE](https://www.jetbrains.com/idea/promo/?msclkid=6ae44e88c2811d86c0ae2cdbd94ffcfb&utm_source=bing&utm_medium=cpc&utm_campaign=AMER_en_BR_IDEA_Branded&utm_term=intellij&utm_content=intellij%20idea)
 
-* [Azure DevOps](https://dev.azure.com)
+* [Azure DevOps](https://dev.azure.com/iacitAPI/iacitAPI/)
 
 * [Photoshop](https://www.adobe.com/br/products/photoshop.html?sdid=KQPOM&mv=search&ef_id=d67181c6b224183a4875e395ae54f4bf:G:s&s_kwcid=AL!3085!10!79302406606568!79302288716688&msclkid=d67181c6b224183a4875e395ae54f4bf)
 </details>
@@ -184,7 +230,7 @@ A equipe Fluffy desenvolverá uma solução web que contenha múltiplas formas d
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 <p align="center">
-      <img src="" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/main/GIT/rodape.jpg" height="100%">
 <p align="center">
 
 ---

@@ -1,0 +1,87 @@
+<div th:fragment="ModalFiltro">
+
+  <ol class="breadcrumb float-sm-right" onclick="jsAbrirModalFiltro()">
+    <i class="fas fa-filter" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Filtrar</a></li>
+  </ol>
+
+  <!-- Modal filtro -->
+  <div class="modal fade" id="ModalFiltro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Filtro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      
+        <form action='#' th:action="@{/index}" method="POST" th:object="${filtro}">
+          <div class="row">
+            <div class="col-4">
+              Região:
+              <select class="form-control" id="jsRegiao" required>
+                  <option value="" selected>Escolha a Região:</option>
+                  <option value="CO">Centro-Oeste</option>
+                  <option value="N">Norte</option>
+                  <option value="NE">Nordeste</option>
+                  <option value="SE">Sudeste</option>
+                  <option value="S">Sul</option>
+                
+              </select>
+            </div>
+
+            <div class="col-4">
+              Estado:
+              <div id="jsrecebeRegiao">
+              <select class="form-control" id="" disabled>
+                <option value="" selected>Selecione...</option>
+              </select>
+              </div>
+            </div>
+
+
+
+            
+            <div class="col-4">
+              Estação:
+              <div id="jv_classe">
+              <select class="form-control" id="" disabled>
+                <option value="" selected>Selecione...</option>
+              </select>
+              </div>
+            </div>
+
+            <br><br><br>
+
+            <div class="col-6">
+              Data Minima:
+              <input type="datetime-local" class="form-control" id="jsEnviaDataMin" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+            </div>
+
+            <div class="col-6">
+              Data Maxima:
+              <input type="datetime-local" class="form-control" id="jsEnviaDataMax" min="2020-01-01T00:00:00" max="2022-07-01T00:00:00" required>                                                                   
+            </div>
+                                                                                                               
+          </div>
+
+          <!-- <br><br><br><br> -->
+          <input type="hidden" class="form-control" id="jsRecebeRegiao" th:field="*{estacaoRegiao}"></input>
+          <input type="hidden" class="form-control" id="jsRecebeEstacao" th:field="*{estacaoEstado}"></input>
+          <input type="hidden" class="form-control" id="jsRecebeEstado" th:field="*{estacaoNome}" ></input>
+          <input type="hidden" class="form-control" id="jsRecebeDataMin" th:field="*{dataHoraInicial}"></input>
+          <input type="hidden" class="form-control" id="jsRecebeDataMax" th:field="*{dataHoraFinal}"></input>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Fechar</button> 
+        <button class="btn btn-primary" type="submit"><i class="fas fa-filter"></i> Filtrar</button>
+        </form>
+
+        </div>
+       
+    </div>
+  </div>
+  </div>
+</div>

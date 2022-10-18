@@ -1,0 +1,355 @@
+<div th:fragment="TabelasTeste">
+    <!--TABELA LISTA UNICA-->
+    <div style="margin-left: 100px; margin-right: 100px;">
+
+    <div style="text-align: center;">
+        <h5>TABELAS - DATA UNICA</h5>
+        <br>
+    </div>
+   
+      view_precipitacao_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">precipitacaototal</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="aa : ${unicaPrecipitacao}">
+                  <td>[[${aa.precipitacaototal}]]</td>
+                  <td>[[${aa.codWmo}]]</td>
+                  <td>[[${aa.estacaoEstado}]]</td>
+                  <td>[[${aa.estacaoNome}]]</td>
+                  <td>[[${aa.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_atm_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">pressaoAtmEstacao</th>
+              <th scope="col">pressaoAtmMin</th>
+              <th scope="col">pressaoAtmMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="bb : ${unicaAtm}">
+                  <td>[[${bb.pressaoAtmEstacao}]]</td>
+                  <td>[[${bb.pressaoAtmMin}]]</td>
+                  <td>[[${bb.pressaoAtmMax}]]</td>
+                  <td>[[${bb.codWmo}]]</td>
+                  <td>[[${bb.estacaoEstado}]]</td>
+                  <td>[[${bb.estacaoNome}]]</td>
+                  <td>[[${bb.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_radiacaoglobal_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">radiacaoGlobal</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+        
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="cc : ${unicaRadiacaoglobal}">
+                  <td>[[${cc.radiacaoGlobal}]]</td>
+                  <td>[[${cc.codWmo}]]</td>
+                  <td>[[${cc.estacaoEstado}]]</td>
+                  <td>[[${cc.estacaoNome}]]</td>
+                  <td>[[${cc.datahoraCaptacao}]]</td>
+                
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_temperatura_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">temperaturaAr</th>
+              <th scope="col">temperaturaMin</th>
+              <th scope="col">temperaturaMax</th>
+              <th scope="col">temperaturaPontoOrvalho</th>
+              <th scope="col">temperaturaOrvalhoMin</th>
+              <th scope="col">temperaturaOrvalhoMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="dd : ${unicaTemperatura}">
+                  <td>[[${dd.temperaturaAr}]]</td>
+                  <td>[[${dd.temperaturaMin}]]</td>
+                  <td>[[${dd.temperaturaMax}]]</td>
+                  <td>[[${dd.temperaturaPontoOrvalho}]]</td>
+                  <td>[[${dd.temperaturaOrvalhoMin}]]</td>
+                  <td>[[${dd.temperaturaOrvalhoMax}]]</td>
+                  <td>[[${dd.codWmo}]]</td>
+                  <td>[[${dd.estacaoEstado}]]</td>
+                  <td>[[${dd.estacaoNome}]]</td>
+                  <td>[[${dd.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      
+      view_umidade_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">umidadeRelativaAr</th>
+              <th scope="col">umidadeRelativaMin</th>
+              <th scope="col">umidadeRelativaMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="ee : ${unicaUmidade}">
+                  <td>[[${ee.umidadeRelativaAr}]]</td>
+                  <td>[[${ee.umidadeRelativaMin}]]</td>
+                  <td>[[${ee.umidadeRelativaMax}]]</td>
+                  <td>[[${ee.codWmo}]]</td>
+                  <td>[[${ee.estacaoEstado}]]</td>
+                  <td>[[${ee.estacaoNome}]]</td>
+                  <td>[[${ee.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_vento_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">ventoVelocidade</th>
+              <th scope="col">ventoRajadaMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="ff : ${unicaVento}">
+                  <td>[[${ff.ventoVelocidade}]]</td>
+                  <td>[[${ff.ventoRajadaMax}]]</td>
+                  <td>[[${ff.codWmo}]]</td>
+                  <td>[[${ff.estacaoEstado}]]</td>
+                  <td>[[${ff.estacaoNome}]]</td>
+                  <td>[[${ff.datahoraCaptacao}]]</td>
+                  
+              </tr>
+          </tbody>
+      </table>
+      
+    </div> 
+   
+    <br><br><br><br>
+   
+   <!--TABELA LISTA RANGE-->
+   <div style="margin-left: 100px; margin-right: 100px;">
+   
+    <div style="text-align: center;">
+        <h5>TABELAS - DATA RANGE</h5>
+        <br>
+    </div>
+   
+      view_precipitacao_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">precipitacaototal</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="aaa : ${rangePrecipitacao}">
+                  <td>[[${aaa.precipitacaototal}]]</td>
+                  <td>[[${aaa.codWmo}]]</td>
+                  <td>[[${aaa.estacaoEstado}]]</td>
+                  <td>[[${aaa.estacaoNome}]]</td>
+                  <td>[[${aaa.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_atm_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">pressaoAtmEstacao</th>
+              <th scope="col">pressaoAtmMin</th>
+              <th scope="col">pressaoAtmMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="bbb : ${rangeAtm}">
+                  <td>[[${bbb.pressaoAtmEstacao}]]</td>
+                  <td>[[${bbb.pressaoAtmMin}]]</td>
+                  <td>[[${bbb.pressaoAtmMax}]]</td>
+                  <td>[[${bbb.codWmo}]]</td>
+                  <td>[[${bbb.estacaoEstado}]]</td>
+                  <td>[[${bbb.estacaoNome}]]</td>
+                  <td>[[${bbb.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_radiacaoglobal_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">radiacaoGlobal</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+        
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="ccc : ${rangeRadiacaoglobal}">
+                  <td>[[${ccc.radiacaoGlobal}]]</td>
+                  <td>[[${ccc.codWmo}]]</td>
+                  <td>[[${ccc.estacaoEstado}]]</td>
+                  <td>[[${ccc.estacaoNome}]]</td>
+                  <td>[[${ccc.datahoraCaptacao}]]</td>
+                
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_temperatura_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">temperaturaAr</th>
+              <th scope="col">temperaturaMin</th>
+              <th scope="col">temperaturaMax</th>
+              <th scope="col">temperaturaPontoOrvalho</th>
+              <th scope="col">temperaturaOrvalhoMin</th>
+              <th scope="col">temperaturaOrvalhoMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="ddd : ${rangeTemperatura}">
+                  <td>[[${ddd.temperaturaAr}]]</td>
+                  <td>[[${ddd.temperaturaMin}]]</td>
+                  <td>[[${ddd.temperaturaMax}]]</td>
+                  <td>[[${ddd.temperaturaPontoOrvalho}]]</td>
+                  <td>[[${ddd.temperaturaOrvalhoMin}]]</td>
+                  <td>[[${ddd.temperaturaOrvalhoMax}]]</td>
+                  <td>[[${ddd.codWmo}]]</td>
+                  <td>[[${ddd.estacaoEstado}]]</td>
+                  <td>[[${ddd.estacaoNome}]]</td>
+                  <td>[[${ddd.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      
+      view_umidade_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">umidadeRelativaAr</th>
+              <th scope="col">umidadeRelativaMin</th>
+              <th scope="col">umidadeRelativaMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="eee : ${rangeUmidade}">
+                  <td>[[${eee.umidadeRelativaAr}]]</td>
+                  <td>[[${eee.umidadeRelativaMin}]]</td>
+                  <td>[[${eee.umidadeRelativaMax}]]</td>
+                  <td>[[${eee.codWmo}]]</td>
+                  <td>[[${eee.estacaoEstado}]]</td>
+                  <td>[[${eee.estacaoNome}]]</td>
+                  <td>[[${eee.datahoraCaptacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+      <br>
+   
+      view_vento_dados
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+          <thead>
+              <tr>
+              <th scope="col">ventoVelocidade</th>
+              <th scope="col">ventoRajadaMax</th>
+              <th scope="col">codWmo</th>
+              <th scope="col">estacaoEstado</th>
+              <th scope="col">estacaoNome</th>
+              <th scope="col">datahoraCaptacao</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="fff : ${rangeVento}">
+                  <td>[[${fff.ventoVelocidade}]]</td>
+                  <td>[[${fff.ventoRajadaMax}]]</td>
+                  <td>[[${fff.codWmo}]]</td>
+                  <td>[[${fff.estacaoEstado}]]</td>
+                  <td>[[${fff.estacaoNome}]]</td>
+                  <td>[[${fff.datahoraCaptacao}]]</td>
+                  
+              </tr>
+          </tbody>
+      </table>
+      <br><br><br><br>
+   </div>
+</div>

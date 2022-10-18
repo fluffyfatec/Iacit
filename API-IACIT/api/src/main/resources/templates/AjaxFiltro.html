@@ -1,0 +1,4 @@
+<select class="form-control" id="jsAjaxFiltro" onchange="filtroEstacao()" required>
+    <option value="" selected>Escolha a Estação...</option>
+    <option value="teste" th:each="zz : ${teste_filtro}">[[${zz.estacaoNome}]]</option>
+</select>

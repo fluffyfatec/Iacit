@@ -1,0 +1,4 @@
+<select class="form-control" id="jsfiltroEstadoRegiao" onchange="FiltroRegiaoEstado()" required>
+    <option value="" selected>Escolha o Estado...</option>
+    <option value="teste" th:each="frRegiao: ${filtroRegiao}">[[${frRegiao.estacaoEstado}]]</option>
+</select>
