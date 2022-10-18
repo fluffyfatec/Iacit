@@ -13,6 +13,7 @@ public class FiltroDatasDTO {
 	private String codWmo;
 	private String dataHoraInicial;
 	private String dataHoraFinal;
+	private String pagina;
 }
 
 

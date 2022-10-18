@@ -8,9 +8,10 @@
         <h1 class="m-0">Umidade</h1> 
       </div><!-- /.col -->
         
-      <div class="col-sm-4">
-          <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> 
-      </div><!-- /.col -->
+        <div class="col-sm-4">
+            <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
+            <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroUmi')}"></div> 
+        </div><!-- /.col -->
 
     </div><!-- /.row -->
 
@@ -348,3 +349,5 @@
 </div><!-- /.container-fluid -->
 
 </section>
+<!-- Js -->
+<script src="js/filtro.js"></script>
