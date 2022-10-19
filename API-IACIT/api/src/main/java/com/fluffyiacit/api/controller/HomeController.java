@@ -73,6 +73,7 @@ public class HomeController {
 		filtrodatas.setCodWmo("");
 		filtrodatas.setDataHoraInicial("2022-06-27 10:00:00");
 		filtrodatas.setDataHoraFinal("2022-06-28 10:00:00");
+		filtrodatas.setPagina("nulo");
 		modelAndView.addObject("filtro", filtrodatas);
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -511,6 +512,7 @@ public class HomeController {
 		filtrodatas.getEstacaoEstado();
 		filtrodatas.getDataHoraInicial();
 		filtrodatas.getDataHoraFinal();
+		filtrodatas.setPagina("/index");
 		modelAndView.addObject("filtro", filtrodatas);
 
 		// INFORMANDO A PAGINA QUE SERA MOSTRADA
