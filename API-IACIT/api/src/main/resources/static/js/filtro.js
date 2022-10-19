@@ -132,9 +132,10 @@
 //TRATANDO DATA TOPO DA PAGINA
 function jsFiltroDashboard() {
   //alert('jsFiltroDashboard');
-   dtMin();
-   dtMax();
-   jsRegiaoPag();
+  dtMin();
+  dtMax();
+  jsRegiaoPag();
+  validaPag();
   // jsDetalheAjax("Temperatura");
 }
 
@@ -194,4 +195,19 @@ function jsRegiaoPag() {
   if(jsRecebeRegiao == 'S'){
     document.getElementById("regiao").innerHTML = "Sul";
   }
+}
+
+function validaPag() {
+ 
+  var valida = document.getElementById("jsOutraPag").value;
+
+  if(valida == "/filtroTemp"){
+    jsMenuAjax('Temperatura');
+  }
+
+  if(valida == "/filtroUmi"){
+    jsMenuAjax('Umidade');
+  }
+  
+
 }

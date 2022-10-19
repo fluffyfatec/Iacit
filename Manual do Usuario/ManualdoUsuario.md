@@ -68,4 +68,3 @@
       <img src= "https://github.com/fluffyfatec/Iacit/blob/256ad1726df7eda3bb43b56685189772c4bd20b1/GIT/manual/manual9.PNG" width="40%" height="40%">
 <p align="center">
   
-  
