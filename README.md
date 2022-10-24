@@ -111,6 +111,25 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
                   </details>
 
 </details>
+
+<details>
+<summary><b>Sprint 3</b></summary>
+<details>
+                  <summary>Desenvolvimento de telas de vento</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero visualizar no dashboard uma página individual de Vento contendo filtros para poder visualizar dados específicos.
+                  </details>
+                  <details>
+                  <summary>Desenvolvimento de telas de pressão atmosférica</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero visualizar no dashboard uma página individual de Pressão Atmosférica contendo filtros para poder visualizar dados específicos.
+                  </details>
+                  </details>
+                  </details>
+
+
+
+
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
 ## Mockup
