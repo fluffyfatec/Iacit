@@ -208,6 +208,10 @@ function validaPag() {
   if(valida == "/filtroUmi"){
     jsMenuAjax('Umidade');
   }
+
+  if(valida == "/filtroRad"){
+    jsMenuAjax('Radiacao');
+  }
   
 
 }
