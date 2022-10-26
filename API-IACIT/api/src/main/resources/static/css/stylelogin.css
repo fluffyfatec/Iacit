@@ -1,0 +1,74 @@
+:root{
+    margin: 0;
+    padding: 0;
+}
+
+.body-background{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    height: 100%;
+}
+
+/* CONTAINER INPUTS ///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.container-input{
+    background-color: white;
+    width: 35%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    height: 10%;
+    align-items: center;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.input-text{
+    height: 40px;
+    width: 180px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    outline: none;
+    transition: 1s;
+}
+
+.input-text:focus{
+    border-color:#262a77;    
+}
+
+.button-submit{
+    background-color: #1d1f45;
+    color: white;
+    border-radius: 5px;
+    border-color: transparent;
+    height: 30px;
+    width: 120px;
+}
+
+.button-submit:hover{
+    background-color: #2f337a;
+}
+
+/* CONTAINER IMAGEM ///////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.container-image{
+    width: 65%;
+    height: 100%;
+}
