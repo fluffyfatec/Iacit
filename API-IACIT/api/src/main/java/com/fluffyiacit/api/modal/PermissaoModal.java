@@ -26,13 +26,13 @@ public class PermissaoModal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name= "codPermissao", nullable = false)
+	@Column(name= "codPermissao", nullable = true)
 	private Integer codPermissao;
 	
-	@Column(name= "permissaoNome",length = 50, nullable = false)
+	@Column(name= "permissaoNome",length = 50, nullable = true)
 	private String permissaoNome;
 	
-	@Column(name= "permissaoDescricao",length = 200, nullable = false)
+	@Column(name= "permissaoDescricao",length = 200, nullable = true)
 	private String permissaoDescricao; 
 
 }

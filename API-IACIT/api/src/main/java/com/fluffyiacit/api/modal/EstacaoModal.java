@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -23,6 +25,7 @@ import lombok.ToString;
 public class EstacaoModal {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "codWmo",length = 4, nullable = false)
 	private String codWmo;
 	
@@ -44,7 +47,6 @@ public class EstacaoModal {
 	@Column(name="estacaoAltitude",length = 20, nullable = false)
 	private BigDecimal estacaoAltitude;
 	
-	@ColumnDefault(value = "A")
 	@Column(name="estacaoDatafundacao", nullable = false)
 	private Timestamp estacaoDatafundacao;
 	

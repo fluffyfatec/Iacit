@@ -28,20 +28,21 @@ public class UsuarioModal {
 	@Column(name = "codUsuario")
 	private Integer codUsuario;
 	
-	@Column( name= "usuarioNome",length = 60,nullable = true)
+	@Column( name= "usuarioNome",length = 60,nullable = false)
 	private String usuarioNome ;
 	
-	@Column( name= "usuarioUsername",length = 20,nullable = true)
+	@Column( name= "usuarioUsername",length = 20,nullable = false)
 	private String usuarioUsername;
 	
-	@Column( name= "usuarioSenha",length = 20,nullable = true)
+	@Column( name= "usuarioSenha",length = 20,nullable = false)
 	private String usuarioSenha ;
 	
-	@Column( name= "usuarioDatahoraCriacao",nullable = true)
+	@Column( name= "usuarioDatahoraCriacao",nullable = false)
 	private Timestamp usuarioDatahoraCriacao;
 	
-	@Column( name= "usuarioCadastrante",nullable = true)
-	private Integer usuarioCadastrante; 
+	@ManyToOne
+    @JoinColumn(name = "usuario", referencedColumnName = "codUsuario")
+	private UsuarioModal usuarioCadastrante; 
 	
 	@ManyToOne
     @JoinColumn(name = "permissao", referencedColumnName = "codPermissao")
