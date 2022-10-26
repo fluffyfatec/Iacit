@@ -11,6 +11,11 @@ import logging
 
 class LeituraDfs:
 
+    def __int__(self, db):
+        self.db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
+
+        df = LeituraDfs()
+
     @staticmethod
     def leitura_dfs2020():
 
@@ -212,8 +217,7 @@ class LeituraDfs:
             logging.debug("- ERRO: leitura dos CSVs de 2021 não realizada (CSVs/leituraDfs.py)")
             raise
 
-    @staticmethod
-    def leitura_cabecalho2022():
+    def leitura_cabecalho2022(self):
 
         logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                             format="%(asctime)s %(message)s", filemode="a")
@@ -236,7 +240,8 @@ class LeituraDfs:
                 df = pd.read_csv(f, sep=';', encoding='latin-1', on_bad_lines='skip', header=None)
 
                 # Tratamento dos dados e povoamento do banco de dados
-                ConexaoBD.estacao_banco(Cabecalho.tratamento_cabecalho(df))
+                CBD = ConexaoBD()
+                CBD.estacao_banco(Cabecalho.tratamento_cabecalho(df))
 
                 print(i)
                 i += 1
@@ -245,3 +250,6 @@ class LeituraDfs:
         except:
             logging.debug("- ERRO: leitura dos CSVs de 2022 não realizada (CSVs/leituraDfs.py)")
             raise
+
+
+
