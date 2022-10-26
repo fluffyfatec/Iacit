@@ -24,10 +24,11 @@ class RunFunctions:
     def dados_atualizacao():
 
         print("Iniciando script de download automático...\n")
-        Automacao.auto_run()
+        #Automacao.auto_run()
 
         print("\nIniciando povoamento tabela estação...\n")
-        LeituraDfs.leitura_cabecalho2022()
+        LDFS = LeituraDfs()
+        LDFS.leitura_cabecalho2022()
 
         print("\nIniciando povoamento das demais tabelas...\n")
         LeituraDfs.leitura_dfs2022()
