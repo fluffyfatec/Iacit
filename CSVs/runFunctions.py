@@ -1,5 +1,6 @@
 from leituraDfs import LeituraDfs
 from automacao import Automacao
+import glob
 
 
 class RunFunctions:
@@ -7,31 +8,34 @@ class RunFunctions:
     @staticmethod
     def dados_inicial():
 
+        ldfs = LeituraDfs()
+
         print("Iniciando script de download automático...\n")
         Automacao.auto_run()
 
         print("Iniciando povoamento tabela estação...\n")
-        LeituraDfs.leitura_cabecalho2022()
-        LeituraDfs.leitura_cabecalho2021()
-        LeituraDfs.leitura_cabecalho2020()
+        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True))
+        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True))
+        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
 
         print("\nIniciando povoamento das demais tabelas...\n")
-        LeituraDfs.leitura_dfs2020()
-        LeituraDfs.leitura_dfs2021()
-        LeituraDfs.leitura_dfs2022()
+        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True))
+        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True))
+        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
 
     @staticmethod
     def dados_atualizacao():
+
+        ldfs = LeituraDfs()
 
         print("Iniciando script de download automático...\n")
         #Automacao.auto_run()
 
         print("\nIniciando povoamento tabela estação...\n")
-        LDFS = LeituraDfs()
-        LDFS.leitura_cabecalho2022()
+        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
 
         print("\nIniciando povoamento das demais tabelas...\n")
-        LeituraDfs.leitura_dfs2022()
+        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
 
 
 #RunFunctions.dados_inicial()

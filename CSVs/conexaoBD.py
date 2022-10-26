@@ -2,7 +2,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 import logging
 from pandas.core.frame import DataFrame
-import psycopg2
+import sys
 
 
 class ConexaoBD:
@@ -14,6 +14,17 @@ class ConexaoBD:
 
     def getDb(self):
         return self.__db
+
+    def conectar_banco(self):
+
+        conexaoBD = ConexaoBD()
+
+        if conexaoBD.getDb().execute(
+                "select * from pg_stat_activity WHERE state='active' and datname='db_iacit_api';").scalar() is not None:
+            logging.debug("- BANCO CONECTADO COM SUCESSO")
+        else:
+            logging.debug("- ERRO NA CONEXÃO DO BANCO: verifique se o banco está conectado e tente novamente")
+            sys.exit(0)
 
     def povoar_banco(self, df: DataFrame):
 
