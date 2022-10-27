@@ -1,0 +1,352 @@
+<!-- Content Header (Page header) -->
+<div class="content-header" style="padding: 10px;">
+  <div class="container-fluid">
+
+    <div class="row mb-2">
+
+      <div class="col-sm-8">
+        <h1 class="m-0">Vento</h1> 
+      </div><!-- /.col -->
+        
+        <div class="col-sm-4">
+            <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
+            <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroVen')}"></div> 
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+    <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
+
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+  <div class="row mb-2">
+    <section class="col-lg-7 ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <div class=" card mt-12 ">
+
+              <canvas id="ChartVen1"></canvas>
+              <hr>
+              <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+              <!-- SCRIPT TEMPERATURA -->
+              <script th:inline="javascript">
+
+                //RECEBE O OBJETO JAVA AQUI
+                var graVentoFiltro = [[${ graVentoFiltro }]];
+
+                //DEFINO O CAMPO DESSE OBJETO
+                var graVentoFiltro_x = graVentoFiltro.map(x => x["datahoraCaptacao"])
+                var arrayDatas = new Array();
+                graVentoFiltro_x.forEach(function(dataArray) {
+                  let data = new Date(dataArray);
+
+                  var dayInt = data.getDate();
+                  var dayString = dayInt.toString();
+                  if (dayString.length == 1){
+                      dayString = "0" + dayString;
+                      }
+                  //console.log(dayString);
+
+                  var monthInt = data.getMonth() + 1;
+                  var monthString = monthInt.toString();
+                  if (monthString.length == 1){
+                      monthString = "0" + monthString;
+                      }
+                  //console.log(monthString);
+
+                  var hoursInt = data.getHours();
+                  var hoursString = hoursInt.toString();
+                  if (hoursString.length == 1){
+                      hoursString = "0" + hoursString;
+                  }
+                  //console.log(hoursString);
+
+                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
+                  arrayDatas.push(dataFormatada);
+                  //console.log(dataFormatada);
+                });
+                var graVentoDir = graVentoFiltro.map(x => x["graVentoDir"])
+                var graVentoRaj = graVentoFiltro.map(x => x["graVentoRaj"])
+                var graVentoVel = graVentoFiltro.map(x => x["graVentoVel"])
+
+                var ctxVen1 = document.getElementById('ChartVen1');
+                var ChartVen1 = new Chart(ctxVen1, {
+                  type: 'line',
+                  data: {
+                    //WHILE X
+                    labels: arrayDatas,
+
+                    datasets: [
+                      //VENTO DIREÇÃO HORARIO
+                      {
+                        label: 'Vento Direcao Horario',
+                        data: graVentoDir,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+                        ],
+                        borderColor: [
+                          'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                      },
+
+                      //VENTO RAJADA MAX
+                      {
+                        label: 'Rajada Vento Max',
+                        data: graVentoRaj,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+                        ],
+                        borderColor: [
+                          'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+                      },
+
+                      //VENTO VELOCIDADE
+                      {
+                        label: 'Velocidade Vento',
+                        data: graVentoVel,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+                        ],
+                        borderColor: [
+                          'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                      },
+                    ],
+                  },
+                  options: {
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Vento',
+                        font: {
+                        size: 20
+                    }
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); Chart.register(zoomPlugin);
+                function resetZoomCharts() {
+                  ChartUmid1.resetZoom();
+                };
+                function scroller (scroll, chart){
+                  console.log(scroll)
+
+                  const dataLength = ChartTemp1.data.labels.lenght;
+                  if(scroll.deltaY > 0){
+                    if (myChart.config.options.scales.x.max >= dataLength){
+                      myChart.config.options.scales.x.min = dataLength =7;
+                      myChart.config.options.scales.x.max = dataLength =-1;
+                    } else{
+                      myChart.config.options.scales.x.min += 1;
+                      myChart.config.options.scales.x.max +=  1;
+                    }
+                  }else if (scroll.deltaY <0){
+                    if(myChart.config.options.scales.x.min  <=0){
+                      myChart.config.options.scales.x.min =0;
+                      myChart.config.options.scales.x.max =6;
+                    }else{
+                      myChart.config.options.scales.x.min -=1;
+                      myChart.config.options.scales.x.max -=1;
+                    }
+                    }else{
+
+                    }
+                    ChartUmid1.update();
+                };
+
+              </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-8">
+
+            <div class=" card mt-6 ">
+
+
+              <canvas id="ChartVen2" width="400" height="200"></canvas>
+              <hr>
+              <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+
+              <script  th:inline="javascript">
+                var ctxVen2 = document.getElementById('ChartVen2');
+                var ChartVen2 = new Chart(ctxVen2, {
+                  type: 'bar',
+                  data: {
+                    //WHILE X
+                    labels: arrayDatas,
+
+                    datasets: [
+                      //VENTO DIREÇÃO HORARIO
+                      {
+                        label: 'Vento Direcao Horario',
+                        data: graVentoDir,
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+                      },
+
+                      //VENTO RAJADA MAX
+                      {
+                        label: 'Rajada Vento Max',
+                        data: graVentoRaj,
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+                      },
+
+                      //VENTO VELOCIDADE
+                      {
+                        label: 'Velocidade Vento',
+                        data: graVentoVel,
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+                      },
+                    ],
+                  },
+                  options: {
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Vento',
+                        font: {
+                        size: 20
+                    }
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); Chart.register(zoomPlugin);
+                function resetZoomChart() {
+                  ChartVen2.resetZoom();
+                };
+                function scroller (scroll, chart){
+                  console.log(scroll)
+
+                  const dataLength = ChartVen1.data.labels.lenght;
+                  if(scroll.deltaY > 0){
+                    if (myChart.config.options.scales.x.max >= dataLength){
+                      myChart.config.options.scales.x.min = dataLength =7;
+                      myChart.config.options.scales.x.max = dataLength =-1;
+                    } else{
+                      myChart.config.options.scales.x.min += 1;
+                      myChart.config.options.scales.x.max +=  1;
+                    }
+                  }else if (scroll.deltaY <0){
+                    if(myChart.config.options.scales.x.min  <=0){
+                      myChart.config.options.scales.x.min =0;
+                      myChart.config.options.scales.x.max =6;
+                    }else{
+                      myChart.config.options.scales.x.min -=1;
+                      myChart.config.options.scales.x.max -=1;
+                    }
+                    }else{
+
+                    }
+                    ChartVen1.update();
+                };
+
+              </script>
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+    <section class="col-lg-5 connectedSortable">
+      <div th:replace="~{TabelaVento :: TabelaVento}"></div>
+    </section>
+
+  </div>
+<!-- /.Left col -->
+
+<!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+<!-- <section class="col-lg-4 connectedSortable">-->
+
+<!-- </section>-->
+<!-- right col -->
+
+</div>
+<!-- /.row (main row) -->
+
+
+</div><!-- /.container-fluid -->
+
+</section>
+<!-- Js -->
+<script src="js/filtro.js"></script>
