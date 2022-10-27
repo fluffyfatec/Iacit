@@ -6,6 +6,9 @@ from conexaoBD import ConexaoBD
 
 class Cabecalho:
 
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
+
     def __int__(self, estacao):
         self.__estacao = estacao
 
@@ -49,23 +52,28 @@ class Cabecalho:
             # Config para visualizar todas as colunas
             pd.set_option('display.max_columns', None)
 
-            # Criando objeto e determinando atributos da instância
-            df_estacao = Cabecalho()
+            # Organizando o dataframe conforme a tabela do banco
+            cabecalho = Cabecalho()
 
-            df_estacao.__estacao = df[['cod_wmo', 'estacao_nome', 'estacao_regiao', 'estacao_estado',
-                                       'estacao_longitude', 'estacao_latitude',
-                                       'estacao_altitude', 'estacao_datafundacao']]
-
-            # População do banco pelo dataframe
-            cbd = ConexaoBD()
-
-            cbd.estacao_banco(df_estacao.getEstacao())
+            cabecalho.organizar_cabecalho(df)
 
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: tratamento do cabeçalho não pode ser concluída (CSVs/cabeçalho.py)")
             raise
+
+    def organizar_cabecalho(self, df: DataFrame):
+
+        # Criando objeto e determinando atributos da instância
+        df_estacao = Cabecalho()
+
+        df_estacao.__estacao = df[['cod_wmo', 'estacao_nome', 'estacao_regiao', 'estacao_estado',
+                                   'estacao_longitude', 'estacao_latitude',
+                                   'estacao_altitude', 'estacao_datafundacao']]
+
+        # Populando o banco através do dataframe
+        cbd = ConexaoBD()
+
+        cbd.estacao_banco(df_estacao.getEstacao())
 
 
 

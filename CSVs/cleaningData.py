@@ -6,6 +6,9 @@ from conexaoBD import ConexaoBD
 
 class CleaningData:
 
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
+
     def __int__(self, rad, precip, vento, atm, temp, umi):
         self.__rad = rad
         self.__precip = precip
@@ -134,40 +137,45 @@ class CleaningData:
                             'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)': 'umidade_relativa_min',
                             'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)': 'umidade_relativa_max'}, axis=1)
 
+            # Desmembrando os dataframes por tabela do banco
+            cleaningData = CleaningData()
 
-            # Criando objeto e determinando atributos da instância
-            df_filtrado = CleaningData()
-
-            df_filtrado.__rad = df[['cod_wmo', 'radiacao_global', 'datahora_captacao']]
-
-            df_filtrado.__atm = df[['cod_wmo', 'pressao_atm_estacao', 'pressao_atm_min',
-                                    'pressao_atm_max', 'datahora_captacao']]
-
-            df_filtrado.__umi = df[['cod_wmo', 'umidade_relativa_ar', 'umidade_relativa_min',
-                                    'umidade_relativa_max', 'datahora_captacao']]
-
-            df_filtrado.__temp = df[['cod_wmo', 'temperatura_ar', 'temperatura_min',
-                                     'temperatura_max', 'temperatura_ponto_orvalho',
-                                     'temperatura_orvalho_min', 'temperatura_orvalho_max', 'datahora_captacao']]
-
-            df_filtrado.__vento = df[['cod_wmo', 'vento_velocidade', 'vento_rajada_max',
-                                      'vento_direcao_horario', 'datahora_captacao']]
-
-            df_filtrado.__precip = df[['cod_wmo', 'precipitacaototal', 'datahora_captacao']]
-
-            # População do banco pelos dataframes
-            cbd = ConexaoBD()
-
-            cbd.povoar_banco(df_filtrado.getRad(), 'radiacao_global')
-            cbd.povoar_banco(df_filtrado.getPrecip(), 'precipitacao')
-            cbd.povoar_banco(df_filtrado.getVento(), 'vento')
-            cbd.povoar_banco(df_filtrado.getAtm(), 'pressao_atmosferica')
-            cbd.povoar_banco(df_filtrado.getTemp(), 'temperatura')
-            cbd.povoar_banco(df_filtrado.getUmi(), 'umidade')
+            cleaningData.desmembrar_dfs(df)
 
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: tratamento dos CSVs não pode ser concluída (CSVs/cleaningData.py)")
             raise
+
+    def desmembrar_dfs(self, df: DataFrame):
+
+        # Criando objeto e determinando atributos da instância
+        df_filtrado = CleaningData()
+
+        df_filtrado.__rad = df[['cod_wmo', 'radiacao_global', 'datahora_captacao']]
+
+        df_filtrado.__atm = df[['cod_wmo', 'pressao_atm_estacao', 'pressao_atm_min',
+                                'pressao_atm_max', 'datahora_captacao']]
+
+        df_filtrado.__umi = df[['cod_wmo', 'umidade_relativa_ar', 'umidade_relativa_min',
+                                'umidade_relativa_max', 'datahora_captacao']]
+
+        df_filtrado.__temp = df[['cod_wmo', 'temperatura_ar', 'temperatura_min',
+                                 'temperatura_max', 'temperatura_ponto_orvalho',
+                                 'temperatura_orvalho_min', 'temperatura_orvalho_max', 'datahora_captacao']]
+
+        df_filtrado.__vento = df[['cod_wmo', 'vento_velocidade', 'vento_rajada_max',
+                                  'vento_direcao_horario', 'datahora_captacao']]
+
+        df_filtrado.__precip = df[['cod_wmo', 'precipitacaototal', 'datahora_captacao']]
+
+
+        # Populando o banco através dos dataframes
+        cbd = ConexaoBD()
+
+        cbd.povoar_banco(df_filtrado.getRad(), 'radiacao_global')
+        cbd.povoar_banco(df_filtrado.getPrecip(), 'precipitacao')
+        cbd.povoar_banco(df_filtrado.getVento(), 'vento')
+        cbd.povoar_banco(df_filtrado.getAtm(), 'pressao_atmosferica')
+        cbd.povoar_banco(df_filtrado.getTemp(), 'temperatura')
+        cbd.povoar_banco(df_filtrado.getUmi(), 'umidade')
 

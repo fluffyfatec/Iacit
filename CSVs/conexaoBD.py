@@ -9,6 +9,9 @@ class ConexaoBD:
 
     __db = create_engine('postgresql://postgres:123@[localhost]/db_iacit_api')
 
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
+
     def __int__(self, db):
         self.__db = db
 
@@ -45,8 +48,6 @@ class ConexaoBD:
                 df.to_sql(tabela, conexaoBD.getDb(), if_exists='append', index=False)
 
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: falha na tentativa de povoar o banco com os dados dos CSVs (CSVs/conexaoBD.py)")
             raise
 
@@ -63,7 +64,5 @@ class ConexaoBD:
                 pass
 
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: falha na tentativa de atualizar as estações cadastradas no banco (CSVs/conexaoBD.py)")
             raise

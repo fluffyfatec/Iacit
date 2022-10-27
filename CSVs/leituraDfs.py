@@ -8,10 +8,10 @@ import glob
 
 class LeituraDfs:
 
-    def leitura_dfs(self, ano: str):
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
 
-        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                            format="%(asctime)s %(message)s", filemode="a")
+    def leitura_dfs(self, ano: str):
 
         cbd = ConexaoBD()
 
@@ -43,14 +43,12 @@ class LeituraDfs:
                 i += 1
 
             logging.debug("- ATUALIZAÇÃO DOS DADOS DE 2022 CONCLUÍDA COM SUCESSO")
+
         except:
             logging.debug("- ERRO: leitura dos CSVs não realizada (CSVs/leituraDfs.py)")
             raise
 
     def leitura_cabecalho(self, ano: str):
-
-        logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                            format="%(asctime)s %(message)s", filemode="a")
 
         cbd = ConexaoBD()
 
@@ -74,6 +72,7 @@ class LeituraDfs:
                 i += 1
 
             logging.debug("- ATUALIZAÇÃO DAS ESTAÇÕES CADASTRADAS CONCLUÍDA COM SUCESSO")
+
         except:
             logging.debug("- ERRO: leitura dos CSVs não realizada (CSVs/leituraDfs.py)")
             raise
