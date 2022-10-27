@@ -3,11 +3,12 @@ from conexaoBD import ConexaoBD
 from cleaningData import CleaningData
 from cabeçalho import Cabecalho
 import logging
+import glob
 
 
 class LeituraDfs:
 
-    def leitura_dfs(self, files):
+    def leitura_dfs(self, ano: str):
 
         logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                             format="%(asctime)s %(message)s", filemode="a")
@@ -17,6 +18,9 @@ class LeituraDfs:
         cbd.conectar_banco()
 
         try:
+
+            # Path dos dataframes
+            files = glob.glob(fr"C:\Users\**\Iacit (Task-116)\CSVs\DF\{ano}\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -43,7 +47,7 @@ class LeituraDfs:
             logging.debug("- ERRO: leitura dos CSVs não realizada (CSVs/leituraDfs.py)")
             raise
 
-    def leitura_cabecalho(self, files):
+    def leitura_cabecalho(self, ano: str):
 
         logging.basicConfig(filename="log.txt", level=logging.DEBUG,
                             format="%(asctime)s %(message)s", filemode="a")
@@ -53,6 +57,9 @@ class LeituraDfs:
         cbd.conectar_banco()
 
         try:
+
+            # Path dos dataframes
+            files = glob.glob(fr"C:\Users\**\Iacit (Task-116)\CSVs\DF\{ano}\*.csv", recursive=True)
 
             i = 1
             for f in files:

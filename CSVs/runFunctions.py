@@ -1,6 +1,5 @@
 from leituraDfs import LeituraDfs
 from automacao import Automacao
-import glob
 
 
 class RunFunctions:
@@ -14,14 +13,14 @@ class RunFunctions:
         Automacao.auto_run()
 
         print("Iniciando povoamento tabela estação...\n")
-        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True))
-        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True))
-        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
+        ldfs.leitura_cabecalho('2020')
+        ldfs.leitura_cabecalho('2021')
+        ldfs.leitura_cabecalho('2022')
 
         print("\nIniciando povoamento das demais tabelas...\n")
-        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2020\*.csv", recursive=True))
-        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2021\*.csv", recursive=True))
-        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
+        ldfs.leitura_dfs('2020')
+        ldfs.leitura_dfs('2021')
+        ldfs.leitura_dfs('2022')
 
     @staticmethod
     def dados_atualizacao():
@@ -32,10 +31,10 @@ class RunFunctions:
         #Automacao.auto_run()
 
         print("\nIniciando povoamento tabela estação...\n")
-        ldfs.leitura_cabecalho(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
+        ldfs.leitura_cabecalho('2022')
 
         print("\nIniciando povoamento das demais tabelas...\n")
-        ldfs.leitura_dfs(glob.glob(r"C:\Users\**\Iacit\CSVs\DF\2022\*.csv", recursive=True))
+        #ldfs.leitura_dfs('2022')
 
 
 #RunFunctions.dados_inicial()
