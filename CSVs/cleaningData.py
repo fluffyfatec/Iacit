@@ -1,12 +1,38 @@
-import numpy as np
 import pandas as pd
 import logging
+from pandas.core.frame import DataFrame
+from conexaoBD import ConexaoBD
 
 
 class CleaningData:
 
-    @staticmethod
-    def tratamento_dfs(df):
+    def __int__(self, rad, precip, vento, atm, temp, umi):
+        self.__rad = rad
+        self.__precip = precip
+        self.__vento = vento
+        self.__atm = atm
+        self.__temp = temp
+        self.__umi = umi
+
+    def getRad(self):
+        return self.__rad
+
+    def getPrecip(self):
+        return self.__precip
+
+    def getVento(self):
+        return self.__vento
+
+    def getAtm(self):
+        return self.__atm
+
+    def getTemp(self):
+        return self.__temp
+
+    def getUmi(self):
+        return self.__umi
+
+    def tratamento_dfs(self, df: DataFrame):
 
         try:
 
@@ -75,27 +101,6 @@ class CleaningData:
             df.drop('Data', inplace=True, axis=1)
             df.drop('Hora UTC', inplace=True, axis=1)
 
-            # Reorganizando a ordem das colunas
-            df = df[['CODIGO (WMO)',
-                     'DATAHORA DE CAPTAÇÃO',
-                     'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)',
-                     'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)',
-                     'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)',
-                     'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)',
-                     'RADIACAO GLOBAL (Kj/m²)',
-                     'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)',
-                     'TEMPERATURA DO PONTO DE ORVALHO (°C)',
-                     'TEMPERATURA MÁXIMA NA HORA ANT. (AUT) (°C)',
-                     'TEMPERATURA MÍNIMA NA HORA ANT. (AUT) (°C)',
-                     'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)',
-                     'TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (°C)',
-                     'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)',
-                     'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)',
-                     'UMIDADE RELATIVA DO AR, HORARIA (%)',
-                     'VENTO, DIREÇÃO HORARIA (gr) (° (gr))',
-                     'VENTO, RAJADA MAXIMA (m/s)',
-                     'VENTO, VELOCIDADE HORARIA (m/s)']]
-
             # Apagando vírgulas em sequência errôneas
             df = df.replace({',,,,,,,,,,,,,': ''}, regex=True)
             df = df.replace({',,,,,,,,,,,,': ''}, regex=True)
@@ -109,7 +114,56 @@ class CleaningData:
             # Convertendo a datetime
             df['DATAHORA DE CAPTAÇÃO'] = pd.to_datetime(df['DATAHORA DE CAPTAÇÃO'], errors='raise', dayfirst=True)
 
-            return df
+            # Renomeando Colunas
+            df = df.rename({'CODIGO (WMO)': 'cod_wmo', 'RADIACAO GLOBAL (Kj/m²)': 'radiacao_global',
+                            'DATAHORA DE CAPTAÇÃO': 'datahora_captacao',
+                            'PRECIPITAÇÃO TOTAL, HORÁRIO (mm)': 'precipitacaototal',
+                            'VENTO, VELOCIDADE HORARIA (m/s)': 'vento_velocidade',
+                            'VENTO, RAJADA MAXIMA (m/s)': 'vento_rajada_max',
+                            'VENTO, DIREÇÃO HORARIA (gr) (° (gr))': 'vento_direcao_horario',
+                            'PRESSAO ATMOSFERICA AO NIVEL DA ESTACAO, HORARIA (mB)': 'pressao_atm_estacao',
+                            'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)': 'pressao_atm_min',
+                            'PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)': 'pressao_atm_max',
+                            'TEMPERATURA DO AR - BULBO SECO, HORARIA (°C)': 'temperatura_ar',
+                            'TEMPERATURA MÍNIMA NA HORA ANT. (AUT) (°C)': 'temperatura_min',
+                            'TEMPERATURA MÁXIMA NA HORA ANT. (AUT) (°C)': 'temperatura_max',
+                            'TEMPERATURA DO PONTO DE ORVALHO (°C)': 'temperatura_ponto_orvalho',
+                            'TEMPERATURA ORVALHO MIN. NA HORA ANT. (AUT) (°C)': 'temperatura_orvalho_min',
+                            'TEMPERATURA ORVALHO MAX. NA HORA ANT. (AUT) (°C)': 'temperatura_orvalho_max',
+                            'UMIDADE RELATIVA DO AR, HORARIA (%)': 'umidade_relativa_ar',
+                            'UMIDADE REL. MIN. NA HORA ANT. (AUT) (%)': 'umidade_relativa_min',
+                            'UMIDADE REL. MAX. NA HORA ANT. (AUT) (%)': 'umidade_relativa_max'}, axis=1)
+
+
+            # Criando objeto e determinando atributos da instância
+            df_filtrado = CleaningData()
+
+            df_filtrado.__rad = df[['cod_wmo', 'radiacao_global', 'datahora_captacao']]
+
+            df_filtrado.__atm = df[['cod_wmo', 'pressao_atm_estacao', 'pressao_atm_min',
+                                    'pressao_atm_max', 'datahora_captacao']]
+
+            df_filtrado.__umi = df[['cod_wmo', 'umidade_relativa_ar', 'umidade_relativa_min',
+                                    'umidade_relativa_max', 'datahora_captacao']]
+
+            df_filtrado.__temp = df[['cod_wmo', 'temperatura_ar', 'temperatura_min',
+                                     'temperatura_max', 'temperatura_ponto_orvalho',
+                                     'temperatura_orvalho_min', 'temperatura_orvalho_max', 'datahora_captacao']]
+
+            df_filtrado.__vento = df[['cod_wmo', 'vento_velocidade', 'vento_rajada_max',
+                                      'vento_direcao_horario', 'datahora_captacao']]
+
+            df_filtrado.__precip = df[['cod_wmo', 'precipitacaototal', 'datahora_captacao']]
+
+            # População do banco pelos dataframes
+            cbd = ConexaoBD()
+
+            cbd.povoar_banco(df_filtrado.getRad(), 'radiacao_global')
+            cbd.povoar_banco(df_filtrado.getPrecip(), 'precipitacao')
+            cbd.povoar_banco(df_filtrado.getVento(), 'vento')
+            cbd.povoar_banco(df_filtrado.getAtm(), 'pressao_atmosferica')
+            cbd.povoar_banco(df_filtrado.getTemp(), 'temperatura')
+            cbd.povoar_banco(df_filtrado.getUmi(), 'umidade')
 
         except:
             logging.basicConfig(filename="log.txt", level=logging.DEBUG,

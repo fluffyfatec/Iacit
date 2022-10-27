@@ -1,5 +1,4 @@
 import pandas as pd
-import glob
 from conexaoBD import ConexaoBD
 from cleaningData import CleaningData
 from cabeçalho import Cabecalho
@@ -32,7 +31,9 @@ class LeituraDfs:
                 del df1
 
                 # Tratamento dos dados e povoamento do banco de dados
-                cbd.povoar_banco(CleaningData.tratamento_dfs(df))
+                cleaningData = CleaningData()
+
+                cleaningData.tratamento_dfs(df)
 
                 print(i)
                 i += 1
@@ -58,7 +59,9 @@ class LeituraDfs:
                 df = pd.read_csv(f, sep=';', encoding='latin-1', on_bad_lines='skip', header=None)
 
                 # Tratamento dos dados e povoamento do banco de dados
-                cbd.estacao_banco(Cabecalho.tratamento_cabecalho(df))
+                cabecalho = Cabecalho()
+
+                cabecalho.tratamento_cabecalho(df)
 
                 print(i)
                 i += 1
