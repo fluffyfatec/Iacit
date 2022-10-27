@@ -93,6 +93,9 @@ AND v.estacao_nome = 'BRASILIA'
 AND v.cod_wmo = 'A001'
 AND v.datahora_captacao = '2020-01-01 00:00:00';
 
+--VIEW REGIAO
+CREATE VIEW view_filtro_regiao AS
+SELECT DISTINCT est.estacao_estado, est.estacao_regiao FROM estacao est
 
 --DROP VIEWS
 DROP VIEW view_precipitacao_dados;
