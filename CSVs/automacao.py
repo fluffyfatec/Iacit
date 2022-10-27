@@ -1,8 +1,8 @@
 import os
-import requests #pip install requests
+import requests
 from datetime import date
 import zipfile
-import shutil #pip install shutil
+import shutil
 import logging
 
 
