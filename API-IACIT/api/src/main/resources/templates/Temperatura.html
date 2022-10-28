@@ -73,6 +73,7 @@
                     arrayDatas.push(dataFormatada);
                     //console.log(dataFormatada);
                   });
+                  var range = rangeTemperatura.map(x => x["estacaoNome"])
                   var rangeTemperaturaMax = rangeTemperatura.map(x => x["temperaturaMax"])
                   var rangeTemperaturaMin = rangeTemperatura.map(x => x["temperaturaMin"])
                   var rangeTemperaturaAr = rangeTemperatura.map(x => x["temperaturaAr"])
@@ -93,7 +94,7 @@
                       datasets: [
                         {
                           label: 'Temperatura Máxima',
-                          data: rangeTemperaturaMax,
+                          data: range,
                           backgroundColor: [
                             'rgba(0, 0, 0, 0)'
 
