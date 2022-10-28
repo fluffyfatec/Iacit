@@ -1,291 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fluffy</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluffy</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-    <!-- Graficos-->
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.0.1/chartjs-plugin-zoom.min.js" integrity="sha512-b+q5md1qwYUeYsuOBx+E8MzhsDSZeoE80dPP1VCw9k/KA9LORQmaH3RuXjlpu3u1rfUwh7s6SHthZM3sUGzCkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Main CSS-->
+  <link href="css/theme.css" rel="stylesheet" media="all">
+  <!-- Graficos-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+    integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.0.1/chartjs-plugin-zoom.min.js"
+    integrity="sha512-b+q5md1qwYUeYsuOBx+E8MzhsDSZeoE80dPP1VCw9k/KA9LORQmaH3RuXjlpu3u1rfUwh7s6SHthZM3sUGzCkA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  </head>
+</head>
 
-  <body id="jsBody"  onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
+<body id="jsBody" onload="jsFiltroDashboard()" class="hold-transition sidebar-mini sidebar-collapse">
 
-    <div class="wrapper">
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-      
-      <!-- Preloader -->
-      <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150">
-      </div>
+  <div class="wrapper">
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- Navbar - MENU HORIZONTAL -->
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-          </li>
-
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-
-          <!-- Info -->
-          <li class="nav-item">
-            <a class="nav-link" onclick="jsAbrirModalInfo()">
-              <i class="fas fa-info-circle"></i>
-            </a>
-          </li>
-
-
-          <!-- FullScreen -->
-          <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-              <i class="fas fa-expand-arrows-alt"></i>
-            </a>
-          </li>
-
-
-
-
-        </ul>
-      </nav>
-      <!-- /.navbar -->
-
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- Main Sidebar Container - MENU VERTICAL -->
-      <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
-        <!-- Brand Logo -->
-        <a href="/" class="brand-link sidebariacit" >
-          <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8;">
-          <span class="brand-text font-weight-light text-colorWh">IACIT</span>   
-          
-          <!-- <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
-          <span class="brand-text font-weight-light">IACIT</span>  -->
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img src="dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info text-colorWh">
-              <a href="#" class="d-block text-colorWh">Aldrik de Faria Alvaro</a>
-            </div>
-          </div>
-
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
-              <li class="nav-header">MENU</li>
-
-              <li class="nav-item">
-                <a  class="nav-link" onclick="jsMenuAjax('Temperatura')">
-                  <i class="fas fa-temperature-low"></i>
-                  <p>
-                    Temperatura
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" onclick="jsMenuAjax('Umidade')">
-                  <i class="fas fa-water"></i>
-                  <p>
-                    Umidade
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item"  onclick="jsMenuAjax('Ventos')">
-                <a class="nav-link">
-                  <i class="fas fa-wind"></i>
-                  <p>
-                    Ventos
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item"  onclick="jsMenuAjax('PressaoAtmosferica')">
-                <a class="nav-link">
-                  <i class="fas fa-tachometer-alt"></i>
-                  <p>
-                    Pressão Atmosferica
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item"  onclick="jsMenuAjax('Radiacao')">
-                <a class="nav-link">
-                  <i class="fas fa-radiation"></i>
-                  <p>
-                    Radição Global
-                  </p>
-                </a>
-              </li>   
-              
-              <li class="nav-item"  onclick="jsMenuAjax('Precipitacao')">
-                <a class="nav-link">
-                  <i class="fas fa-cloud-showers-heavy"></i>
-                  <p>
-                    Precipitação
-                  </p>
-                </a>
-              </li>   
-          
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-      </aside>
-      <!-- /. Main Sidebar Container -->
-
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- Content Wrapper. Contains page content -->
-      <div id="js_body" class="content-wrapper">
-
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-          <div class="container-fluid">
-
-            <div class="row mb-2">
-
-              <div class="col-sm-8">
-                <h1 class="m-0">Dashboard - Resumo</h1> 
-              </div><!-- /.col -->
-                
-              <div class="col-sm-4">
-                <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
-                <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/index')}"></div>  
-              </div><!-- /.col -->
-        
-            </div><!-- /.row -->
-
-            <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
-          </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
-        <section class="content">
-
-          <div class="container-fluid">
-
-            <div th:replace="~{fragmentCards :: Cards}"></div>     
-
-            <!-- Main row -->
-            <div class="row">
-
-              <!-- Left col -->
-              <section class="col-lg-12 connectedSortable">
-
-
-                <div class="row">
-                  <div class="col-8">
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaBar}"></div>
-
-                    <div th:replace="~{fragmentGraficos :: graficoTemperaturaLinha}"></div> 
-                
-                    <div th:replace="~{fragmentGraficos :: graficoUmidadeLinha}"></div> 
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoUmidadeBar}"></div> 
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoVentoLinha}"></div> 
-      
-                    <div th:replace="~{fragmentGraficos :: graficoVentoBar}"></div> 
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoPressaoLinha}"></div> 
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoPressaoBar}"></div> 
-                    
-                    <div th:replace="~{fragmentGraficos :: graficoRadicaoLinha}"></div> 
-    
-                    <div th:replace="~{fragmentGraficos :: graficoRadicaoBar}"></div> 
-    
-                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoLinha}"></div> 
-    
-                    <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoBar}"></div> 
-                  </div>
-                </div>
-                
-                
-               
-
-              </section>
-              <!-- /.Left col -->
-
-            </div>
-            <!-- /.row (main row) -->
-
-        </div><!-- /.container-fluid -->
-          
-        </section>
-        <!-- /.content -->
-
-       <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>       -->
-      
-
-      </div>
-      <!-- /.content-wrapper -->
-
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-      
-      <footer class="main-footer">
-        <strong>Copyright &copy; 2022 <a href="https://github.com/fluffyfatec">Grupo Fluffy</a>.</strong>
-        Todos os direitos reservados.
-        <div class="float-right d-none d-sm-inline-block">
-          <b>Versão</b> 0.1
-        </div>
-      </footer>
-
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-      </aside>
-      <!-- /.control-sidebar -->
-
-      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-      <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div> 
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150">
     </div>
 
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
-    <!-- Js -->
-    <script src="js/filtro.js"></script>
-    <script src="js/detalhe.js"></script>
-    <!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script> -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-  </body>
+    <!-- Navbar - MENU HORIZONTAL -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+
+      </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+
+        <!-- Info -->
+        <li class="nav-item">
+          <a class="nav-link" onclick="jsAbrirModalInfo()">
+            <i class="fas fa-info-circle"></i>
+          </a>
+        </li>
+
+
+        <!-- FullScreen -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </a>
+        </li>
+
+
+
+
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Main Sidebar Container - MENU VERTICAL -->
+    <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
+      <!-- Brand Logo -->
+      <a href="/" class="brand-link sidebariacit">
+        <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8;">
+        <span class="brand-text font-weight-light text-colorWh">IACIT</span>
+
+        <!-- <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
+          <span class="brand-text font-weight-light">IACIT</span>  -->
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info text-colorWh">
+            <a href="#" class="d-block text-colorWh">Aldrik de Faria Alvaro</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+            <li class="nav-header">MENU</li>
+
+            <li class="nav-item">
+              <a class="nav-link" onclick="jsMenuAjax('Temperatura')">
+                <i class="fas fa-temperature-low"></i>
+                <p>
+                  Temperatura
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" onclick="jsMenuAjax('Umidade')">
+                <i class="fas fa-water"></i>
+                <p>
+                  Umidade
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item" onclick="jsMenuAjax('Ventos')">
+              <a class="nav-link">
+                <i class="fas fa-wind"></i>
+                <p>
+                  Ventos
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item" onclick="jsMenuAjax('PressaoAtmosferica')">
+              <a class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <p>
+                  Pressão Atmosferica
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item" onclick="jsMenuAjax('Radiacao')">
+              <a class="nav-link">
+                <i class="fas fa-radiation"></i>
+                <p>
+                  Radição Global
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item" onclick="jsMenuAjax('Precipitacao')">
+              <a class="nav-link">
+                <i class="fas fa-cloud-showers-heavy"></i>
+                <p>
+                  Precipitação
+                </p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+    <!-- /. Main Sidebar Container -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div id="js_body" class="content-wrapper">
+
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+
+          <div class="row mb-2">
+
+            <div class="col-sm-8">
+              <h1 class="m-0">Dashboard - Resumo</h1>
+            </div><!-- /.col -->
+
+            <div class="col-sm-4">
+              <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
+              <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/index')}"></div>
+            </div><!-- /.col -->
+
+          </div><!-- /.row -->
+
+          <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div>
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="container-fluid">
+
+          <div th:replace="~{fragmentCards :: Cards}"></div>
+
+          <!-- Main row -->
+          <div class="row">
+
+            <!-- Left col -->
+            <section class="col-lg-12 connectedSortable">
+              <div class="row">
+                <div class="col-8">
+                  <div th:replace="~{fragmentGraficos :: graficoTemperaturaBar}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoTemperaturaLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoUmidadeLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoUmidadeBar}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoVentoLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoVentoBar}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoPressaoLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoPressaoBar}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoRadicaoLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoRadicaoBar}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoLinha}"></div>
+
+                  <div th:replace="~{fragmentGraficos :: graficoPrecipitacaoBar}"></div>
+                </div>
+              </div>
+
+
+
+
+            </section>
+            <!-- /.Left col -->
+
+          </div>
+          <!-- /.row (main row) -->
+
+        </div><!-- /.container-fluid -->
+
+      </section>
+      <!-- /.content -->
+
+      <!-- <div th:replace="~{fragmentTabelasTeste :: TabelasTeste}"></div>       -->
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2022 <a href="https://github.com/fluffyfatec">Grupo Fluffy</a>.</strong>
+      Todos os direitos reservados.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Versão</b> 0.1
+      </div>
+    </footer>
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div>
+  </div>
+
+  <!-- Main JS-->
+  <script src="js/main.js"></script>
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!-- Js -->
+  <script src="js/filtro.js"></script>
+  <script src="js/detalhe.js"></script>
+  <!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" ></script> -->
+
+</body>
+
 </html>
