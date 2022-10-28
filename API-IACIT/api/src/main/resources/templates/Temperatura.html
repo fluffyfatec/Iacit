@@ -21,7 +21,7 @@
     </div><!-- /.container-fluid -->
     <!-- /.content-header -->
 
-    <div class="row mb-2">
+    <div class="row">
       <!-- Main content -->
       <section class="col-lg-7 ">
         <div class="container">
@@ -29,7 +29,7 @@
           <div class="row">
 
             <div class="col-lg-12 col-sm-12">
-              <div class=" card mt-12 ">
+              <div class=" cardDois mt-12 ">
 
                 <canvas id="ChartTemp1"></canvas>
                 <hr>
@@ -240,12 +240,8 @@
                       }
                       ChartTemp1.update();
                   };
-                  
-              
-
-
+  
                 </script>
-
               </div>
             </div>
           </div>
@@ -254,10 +250,10 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 col-sm-12">
+              <br>
+              <div class=" cardDois mt-12 ">
 
-              <div class=" card mt-6 ">
-
-                <canvas id="ChartTemp2" width="400" height="200"></canvas>
+                <canvas id="ChartTemp2"></canvas>
                 <hr>
                 <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
@@ -445,7 +441,10 @@
       <!-- /.Left col -->
 
       <section class="col-lg-5 connectedSortable ">
-        <div th:replace="~{TabelaTemperatura :: TabelaTemperatura}"></div>
+        <div class=" cardTabela mt-12 ">
+
+          <div th:replace="~{TabelaTemperatura :: TabelaTemperatura}"></div>
+        </div>
       </section>
 
 
