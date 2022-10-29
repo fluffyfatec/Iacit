@@ -50,7 +50,5 @@ public class UsuarioModal {
 	
 
 
-	
-
 
 }
