@@ -22,12 +22,12 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-  <div class="row"style="padding: 10px;">
+  <div class="row mb-2">
     <section class="col-lg-7 ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-sm-12">
-            <div class=" cardDois mt-12 ">
+            <div class=" card mt-12 ">
 
               <canvas id="ChartUmid1"></canvas>
               <hr>
@@ -65,7 +65,7 @@
                   }
                   //console.log(hoursString);
 
-                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
+                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
                   arrayDatas.push(dataFormatada);
                   //console.log(dataFormatada);
                 });
@@ -191,8 +191,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-sm-8">
-            <br>
-            <div class=" cardDois mt-6 ">
+
+            <div class=" card mt-6 ">
 
 
               <canvas id="ChartUmid2" width="400" height="200"></canvas>
@@ -329,7 +329,8 @@
     </section>
 
     <section class="col-lg-5 connectedSortable">
-      <div class=" cardTabela mt-12 ">
+      <div class=" cardTabela mt-6 ">
+
         <div th:replace="~{TabelaUmidade :: TabelaUmidade}"></div>
       </div>
     </section>

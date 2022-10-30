@@ -2,6 +2,8 @@ package com.fluffyiacit.api.controller;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -310,8 +312,15 @@ public class HomeController {
 			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
 				objviewPrecipitacao.setPrecipitacaototal("N/A");
 			}
+			
+				    
 		}
 		modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
+		Map<String, Timestamp> result = rangePrecipitacao.stream().collect
+				  (Collectors.toMap(ViewPrecipitacaoModal::getEstacaoNome ,ViewPrecipitacaoModal::getDatahoraCaptacao, (key1, key2)-> key2));
+	        
+		System.out.println("map: " + result);
+	
 
 		// Lista Pressao
 		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),
@@ -329,7 +338,7 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("rangeAtm", rangeAtm);
-
+		
 		// Lista Radiacao
 		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),
 				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
@@ -340,6 +349,10 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("rangeRadiacaoglobal", rangeRadiacaoglobal);
+		Map<String, Timestamp> mapRadiacao = rangeRadiacaoglobal.stream().collect
+				  (Collectors.toMap(ViewRadiacaoglobalModal::getEstacaoNome ,ViewRadiacaoglobalModal::getDatahoraCaptacao, (key1, key2)-> key2));
+	        
+		System.out.println("map: " + mapRadiacao );
 
 		// Lista Temperatura
 		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),
