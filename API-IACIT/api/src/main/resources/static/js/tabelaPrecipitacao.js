@@ -1,7 +1,7 @@
 // get the table element
 var $table = document.getElementById("tabelaPrecipitacao"),
 // number of rows per page
-$n = 10,
+$n = 16,
 // number of rows of the table
 $rowCount = $table.rows.length,
 // get the first cell's tag name (in the first row)
