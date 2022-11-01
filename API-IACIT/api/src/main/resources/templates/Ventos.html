@@ -5,7 +5,7 @@
     <div class="row mb-2">
 
       <div class="col-sm-8">
-        <h1 class="m-0">Vento</h1> 
+        <h1 class="m-0">Ventos</h1> 
       </div><!-- /.col -->
         
         <div class="col-sm-4">
@@ -32,7 +32,7 @@
               <canvas id="ChartVen1"></canvas>
               <hr>
               <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
-              <!-- SCRIPT TEMPERATURA -->
+              <!-- SCRIPT VENTOS -->
               <script th:inline="javascript">
 
                 //RECEBE O OBJETO JAVA AQUI
@@ -49,25 +49,21 @@
                   if (dayString.length == 1){
                       dayString = "0" + dayString;
                       }
-                  //console.log(dayString);
 
                   var monthInt = data.getMonth() + 1;
                   var monthString = monthInt.toString();
                   if (monthString.length == 1){
                       monthString = "0" + monthString;
                       }
-                  //console.log(monthString);
 
                   var hoursInt = data.getHours();
                   var hoursString = hoursInt.toString();
                   if (hoursString.length == 1){
                       hoursString = "0" + hoursString;
                   }
-                  //console.log(hoursString);
 
                   var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
                   arrayDatas.push(dataFormatada);
-                  //console.log(dataFormatada);
                 });
                 var graVentoDir = graVentoFiltro.map(x => x["graVentoDir"])
                 var graVentoRaj = graVentoFiltro.map(x => x["graVentoRaj"])
@@ -79,7 +75,6 @@
                   data: {
                     //WHILE X
                     labels: arrayDatas,
-
                     datasets: [
                       //VENTO DIREÇÃO HORARIO
                       {
@@ -154,12 +149,12 @@
                   }
                 }); Chart.register(zoomPlugin);
                 function resetZoomCharts() {
-                  ChartUmid1.resetZoom();
+                  ChartVen1.resetZoom();
                 };
                 function scroller (scroll, chart){
                   console.log(scroll)
 
-                  const dataLength = ChartTemp1.data.labels.lenght;
+                  const dataLength = ChartVen1.data.labels.lenght;
                   if(scroll.deltaY > 0){
                     if (myChart.config.options.scales.x.max >= dataLength){
                       myChart.config.options.scales.x.min = dataLength =7;
@@ -179,7 +174,7 @@
                     }else{
 
                     }
-                    ChartUmid1.update();
+                    ChartVen1.update();
                 };
 
               </script>
@@ -206,7 +201,6 @@
                   data: {
                     //WHILE X
                     labels: arrayDatas,
-
                     datasets: [
                       //VENTO DIREÇÃO HORARIO
                       {
@@ -297,7 +291,7 @@
                 function scroller (scroll, chart){
                   console.log(scroll)
 
-                  const dataLength = ChartVen1.data.labels.lenght;
+                  const dataLength = ChartVen2.data.labels.lenght;
                   if(scroll.deltaY > 0){
                     if (myChart.config.options.scales.x.max >= dataLength){
                       myChart.config.options.scales.x.min = dataLength =7;
@@ -317,7 +311,7 @@
                     }else{
 
                     }
-                    ChartVen1.update();
+                    ChartVen2.update();
                 };
 
               </script>
