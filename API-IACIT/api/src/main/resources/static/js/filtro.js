@@ -213,5 +213,8 @@ function validaPag() {
     jsMenuAjax('Radiacao');
   }
   
+  if(valida == "/filtroPreci"){
+    jsMenuAjax('Precipitacao');
+  }
 
 }
