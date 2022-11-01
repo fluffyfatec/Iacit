@@ -3,39 +3,344 @@
     <div class="container-fluid">
 
       <div class="row mb-2">
+
         <div class="col-sm-8">
+          <h1 class="m-0">Pressão Atmosférica</h1> 
             <h1 class="m-0"></h1> 
           </div><!-- /.col -->
   
         <div class="col-sm-4">
-          <h1 class="m-0">Pressao Atmosferica</h1> 
+          <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroPressao')}"></div> 
+         
         </div><!-- /.col -->
 
       </div><!-- /.row -->
 
+      <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
+
     </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
+    
+    <!-- /.content-header -->
 
-  <!-- Main content -->
-  <section class="content">
 
-    <div class="container-fluid">
+    <div class="row mb-2">
+      <!-- Main content -->
+      <section class="col-lg-7 ">
+        <div class="container">
+        
+          <div class="row">
 
-      <!-- Main row -->
-      <div class="row">
+            <div class="col-lg-12 col-sm-12">
+              <div class=" card mt-12 ">
 
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
+                <canvas id="ChartTemp1"></canvas>
+                <hr>
+                <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
-        </section>
+                <!-- SCRIPT PRESSÃO ATMOSFERICA -->
+
+                <script th:inline="javascript">
+
+                  //RECEBE O OBJETO JAVA AQUI
+                  var range = [[${ rangePressaoAtmosferica }]];
+
+                  //DEFINO O CAMPO DESSE OBJETO
+                  var rangePressaoAtmosferica_x =rangePressaoAtmosferica.map(x => x["datahoraCaptacao"])
+                  var arrayDatas = new Array();
+                  rangePressaoAtmosferica_x.forEach(function(dataArray) {
+                    let data = new Date(dataArray);
+
+                    var dayInt = data.getDate();
+                    var dayString = dayInt.toString();
+                    if (dayString.length == 1){
+                        dayString = "0" + dayString;
+                        }
+                    //console.log(dayString);
+
+                    var monthInt = data.getMonth() + 1;
+                    var monthString = monthInt.toString();
+                    if (monthString.length == 1){
+                        monthString = "0" + monthString;
+                        }
+                    //console.log(monthString);
+
+                    var hoursInt = data.getHours();
+                    var hoursString = hoursInt.toString();
+                    if (hoursString.length == 1){
+                        hoursString = "0" + hoursString;
+                    }
+                    //console.log(hoursString);
+
+                    var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
+                    arrayDatas.push(dataFormatada);
+                    //console.log(dataFormatada);
+                  });
+                  var rangepressaoAtmEstacao = rangePressaoAtmosferica.map(x => x["pressaoAtmEstacao"])
+                  var rangepressaoAtmMax = rangePressaoAtmosferica.map(x => x["pressaoAtmMax"])
+                  var rangepressaoAtmMin = rangePressaoAtmosferica.map(x => x["pressaoAtmMin"])
+                 
+                </script>
+
+                <script>
+                  var ctxTemp1 = document.getElementById('ChartTemp1');
+                  var ChartTemp1 = new Chart(ctxTemp1, {
+                    type: 'line',
+                    data: {
+                      //WHILE X
+                      labels: arrayDatas,
+
+                      //PRESSÃO ATMOSFERICA
+                      datasets: [
+                        {
+                          label: 'Pressão Atm Estação',
+                          data: rangepressaoAtmEstacao,
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+
+                          ],
+                          borderColor: [
+                            'rgba(255, 0, 0, 1)',
+                          ],
+                          borderWidth: 1,
+                          fill: 1
+
+                        },
+
+                        //Pressão Atmosferica maxima
+                        {
+                          label: 'pressao Atm Max',
+                          data: rangepressaoAtmMax,
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+
+                          ],
+                          borderColor: [
+                            'rgba(36, 180, 224, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+
+
+                        //Pressão Atmosferica minima
+                        {
+                          label: 'pressao Atm Min',
+                          data: rangepressaoAtmMin,
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0)'
+
+                          ],
+                          borderColor: [
+                            'rgba(127, 36, 224, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+
+                      ],
+                    },
+                    options: {
+                      plugins: {
+                        title: {
+                          display: true,
+                          text: 'Linha - Pressão Atmosférica',
+                          font: {
+                          size: 20
+                      }
+                        },
+                        zoom: {
+                          zoom: {
+                            //zoom scrool
+                            wheel: {
+                              enabled: true,
+                              speed: 0.1,
+                              threshold: 50
+                            },
+                            //zoom selecionar
+                            drag: {
+                              enabled: true,
+                              backgroundColor: 'rgb(233, 233, 233)',
+                              threshold: 50
+                            },
+                            pinch: {
+                              enabled: true,
+                            },
+                          }
+                        }
+                      }
+                    }
+                  }); Chart.register(zoomPlugin);
+                  function resetZoomCharts() {
+                    ChartTemp1.resetZoom();
+                  };
+                  function scroller (scroll, chart){
+                    console.log(scroll)
+
+                    const dataLength = ChartTemp1.data.labels.lenght;
+                    if(scroll.deltaY > 0){
+                      if (myChart.config.options.scales.x.max >= dataLength){
+                        myChart.config.options.scales.x.min = dataLength =2;
+                        myChart.config.options.scales.x.max = dataLength =-1;
+                      } else{
+                        myChart.config.options.scales.x.min += 1;
+                        myChart.config.options.scales.x.max +=  1;
+                      }
+                    }else if (scroll.deltaY <0){
+                      if(myChart.config.options.scales.x.min  <=0){
+                        myChart.config.options.scales.x.min =0;
+                        myChart.config.options.scales.x.max =6;
+                      }else{
+                        myChart.config.options.scales.x.min -=1;
+                        myChart.config.options.scales.x.max -=1;
+                      }
+                      }else{
+
+                      }
+                      ChartTemp1.update();
+                  };
+                  
+              
+
+
+                </script>
+
+              </div>
+            </div>
+        </div>
+       </div>
+
+       <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+
+            <div class=" card mt-6 ">
+
+              <canvas id="ChartTemp2" width="400" height="200"></canvas>
+              <hr>
+              <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
+
+              <script>
+                var ctxTemp2 = document.getElementById('ChartTemp2');
+                var ChartTemp2 = new Chart(ctxTemp2, {
+                  type: 'bar',
+                  data: {
+                    //WHILE X
+                    labels: arrayDatas,
+
+                     //PRESSÃO ATMOSFERICA
+                    datasets: [
+                      {
+                        label: 'Pressão Atm Estação',
+                        data: rangepressaoAtmEstacao,
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+                       //Pressão Atmosferica maxima
+                      {
+                        label: 'Pressão Atm Maxima',
+                        data: rangepressaoAtmMax,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+    
+                      //Pressão Atmosferica minima
+                      {
+                        label: 'Pressão Atm Minima',
+                        data: rangepressaoAtmMin,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+                    ],
+                  },
+                  options: {
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Pressão Atmosférica',
+                        font: {
+                        size: 20
+                    }
+                      },
+                      
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); Chart.register(zoomPlugin);
+                function resetZoomChart() {
+                  ChartTemp2.resetZoom();
+                }
+
+              </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
         <!-- /.Left col -->
 
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
-
+        <section class="col-lg-5 connectedSortable ">
+          <div class=" cardTabela mt-6 ">
+          <div th:replace="~{TabelaPressao :: TabelaPressao}"></div>
+        </div>
         </section>
-        <!-- right col -->
+  
 
       </div>
       <!-- /.row (main row) -->
@@ -44,3 +349,6 @@
     
   </section>
   <!-- /.content -->
+
+  <!-- Js -->
+<script src="js/filtro.js"></script>
