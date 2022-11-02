@@ -184,44 +184,8 @@ preloader {
     width: auto;
     padding: 15px;
   }
+  .cardTabela:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
   
-/*
-
-
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    height: 520px;
-    width: 750px;
-    padding: 16px 16px;
-
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.cardDois {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    height: 480px;
-    width: 750px;
-    padding: 16px 16px;
-
-}
-.cardDois:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-.cardTabela {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    height: 900px;
-    width: 630px;
-    padding: 16px 16px;
-
-}
-.cardTabela:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
