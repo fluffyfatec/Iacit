@@ -1,7 +1,5 @@
 package com.fluffyiacit.api.service;
 
-import java.util.Base64.Encoder;
-
 import com.fluffyiacit.api.modal.PermissaoModal;
 import com.fluffyiacit.api.modal.UsuarioModal;
 import com.fluffyiacit.api.repository.PermissaoRepository;
@@ -10,6 +8,7 @@ import com.fluffyiacit.api.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import DTO.UsuarioRequestDTO;
 
@@ -23,19 +22,15 @@ public class UpdateUsuarioService {
 	@Autowired
 	PermissaoRepository permissaoRepository;
 	
-	public UsuarioRequestDTO execute(UsuarioRequestDTO data) {
+	public ModelAndView execute(UsuarioRequestDTO data) {
+		
+		ModelAndView modelAndView = new ModelAndView();
 		
 		UsuarioModal userAdmin = usuarioRepository.findByUsuarioUsername(data.getUsuario_nome_adm());
 		
-		System.out.println(userAdmin);
-		
 		PermissaoModal permissao = permissaoRepository.findByPermissaoNome(data.getNome_permissao());
 		
-		System.out.println(permissao);
-		
 		UsuarioModal user = usuarioRepository.findByUsuarioUsername(data.getUsuario_nome());
-		
-		System.out.println(user);
 		
 		BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
 		
@@ -49,6 +44,10 @@ public class UpdateUsuarioService {
 		
 		usuarioRepository.save(user);
 		
-		return null;
+		modelAndView.addObject("colocar o nome do retorno", user);
+		
+		modelAndView.setViewName("trocar o nome do html aqui");
+		
+		return modelAndView;
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import DTO.UsuarioRequestDTO;
 
@@ -18,9 +19,11 @@ public class UpdateUsuarioController {
 	UpdateUsuarioService updateUsuarioService;
 	
 	@PostMapping
-	public void handle(@RequestBody UsuarioRequestDTO data) {
+	public ModelAndView handle(@RequestBody UsuarioRequestDTO data) {
 				
-		updateUsuarioService.execute(data);
+		ModelAndView retorno = updateUsuarioService.execute(data);
+		
+		return retorno;
 	}
 
 }
