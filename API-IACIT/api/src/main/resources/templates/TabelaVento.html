@@ -6,17 +6,17 @@
 
           <thead>
               <tr>
-              <th scope="col">Umidade relativa do Ar</th>
-              <th scope="col">Umidade relativa Mínima</th>
-              <th scope="col">Umidade relativa Máxima</th>
+              <th scope="col">Vento Direção Horário</th>
+              <th scope="col">Rajada Máxima Vento</th>
+              <th scope="col">Velocidade Vento</th>
               <th scope="col">Data/Hora</th>
               </tr>
           </thead>
           <tbody>
               <tr th:each="fff : ${graVentoFiltro}">
-                  <td>[[${fff.umidadeRelativaAr}]]</td>
-                  <td>[[${fff.umidadeRelativaMin}]]</td>
-                  <td>[[${fff.umidadeRelativaMax}]]</td>
+                  <td>[[${fff.ventoDirecaoHorario}]]</td>
+                  <td>[[${fff.ventoRajadaMax}]]</td>
+                  <td>[[${fff.ventoVelocidade}]]</td>
                   <td style="font-size: 14px;">[[${fff.datahoraCaptacao}]]</td>
               </tr>
           </tbody>
