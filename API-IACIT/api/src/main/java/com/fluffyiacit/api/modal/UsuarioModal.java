@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -38,14 +40,19 @@ public class UsuarioModal {
 	@Column( name= "usuario_senha",length = 20,nullable = false)
 	private String usuarioSenha ;
 	
+<<<<<<< Updated upstream
 	@Column( name= "usuario_datahora_criacao",nullable = false)
+=======
+	@UpdateTimestamp
+	@Column( name= "usuarioDatahoraCriacao",nullable = false,updatable = false, insertable = false)
+>>>>>>> Stashed changes
 	private Timestamp usuarioDatahoraCriacao;
 	
 	@ManyToOne
-    @JoinColumn(name = "usuario", referencedColumnName = "codUsuario")
+    @JoinColumn(name = "usuarioCadastrante", referencedColumnName = "codUsuario")
 	private UsuarioModal usuarioCadastrante; 
 	
 	@ManyToOne
-    @JoinColumn(name = "permissao", referencedColumnName = "codPermissao")
+    @JoinColumn(name = "codPermissao", referencedColumnName = "codPermissao")
 	private PermissaoModal codPermissao;
 }
