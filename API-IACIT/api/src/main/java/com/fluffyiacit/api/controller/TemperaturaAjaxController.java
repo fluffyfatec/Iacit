@@ -137,8 +137,8 @@ public class TemperaturaAjaxController {
 
         filtroDatasDto.setEstacaoNome("SAO PAULO - INTERLAGOS");
         filtroDatasDto.setEstacaoEstado("SP");
-        filtroDatasDto.setDataHoraInicial("2022-04-15 10:00:00");
-        filtroDatasDto.setDataHoraFinal("2022-04-28 10:00:00");
+        filtroDatasDto.setDataHoraInicial("2022-06-27 10:00:00");
+        filtroDatasDto.setDataHoraFinal("2022-06-28 10:00:00");
 
         List<ViewTemperaturaModal> temperatura = temperaturaRepository.listRange(filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));;
 
@@ -146,7 +146,7 @@ public class TemperaturaAjaxController {
 
         HttpHeaders headers = new HttpHeaders();
 
-        headers.add("Content-Disposition", "attachment;filename=employees.pdf");
+        headers.add("Content-Disposition", "attachment;filename=Relatorio Temperatura.pdf");
 
         return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));
