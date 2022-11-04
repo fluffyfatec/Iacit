@@ -1,10 +1,18 @@
 package com.fluffyiacit.api.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fluffyiacit.api.report.PdfTemperatura;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +34,8 @@ import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
 
 import DTO.FiltroDatasDTO;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 @Controller
@@ -121,82 +131,103 @@ public class TemperaturaAjaxController {
         return modelAndView;
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    @GetMapping(value = "/Temperatura/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> relatorioTemperatura (HttpServletResponse response, DTO.FiltroDatasDTO filtroDatasDto) throws IOException {
+
+        filtroDatasDto.setEstacaoNome("SAO PAULO - INTERLAGOS");
+        filtroDatasDto.setEstacaoEstado("SP");
+        filtroDatasDto.setDataHoraInicial("2022-04-15 10:00:00");
+        filtroDatasDto.setDataHoraFinal("2022-04-28 10:00:00");
+
+        List<ViewTemperaturaModal> temperatura = temperaturaRepository.listRange(filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));;
+
+        ByteArrayInputStream bis = PdfTemperatura.exportarPdfTemperatura(temperatura);
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.add("Content-Disposition", "attachment;filename=employees.pdf");
+
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //CODIGO VAI SER MUDADO//
     @Autowired(required = true)
     private PrecipitacaoRepository precipitacao;
