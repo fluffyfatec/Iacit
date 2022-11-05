@@ -20,7 +20,6 @@ import lombok.ToString;
 @Table(name="usuario")
 @Getter
 @Setter
-@ToString
 public class UsuarioModal {
 	
 	@Id
@@ -37,7 +36,12 @@ public class UsuarioModal {
 	@Column( name= "usuarioSenha",length = 20,nullable = false)
 	private String usuarioSenha ;
 	
+<<<<<<< Updated upstream
 	@Column( name= "usuarioDatahoraCriacao",nullable = false)
+=======
+	@Column( name= "usuario_datahora_criacao",nullable = false)
+	@UpdateTimestamp
+>>>>>>> Stashed changes
 	private Timestamp usuarioDatahoraCriacao;
 	
 	@ManyToOne
