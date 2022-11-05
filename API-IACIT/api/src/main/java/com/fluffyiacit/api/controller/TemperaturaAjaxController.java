@@ -3,6 +3,7 @@ package com.fluffyiacit.api.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.fluffyiacit.api.report.PdfTemperatura;
@@ -146,7 +147,11 @@ public class TemperaturaAjaxController {
 
         HttpHeaders headers = new HttpHeaders();
 
-        headers.add("Content-Disposition", "attachment;filename=Relatorio Temperatura.pdf");
+        headers.add("Content-Disposition", "attachment;filename=Relatório Temperatura " +
+                filtroDatasDto.getEstacaoNome() + "(" + new SimpleDateFormat("dd-MM-yyyy")
+                .format(temperatura.get(0).getDatahoraCaptacao()) + " até " +
+                new SimpleDateFormat("dd-MM-yyyy").format(temperatura.get(temperatura.size() - 1).getDatahoraCaptacao()) +
+                ").pdf");
 
         return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
                 .body(new InputStreamResource(bis));

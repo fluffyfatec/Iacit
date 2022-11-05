@@ -2,6 +2,7 @@ package com.fluffyiacit.api.report;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -19,65 +20,68 @@ import org.springframework.data.repository.query.Param;
 
 public class PdfTemperatura {
 
-    public static ByteArrayInputStream exportarPdfTemperatura (List<ViewTemperaturaModal> viewTemperaturaModals) {
+    public static ByteArrayInputStream exportarPdfTemperatura (List<ViewTemperaturaModal> viewTemperaturaModals) throws IOException {
 
+        //Criando o documento PDF
         Document document = new Document(PageSize.A4.rotate(), 25, 25, 25, 25);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
 
+            //Criando a tabela para o relatório
             PdfPTable table = new PdfPTable(7);
             table.setWidthPercentage(100);
             table.setWidths(new int[] { 4, 4, 4, 4, 4, 4, 4});
 
+            //Criando o cabeçalho da tabela
             Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.WHITE);
 
             PdfPCell hcell;
 
             hcell = new PdfPCell(new Phrase("Data/Hora", headFont));
-            hcell.setPaddingTop(7f);
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
             hcell = new PdfPCell(new Phrase("Temperatura Ar", headFont));
-            hcell.setPaddingTop(7f);
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Min", headFont));
-            hcell.setPaddingTop(7f);
+            hcell = new PdfPCell(new Phrase("Temperatura Mínima", headFont));
+            hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Max", headFont));
-            hcell.setPaddingTop(7f);
+            hcell = new PdfPCell(new Phrase("Temperatura Máxima", headFont));
+            hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Ponto Orv", headFont));
-            hcell.setPaddingTop(7f);
+            hcell = new PdfPCell(new Phrase("Temp Ponto Orvalho", headFont));
+            hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orv Min", headFont));
-            hcell.setPaddingTop(7f);
+            hcell = new PdfPCell(new Phrase("Temp Orvalho Mínima", headFont));
+            hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orv Max", headFont));
-            hcell.setPaddingTop(7f);
+            hcell = new PdfPCell(new Phrase("Temp Orvalho Máxima", headFont));
+            hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -85,13 +89,14 @@ public class PdfTemperatura {
 
             for (ViewTemperaturaModal viewTemperaturaModal : viewTemperaturaModals) {
 
+                //Povoando as células da tabela
                 Font font = FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
                 Font fontDataHora = FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
 
                 PdfPCell cell;
 
                 cell = new PdfPCell(new Phrase(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewTemperaturaModal.getDatahoraCaptacao()), fontDataHora));
-                cell.setPaddingTop(5f);
+                cell.setPaddingTop(4f);
                 cell.setFixedHeight(25f);
                 cell.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -141,6 +146,7 @@ public class PdfTemperatura {
                 table.addCell(cell);
             }
 
+            //Alternando a cor do background e do grid das células entre branco e cinza
             boolean b = true;
             for(PdfPRow r: table.getRows()) {
                 for(PdfPCell c: r.getCells()) {
@@ -150,17 +156,25 @@ public class PdfTemperatura {
                 b = !b;
             }
 
-            BaseColor myColor = WebColors.getRGBColor("#0D4A99");
+            //Definindo a cor do background e do grid do cabeçalho
             for(PdfPCell c: table.getRow(0).getCells()) {
-                c.setBackgroundColor(myColor);
+                c.setBackgroundColor(new BaseColor(13, 74, 153));
                 c.setBorderColor(new BaseColor(13, 74, 153));
             }
 
+            //Determinando a repetição do cabeçalho em todas as páginas geradas
             table.setHeaderRows(1);
 
+            //Abrindo o documento PDF para ser editado
             PdfWriter.getInstance(document, out);
             document.open();
 
+            //Adicionando imagem
+            Image img = Image.getInstance("images\\iacit.png");
+            img.setAbsolutePosition(635f, PageSize.A4.getHeight() - img.getScaledHeight() - 90);
+            img.scaleAbsolute(175f, 115f);
+
+            //Definindo parágrafos para o título do documento PDF
             Paragraph textoEstacao = new Paragraph(new Phrase("Estação " + viewTemperaturaModals.get(0).getEstacaoNome()
                     + ", " + "Estado de " + viewTemperaturaModals.get(0).getEstacaoEstado(), FontFactory.getFont(
                             FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK)));
@@ -178,6 +192,8 @@ public class PdfTemperatura {
 
             Paragraph pulaLinha = new Paragraph(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 18, BaseColor.BLACK)));
 
+            //Adicionando os parágrafos, imagem e tabela ao documento PDF
+            document.add(img);
             document.add(textoEstacao);
             document.add(textoDataHora);
             document.add(pulaLinha);
