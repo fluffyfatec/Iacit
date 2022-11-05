@@ -35,7 +35,7 @@ public class PrecipitacaoAjaxController {
 	private PrecipitacaoRepository precipitacaorepository;
 
 	  @RequestMapping(value = { "/Precipitacao/{estRegiao}/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}" }, method = RequestMethod.GET)
-	    public ModelAndView telaTemperatura(@PathVariable("estRegiao") String estRegiao,
+	    public ModelAndView telaPrecipitacao(@PathVariable("estRegiao") String estRegiao,
 	                                        @PathVariable("estNome") String estNome,
 	                                        @PathVariable("estEstado") String estEstado, 
 	                                        @PathVariable("estDTinicial") String estDTinicial, 
