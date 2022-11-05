@@ -134,8 +134,94 @@ CREATE TABLE umidade(
 );
 
 
+--CRIAÇÃO DA PERMISSAO
+CREATE TABLE permissao(
+	cod_permissao SERIAL,
+	permissao_nome VARCHAR(50),
+	permissao_descricao VARCHAR(200),
+	
+	--CHAVE PRIMARIA PERMISSAO
+	CONSTRAINT pk_cod_permissao PRIMARY KEY (cod_permissao)
+);
+
+
+--CRIAÇÃO DA TABELA USUARIO
+CREATE TABLE usuario(
+	cod_usuario SERIAL,
+	usuario_username VARCHAR(20) NOT NULL,
+	usuario_senha VARCHAR(20) NOT NULL,
+	usuario_nome VARCHAR (60) NOT NULL,
+	usuario_datahora_criacao TIMESTAMP NOT NULL DEFAULT now(),
+	usuario_cadastrante INTEGER,
+	cod_permissao INTEGER NOT NULL,
+	
+	--CHAVE PRIMARIA USUARIO
+	CONSTRAINT pk_cod_usuario PRIMARY KEY (cod_usuario),
+	
+	--CHAVE ESTRANGEIRA USUARIO E PERMISSAO
+	CONSTRAINT fk_cod_permissao FOREIGN KEY (cod_permissao)
+		REFERENCES permissao(cod_permissao)
+);
+
+--CRIAÇÃO DA TABELA LOG USUARIO
+CREATE TABLE log_usuario(
+	log_usuario_cod SERIAL,
+	log_usuario_colunaafetada VARCHAR(60) NOT NULL,
+	log_usuario_valorantigo VARCHAR(60) NOT NULL,
+	log_usuario_valornovo VARCHAR(60) NOT NULL,
+	log_usuario_datahora TIMESTAMP NOT NULL DEFAULT now(),
+	cod_usuario_alterado INTEGER NOT NULL,
+	cod_usuario_alterou INTEGER NOT NULL,
+	
+	--CHAVE PRIMARIA LOG USUARIO
+	CONSTRAINT pk_log_usuario_cod PRIMARY KEY (log_usuario_cod),
+	
+	--CHAVE ESTRANGEIRA USUARIO ALTERADO E USUARIO ALTEROU
+	CONSTRAINT fk_cod_usuario_alterado FOREIGN KEY (cod_usuario_alterado)
+		REFERENCES usuario(cod_usuario),
+	CONSTRAINT fk_cod_usuario_alterou FOREIGN KEY (cod_usuario_alterou)
+		REFERENCES usuario(cod_usuario)
+);
+
+
+--CRIAÇÃO DA TABELA LOG ESTACAO
+CREATE TABLE log_usuarioestacao(
+	log_usuarioestacao_cod SERIAL,
+	log_usuarioestacao_colunaafetada VARCHAR(60) NOT NULL,
+	log_usuarioestacao_valorantigo VARCHAR(60) NOT NULL,
+	log_usuarioestacao_valornovo VARCHAR(60) NOT NULL,
+	log_usuarioestacao_datahora TIMESTAMP NOT NULL DEFAULT now(),
+	cod_wmo VARCHAR(4) NOT NULL,
+	cod_usuario_alterou INTEGER NOT NULL,
+	
+	--CHAVE PRIMARIA LOG USUARIO ESTACAO
+	CONSTRAINT pk_log_usuarioestacao_cod PRIMARY KEY (log_usuarioestacao_cod),
+	
+	--CHAVE PRIMARIA COD_WMO E USUARIO ALTEROU
+	CONSTRAINT fk_estacao_cod_wmo FOREIGN KEY (cod_wmo)
+		REFERENCES estacao(cod_wmo),
+	CONSTRAINT fk_cod_usuario_alterou FOREIGN KEY (cod_usuario_alterou)
+		REFERENCES usuario(cod_usuario)
+);
+
+
+--INSERÇÃO DAS PERMISSOES
+INSERT INTO permissao VALUES (1,'Administrator','Esse é uma permissao de administrator');
+INSERT INTO permissao VALUES (2,'Usuario','Esse é uma permissao de usuario');
+
+--INSERÇÃO DO USUARIO MASTER
+INSERT INTO usuario (usuario_username,usuario_senha,usuario_nome,cod_permissao,usuario_cadastrante) 
+VALUES ('fluffy','fluffy123','Fluffy API',1,1);
+
+--DEFINIÇÃO DE NOT NULL E CONSTRAINT FK PARA O USUARIO APÓS CRIAÇÃO DO USUARIO MASTER
+--IMPORTANTE
+ALTER TABLE usuario ALTER COLUMN usuario_cadastrante SET NOT NULL;
+ALTER TABLE USUARIO ADD CONSTRAINT fk_cadastrante FOREIGN KEY (usuario_cadastrante)
+		REFERENCES usuario(cod_usuario);
+
+
 --CRIAÇÃO DE USUARIO ADMINISTRADOR
-CREATE ROLE fluffyapi WITH PASSWORD 'fluaffy123';
+CREATE ROLE fluffyapi WITH PASSWORD 'fluffy123';
 	--DAR TODOS PRIVILEGIOS AO ADM
 	GRANT ALL PRIVILEGES ON estacao TO fluffyapi; 
 	GRANT ALL PRIVILEGES ON temperatura TO fluffyapi; 

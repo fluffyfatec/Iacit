@@ -212,6 +212,13 @@ function validaPag() {
   if(valida == "/filtroVen"){
     jsMenuAjax('Ventos');
   }
+
+  if(valida == "/filtroRad"){
+    jsMenuAjax('Radiacao');
+  }
   
+  if(valida == "/filtroPreci"){
+    jsMenuAjax('Precipitacao');
+  }
 
 }

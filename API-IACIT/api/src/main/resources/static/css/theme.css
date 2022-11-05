@@ -80,12 +80,13 @@ td {
     border-color: #e5e5e5;
     margin-bottom: 5px;
     padding-bottom: 20px;
-    
+
 }
 
-.chart-dois{
-     background-color: #0D4A99;
+.chart-dois {
+    background-color: #0D4A99;
     border-radius: 8px;
+    width: auto;
     box-sizing: border-box;
     color: #FFFFFF;
     cursor: pointer;
@@ -97,7 +98,7 @@ td {
     list-style: none;
     margin: 0.5;
     outline: none;
-    padding: 10px 16px;
+    padding: 15px 15px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -108,50 +109,83 @@ td {
     touch-action: manipulation;
     border-color: #e5e5e5;
     padding-bottom: 25px;
-    
+
 }
 
-.btnOculto{
+.btnOculto {
     display: none;
-} 
+}
 
-.content-header{
+.content-header {
     padding: 10px;
 }
 
-.msidebar{
+.msidebar {
     background-color: #0F2F59 !important;
     position: fixed;
 }
-.mt-2 .nav-header{
-    color:#fff;
-}
-.mt-2 .nav-item .nav-link{
+
+.mt-2 .nav-header {
     color: #fff;
 }
 
-.sidebar{
+.mt-2 .nav-item .nav-link {
+    color: #fff;
+}
+
+.sidebar {
     /* opacity: .8 */
 }
 
-.sidebariacit{
-    padding-left:13px;
+.sidebariacit {
+    padding-left: 13px;
 }
-.col-8{
-    padding-left: 15px; 
+
+.col-8 {
+    padding-left: 15px;
     padding-bottom: 5px
 }
 
-preloader{
+preloader {
     border-radius: 50px;
 }
 
-.brand-link .brand-image{
+.brand-link .brand-image {
     margin-left: 0.4rem;
 }
-.text-colorWh{
+
+.text-colorWh {
     color: #fff;
 }
-.sidebar-dark-primary .sidebar a{
-    color:#fff
+
+.sidebar-dark-primary .sidebar a {
+    color: #fff
 }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 15px;
+    height: auto;
+    width: auto;
+
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.cardTabela {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    height: auto;
+    width: auto;
+    padding: 15px;
+  }
+  .cardTabela:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+  
