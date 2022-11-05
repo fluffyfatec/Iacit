@@ -8,21 +8,19 @@
                 <th scope="col">Pressão Atm Estação</th>
                 <th scope="col">Pressão Atm Max</th>
                 <th scope="col">Pressão Atm Min</th>
-                <!-- <th scope="col">codWmo</th>
+                <!-- 
                 <th scope="col">estacaoEstado</th>
                 <th scope="col">estacaoNome</th> -->
                 <th scope="col">Data Hora Captação</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="zz : ${rangePressoAtmosferica}">
-                    <td>[[${zz.pressaoAtmEstacaol}]]</td>
+                <tr th:each="zz : ${rangePressaoAtmosferica}">
+                    <td>[[${zz.pressaoAtmEstacao}]]</td>
                     <td>[[${zz.pressaoAtmMax}]]</td>
                     <td>[[${zz.pressaoAtmMin}]]</td>
 
-                    <!-- <td>[[${aa.codWmo}]]</td>
-                    <td>[[${aa.estacaoEstado}]]</td>
-                    <td>[[${aa.estacaoNome}]]</td> -->
+                   
                     <td>[[${zz.datahoraCaptacao}]]</td>
                 </tr>
             </tbody>

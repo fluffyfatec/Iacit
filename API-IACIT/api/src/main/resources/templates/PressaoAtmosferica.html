@@ -33,7 +33,7 @@
             <div class="col-lg-12 col-sm-12">
               <div class=" card mt-12 ">
 
-                <canvas id="ChartTemp1"></canvas>
+                <canvas id="ChartPres1"></canvas>
                 <hr>
                 <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
@@ -47,7 +47,7 @@
                   //DEFINO O CAMPO DESSE OBJETO
                   var rangePressaoAtmosferica_x =rangePressaoAtmosferica.map(x => x["datahoraCaptacao"])
                   var arrayDatas = new Array();
-                  rangePressaoAtmosferica_x.forEach(function(dataArray) {
+                  rangeAtm_x.forEach(function(dataArray) {
                     let data = new Date(dataArray);
 
                     var dayInt = data.getDate();
@@ -77,13 +77,13 @@
                   });
                   var rangepressaoAtmEstacao = rangePressaoAtmosferica.map(x => x["pressaoAtmEstacao"])
                   var rangepressaoAtmMax = rangePressaoAtmosferica.map(x => x["pressaoAtmMax"])
-                  var rangepressaoAtmMin = rangePressaoAtmosferica.map(x => x["pressaoAtmMin"])
+                  var rangepressaoAtmMin =rangePressaoAtmosferica.map(x => x["pressaoAtmMin"])
                  
                 </script>
 
                 <script>
-                  var ctxTemp1 = document.getElementById('ChartTemp1');
-                  var ChartTemp1 = new Chart(ctxTemp1, {
+                  var ctxPres1 = document.getElementById('ChartPres1');
+                  var ChartPres1 = new Chart(ctxPres1, {
                     type: 'line',
                     data: {
                       //WHILE X
@@ -169,12 +169,12 @@
                     }
                   }); Chart.register(zoomPlugin);
                   function resetZoomCharts() {
-                    ChartTemp1.resetZoom();
+                    ChartPres1.resetZoom();
                   };
                   function scroller (scroll, chart){
                     console.log(scroll)
 
-                    const dataLength = ChartTemp1.data.labels.lenght;
+                    const dataLength = ChartPres1.data.labels.lenght;
                     if(scroll.deltaY > 0){
                       if (myChart.config.options.scales.x.max >= dataLength){
                         myChart.config.options.scales.x.min = dataLength =2;
@@ -194,7 +194,7 @@
                       }else{
 
                       }
-                      ChartTemp1.update();
+                      ChartPres1.update();
                   };
                   
               
@@ -213,13 +213,13 @@
 
             <div class=" card mt-6 ">
 
-              <canvas id="ChartTemp2" width="400" height="200"></canvas>
+              <canvas id="ChartPres2" width="400" height="200"></canvas>
               <hr>
               <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
 
               <script>
-                var ctxTemp2 = document.getElementById('ChartTemp2');
-                var ChartTemp2 = new Chart(ctxTemp2, {
+                var ctxPres2 = document.getElementById('ChartPres2');
+                var ChartPres2 = new Chart(ctxPres2, {
                   type: 'bar',
                   data: {
                     //WHILE X
@@ -322,7 +322,7 @@
                   }
                 }); Chart.register(zoomPlugin);
                 function resetZoomChart() {
-                  ChartTemp2.resetZoom();
+                  ChartPres2.resetZoom();
                 }
 
               </script>
