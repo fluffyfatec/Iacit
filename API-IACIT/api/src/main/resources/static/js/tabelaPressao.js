@@ -1,5 +1,5 @@
 // get the table element
-var $table = document.getElementById("TabelaPressao"),
+var $table = document.getElementById("tabelaPressao"),
 // number of rows per page
 $n = 16,
 // number of rows of the table

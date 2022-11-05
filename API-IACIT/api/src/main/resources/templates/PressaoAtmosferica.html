@@ -42,12 +42,12 @@
                 <script th:inline="javascript">
 
                   //RECEBE O OBJETO JAVA AQUI
-                  var range = [[${ rangePressaoAtmosferica }]];
+                  var rangePressaoAtmosferica = [[${ rangePressaoAtmosferica }]];
 
                   //DEFINO O CAMPO DESSE OBJETO
                   var rangePressaoAtmosferica_x =rangePressaoAtmosferica.map(x => x["datahoraCaptacao"])
                   var arrayDatas = new Array();
-                  rangeAtm_x.forEach(function(dataArray) {
+                  rangePressaoAtmosferica_x.forEach(function(dataArray) {
                     let data = new Date(dataArray);
 
                     var dayInt = data.getDate();
@@ -75,8 +75,8 @@
                     arrayDatas.push(dataFormatada);
                     //console.log(dataFormatada);
                   });
-                  var rangepressaoAtmEstacao = rangePressaoAtmosferica.map(x => x["pressaoAtmEstacao"])
-                  var rangepressaoAtmMax = rangePressaoAtmosferica.map(x => x["pressaoAtmMax"])
+                  var rangepressaoAtmEstacao =rangePressaoAtmosferica.map(x => x["pressaoAtmEstacao"])
+                  var rangepressaoAtmMax =  rangePressaoAtmosferica.map(x => x["pressaoAtmMax"])
                   var rangepressaoAtmMin =rangePressaoAtmosferica.map(x => x["pressaoAtmMin"])
                  
                 </script>
