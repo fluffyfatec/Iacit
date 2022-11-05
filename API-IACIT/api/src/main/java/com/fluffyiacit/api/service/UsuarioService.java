@@ -2,22 +2,18 @@ package com.fluffyiacit.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.modal.PermissaoModal;
+import com.fluffyiacit.api.modal.UsuarioModal;
+import com.fluffyiacit.api.repository.PermissaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
+
+import DTO.UsuarioDTO;
+
 
 @Service
 public class UsuarioService {
-<<<<<<< Updated upstream
-	
-	 @Autowired
-	 private UsuarioRepository repository;
-	 
-	 
-	 public String delete (Integer codUsuario) {
-	        repository.deleteById(codUsuario);
-	        return "DELETED";
-}
-=======
 
 	@Autowired
 	private UsuarioRepository repository;
@@ -51,9 +47,8 @@ public class UsuarioService {
 
 	public void deletar(String usuarioUsername) {
 		UsuarioModal usuario = repository.findByusuarioUsername(usuarioUsername);
-		repository.delete(usuario);
+	    repository.delete(usuario);
 
 	}
 
->>>>>>> Stashed changes
 }

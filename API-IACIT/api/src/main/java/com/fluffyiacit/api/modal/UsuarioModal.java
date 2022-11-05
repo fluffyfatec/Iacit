@@ -1,10 +1,14 @@
 package com.fluffyiacit.api.modal;
 
 
-import java.security.Timestamp;
 
+
+import java.sql.Timestamp;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,9 +16,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity(name="usuario")
 @Table(name="usuario")
@@ -33,26 +39,24 @@ public class UsuarioModal {
 	@Column( name= "usuarioUsername",length = 20,nullable = false)
 	private String usuarioUsername;
 	
-	@Column( name= "usuarioSenha",length = 20,nullable = false)
+	@Column( name= "usuarioSenha",length = 256,nullable = false)
 	private String usuarioSenha ;
 	
-<<<<<<< Updated upstream
 	@Column( name= "usuarioDatahoraCriacao",nullable = false)
-=======
-	@Column( name= "usuario_datahora_criacao",nullable = false)
-	@UpdateTimestamp
->>>>>>> Stashed changes
+	//@UpdateTimestamp
 	private Timestamp usuarioDatahoraCriacao;
 	
 	@ManyToOne
-    @JoinColumn(name = "usuario", referencedColumnName = "codUsuario")
+    @JoinColumn(name = "usuarioCadastrante", referencedColumnName = "codUsuario")
 	private UsuarioModal usuarioCadastrante; 
+	
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@OnDelete(action= OnDeleteAction.CASCADE)
+    @JoinColumn(name = "usuarioAlterou", referencedColumnName = "codUsuario")
+	private UsuarioModal usuarioAlterou; 
 	
 	@ManyToOne
     @JoinColumn(name = "permissao", referencedColumnName = "codPermissao")
 	private PermissaoModal codPermissao;
-	
-
-
 
 }

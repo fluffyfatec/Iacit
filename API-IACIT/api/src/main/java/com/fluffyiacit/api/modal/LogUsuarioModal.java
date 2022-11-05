@@ -4,6 +4,7 @@ package com.fluffyiacit.api.modal;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,31 +26,35 @@ import lombok.ToString;
 @ToString
 public class LogUsuarioModal {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "logUsuarioCod")
 	private Integer logUsuarioCod;
 
-	@Column( name= "logUsuarioColunaafetada",length = 60,nullable = false)
-	private String logUsuarioColunaafetada; 
 	
-	@Column( name= "logUsuarioValorantigo",length = 60,nullable = false)
-	private String logUsuarioValorantigo;
+	@Column( name= "logUsuarioNome",length = 60,nullable = false)
+	private String logUsuarioNome ;
 	
-	@Column( name= "logUsuarioDatahora",length = 60,nullable = false)
-	private String logUsuarioValornovo;
+	@Column( name= "logUsuarioUsername",length = 20,nullable = false)
+	private String logUsuarioUsername;
 	
-	@Column( name= "logUsuarioDatahora",nullable = false, insertable=false, updatable=false)
-	private Timestamp logUsuarioDatahora; 
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "codUsuarioAlterado", referencedColumnName = "codUsuario")
-	private UsuarioModal codUsuarioAlterado;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "codUsuarioAlterou", referencedColumnName = "codUsuario")
-	private UsuarioModal codUsuarioAlterou; 
+	@Column( name= "logUsuarioSenha",length = 256,nullable = false)
+	private String logUsuarioSenha ;
 	
 	
+    @Column(name = "logCodPermissao", nullable = false)
+	private Integer logCodPermissao;
+    
+  
+    @Column(name = "logUsuarioAlterou", nullable = false)
+	private Integer  logUsuarioAlterou; 
+    
+    @Id
+    @Column( name= "logUsuarioDatahoraAlterecao",nullable = false)
+	//@UpdateTimestamp
+	private Timestamp logUsuarioDatahoraAlterecao;
+    
+    @Column(name = "logUsuarioOperacao", nullable = false)
+	private String  logUsuarioOperacao; 
+    
+   
 	
 }
