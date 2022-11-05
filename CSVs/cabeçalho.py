@@ -70,7 +70,7 @@ class Cabecalho:
                                    'estacao_longitude', 'estacao_latitude',
                                    'estacao_altitude', 'estacao_datafundacao']]
 
-        # Transferido o dataframe filtrado e organizado ao método de povoamento do banco
+        # Transferindo o dataframe filtrado e organizado ao método de povoamento do banco
         cbd = ConexaoBD()
 
         cbd.estacao_banco(dfEstacao.getEstacao())

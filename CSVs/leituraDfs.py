@@ -20,7 +20,7 @@ class LeituraDfs:
         try:
 
             # Path dos dataframes
-            files = glob.glob(fr"C:\Users\**\Iacit (Task-116)\CSVs\DF\{ano}\*.csv", recursive=True)
+            files = glob.glob(fr"C:\Users\**\Iacit\CSVs\DF\{ano}\*.csv", recursive=True)
 
             i = 1
             for f in files:
@@ -57,7 +57,7 @@ class LeituraDfs:
         try:
 
             # Path dos dataframes
-            files = glob.glob(fr"C:\Users\**\Iacit (Task-116)\CSVs\DF\{ano}\*.csv", recursive=True)
+            files = glob.glob(fr"C:\Users\**\Iacit\CSVs\DF\{ano}\*.csv", recursive=True)
 
             i = 1
             for f in files:

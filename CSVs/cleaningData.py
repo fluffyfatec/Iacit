@@ -168,7 +168,7 @@ class CleaningData:
 
         dfFiltrado.__precip = df[['cod_wmo', 'precipitacaototal', 'datahora_captacao']]
 
-        # Transferido o dataframe filtrado e desmembrado ao método de povoamento do banco
+        # Transferindo o dataframe filtrado e desmembrado ao método de povoamento do banco
         cbd = ConexaoBD()
 
         cbd.povoar_banco(dfFiltrado.getRad(), 'radiacao_global')
