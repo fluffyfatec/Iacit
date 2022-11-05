@@ -64,16 +64,16 @@ class Cabecalho:
     def organizar_cabecalho(self, df: DataFrame):
 
         # Criando objeto e determinando atributos da instância
-        df_estacao = Cabecalho()
+        dfEstacao = Cabecalho()
 
-        df_estacao.__estacao = df[['cod_wmo', 'estacao_nome', 'estacao_regiao', 'estacao_estado',
+        dfEstacao.__estacao = df[['cod_wmo', 'estacao_nome', 'estacao_regiao', 'estacao_estado',
                                    'estacao_longitude', 'estacao_latitude',
                                    'estacao_altitude', 'estacao_datafundacao']]
 
-        # Populando o banco através do dataframe
+        # Transferido o dataframe filtrado e organizado ao método de povoamento do banco
         cbd = ConexaoBD()
 
-        cbd.estacao_banco(df_estacao.getEstacao())
+        cbd.estacao_banco(dfEstacao.getEstacao())
 
 
 
