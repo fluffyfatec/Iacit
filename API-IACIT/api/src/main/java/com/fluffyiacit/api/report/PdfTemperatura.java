@@ -14,23 +14,23 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import com.fluffyiacit.api.modal.ViewTemperaturaModal;
-
+import org.springframework.data.repository.query.Param;
 
 
 public class PdfTemperatura {
 
     public static ByteArrayInputStream exportarPdfTemperatura (List<ViewTemperaturaModal> viewTemperaturaModals) {
 
-        Document document = new Document(PageSize.A4.rotate(), 10, 10, 25, 25);
+        Document document = new Document(PageSize.A4.rotate(), 25, 25, 25, 25);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
 
             PdfPTable table = new PdfPTable(7);
-            table.setWidthPercentage(80);
+            table.setWidthPercentage(100);
             table.setWidths(new int[] { 4, 4, 4, 4, 4, 4, 4});
 
-            Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.WHITE);
+            Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.WHITE);
 
             PdfPCell hcell;
 
@@ -85,8 +85,8 @@ public class PdfTemperatura {
 
             for (ViewTemperaturaModal viewTemperaturaModal : viewTemperaturaModals) {
 
-                Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, BaseColor.BLACK);
-                Font fontDataHora = FontFactory.getFont(FontFactory.HELVETICA, 11, BaseColor.BLACK);
+                Font font = FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
+                Font fontDataHora = FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
 
                 PdfPCell cell;
 
@@ -139,7 +139,6 @@ public class PdfTemperatura {
                 cell.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
-
             }
 
             boolean b = true;
@@ -157,8 +156,33 @@ public class PdfTemperatura {
                 c.setBorderColor(new BaseColor(13, 74, 153));
             }
 
+            table.setHeaderRows(1);
+
             PdfWriter.getInstance(document, out);
             document.open();
+
+            Paragraph textoEstacao = new Paragraph(new Phrase("Estação " + viewTemperaturaModals.get(0).getEstacaoNome()
+                    + ", " + "Estado de " + viewTemperaturaModals.get(0).getEstacaoEstado(), FontFactory.getFont(
+                            FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK)));
+            textoEstacao.setAlignment(Element.ALIGN_LEFT);
+
+            Paragraph textoDataHora = new Paragraph(new Phrase("Dados de " + new SimpleDateFormat("dd/MM/yyyy HH:mm")
+                    .format(viewTemperaturaModals.get(0).getDatahoraCaptacao()) + " até " +
+                    new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewTemperaturaModals
+                            .get(viewTemperaturaModals.size() - 1).getDatahoraCaptacao()),
+                    FontFactory.getFont(FontFactory.HELVETICA, 21, BaseColor.BLACK)));
+            textoDataHora.setAlignment(Element.ALIGN_LEFT);
+
+            Paragraph textoDados = new Paragraph(new Phrase("Temperatura", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK)));
+            textoDados.setAlignment(Element.ALIGN_CENTER);
+
+            Paragraph pulaLinha = new Paragraph(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 18, BaseColor.BLACK)));
+
+            document.add(textoEstacao);
+            document.add(textoDataHora);
+            document.add(pulaLinha);
+            document.add(textoDados);
+            document.add(pulaLinha);
             document.add(table);
 
             document.close();
