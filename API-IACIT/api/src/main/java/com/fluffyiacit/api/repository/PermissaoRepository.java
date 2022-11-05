@@ -7,14 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PermissaoRepository extends JpaRepository<PermissaoModal, String> {
-<<<<<<< Updated upstream
 	
 	PermissaoModal findByPermissaoNome(String permissaoNome);
 
 }
-=======
-    
-    PermissaoModal findByPermissaoNome(String permissaoNome);
 
-}
->>>>>>> Stashed changes

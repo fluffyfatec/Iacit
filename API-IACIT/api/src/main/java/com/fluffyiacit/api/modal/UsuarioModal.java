@@ -40,12 +40,8 @@ public class UsuarioModal {
 	@Column( name= "usuario_senha",length = 20,nullable = false)
 	private String usuarioSenha ;
 	
-<<<<<<< Updated upstream
-	@Column( name= "usuario_datahora_criacao",nullable = false)
-=======
 	@UpdateTimestamp
 	@Column( name= "usuarioDatahoraCriacao",nullable = false,updatable = false, insertable = false)
->>>>>>> Stashed changes
 	private Timestamp usuarioDatahoraCriacao;
 	
 	@ManyToOne

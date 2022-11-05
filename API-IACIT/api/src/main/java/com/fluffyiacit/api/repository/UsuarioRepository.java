@@ -8,13 +8,7 @@ import com.fluffyiacit.api.modal.UsuarioModal;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModal, String> {
-<<<<<<< Updated upstream
 	
 	UsuarioModal findByUsuarioUsername(String usuarioUsername);
-=======
->>>>>>> Stashed changes
-
-
-    UsuarioModal findByUsuarioUsername(String usuarioUsername);
  
 }

@@ -1,6 +1,7 @@
 package com.fluffyiacit.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,12 +29,14 @@ public class UsuarioService {
 	 	 
 	 PermissaoModal permissao =  permrepository.findByPermissaoNome(usuario.getNome_permissao());
 	 
+	 BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
+	 String senhaEncriptada = encode.encode(usuario.getUsuario_senha());
 	 usuariomodal.setUsuarioNome(usuario.getUsuario_nome());
 	 usuariomodal.setUsuarioUsername(usuario.getUsuario_username());
-	 usuariomodal.setUsuarioSenha(usuario.getUsuario_senha());
+	 usuariomodal.setUsuarioSenha(senhaEncriptada);
 	 usuariomodal.setUsuarioCadastrante(usuarioadm);
 	 usuariomodal.setCodPermissao(permissao);
-	 
+	 System.out.println(senhaEncriptada);
 	 repository.save(usuariomodal);
 	 
 	 ModelAndView modelandview = new ModelAndView();
