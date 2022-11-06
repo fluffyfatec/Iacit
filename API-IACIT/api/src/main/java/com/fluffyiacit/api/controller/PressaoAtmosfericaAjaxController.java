@@ -55,6 +55,25 @@ public class PressaoAtmosfericaAjaxController {
 	        modelAndView.addObject("rangePressaoAtmosferica", rangePressaoAtmosferica);
 	       
 	        
+			for (ViewPressaoAtmModal objviewPressao : rangePressaoAtmosferica) {
+				if (objviewPressao.getPressaoAtmEstacao() == null) {
+					objviewPressao.setPressaoAtmEstacao("N/A");
+				}
+				if (objviewPressao.getPressaoAtmMax() == null) {
+					objviewPressao.setPressaoAtmMax("N/A");
+				}
+				if (objviewPressao.getPressaoAtmMin() == null) {
+					objviewPressao.setPressaoAtmMin("N/A");
+				}
+			}
+			modelAndView.addObject("rangePressaoAtmosferica", rangePressaoAtmosferica);
+	        
+	        
+	        
+	        
+	        
+	        
+	        
 	        filtrodatas.setEstacaoRegiao(estRegiao);
 	        filtrodatas.setEstacaoNome(estEstado);
 	        filtrodatas.setEstacaoEstado(estNome);
