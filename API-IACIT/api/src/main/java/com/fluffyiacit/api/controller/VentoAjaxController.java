@@ -62,6 +62,7 @@ public class VentoAjaxController {
 			if (objviewVento.getVentoVelocidade() == null) {
 				objviewVento.setVentoVelocidade("N/A");
 			}
+        }
         modelAndView.addObject("graVentoFiltro", graVentoFiltro);
         
         filtrodatas.setEstacaoRegiao(estRegiao);
