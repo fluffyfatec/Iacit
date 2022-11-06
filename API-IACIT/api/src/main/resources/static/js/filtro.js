@@ -221,4 +221,8 @@ function validaPag() {
     jsMenuAjax('Precipitacao');
   }
 
+  if(valida == "/filtroPressao"){
+    jsMenuAjax('PressaoAtmosferica');
+  }
+
 }
