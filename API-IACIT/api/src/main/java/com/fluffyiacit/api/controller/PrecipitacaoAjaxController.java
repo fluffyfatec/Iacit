@@ -54,9 +54,14 @@ public class PrecipitacaoAjaxController {
 	        List<ViewPrecipitacaoModal> rangePrecipitacao = precipitacaorepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
 	        modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
 	        
-	        //for (ViewTemperaturaModal objview : rangeTemperatura) {
-	            //System.out.println("1:" + objview.getDatahoraCaptacao());
-	        //}
+	        
+	        for (ViewPrecipitacaoModal objviewPrecipitacao : rangePrecipitacao) {
+				if (objviewPrecipitacao.getPrecipitacaototal() == null) {
+					objviewPrecipitacao.setPrecipitacaototal("N/A");
+				}
+			}
+			modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
+	        
 	        
 	        filtrodatas.setEstacaoRegiao(estRegiao);
 	        filtrodatas.setEstacaoNome(estEstado);
@@ -67,11 +72,6 @@ public class PrecipitacaoAjaxController {
 	        filtrodatas.setPagina("nulo");
 	        modelAndView.addObject("filtro", filtrodatas);
 	        
-//	        System.out.println("1:" + estRegiao);
-//	        System.out.println("2:" + estNome);
-//	        System.out.println("3:" + estEstado);
-//	        System.out.println("4:" + estDTinicial);
-//	        System.out.println("5:" + estDTfinal);
 
 	        modelAndView.setViewName("Precipitacao");
 	        return modelAndView;
