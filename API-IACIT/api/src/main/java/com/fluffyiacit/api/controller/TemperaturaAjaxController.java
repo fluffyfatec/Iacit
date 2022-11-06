@@ -54,6 +54,26 @@ public class TemperaturaAjaxController {
         estDTfinal = estDTfinal.replace('*', ' ');
         
         List<ViewTemperaturaModal> rangeTemperatura = temperaturaRepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
+        for (ViewTemperaturaModal objviewTemperatura : rangeTemperatura) {
+			if (objviewTemperatura.getTemperaturaAr() == null) {
+				objviewTemperatura.setTemperaturaAr("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaMax() == null) {
+				objviewTemperatura.setTemperaturaMax("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaMin() == null) {
+				objviewTemperatura.setTemperaturaMin("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
+				objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
+			}
+			if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
+				objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
+			}
+        }
         modelAndView.addObject("rangeTemperatura", rangeTemperatura);
         
         //for (ViewTemperaturaModal objview : rangeTemperatura) {

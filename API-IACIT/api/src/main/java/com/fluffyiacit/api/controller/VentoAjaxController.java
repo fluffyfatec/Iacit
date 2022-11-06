@@ -52,6 +52,16 @@ public class VentoAjaxController {
         estDTfinal = estDTfinal.replace('*', ' ');
         
         List<ViewVentoModal> graVentoFiltro = ventoRepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
+        for (ViewVentoModal objviewVento : graVentoFiltro) {
+			if (objviewVento.getVentoDirecaoHorario() == null) {
+				objviewVento.setVentoDirecaoHorario("N/A");
+			}
+			if (objviewVento.getVentoRajadaMax() == null) {
+				objviewVento.setVentoRajadaMax("N/A");
+			}
+			if (objviewVento.getVentoVelocidade() == null) {
+				objviewVento.setVentoVelocidade("N/A");
+			}
         modelAndView.addObject("graVentoFiltro", graVentoFiltro);
         
         filtrodatas.setEstacaoRegiao(estRegiao);
