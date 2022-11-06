@@ -35,14 +35,13 @@ public class VentoAjaxController {
 	private VentoRepository ventoRepository;
 
 	
-    @RequestMapping(value = { "/Vento/{estRegiao}/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/Ventos/{estRegiao}/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}" }, method = RequestMethod.GET)
     public ModelAndView telaVentos(@PathVariable("estRegiao") String estRegiao,
                                         @PathVariable("estNome") String estNome,
                                         @PathVariable("estEstado") String estEstado, 
                                         @PathVariable("estDTinicial") String estDTinicial, 
                                         @PathVariable("estDTfinal") String estDTfinal
                                         ) {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         ModelAndView modelAndView = new ModelAndView();
         FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
         
@@ -55,10 +54,6 @@ public class VentoAjaxController {
         List<ViewVentoModal> graVentoFiltro = ventoRepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
         modelAndView.addObject("graVentoFiltro", graVentoFiltro);
         
-        //for (ViewTemperaturaModal objview : rangeTemperatura) {
-            //System.out.println("1:" + objview.getDatahoraCaptacao());
-        //}
-        
         filtrodatas.setEstacaoRegiao(estRegiao);
         filtrodatas.setEstacaoNome(estEstado);
         filtrodatas.setEstacaoEstado(estNome);
@@ -68,31 +63,11 @@ public class VentoAjaxController {
         filtrodatas.setPagina("nulo");
         modelAndView.addObject("filtro", filtrodatas);
         
-//        System.out.println("1:" + estRegiao);
-//        System.out.println("2:" + estNome);
-//        System.out.println("3:" + estEstado);
-//        System.out.println("4:" + estDTinicial);
-//        System.out.println("5:" + estDTfinal);
 
         modelAndView.setViewName("Ventos");
         return modelAndView;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
     
     
     
