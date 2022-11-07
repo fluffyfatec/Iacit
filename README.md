@@ -69,7 +69,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Backlog do Produto
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/proposta.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/proposta.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -77,7 +77,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Sprints
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/BACKLOG%20(1).jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/BACKLOG.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -143,7 +143,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## DER 
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-1/GIT/DERCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/DERCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -151,7 +151,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Diagrama Lógico
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/logicoCSV%20(1).jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/logicoCSV.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
