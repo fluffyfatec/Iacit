@@ -28,7 +28,6 @@ public class LogUsuarioModal {
 	
 	@Column(name = "logUsuarioCod")
 	private Integer logUsuarioCod;
-
 	
 	@Column( name= "logUsuarioNome",length = 60,nullable = false)
 	private String logUsuarioNome ;
@@ -39,16 +38,14 @@ public class LogUsuarioModal {
 	@Column( name= "logUsuarioSenha",length = 256,nullable = false)
 	private String logUsuarioSenha ;
 	
-	
     @Column(name = "logCodPermissao", nullable = false)
 	private Integer logCodPermissao;
-    
   
     @Column(name = "logUsuarioAlterou", nullable = false)
 	private Integer  logUsuarioAlterou; 
     
     @Id
-    @Column( name= "logUsuarioDatahoraAlterecao",nullable = false)
+    @Column( name= "logUsuarioDatahoraAlterecao", nullable = false)
 	//@UpdateTimestamp
 	private Timestamp logUsuarioDatahoraAlterecao;
     

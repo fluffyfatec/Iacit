@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fluffyiacit.api.service.UsuarioService;
+import com.fluffyiacit.api.service.DeleteUsuarioService;
 
 @RestController
-@RequestMapping(value = "/cadastro")
-public class UsuarioController {
+@RequestMapping
+public class DeleteUsuarioController {
     
     @Autowired
-    UsuarioService usuarioService;
+    DeleteUsuarioService usuarioService;
  
 
     @PostMapping(value = "/deletar/ajax/{usuarioUsername}")

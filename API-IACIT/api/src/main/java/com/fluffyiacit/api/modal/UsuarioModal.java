@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -50,13 +51,13 @@ public class UsuarioModal {
     @JoinColumn(name = "usuarioCadastrante", referencedColumnName = "codUsuario")
 	private UsuarioModal usuarioCadastrante; 
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-	@OnDelete(action= OnDeleteAction.CASCADE)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+//	@OnDelete(action= OnDeleteAction.CASCADE)
     @JoinColumn(name = "usuarioAlterou", referencedColumnName = "codUsuario")
 	private UsuarioModal usuarioAlterou; 
 	
 	@ManyToOne
-    @JoinColumn(name = "permissao", referencedColumnName = "codPermissao")
+    @JoinColumn(name = "cod_permissao", referencedColumnName = "codPermissao")
 	private PermissaoModal codPermissao;
 
 }
