@@ -149,10 +149,11 @@ CREATE TABLE permissao(
 CREATE TABLE usuario(
 	cod_usuario SERIAL,
 	usuario_username VARCHAR(20) NOT NULL,
-	usuario_senha VARCHAR(20) NOT NULL,
+	usuario_senha VARCHAR(256) NOT NULL,
 	usuario_nome VARCHAR (60) NOT NULL,
 	usuario_datahora_criacao TIMESTAMP NOT NULL DEFAULT now(),
 	usuario_cadastrante INTEGER,
+	usuario_alterou INTEGER,
 	cod_permissao INTEGER NOT NULL,
 	
 	--CHAVE PRIMARIA USUARIO
@@ -163,28 +164,22 @@ CREATE TABLE usuario(
 		REFERENCES permissao(cod_permissao)
 );
 
+
 --CRIAÇÃO DA TABELA LOG USUARIO
 CREATE TABLE log_usuario(
-	log_usuario_cod SERIAL,
-	log_usuario_colunaafetada VARCHAR(60) NOT NULL,
-	log_usuario_valorantigo VARCHAR(60) NOT NULL,
-	log_usuario_valornovo VARCHAR(60) NOT NULL,
-	log_usuario_datahora TIMESTAMP NOT NULL DEFAULT now(),
-	cod_usuario_alterado INTEGER NOT NULL,
-	cod_usuario_alterou INTEGER NOT NULL,
-	
-	--CHAVE PRIMARIA LOG USUARIO
-	CONSTRAINT pk_log_usuario_cod PRIMARY KEY (log_usuario_cod),
-	
-	--CHAVE ESTRANGEIRA USUARIO ALTERADO E USUARIO ALTEROU
-	CONSTRAINT fk_cod_usuario_alterado FOREIGN KEY (cod_usuario_alterado)
-		REFERENCES usuario(cod_usuario),
-	CONSTRAINT fk_cod_usuario_alterou FOREIGN KEY (cod_usuario_alterou)
-		REFERENCES usuario(cod_usuario)
+	log_cod_usuario NUMERIC NOT NULL,
+	log_usuario_username VARCHAR(20) NOT NULL,
+	log_usuario_senha VARCHAR(256) NOT NULL,
+	log_usuario_nome VARCHAR (60) NOT NULL,
+	log_cod_permissao NUMERIC NOT NULL,
+	log_usuario_alterou NUMERIC NOT NULL,
+	log_usuario_datahora_alteracao TIMESTAMP NOT NULL DEFAULT now(),
+	log_usuario_operacao CHAR(1) NOT NULL
 );
+DROP TABLE log_usuario;
 
 
---CRIAÇÃO DA TABELA LOG ESTACAO
+--CRIAÇÃO DA TABELA LOG ESTACAO /// NÃO UTILIZANDO AINDA
 CREATE TABLE log_usuarioestacao(
 	log_usuarioestacao_cod SERIAL,
 	log_usuarioestacao_colunaafetada VARCHAR(60) NOT NULL,
@@ -210,13 +205,15 @@ INSERT INTO permissao VALUES (1,'Administrator','Esse é uma permissao de admini
 INSERT INTO permissao VALUES (2,'Usuario','Esse é uma permissao de usuario');
 
 --INSERÇÃO DO USUARIO MASTER
-INSERT INTO usuario (usuario_username,usuario_senha,usuario_nome,cod_permissao,usuario_cadastrante) 
-VALUES ('fluffy','fluffy123','Fluffy API',1,1);
+INSERT INTO usuario (usuario_username,usuario_senha,usuario_nome,cod_permissao,usuario_cadastrante,usuario_alterou) 
+VALUES ('fluffy','fluffy123','Fluffy API',1,1,1);
 
 --DEFINIÇÃO DE NOT NULL E CONSTRAINT FK PARA O USUARIO APÓS CRIAÇÃO DO USUARIO MASTER
 --IMPORTANTE
 ALTER TABLE usuario ALTER COLUMN usuario_cadastrante SET NOT NULL;
-ALTER TABLE USUARIO ADD CONSTRAINT fk_cadastrante FOREIGN KEY (usuario_cadastrante)
+ALTER TABLE usuario ADD CONSTRAINT fk_cadastrante FOREIGN KEY (usuario_cadastrante)
+		REFERENCES usuario(cod_usuario);
+ALTER TABLE usuario ADD CONSTRAINT fk_alterou FOREIGN KEY (usuario_alterou)
 		REFERENCES usuario(cod_usuario);
 
 

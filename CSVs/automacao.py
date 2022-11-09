@@ -1,15 +1,17 @@
 import os
-import requests #pip install requests
+import requests
 from datetime import date
 import zipfile
-import shutil #pip install shutil
+import shutil
 import logging
 
 
 class Automacao:
 
-    @staticmethod
-    def download_df(ano):
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
+
+    def download_df(self, ano: int):
         url = "https://portal.inmet.gov.br/uploads/dadoshistoricos/{}.zip".format(ano)
         endereco = os.path.join("DF","{}.zip".format(ano))
         try:
@@ -27,8 +29,7 @@ class Automacao:
             status.raise_for_status()
         return
 
-    @staticmethod
-    def extract(ano):
+    def extract(self, ano: int):
         zip_ref = zipfile.ZipFile("DF/{}.zip".format(ano), "r")
         reference = ("DF/{}".format(ano))
         zip_ref.extractall(reference)
@@ -39,6 +40,8 @@ class Automacao:
 
     @staticmethod
     def auto_run():
+
+        auto = Automacao()
     
         # Criando a variavel do ano atual 
         date_td = date.today()
@@ -47,21 +50,19 @@ class Automacao:
         # Para cada ano de 2020 até o ano atual executar o codigo
         for i in range(2020, year_td + 1):
             try:
-                Automacao.download_df(i)
+
+                auto.download_df(i)
             
             except:
-                logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                    format="%(asctime)s %(message)s", filemode="a")
                 logging.debug("- ERRO: o download dos CSVs não foi realizado (CSVs/automacao.py)")
                 raise
 
 
-            try:    
-                Automacao.extract(i)
+            try:
+
+                auto.extract(i)
 
             except:
-                logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                    format="%(asctime)s %(message)s", filemode="a")
                 logging.debug("- ERRO: a extração dos CSVs não foi realizada (CSVs/automacao.py")
                 raise
         return

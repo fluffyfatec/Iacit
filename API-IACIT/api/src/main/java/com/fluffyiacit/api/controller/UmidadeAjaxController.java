@@ -51,7 +51,17 @@ public class UmidadeAjaxController {
         estDTfinal = estDTfinal.replace('*', ' ');
 
 		List<ViewUmidadeModal> rangeUmidade = umidaderepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
-				
+		for (ViewUmidadeModal objviewUmidade : rangeUmidade) {
+			if (objviewUmidade.getUmidadeRelativaAr() == null) {
+				objviewUmidade.setUmidadeRelativaAr("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMax() == null) {
+				objviewUmidade.setUmidadeRelativaMax("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMin() == null) {
+				objviewUmidade.setUmidadeRelativaMin("N/A");
+			}
+		}	
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 		//for (ViewUmidadeModal objview : rangeUmidade) {
 			//System.out.println("1:" + objview.getDatahoraCaptacao());

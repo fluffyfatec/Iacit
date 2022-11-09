@@ -1,11 +1,21 @@
 import pandas as pd
 import logging
+from pandas.core.frame import DataFrame
+from conexaoBD import ConexaoBD
 
 
 class Cabecalho:
 
-    @staticmethod
-    def tratamento_cabecalho(df):
+    logging.basicConfig(filename="log.txt", level=logging.DEBUG,
+                        format="%(asctime)s %(message)s", filemode="a")
+
+    def __int__(self, estacao):
+        self.__estacao = estacao
+
+    def getEstacao(self):
+        return self.__estacao
+
+    def tratamento_cabecalho(self, df: DataFrame):
 
         try:
 
@@ -32,16 +42,38 @@ class Cabecalho:
             # Convertendo a datetime
             df['DATA DE FUNDACAO'] = pd.to_datetime(df['DATA DE FUNDACAO'], errors='coerce')
 
+            # Renomeando colunas
+            df = df.rename({'CODIGO (WMO)': 'cod_wmo', 'ESTACAO': 'estacao_nome',
+                            'REGIAO': 'estacao_regiao', 'UF': 'estacao_estado',
+                            'LONGITUDE': 'estacao_longitude',
+                            'LATITUDE': 'estacao_latitude', 'ALTITUDE': 'estacao_altitude',
+                            'DATA DE FUNDACAO': 'estacao_datafundacao'}, axis=1)
+
             # Config para visualizar todas as colunas
             pd.set_option('display.max_columns', None)
 
-            return df
+            # Organizando o dataframe conforme a tabela do banco
+            cabecalho = Cabecalho()
+
+            cabecalho.organizar_cabecalho(df)
 
         except:
-            logging.basicConfig(filename="log.txt", level=logging.DEBUG,
-                                format="%(asctime)s %(message)s", filemode="a")
             logging.debug("- ERRO: tratamento do cabeçalho não pode ser concluída (CSVs/cabeçalho.py)")
             raise
+
+    def organizar_cabecalho(self, df: DataFrame):
+
+        # Criando objeto e determinando atributos da instância
+        dfEstacao = Cabecalho()
+
+        dfEstacao.__estacao = df[['cod_wmo', 'estacao_nome', 'estacao_regiao', 'estacao_estado',
+                                   'estacao_longitude', 'estacao_latitude',
+                                   'estacao_altitude', 'estacao_datafundacao']]
+
+        # Transferindo o dataframe filtrado e organizado ao método de povoamento do banco
+        cbd = ConexaoBD()
+
+        cbd.estacao_banco(dfEstacao.getEstacao())
 
 
 

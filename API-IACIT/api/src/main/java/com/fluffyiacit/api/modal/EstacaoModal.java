@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -44,7 +43,6 @@ public class EstacaoModal {
 	@Column(name="estacaoAltitude",length = 20, nullable = false)
 	private BigDecimal estacaoAltitude;
 	
-	@ColumnDefault(value = "A")
 	@Column(name="estacaoDatafundacao", nullable = false)
 	private Timestamp estacaoDatafundacao;
 	
