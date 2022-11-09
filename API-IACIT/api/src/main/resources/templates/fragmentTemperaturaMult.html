@@ -1,0 +1,45 @@
+<div th:fragment="fragmentTemperaturaMult">
+    <!--TABELA LISTA RANGE-->
+    <div style="overflow: scroll; border-radius: 5px">
+
+        <table id="tabelaTemperatura" class="table table-striped" style="font-size: 15px;">
+
+            <thead>
+                <tr>
+                    <th scope="col">Estação</th>
+                    <th scope="col">Temp. Ar</th>
+                    <th scope="col">Temp. Min</th>
+                    <th scope="col">Temp. Max</th>
+                    <th scope="col">Temp. Ponto Orvalho</th>
+                    <th scope="col">Temp. Orvalho Min</th>
+                    <th scope="col">Temp. Orvalho Max</th>
+                    <!--<th scope="col">codWmo</th>
+               <th scope="col">estacaoEstado</th>
+               <th scope="col">estacaoNome</th>-->
+                    <th scope="col">Data/Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ddd : ${rangeTemperatura}">
+                    <td>[[${ddd.estacaoNome}]]</td>
+                    <td>[[${ddd.temperaturaAr}]]</td>
+                    <td>[[${ddd.temperaturaMin}]]</td>
+                    <td>[[${ddd.temperaturaMax}]]</td>
+                    <td>[[${ddd.temperaturaPontoOrvalho}]]</td>
+                    <td>[[${ddd.temperaturaOrvalhoMin}]]</td>
+                    <td>[[${ddd.temperaturaOrvalhoMax}]]</td>
+                    <!--<td>[[${ddd.codWmo}]]</td>
+                   <td>[[${ddd.estacaoEstado}]]</td>
+                   <td>[[${ddd.estacaoNome}]]</td>-->
+                    <td style="font-size: 14px;">[[${ddd.datahoraCaptacao}]]</td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    <script src="js/tabelaTemperatura.js"></script>
+
+
+</div>

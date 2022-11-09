@@ -65,7 +65,7 @@
                   }
                   //console.log(hoursString);
 
-                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
+                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
                   arrayDatas.push(dataFormatada);
                   //console.log(dataFormatada);
                 });
@@ -190,7 +190,7 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-sm-8">
+          <div class="col-lg-12 col-sm-12">
 
             <div class=" card mt-6 ">
 
@@ -329,7 +329,10 @@
     </section>
 
     <section class="col-lg-5 connectedSortable">
-      <div th:replace="~{TabelaUmidade :: TabelaUmidade}"></div>
+      <div class=" cardTabela mt-6 ">
+
+        <div th:replace="~{TabelaUmidade :: TabelaUmidade}"></div>
+      </div>
     </section>
 
   </div>

@@ -13,5 +13,3 @@ public interface PermissaoRepository extends JpaRepository<PermissaoModal, Strin
 
 }
 
-    
-  

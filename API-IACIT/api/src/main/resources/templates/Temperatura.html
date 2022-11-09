@@ -1,459 +1,470 @@
- <!-- Content Header (Page header) -->
-  <div class="content-header" style="padding: 10px;">
+<!-- Content Header (Page header) -->
+<div class="content-header" style="padding: 10px;">
 
-    <div class="container-fluid" >
-
-      <div class="row mb-2">
-
-        <div class="col-sm-8">
-          <h1 class="m-0">Temperatura</h1> 
-        </div><!-- /.col -->
-          
-        <div class="col-sm-4">
-            <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
-            <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroTemp')}"></div> 
-        </div><!-- /.col -->
-
-      </div><!-- /.row -->
-
-      <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
-
-    </div><!-- /.container-fluid -->
-    <!-- /.content-header -->
+  <div class="container-fluid">
 
     <div class="row mb-2">
-      <!-- Main content -->
-      <section class="col-lg-7 ">
-        <div class="container">
-        
-          <div class="row">
 
-            <div class="col-lg-12 col-sm-12">
-              <div class=" card mt-12 ">
-
-                <canvas id="ChartTemp1"></canvas>
-                <hr>
-                <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
-
-                <!-- SCRIPT TEMPERATURA -->
-
-                <script th:inline="javascript">
-
-                  //RECEBE O OBJETO JAVA AQUI
-                  var rangeTemperatura = [[${ rangeTemperatura }]];
-
-                  //DEFINO O CAMPO DESSE OBJETO
-                  var rangeTemperatura_x = rangeTemperatura.map(x => x["datahoraCaptacao"])
-                  var arrayDatas = new Array();
-                  rangeTemperatura_x.forEach(function(dataArray) {
-                    let data = new Date(dataArray);
-
-                    var dayInt = data.getDate();
-                    var dayString = dayInt.toString();
-                    if (dayString.length == 1){
-                        dayString = "0" + dayString;
-                        }
-                    //console.log(dayString);
-
-                    var monthInt = data.getMonth() + 1;
-                    var monthString = monthInt.toString();
-                    if (monthString.length == 1){
-                        monthString = "0" + monthString;
-                        }
-                    //console.log(monthString);
-
-                    var hoursInt = data.getHours();
-                    var hoursString = hoursInt.toString();
-                    if (hoursString.length == 1){
-                        hoursString = "0" + hoursString;
-                    }
-                    //console.log(hoursString);
-
-                    var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00"; 
-                    arrayDatas.push(dataFormatada);
-                    //console.log(dataFormatada);
-                  });
-                  var rangeTemperaturaMax = rangeTemperatura.map(x => x["temperaturaMax"])
-                  var rangeTemperaturaMin = rangeTemperatura.map(x => x["temperaturaMin"])
-                  var rangeTemperaturaAr = rangeTemperatura.map(x => x["temperaturaAr"])
-                  var rangeTemperaturaPontoOrvalho = rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
-                  var rangeTemperaturaOrvalhoMin = rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
-                  var rangeTemperaturaOrvalhoMax = rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
-                </script>
-
-                <script>
-                  var ctxTemp1 = document.getElementById('ChartTemp1');
-                  var ChartTemp1 = new Chart(ctxTemp1, {
-                    type: 'line',
-                    data: {
-                      //WHILE X
-                      labels: arrayDatas,
-
-                      //Temperatura Maxima
-                      datasets: [
-                        {
-                          label: 'Temperatura Máxima',
-                          data: rangeTemperaturaMax,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(255, 0, 0, 1)',
-                          ],
-                          borderWidth: 1,
-                          fill: 1
-
-                        },
-
-                        //Temperatura Minima
-                        {
-                          label: 'Temperatura Mínima',
-                          data: rangeTemperaturaMin,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(36, 180, 224, 1)',
-                          ],
-                          borderWidth: 1
-                        },
-
-
-                        //Temperatura Ar
-                        {
-                          label: 'Temperatura do Ar',
-                          data: rangeTemperaturaAr,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(127, 36, 224, 1)',
-                          ],
-                          borderWidth: 1
-                        },
-
-                        //Temperatura PontoOrvalho
-                        {
-                          label: 'Temperatura Ponto de Orvalho',
-                          data: rangeTemperaturaPontoOrvalho,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(17, 255, 0, 1)',
-                          ],
-                          borderWidth: 1
-                        },
-
-                        //Temperatura OrvalhoMin
-                        {
-                          label: 'Temperatura Orvalho Mínimo',
-                          data: rangeTemperaturaOrvalhoMin,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(255, 102, 0, 1)',
-                          ],
-                          borderWidth: 1
-                        },
-
-                        //Temperatura OrvalhoMax
-                        {
-                          label: 'Temperatura Orvalho Máximo',
-                          data: rangeTemperaturaOrvalhoMax,
-                          backgroundColor: [
-                            'rgba(0, 0, 0, 0)'
-
-                          ],
-                          borderColor: [
-                            'rgba(221, 0, 255, 1)',
-                          ],
-                          borderWidth: 1
-                        }
-
-
-                      ],
-                    },
-                    options: {
-                      plugins: {
-                        title: {
-                          display: true,
-                          text: 'Linha - Temperatura',
-                          font: {
-                          size: 20
-                      }
-                        },
-                        zoom: {
-                          zoom: {
-                            //zoom scrool
-                            wheel: {
-                              enabled: true,
-                              speed: 0.1,
-                              threshold: 50
-                            },
-                            //zoom selecionar
-                            drag: {
-                              enabled: true,
-                              backgroundColor: 'rgb(233, 233, 233)',
-                              threshold: 50
-                            },
-                            pinch: {
-                              enabled: true,
-                            },
-                          }
-                        }
-                      }
-                    }
-                  }); Chart.register(zoomPlugin);
-                  function resetZoomCharts() {
-                    ChartTemp1.resetZoom();
-                  };
-                  function scroller (scroll, chart){
-                    console.log(scroll)
-
-                    const dataLength = ChartTemp1.data.labels.lenght;
-                    if(scroll.deltaY > 0){
-                      if (myChart.config.options.scales.x.max >= dataLength){
-                        myChart.config.options.scales.x.min = dataLength =2;
-                        myChart.config.options.scales.x.max = dataLength =-1;
-                      } else{
-                        myChart.config.options.scales.x.min += 1;
-                        myChart.config.options.scales.x.max +=  1;
-                      }
-                    }else if (scroll.deltaY <0){
-                      if(myChart.config.options.scales.x.min  <=0){
-                        myChart.config.options.scales.x.min =0;
-                        myChart.config.options.scales.x.max =6;
-                      }else{
-                        myChart.config.options.scales.x.min -=1;
-                        myChart.config.options.scales.x.max -=1;
-                      }
-                      }else{
-
-                      }
-                      ChartTemp1.update();
-                  };
-                  
-              
-
-
-                </script>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-sm-12">
-
-              <div class=" card mt-6 ">
-
-                <canvas id="ChartTemp2" width="400" height="200"></canvas>
-                <hr>
-                <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i class="fas fa-redo"></i></button>
-
-                <script>
-                  var ctxTemp2 = document.getElementById('ChartTemp2');
-                  var ChartTemp2 = new Chart(ctxTemp2, {
-                    type: 'bar',
-                    data: {
-                      //WHILE X
-                      labels: arrayDatas,
-
-                      //Temperatura Maxima
-                      datasets: [
-                        {
-                          label: 'Temperatura Máxima',
-                          data: rangeTemperaturaMax,
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-                        //Temperatura Minima
-                        {
-                          label: 'Temperatura Mínima',
-                          data: rangeTemperaturaMin,
-
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-
-
-                        //Temperatura Ar
-                        {
-                          label: 'Temperatura do Ar',
-                          data: rangeTemperaturaAr,
-
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-
-                        //Temperatura PontoOrvalho
-                        {
-                          label: 'Temperatura Ponto de Orvalho',
-                          data: rangeTemperaturaPontoOrvalho,
-
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-
-                        //Temperatura OrvalhoMin
-                        {
-                          label: 'Temperatura Orvalho Mínimo',
-                          data: rangeTemperaturaOrvalhoMin,
-
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-
-                        //Temperatura OrvalhoMax
-                        {
-                          label: 'Temperatura Orvalho Máximo',
-                          data: rangeTemperaturaOrvalhoMax,
-
-                          backgroundColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
-                            return colors;
-                          },
-                          borderColor: color => {
-                            console.log(color)
-                            let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
-                            return colors;
-                          },
-                          borderWidth: 1,
-
-
-                        },
-
-
-
-                      ],
-                    },
-                    options: {
-                      plugins: {
-                        title: {
-                          display: true,
-                          text: 'Histograma - Temperatura',
-                          font: {
-                          size: 20
-                      }
-                        },
-                        
-                        zoom: {
-                          zoom: {
-                            //zoom scrool
-                            wheel: {
-                              enabled: true,
-                              speed: 0.1,
-                              threshold: 50
-                            },
-                            //zoom selecionar
-                            drag: {
-                              enabled: true,
-                              backgroundColor: 'rgb(233, 233, 233)',
-                              threshold: 50
-                            },
-                            pinch: {
-                              enabled: true,
-                            },
-                          }
-                        }
-                      }
-                    }
-                  }); Chart.register(zoomPlugin);
-                  function resetZoomChart() {
-                    ChartTemp2.resetZoom();
-                  }
-
-                </script>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      <!-- /.Left col -->
-
-      <section class="col-lg-5 connectedSortable ">
-        <div th:replace="~{TabelaTemperatura :: TabelaTemperatura}"></div>
-      </section>
-
-
-    </div>
-    <!-- /.row (main row) -->
+      <div class="col-sm-8">
+        <h1 class="m-0">Temperatura</h1>
+      </div><!-- /.col -->
+
+      <div class="col-sm-4">
+        <button onclick="downloadPDF()">TESTE</button>
+      <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div>  -->
+        <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroTemp')}"></div>
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+    <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
 
   </div><!-- /.container-fluid -->
+  <!-- /.content-header -->
+
+  <div class="row mb-2">
+    <!-- Main content -->
+    <section class="col-lg-7 ">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-12 col-sm-12">
+            <div class=" card mt-12 ">
+
+              <canvas id="ChartTemp1"></canvas>
+              <hr>
+              <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99"><i
+                  class="fas fa-redo"></i></button>
+
+              <!-- SCRIPT TEMPERATURA -->
+
+              <script th:inline="javascript">
+
+                //RECEBE O OBJETO JAVA AQUI
+                var rangeTemperatura = [[${ rangeTemperatura }]];
+
+                //DEFINO O CAMPO DESSE OBJETO
+                var rangeTemperatura_x = rangeTemperatura.map(x => x["datahoraCaptacao"])
+                var arrayDatas = new Array();
+                rangeTemperatura_x.forEach(function (dataArray) {
+                  let data = new Date(dataArray);
+
+                  var dayInt = data.getDate();
+                  var dayString = dayInt.toString();
+                  if (dayString.length == 1) {
+                    dayString = "0" + dayString;
+                  }
+                  //console.log(dayString);
+
+                  var monthInt = data.getMonth() + 1;
+                  var monthString = monthInt.toString();
+                  if (monthString.length == 1) {
+                    monthString = "0" + monthString;
+                  }
+                  //console.log(monthString);
+
+                  var hoursInt = data.getHours();
+                  var hoursString = hoursInt.toString();
+                  if (hoursString.length == 1) {
+                    hoursString = "0" + hoursString;
+                  }
+                  //console.log(hoursString);
+
+                  var dataFormatada = dayString + "/" + monthString + "/" + data.getFullYear() + " " + hoursString + ":00";
+                  arrayDatas.push(dataFormatada);
+                  //console.log(dataFormatada);
+                });
+                var rangeTemperaturaMax = rangeTemperatura.map(x => x["temperaturaMax"])
+                var rangeTemperaturaMin = rangeTemperatura.map(x => x["temperaturaMin"])
+                var rangeTemperaturaAr = rangeTemperatura.map(x => x["temperaturaAr"])
+                var rangeTemperaturaPontoOrvalho = rangeTemperatura.map(x => x["temperaturaPontoOrvalho"])
+                var rangeTemperaturaOrvalhoMin = rangeTemperatura.map(x => x["temperaturaOrvalhoMin"])
+                var rangeTemperaturaOrvalhoMax = rangeTemperatura.map(x => x["temperaturaOrvalhoMax"])
+              </script>
+
+              <script>
+                var ctxTemp1 = document.getElementById('ChartTemp1');
+                var ChartTemp1 = new Chart(ctxTemp1, {
+                  type: 'line',
+                  data: {
+                    //WHILE X
+                    labels: arrayDatas,
+
+                    //Temperatura Maxima
+                    datasets: [
+                      {
+                        label: 'Temperatura Máxima',
+                        data: rangeTemperaturaMax,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(255, 0, 0, 1)',
+                        ],
+                        borderWidth: 1,
+                        fill: 1
+
+                      },
+
+                      //Temperatura Minima
+                      {
+                        label: 'Temperatura Mínima',
+                        data: rangeTemperaturaMin,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(36, 180, 224, 1)',
+                        ],
+                        borderWidth: 1
+                      },
 
 
-  </section>
+                      //Temperatura Ar
+                      {
+                        label: 'Temperatura do Ar',
+                        data: rangeTemperaturaAr,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(127, 36, 224, 1)',
+                        ],
+                        borderWidth: 1
+                      },
+
+                      //Temperatura PontoOrvalho
+                      {
+                        label: 'Temperatura Ponto de Orvalho',
+                        data: rangeTemperaturaPontoOrvalho,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(17, 255, 0, 1)',
+                        ],
+                        borderWidth: 1
+                      },
+
+                      //Temperatura OrvalhoMin
+                      {
+                        label: 'Temperatura Orvalho Mínimo',
+                        data: rangeTemperaturaOrvalhoMin,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(255, 102, 0, 1)',
+                        ],
+                        borderWidth: 1
+                      },
+
+                      //Temperatura OrvalhoMax
+                      {
+                        label: 'Temperatura Orvalho Máximo',
+                        data: rangeTemperaturaOrvalhoMax,
+                        backgroundColor: [
+                          'rgba(0, 0, 0, 0)'
+
+                        ],
+                        borderColor: [
+                          'rgba(221, 0, 255, 1)',
+                        ],
+                        borderWidth: 1
+                      }
+
+
+                    ],
+                  },
+                  options: {
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Linha - Temperatura',
+                        font: {
+                          size: 20
+                        }
+                      },
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); Chart.register(zoomPlugin);
+                function resetZoomCharts() {
+                  ChartTemp1.resetZoom();
+                };
+                function scroller(scroll, chart) {
+                  console.log(scroll)
+
+                  const dataLength = ChartTemp1.data.labels.lenght;
+                  if (scroll.deltaY > 0) {
+                    if (myChart.config.options.scales.x.max >= dataLength) {
+                      myChart.config.options.scales.x.min = dataLength = 2;
+                      myChart.config.options.scales.x.max = dataLength = -1;
+                    } else {
+                      myChart.config.options.scales.x.min += 1;
+                      myChart.config.options.scales.x.max += 1;
+                    }
+                  } else if (scroll.deltaY < 0) {
+                    if (myChart.config.options.scales.x.min <= 0) {
+                      myChart.config.options.scales.x.min = 0;
+                      myChart.config.options.scales.x.max = 6;
+                    } else {
+                      myChart.config.options.scales.x.min -= 1;
+                      myChart.config.options.scales.x.max -= 1;
+                    }
+                  } else {
+
+                  }
+                  ChartTemp1.update();
+                };
+
+
+
+
+              </script>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+
+            <div class=" card mt-6 ">
+
+              <canvas id="ChartTemp2" width="400" height="200"></canvas>
+              <hr>
+              <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i
+                  class="fas fa-redo"></i></button>
+
+              <script>
+                var ctxTemp2 = document.getElementById('ChartTemp2');
+                var ChartTemp2 = new Chart(ctxTemp2, {
+                  type: 'bar',
+                  data: {
+                    //WHILE X
+                    labels: arrayDatas,
+
+                    //Temperatura Maxima
+                    datasets: [
+                      {
+                        label: 'Temperatura Máxima',
+                        data: rangeTemperaturaMax,
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 0, 0, 1)' : 'rgba(255, 0, 0, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+                      //Temperatura Minima
+                      {
+                        label: 'Temperatura Mínima',
+                        data: rangeTemperaturaMin,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(36, 180, 224, 1)' : 'rgba(36, 180, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+
+                      //Temperatura Ar
+                      {
+                        label: 'Temperatura do Ar',
+                        data: rangeTemperaturaAr,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(127, 36, 224, 1)' : 'rgba(127, 36, 224, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+                      //Temperatura PontoOrvalho
+                      {
+                        label: 'Temperatura Ponto de Orvalho',
+                        data: rangeTemperaturaPontoOrvalho,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(17, 255, 100, 1)' : 'rgba(17, 255, 100, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+                      //Temperatura OrvalhoMin
+                      {
+                        label: 'Temperatura Orvalho Mínimo',
+                        data: rangeTemperaturaOrvalhoMin,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(255, 102, 0, 1)' : 'rgba(255, 102, 0, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+                      //Temperatura OrvalhoMax
+                      {
+                        label: 'Temperatura Orvalho Máximo',
+                        data: rangeTemperaturaOrvalhoMax,
+
+                        backgroundColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                          return colors;
+                        },
+                        borderColor: color => {
+                          console.log(color)
+                          let colors = color.index > 3 ? 'rgba(221, 0, 255, 1)' : 'rgba(221, 0, 255, 1)';
+                          return colors;
+                        },
+                        borderWidth: 1,
+
+
+                      },
+
+
+
+                    ],
+                  },
+                  options: {
+                    plugins: {
+                      title: {
+                        display: true,
+                        text: 'Histograma - Temperatura',
+                        font: {
+                          size: 20
+                        }
+                      },
+
+                      zoom: {
+                        zoom: {
+                          //zoom scrool
+                          wheel: {
+                            enabled: true,
+                            speed: 0.1,
+                            threshold: 50
+                          },
+                          //zoom selecionar
+                          drag: {
+                            enabled: true,
+                            backgroundColor: 'rgb(233, 233, 233)',
+                            threshold: 50
+                          },
+                          pinch: {
+                            enabled: true,
+                          },
+                        }
+                      }
+                    }
+                  }
+                }); Chart.register(zoomPlugin);
+                function resetZoomChart() {
+                  ChartTemp2.resetZoom();
+                }
+
+              </script>
+              
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js" integrity="sha512-t2JWqzirxOmR9MZKu+BMz0TNHe55G5BZ/tfTmXMlxpUY8tsTo3QMD27QGoYKZKFAraIPDhFv56HLdN11ctmiTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- /.Left col -->
+
+    <section class="col-lg-5 connectedSortable ">
+      <div class=" cardTabela mt-6 ">
+        <div th:replace="~{TabelaTemperatura :: TabelaTemperatura}"></div>
+      </div>
+    </section>
+
+
+  </div>
+  <!-- /.row (main row) -->
+
+</div><!-- /.container-fluid -->
+
+
+</section>
 <!-- Js -->
 <script src="js/filtro.js"></script>
+<script src="js/downloadPDF.js"></script>
+

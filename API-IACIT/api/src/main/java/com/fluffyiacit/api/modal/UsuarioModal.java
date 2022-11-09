@@ -1,10 +1,6 @@
 package com.fluffyiacit.api.modal;
 
-
-
-
 import java.sql.Timestamp;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,12 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Getter;
 import lombok.Setter;
+
+
 
 @Entity(name="usuario")
 @Table(name="usuario")
@@ -30,7 +26,7 @@ import lombok.Setter;
 public class UsuarioModal {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "codUsuario")
 	private Integer codUsuario;
 	
@@ -43,8 +39,8 @@ public class UsuarioModal {
 	@Column( name= "usuarioSenha",length = 256,nullable = false)
 	private String usuarioSenha ;
 	
+	@UpdateTimestamp
 	@Column( name= "usuarioDatahoraCriacao",nullable = false)
-	//@UpdateTimestamp
 	private Timestamp usuarioDatahoraCriacao;
 	
 	@ManyToOne
@@ -52,7 +48,6 @@ public class UsuarioModal {
 	private UsuarioModal usuarioCadastrante; 
 	
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
-//	@OnDelete(action= OnDeleteAction.CASCADE)
     @JoinColumn(name = "usuarioAlterou", referencedColumnName = "codUsuario")
 	private UsuarioModal usuarioAlterou; 
 	

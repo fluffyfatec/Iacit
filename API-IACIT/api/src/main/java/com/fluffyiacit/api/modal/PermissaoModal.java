@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ColumnDefault;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,17 +23,19 @@ import lombok.ToString;
 @Setter
 @ToString
 
+
 public class PermissaoModal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name= "codPermissao", nullable = true)
+	@Column(name= "codPermissao", nullable = false, updatable = false)
 	private Integer codPermissao;
 	
-	@Column(name= "permissaoNome",length = 50, nullable = true)
+	@Column(name= "permissao_nome",length = 50, nullable = false)
 	private String permissaoNome;
 	
-	@Column(name= "permissaoDescricao",length = 200, nullable = true)
+	@Column(name= "permissao_descricao",length = 200, nullable = false)
 	private String permissaoDescricao; 
 
 }
+
