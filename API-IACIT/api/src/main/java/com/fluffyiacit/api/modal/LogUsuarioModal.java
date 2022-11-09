@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -46,7 +48,7 @@ public class LogUsuarioModal {
     
     @Id
     @Column( name= "logUsuarioDatahoraAlterecao", nullable = false)
-	//@UpdateTimestamp
+	@UpdateTimestamp
 	private Timestamp logUsuarioDatahoraAlterecao;
     
     @Column(name = "logUsuarioOperacao", nullable = false)
