@@ -19,7 +19,7 @@ function jsGraficosPDF(chart1, chart2, tela) {
     let pdf = new jsPDF('landscape');
     pdf.setFontSize(24);
     pdf.setFont('helvetica', 'bold');
-    pdf.text(15, 15, ["Estação " + estacao.innerText + ", Estado de " + estado.innerText]);
+    pdf.text(15, 15, ["Estação " + estacao.innerText + ", Estado de " + estado.innerText, " "]);
     pdf.setFont('helvetica', '');
     pdf.text(15, 15, [" ", "Dados de " + dataMin.innerText + " até " + dataMax.innerText]);
     pdf.addImage(canvasImage, 'PNG', 10, 35, 275, 150);
