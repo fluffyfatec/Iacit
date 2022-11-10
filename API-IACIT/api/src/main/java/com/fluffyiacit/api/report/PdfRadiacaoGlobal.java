@@ -98,7 +98,7 @@ public class PdfRadiacaoGlobal {
             document.open();
 
             //Adicionando imagem
-            Image img = Image.getInstance("images\\iacit.png");
+            Image img = Image.getInstance("https://raw.githubusercontent.com/fluffyfatec/Iacit/Sprint-4/API-IACIT/api/images/iacit.png");
             img.setAbsolutePosition(635f, PageSize.A4.getHeight() - img.getScaledHeight() - 90);
             img.scaleAbsolute(175f, 115f);
 
