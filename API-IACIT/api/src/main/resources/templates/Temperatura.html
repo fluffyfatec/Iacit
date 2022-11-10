@@ -7,22 +7,22 @@
 
       <div class="col-sm-8">
         <h1 class="m-0">Temperatura</h1>
-
-
+        
+      
       </div><!-- /.col -->
-
-
+      
+      
       <div class="col-sm-4">
-
+        
         <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroTemp')}"></div>
         <button type="button" onclick= "downloadPDF()"  class="btn-pdf"><i class="fas fa-file-pdf icon"></i>  Relatório Gráficos </button>
         <button type="button" onclick="" class="btn-pdf"><i class="fas fa-file-pdf icon"></i> Relatório Tabela</button>
         <input type="hidden" id="btn" class="form-control"></input>
-
+      
       </div><!-- /.col -->
-
+      
     </div><!-- /.row -->
-    <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div>
+    <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div> 
 
   </div><!-- /.container-fluid -->
   <!-- /.content-header -->
@@ -31,16 +31,16 @@
     <!-- Main content -->
     <section class="col-lg-7 ">
       <div class="container">
-
+        
         <div class="row">
-
+          
           <div class="col-lg-12 col-sm-12">
             <div class=" card mt-12 ">
-
+              
               <canvas id="ChartTemp1"></canvas>
               <hr>
               <button onclick="resetZoomCharts()" type="button" class="chart-dois" style="background-color:#0D4A99"><i
-                      class="fas fa-redo"></i></button>
+                  class="fas fa-redo"></i></button>
 
               <!-- SCRIPT TEMPERATURA -->
 
@@ -269,7 +269,7 @@
               <canvas id="ChartTemp2" width="400" height="200"></canvas>
               <hr>
               <button onclick="resetZoomChart()" type="button" class="chart-dois" style="background-color:#0D4A99 "><i
-                      class="fas fa-redo"></i></button>
+                  class="fas fa-redo"></i></button>
 
               <script>
                 var ctxTemp2 = document.getElementById('ChartTemp2');

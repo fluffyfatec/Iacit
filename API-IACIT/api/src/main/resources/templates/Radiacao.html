@@ -10,9 +10,13 @@
       </div><!-- /.col -->
         
       <div class="col-sm-4">
-          <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
+         
           <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroRad')}"></div> 
-      </div><!-- /.col -->
+          <button type="button" onclick= "downloadPDF()"  class="btn-pdf"><i class="fas fa-file-pdf icon"></i>  Relatório Gráficos </button>
+          <button type="button" onclick="" class="btn-pdf"><i class="fas fa-file-pdf icon"></i> Relatório Tabela</button>
+          <input type="hidden" id="btn" class="form-control"></input>
+      
+        </div><!-- /.col -->
 
     </div><!-- /.row -->
 
