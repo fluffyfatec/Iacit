@@ -153,22 +153,47 @@ public class TemperaturaAjaxController {
 
     }
 
-    @GetMapping(value = "/Temperatura/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<InputStreamResource> relatorioTemperatura (HttpServletResponse response, DTO.FiltroDatasDTO filtroDatasDto) throws IOException {
+    @GetMapping(value = "/Temperatura/pdf/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> relatorioTemperatura (HttpServletResponse response,
+                                                                     @PathVariable("estNome") String estNome,
+                                                                     @PathVariable("estEstado") String estEstado,
+                                                                     @PathVariable("estDTinicial") String estDTinicial,
+                                                                     @PathVariable("estDTfinal") String estDTfinal) throws IOException {
 
-        filtroDatasDto.setEstacaoNome("SAO PAULO - INTERLAGOS");
-        filtroDatasDto.setEstacaoEstado("SP");
-        filtroDatasDto.setDataHoraInicial("2022-06-27 10:00:00");
-        filtroDatasDto.setDataHoraFinal("2022-06-28 10:00:00");
+        estNome = estNome.replace('*', ' ');
+        estEstado = estEstado.replace('*', ' ');
+        estDTinicial = estDTinicial.replace('*', ' ');
+        estDTfinal = estDTfinal.replace('*', ' ');
 
-        List<ViewTemperaturaModal> temperatura = temperaturaRepository.listRange(filtroDatasDto.getEstacaoEstado(), filtroDatasDto.getEstacaoNome(),Timestamp.valueOf(filtroDatasDto.getDataHoraInicial()),Timestamp.valueOf(filtroDatasDto.getDataHoraFinal()));;
+        List<ViewTemperaturaModal> temperatura = temperaturaRepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
+
+        for (ViewTemperaturaModal objviewTemperatura : temperatura) {
+            if (objviewTemperatura.getTemperaturaAr() == null) {
+                objviewTemperatura.setTemperaturaAr("N/A");
+            }
+            if (objviewTemperatura.getTemperaturaMax() == null) {
+                objviewTemperatura.setTemperaturaMax("N/A");
+            }
+            if (objviewTemperatura.getTemperaturaMin() == null) {
+                objviewTemperatura.setTemperaturaMin("N/A");
+            }
+            if (objviewTemperatura.getTemperaturaOrvalhoMax() == null) {
+                objviewTemperatura.setTemperaturaOrvalhoMax("N/A");
+            }
+            if (objviewTemperatura.getTemperaturaOrvalhoMin() == null) {
+                objviewTemperatura.setTemperaturaOrvalhoMin("N/A");
+            }
+            if (objviewTemperatura.getTemperaturaPontoOrvalho() == null) {
+                objviewTemperatura.setTemperaturaPontoOrvalho("N/A");
+            }
+        }
 
         ByteArrayInputStream bis = PdfTemperatura.exportarPdfTemperatura(temperatura);
 
         HttpHeaders headers = new HttpHeaders();
 
         headers.add("Content-Disposition", "attachment;filename=Relatório Temperatura " +
-                filtroDatasDto.getEstacaoNome() + "(" + new SimpleDateFormat("dd-MM-yyyy")
+                estNome + "(" + new SimpleDateFormat("dd-MM-yyyy")
                 .format(temperatura.get(0).getDatahoraCaptacao()) + " até " +
                 new SimpleDateFormat("dd-MM-yyyy").format(temperatura.get(temperatura.size() - 1).getDatahoraCaptacao()) +
                 ").pdf");

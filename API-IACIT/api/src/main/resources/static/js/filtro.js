@@ -111,6 +111,25 @@
 
   }
 
+  function jsTransfereDadosPDF(tela) {
+
+  var jsOutraPagEstacao = document.getElementById("jsOutraPagEstacao").value;
+       jsOutraPagEstacao = jsOutraPagEstacao.replaceAll(" ", "*");
+
+  var jsOutraPagEstado = document.getElementById("jsOutraPagEstado").value;
+       jsOutraPagEstado = jsOutraPagEstado.replaceAll(" ", "*");
+
+  var jsOutraPagDataMin = document.getElementById("jsOutraPagDataMin").value;
+       jsOutraPagDataMin = jsOutraPagDataMin.replaceAll(" ", "*");
+
+  var jsOutraPagDataMax = document.getElementById("jsOutraPagDataMax").value;
+       jsOutraPagDataMax = jsOutraPagDataMax.replaceAll(" ", "*");
+
+  endpoint = '/' + tela + '/pdf/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax
+  window.location.href = endpoint;
+
+  }
+
   //ABRE A MODAL FILTRO
   function jsAbrirModalFiltro(){
       $("#ModalFiltro").modal({

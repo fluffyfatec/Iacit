@@ -170,9 +170,9 @@ public class PdfTemperatura {
             document.open();
 
             //Adicionando imagem
-            Image img = Image.getInstance("images\\iacit.png");
-            img.setAbsolutePosition(635f, PageSize.A4.getHeight() - img.getScaledHeight() - 90);
-            img.scaleAbsolute(175f, 115f);
+            //Image img = Image.getInstance("images\\iacit.png");
+            //img.setAbsolutePosition(635f, PageSize.A4.getHeight() - img.getScaledHeight() - 90);
+            //img.scaleAbsolute(175f, 115f);
 
             //Definindo parágrafos para o título do documento PDF
             Paragraph textoEstacao = new Paragraph(new Phrase("Estação " + viewTemperaturaModals.get(0).getEstacaoNome()
@@ -193,7 +193,7 @@ public class PdfTemperatura {
             Paragraph pulaLinha = new Paragraph(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 18, BaseColor.BLACK)));
 
             //Adicionando os parágrafos, imagem e tabela ao documento PDF
-            document.add(img);
+            //document.add(img);
             document.add(textoEstacao);
             document.add(textoDataHora);
             document.add(pulaLinha);
