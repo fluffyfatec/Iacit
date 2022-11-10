@@ -10,7 +10,6 @@ function jsGraficosPDF(chart1, chart2, tela) {
     const canvasImage2 = canvas2.toDataURL('image/png', 1);
 
     //variáveis para o texto do PDF
-    var regiao = document.getElementById('regiao');
     var estado = document.getElementById('estado');
     var estacao = document.getElementById('estacao');
     var dataMin = document.getElementById('dtMin');

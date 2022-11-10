@@ -42,22 +42,22 @@ public class PdfUmidade {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Umidade Relativa Ar", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell = new PdfPCell(new Phrase("Umidade Relativa do Ar", headFont));
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Umidade Relativa Mín", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell = new PdfPCell(new Phrase("Umidade Relativa Mínima", headFont));
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Umidade Relativa Máx", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell = new PdfPCell(new Phrase("Umidade Relativa Máxima", headFont));
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);

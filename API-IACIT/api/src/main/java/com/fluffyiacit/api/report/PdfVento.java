@@ -43,21 +43,21 @@ public class PdfVento {
             table.addCell(hcell);
 
             hcell = new PdfPCell(new Phrase("Vento Direção Horário", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Vento Rajada Máx", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell = new PdfPCell(new Phrase("Vento Rajada Máxima", headFont));
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
             hcell = new PdfPCell(new Phrase("Vento Velocidade", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);

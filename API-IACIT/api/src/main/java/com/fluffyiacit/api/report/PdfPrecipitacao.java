@@ -45,7 +45,7 @@ public class PdfPrecipitacao {
             table.addCell(hcell);
 
             hcell = new PdfPCell(new Phrase("Precipitação Total", headFont));
-            hcell.setPaddingTop(3.5f);
+            hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
