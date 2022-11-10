@@ -1,25 +1,23 @@
 package com.fluffyiacit.api.report;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.List;
+import com.fluffyiacit.api.modal.ViewVentoModal;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPRow;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import com.fluffyiacit.api.modal.ViewTemperaturaModal;
-import org.springframework.data.repository.query.Param;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 
-public class PdfTemperatura {
+public class PdfVento {
 
-    public static ByteArrayInputStream exportarPdfTemperatura (List<ViewTemperaturaModal> viewTemperaturaModals) throws IOException {
+    public static ByteArrayInputStream exportarPdfVento (List<ViewVentoModal> viewVentoModals) throws IOException {
 
         //Criando o documento PDF
         Document document = new Document(PageSize.A4.rotate(), 25, 25, 25, 25);
@@ -28,9 +26,9 @@ public class PdfTemperatura {
         try {
 
             //Criando a tabela para o relatório
-            PdfPTable table = new PdfPTable(7);
+            PdfPTable table = new PdfPTable(4);
             table.setWidthPercentage(100);
-            table.setWidths(new int[] { 4, 4, 4, 4, 4, 4, 4});
+            table.setWidths(new int[] { 4, 4, 4, 4});
 
             //Criando o cabeçalho da tabela
             Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14, BaseColor.WHITE);
@@ -44,49 +42,29 @@ public class PdfTemperatura {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Ar", headFont));
-            hcell.setPaddingTop(9f);
-            hcell.setFixedHeight(40f);
-            hcell.setVerticalAlignment(Element.ALIGN_CENTER);
-            hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell(hcell);
-
-            hcell = new PdfPCell(new Phrase("Temperatura Mínima", headFont));
+            hcell = new PdfPCell(new Phrase("Vento Direção Horário", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Máxima", headFont));
+            hcell = new PdfPCell(new Phrase("Vento Rajada Máx", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Ponto Orvalho", headFont));
+            hcell = new PdfPCell(new Phrase("Vento Velocidade", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orvalho Mínima", headFont));
-            hcell.setPaddingTop(3.5f);
-            hcell.setFixedHeight(40f);
-            hcell.setVerticalAlignment(Element.ALIGN_CENTER);
-            hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orvalho Máxima", headFont));
-            hcell.setPaddingTop(3.5f);
-            hcell.setFixedHeight(40f);
-            hcell.setVerticalAlignment(Element.ALIGN_CENTER);
-            hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell(hcell);
-
-            for (ViewTemperaturaModal viewTemperaturaModal : viewTemperaturaModals) {
+            for (ViewVentoModal viewVentoModal : viewVentoModals) {
 
                 //Povoando as células da tabela
                 Font font = FontFactory.getFont(FontFactory.HELVETICA, 14, BaseColor.BLACK);
@@ -94,21 +72,21 @@ public class PdfTemperatura {
 
                 PdfPCell cell;
 
-                cell = new PdfPCell(new Phrase(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewTemperaturaModal.getDatahoraCaptacao()), fontDataHora));
+                cell = new PdfPCell(new Phrase(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewVentoModal.getDatahoraCaptacao()), fontDataHora));
                 cell.setPaddingTop(4f);
                 cell.setFixedHeight(25f);
                 cell.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaAr(), font));
+                cell = new PdfPCell(new Phrase(viewVentoModal.getVentoDirecaoHorario(), font));
                 cell.setPaddingTop(4f);
                 cell.setFixedHeight(25f);
                 cell.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaMin(), font));
+                cell = new PdfPCell(new Phrase(viewVentoModal.getVentoRajadaMax(), font));
                 cell.setPaddingTop(4f);
                 cell.setFixedHeight(25f);
                 cell.setPaddingLeft(5);
@@ -116,33 +94,13 @@ public class PdfTemperatura {
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaMax(), font));
+                cell = new PdfPCell(new Phrase(viewVentoModal.getVentoVelocidade(), font));
                 cell.setPaddingTop(4f);
                 cell.setFixedHeight(25f);
                 cell.setVerticalAlignment(Element.ALIGN_CENTER);
                 cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(cell);
 
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaPontoOrvalho(), font));
-                cell.setPaddingTop(4f);
-                cell.setFixedHeight(25f);
-                cell.setVerticalAlignment(Element.ALIGN_CENTER);
-                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                table.addCell(cell);
-
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaOrvalhoMin(), font));
-                cell.setPaddingTop(4f);
-                cell.setFixedHeight(25f);
-                cell.setVerticalAlignment(Element.ALIGN_CENTER);
-                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                table.addCell(cell);
-
-                cell = new PdfPCell(new Phrase(viewTemperaturaModal.getTemperaturaOrvalhoMax(), font));
-                cell.setPaddingTop(4f);
-                cell.setFixedHeight(25f);
-                cell.setVerticalAlignment(Element.ALIGN_CENTER);
-                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-                table.addCell(cell);
             }
 
             //Alternando a cor do background e do grid das células entre branco e cinza
@@ -174,19 +132,19 @@ public class PdfTemperatura {
             img.scaleAbsolute(175f, 115f);
 
             //Definindo parágrafos para o título do documento PDF
-            Paragraph textoEstacao = new Paragraph(new Phrase("Estação " + viewTemperaturaModals.get(0).getEstacaoNome()
-                    + ", " + "Estado de " + viewTemperaturaModals.get(0).getEstacaoEstado(), FontFactory.getFont(
-                            FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK)));
+            Paragraph textoEstacao = new Paragraph(new Phrase("Estação " + viewVentoModals.get(0).getEstacaoNome()
+                    + ", " + "Estado de " + viewVentoModals.get(0).getEstacaoEstado(), FontFactory.getFont(
+                    FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK)));
             textoEstacao.setAlignment(Element.ALIGN_LEFT);
 
             Paragraph textoDataHora = new Paragraph(new Phrase("Dados de " + new SimpleDateFormat("dd/MM/yyyy HH:mm")
-                    .format(viewTemperaturaModals.get(0).getDatahoraCaptacao()) + " até " +
-                    new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewTemperaturaModals
-                            .get(viewTemperaturaModals.size() - 1).getDatahoraCaptacao()),
+                    .format(viewVentoModals.get(0).getDatahoraCaptacao()) + " até " +
+                    new SimpleDateFormat("dd/MM/yyyy HH:mm").format(viewVentoModals
+                            .get(viewVentoModals.size() - 1).getDatahoraCaptacao()),
                     FontFactory.getFont(FontFactory.HELVETICA, 21, BaseColor.BLACK)));
             textoDataHora.setAlignment(Element.ALIGN_LEFT);
 
-            Paragraph textoDados = new Paragraph(new Phrase("Temperatura", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK)));
+            Paragraph textoDados = new Paragraph(new Phrase("Ventos", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK)));
             textoDados.setAlignment(Element.ALIGN_CENTER);
 
             Paragraph pulaLinha = new Paragraph(new Phrase(" ", FontFactory.getFont(FontFactory.HELVETICA, 18, BaseColor.BLACK)));
