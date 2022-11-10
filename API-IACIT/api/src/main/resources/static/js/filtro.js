@@ -111,7 +111,7 @@
 
   }
 
-  function jsTransfereDadosPDF(tela) {
+  function jsTabelaPDF(tela) {
 
   var jsOutraPagEstacao = document.getElementById("jsOutraPagEstacao").value;
        jsOutraPagEstacao = jsOutraPagEstacao.replaceAll(" ", "*");
