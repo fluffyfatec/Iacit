@@ -180,24 +180,16 @@ DROP TABLE log_usuario;
 
 
 --CRIAÇÃO DA TABELA LOG ESTACAO /// NÃO UTILIZANDO AINDA
-CREATE TABLE log_usuarioestacao(
-	log_usuarioestacao_cod SERIAL,
-	log_usuarioestacao_colunaafetada VARCHAR(60) NOT NULL,
-	log_usuarioestacao_valorantigo VARCHAR(60) NOT NULL,
-	log_usuarioestacao_valornovo VARCHAR(60) NOT NULL,
-	log_usuarioestacao_datahora TIMESTAMP NOT NULL DEFAULT now(),
-	cod_wmo VARCHAR(4) NOT NULL,
-	cod_usuario_alterou INTEGER NOT NULL,
-	
-	--CHAVE PRIMARIA LOG USUARIO ESTACAO
-	CONSTRAINT pk_log_usuarioestacao_cod PRIMARY KEY (log_usuarioestacao_cod),
-	
-	--CHAVE PRIMARIA COD_WMO E USUARIO ALTEROU
-	CONSTRAINT fk_estacao_cod_wmo FOREIGN KEY (cod_wmo)
-		REFERENCES estacao(cod_wmo),
-	CONSTRAINT fk_cod_usuario_alterou FOREIGN KEY (cod_usuario_alterou)
-		REFERENCES usuario(cod_usuario)
-);
+CREATE TABLE log_estacao(
+	log_cod_wmo VARCHAR(4) NOT NULL,
+	log_estacao_nome VARCHAR(60) NOT NULL,
+	log_estacao_regiao VARCHAR(60) NOT NULL,
+	log_estacao_estado CHAR(2) NOT NULL,
+	log_estacao_status CHAR(1) NOT NULL,
+	log_estacao_alterou INTEGER,
+	log_estacao_datahora_alteracao TIMESTAMP NOT NULL DEFAULT now(),
+	log_estacao_operacao CHAR(1) NOT NULL
+	);
 
 
 --INSERÇÃO DAS PERMISSOES
@@ -214,6 +206,11 @@ ALTER TABLE usuario ALTER COLUMN usuario_cadastrante SET NOT NULL;
 ALTER TABLE usuario ADD CONSTRAINT fk_cadastrante FOREIGN KEY (usuario_cadastrante)
 		REFERENCES usuario(cod_usuario);
 ALTER TABLE usuario ADD CONSTRAINT fk_alterou FOREIGN KEY (usuario_alterou)
+		REFERENCES usuario(cod_usuario);
+
+--ALTER TABLE PARA ACRESCENTAR USUARIO ALTEROU
+ALTER TABLE estacao ADD COLUMN usuario_alterou INTEGER;
+ALTER TABLE estacao ADD CONSTRAINT fk_usuarioalterou_estacao FOREIGN KEY (usuario_alterou)
 		REFERENCES usuario(cod_usuario);
 
 
