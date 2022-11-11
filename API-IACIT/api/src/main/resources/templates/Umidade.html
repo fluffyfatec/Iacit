@@ -5,13 +5,18 @@
     <div class="row mb-2">
 
       <div class="col-sm-8">
-        <h1 class="m-0">Umidade</h1> 
+        <h1 class="m-0">Umidade</h1>
+        
       </div><!-- /.col -->
         
         <div class="col-sm-4">
-            <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div> -->
+            
             <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroUmi')}"></div> 
-        </div><!-- /.col -->
+            <button type="button" onclick= "jsGraficosPDF('ChartUmid1', 'ChartUmid2', 'Umidade')"  class="btn-pdf"><i class="fas fa-file-pdf icon"></i>  Relatório Gráficos </button>
+            <button type="button" onclick="jsTabelaPDF('Umidade')" class="btn-pdf"><i class="fas fa-file-pdf icon"></i> Relatório Tabela</button>
+            <input type="hidden" id="btn" class="form-control"></input>
+        
+          </div><!-- /.col -->
 
     </div><!-- /.row -->
 
@@ -322,6 +327,10 @@
                 };
 
               </script>
+
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js" integrity="sha512-t2JWqzirxOmR9MZKu+BMz0TNHe55G5BZ/tfTmXMlxpUY8tsTo3QMD27QGoYKZKFAraIPDhFv56HLdN11ctmiTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
             </div>
           </div>
         </div>
@@ -354,3 +363,4 @@
 </section>
 <!-- Js -->
 <script src="js/filtro.js"></script>
+<script src="js/downloadPDF.js"></script>

@@ -188,4 +188,20 @@ preloader {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-  
+.btn-pdf{
+    background-color: transparent;
+    width: auto;
+    height:auto;
+    border-color: transparent;
+    padding-right: 1rem;
+    color:#007BFF;
+ 
+}  
+.icon{
+    color: #0D4A99;
+}
+.filte{
+    width: auto;
+    height:auto;
+    padding-right: 1rem;
+}

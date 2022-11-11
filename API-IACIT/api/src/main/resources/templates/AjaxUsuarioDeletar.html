@@ -1,0 +1,4 @@
+<select class="form-control" id="codUsuario" onchange="UsuarioDeletar()" required>
+    <option value="" selected>Escolha o Estado...</option>
+    <option value="teste" th:each="uu : ${deletar}">[[${uu.usuariodeletar}]]</option>
+</select>
