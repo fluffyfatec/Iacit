@@ -20,7 +20,6 @@ import lombok.ToString;
 @Table(name= "estacao")
 @Getter
 @Setter
-@ToString
 
 public class EstacaoModal {
 	
@@ -51,14 +50,12 @@ public class EstacaoModal {
 	private Timestamp estacaoDatafundacao;
 	
 	@Column(name = "estacaoStatus", length = 1, nullable = false)
-	public String estacaoStatus;
 
+	private Character estacaoStatus;
 	public Optional<EstacaoModal> map(Object object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 	
 	
 }
