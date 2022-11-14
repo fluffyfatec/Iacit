@@ -24,5 +24,10 @@ public class UsuarioController {
        ModelAndView modelandview = usuarioService.criarUsuario(usuario);
        return modelandview;
     }
+    
+ 
+    
+	  
 
 }
+

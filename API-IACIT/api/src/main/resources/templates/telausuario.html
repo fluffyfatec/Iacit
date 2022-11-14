@@ -1,0 +1,248 @@
+    <!-- Content Header (Page header) -->
+<div class="content-header" style="padding: 10px;">
+
+    <div class="container-fluid">
+  
+      <div class="row mb-2">
+  
+        <div class="col-sm-8">
+          <h1 class="m-0">Painel Adminstrativo</h1>
+        </div><!-- /.col -->
+  
+        <div class="col-sm-4">
+          <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltro}"></div>  -->
+          <!-- <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroTemp')}"></div> -->
+           
+        </div><!-- /.col -->
+  
+      </div><!-- /.row -->
+      <!-- <div th:replace="~{fragmentFIltroBody :: FIltroBody}"></div>  -->
+  
+    </div><!-- /.container-fluid -->
+    <!-- /.content-header -->
+  
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <!-- Temperatura -->
+                <div class="col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                        <div class="inner">
+                            <h3>15</h3>
+                            <p style="font-size: 20px;">Usuários</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <a href="#" class="small-box-footer test" id="">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Temperatura -->
+                <div class="col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-danger" style="background-color: #277AE6 !important;">
+                        <div class="inner">
+                            <h3>3</h3>
+                            <p style="font-size: 20px;">Relatórios</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-fax"></i>
+                        </div>
+                        <a href="#" class="small-box-footer test" id="">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Temperatura -->
+                <div class="col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-danger" style="background-color: #4596FF !important;">
+                        <div class="inner">
+                            <h3>5</h3>
+                            <p style="font-size: 20px;">Logs</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <a href="#" class="small-box-footer test" id="">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Temperatura -->
+                <div class="col-lg-3">
+                    <!-- small box -->
+                    <div class="small-box bg-danger" style="background-color: #0D4A99 !important;">
+                        <div class="inner">
+                            <h3>598</h3>
+                            <p style="font-size: 20px;">Estações Ativas</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-location-arrow"></i>
+                        </div>
+                        <a href="#" class="small-box-footer test" id="">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+            
+
+          <!-- Main row -->
+          <div class="row">
+
+            <!-- Left col -->
+            <section class="col-lg-5 connectedSortable">
+                <div class="card mt-12 ">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-2">
+                            <div class="image">
+                                <img src="dist/img/user.jpg" class="img-circle elevation-2" width="50%" height="50%" alt="User Image">
+                            </div>
+                          </div>
+                    </div>
+                    
+                     <br>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label></label>Nome:
+                            <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                            <small id="" class="form-text text-muted">  </small>
+                        </div>
+                        <div class="col-12">
+                            <label></label>Usuário:
+                            <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                            <small id="" class="form-text text-muted">  </small>
+                        </div>
+                        <div class="col-6">
+                            <label></label>Senha:
+                            <input type="password" class="form-control" id="" aria-describedby="" placeholder="">      
+                            <small id="" class="form-text text-muted">  </small>
+                        </div>
+                        <div class="col-6">
+                            <label></label>Confirme a Senha:
+                            <input type="password" class="form-control" id="" aria-describedby="" placeholder="">      
+                            
+                        </div>
+                        <div class="col-12">
+                            <label></label>Permissão:<br>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Usuário</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Administrador</label>
+                              </div>
+                              <small id="" class="form-text text-muted">  </small>
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <small id="" class="form-text text-muted">  </small>
+                    </div>
+                </div>
+                <form>
+                    
+
+            </section>
+            <!-- /.Left col -->
+
+            <!-- Left col -->
+            <section class="col-lg-7 connectedSortable">
+                <div class="card mt-12 ">
+                    <div class="row">
+                        <div class="col-10">
+                            <label></label>Username:
+                            <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                            <small id="" class="form-text text-muted">  </small>
+                        </div>
+                        <div class="col-2">
+                             <br>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
+                        </div>
+                        
+                        <small id="" class="form-text text-muted">  </small>
+                    </div>
+                    <table class="table table-striped" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Usuário</th>
+                            <th scope="col">Permissão</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Luiz </td>
+                                <td>LFBORGES</td>
+                                <td>Usuário</td>
+                            </tr>
+                            <tr>
+                                <td>Ana</td>
+                                <td>ACLEAL</td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <td>Felipe</td>
+                                <td>FSOBRAL</td>
+                                <td>Usuário</td>
+                            </tr>
+                            <tr>
+                                <td>Patrick</td>
+                                <td>PSOUZA</td>
+                                <td>Usuário</td>
+                            </tr>
+                            <tr>
+                                <td>Victor</td>
+                                <td>VFERNENDES</td>
+                                <td>ADEMIR</td>
+                            </tr>
+                            <tr>
+                                <td>Tiago</td>
+                                <td>TCAMILO</td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <td>Aldrik</td>
+                                <td>AFALVARO</td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <td>Emanuele</td>
+                                <td>EDINIZ</td>
+                                <td>Administrador</td>
+                            </tr>
+                            <tr>
+                                <td>Michael</td>
+                                <td>MFELIPE</td>
+                                <td>Usuário</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                         
+
+            </section>
+
+          </div>
+          <!-- /.row (main row) -->
+
+        </div><!-- /.container-fluid -->
+
+      </section>
+  
+  </div><!-- /.container-fluid -->
+  
+    
+    
+    
+    
+    
+    
+    
+    
+ 
