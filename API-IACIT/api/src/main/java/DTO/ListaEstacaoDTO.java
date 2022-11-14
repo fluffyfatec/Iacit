@@ -12,5 +12,5 @@ public class ListaEstacaoDTO {
 	private BigDecimal estacao_latitude;
 	private BigDecimal estacao_altitude;
 	private BigDecimal estacao_longitude;
-	private Character estacao_status;
+	private String estacao_status;
 }
