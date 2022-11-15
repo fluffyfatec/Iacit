@@ -4,17 +4,22 @@
 
       <div class="row mb-2">
 
-        <div class="col-sm-8">
+        <div class="col-sm-6">
           <h1 class="m-0">Pressão Atmosférica</h1> 
             <h1 class="m-0"></h1> 
           </div><!-- /.col -->
   
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           
           <div th:replace="~{fragmentModalFiltro :: ModalFiltroParametro ('/filtroPressao')}"></div> 
-          <button type="button" onclick= "jsGraficosPDF('ChartPres1', 'ChartPres2', 'Pressão Atmosférica')"  class="btn-pdf"><i class="fas fa-file-pdf icon"></i>  Relatório Gráficos </button>
-          <button type="button" onclick="jsTabelaPDF('PressaoAtmosferica')" class="btn-pdf"><i class="fas fa-file-pdf icon"></i> Relatório Tabela</button>
-          <input type="hidden" id="btn" class="form-control"></input>
+     
+          <ol class="breadcrumb float-sm-right" onclick= "jsGraficosPDF('ChartPres1', 'ChartPres2', 'Pressão Atmosférica')">
+                <i class="fas fa-file-pdf icon" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Relatório Gráficos</a></li>
+          </ol>
+        
+          <ol class="breadcrumb float-sm-right" onclick="jsTabelaPDF('PressaoAtmosferica')">
+               <i class="fas fa-file-pdf icon" style="color: #0D4A99 !important;"></i> <li class="breadcrumb-item"><a href="#">Relatório Tabela</a></li>
+          </ol>
        
         </div><!-- /.col -->
 
