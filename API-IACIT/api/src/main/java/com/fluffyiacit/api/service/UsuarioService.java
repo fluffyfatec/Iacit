@@ -26,7 +26,9 @@ public class UsuarioService {
 	 UsuarioModal usuariomodal = new UsuarioModal();
 	 
 	 UsuarioModal usuarioadm = repository.findByUsuarioUsername(usuario.getUsuario_adm());
-	 	 
+	 
+	 UsuarioModal usuarioAlterou = repository.findByUsuarioUsername(usuario.getUsuario_alterou());
+	 	 	 
 	 PermissaoModal permissao =  permrepository.findByPermissaoNome(usuario.getNome_permissao());
 	 
 	 BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
@@ -34,9 +36,9 @@ public class UsuarioService {
 	 usuariomodal.setUsuarioNome(usuario.getUsuario_nome());
 	 usuariomodal.setUsuarioUsername(usuario.getUsuario_username());
 	 usuariomodal.setUsuarioSenha(senhaEncriptada);
+	 usuariomodal.setUsuarioAlterou(usuarioAlterou);
 	 usuariomodal.setUsuarioCadastrante(usuarioadm);
 	 usuariomodal.setCodPermissao(permissao);
-	 System.out.println(senhaEncriptada);
 	 repository.save(usuariomodal);
 	 
 	 ModelAndView modelandview = new ModelAndView();
