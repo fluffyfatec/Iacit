@@ -1,5 +1,7 @@
 package com.fluffyiacit.api.modal;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,16 +10,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Entity(name= "permissao")
+@Table(name= "permissao")
 @Getter
 @Setter
 @ToString
-@Entity
-@Table(name= "permissao")
+
+
 public class PermissaoModal {
 	
 	@Id
@@ -32,3 +38,4 @@ public class PermissaoModal {
 	private String permissaoDescricao; 
 
 }
+

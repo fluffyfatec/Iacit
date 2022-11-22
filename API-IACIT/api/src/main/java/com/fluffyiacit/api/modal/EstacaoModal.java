@@ -2,10 +2,17 @@ package com.fluffyiacit.api.modal;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Optional;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -22,17 +29,18 @@ import lombok.ToString;
 public class EstacaoModal {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "codWmo",length = 4, nullable = false)
 	private String codWmo;
 	
 	@Column(name= "estacaoNome",length = 60, nullable = false, unique = true)
-	private String estacaoNome;
+	public String estacaoNome;
 	
 	@Column(name= "estacaoRegiao",length = 60, nullable = false)
 	private String estacaoRegiao;
 	
 	@Column(name= "estacaoEstado",length = 2, nullable = false)
-	private String estacaoEstado;
+	public String estacaoEstado;
 	
 	@Column( name= "estacaoLongitude",length = 20,nullable = false)
 	private BigDecimal estacaoLongitude;
@@ -48,6 +56,11 @@ public class EstacaoModal {
 	
 	@Column(name = "estacaoStatus", length = 1, nullable = false)
 	private String estacaoStatus;
+	
+	@ManyToOne
+    @JoinColumn(name = "usuarioAlterou", referencedColumnName = "codUsuario")
+	private UsuarioModal usuarioAlterou; 
+	
 	
 	
 }
