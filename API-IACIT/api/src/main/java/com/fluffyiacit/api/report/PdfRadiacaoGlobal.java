@@ -42,7 +42,7 @@ public class PdfRadiacaoGlobal {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Radiação Global", headFont));
+            hcell = new PdfPCell(new Phrase("Radiação Global (Kj/m²)", headFont));
             hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);

@@ -6,12 +6,12 @@
         
            <thead>
                <tr>
-               <th scope="col">Temp. Ar</th>
-               <th scope="col">Temp. Min</th>
-               <th scope="col">Temp. Max</th>
-               <th scope="col">Temp. Ponto Orvalho</th>
-               <th scope="col">Temp. Orvalho Min</th>
-               <th scope="col">Temp. Orvalho Max</th>
+               <th scope="col">Temp. Ar (°C)</th>
+               <th scope="col">Temp. Min (°C)</th>
+               <th scope="col">Temp. Max (°C)</th>
+               <th scope="col">Temp. Ponto Orvalho (°C)</th>
+               <th scope="col">Temp. Orvalho Min (°C)</th>
+               <th scope="col">Temp. Orvalho Max (°C)</th>
                <!--<th scope="col">codWmo</th>
                <th scope="col">estacaoEstado</th>
                <th scope="col">estacaoNome</th>-->
@@ -41,74 +41,3 @@
 
 
  </div>
-
-
-
- <div th:fragment="TabelaRadiacao">
-    <!--TABELA LISTA RANGE-->
-    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
-     
-        <table id="tabelaRadiacao" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
-            <thead>
-                <tr>
-                <th scope="col">Radiação Global</th>
-                <!-- <th scope="col">codWmo</th>
-                <th scope="col">estacaoEstado</th>
-                <th scope="col">estacaoNome</th> -->
-                <th scope="col">Data/Hora</th>
-          
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="ccc : ${rangeRadiacaoglobal}">
-                    <td>[[${ccc.radiacaoGlobal}]]</td>
-                    <!-- <td>[[${ccc.codWmo}]]</td>
-                    <td>[[${ccc.estacaoEstado}]]</td>
-                    <td>[[${ccc.estacaoNome}]]</td> -->
-                    <td>[[${ccc.datahoraCaptacao}]]</td>
-                  
-                </tr>
-            </tbody>
-        </table>
-       
-    </div>
-    <script src="js/tabelaRadiacao.js"></script>
- </div>
- 
-
-
- 
- <div th:fragment="TabelaPrecipitacao">
-    <!--TABELA LISTA RANGE-->
-    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
-     
-        <table id="tabelaPrecipitacao" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
-            <thead>
-                <tr>
-                <th scope="col">Precipitação Total</th>
-                <!-- <th scope="col">codWmo</th>
-                <th scope="col">estacaoEstado</th>
-                <th scope="col">estacaoNome</th> -->
-                <th scope="col">Data Hora Captação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="aa : ${rangePrecipitacao}">
-                    <td>[[${aa.precipitacaototal}]]</td>
-                    <!-- <td>[[${aa.codWmo}]]</td>
-                    <td>[[${aa.estacaoEstado}]]</td>
-                    <td>[[${aa.estacaoNome}]]</td> -->
-                    <td>[[${aa.datahoraCaptacao}]]</td>
-                </tr>
-            </tbody>
-        </table>
-       
-    </div>
-    <script src="js/tabelaPrecipitacao.js"></script>
-
-
-   
-
- </div>
- 
-

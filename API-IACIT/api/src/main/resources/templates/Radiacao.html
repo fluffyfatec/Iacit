@@ -123,7 +123,7 @@
                     plugins: {
                       title: {
                         display: true,
-                        text: 'Linha - Radiação',
+                        text: 'Linha - Radiação (Kj/m²)',
                         font: {
                         size: 20
                     }
@@ -233,7 +233,7 @@
                         plugins: {
                           title: {
                             display: true,
-                            text: 'Histograma - Radiação',
+                            text: 'Histograma - Radiação (Kj/m²)',
                             font: {
                             size: 20
                         }
@@ -280,7 +280,7 @@
 
     <section class="col-lg-5 connectedSortable ">
       <div class=" cardTabela mt-6 ">
-        <div th:replace="~{TabelaTemperatura :: TabelaRadiacao}"></div> 
+        <div th:replace="~{TabelaRadiacao :: TabelaRadiacao}"></div> 
       </div> 
     </section>
 

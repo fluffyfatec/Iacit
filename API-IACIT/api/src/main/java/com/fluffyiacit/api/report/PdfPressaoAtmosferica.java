@@ -42,21 +42,21 @@ public class PdfPressaoAtmosferica {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Pressão Atmosférica Estação", headFont));
+            hcell = new PdfPCell(new Phrase("Pressão Atmosférica Estação (mB)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Pressão Atmosférica  Mínima", headFont));
+            hcell = new PdfPCell(new Phrase("Pressão Atmosférica  Mínima (mB)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Pressão Atmosférica Máxima", headFont));
+            hcell = new PdfPCell(new Phrase("Pressão Atmosférica Máxima (mB)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);

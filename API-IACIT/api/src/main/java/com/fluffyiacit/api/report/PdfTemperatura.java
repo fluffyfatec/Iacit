@@ -44,42 +44,42 @@ public class PdfTemperatura {
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Ar", headFont));
+            hcell = new PdfPCell(new Phrase("Temperatura Ar (°C)", headFont));
             hcell.setPaddingTop(9f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Mínima", headFont));
+            hcell = new PdfPCell(new Phrase("Temperatura Mínima (°C)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temperatura Máxima", headFont));
+            hcell = new PdfPCell(new Phrase("Temperatura Máxima (°C)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Ponto Orvalho", headFont));
+            hcell = new PdfPCell(new Phrase("Temp Ponto Orvalho (°C)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orvalho Mínima", headFont));
+            hcell = new PdfPCell(new Phrase("Temp Orvalho Mínima (°C)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
             hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(hcell);
 
-            hcell = new PdfPCell(new Phrase("Temp Orvalho Máxima", headFont));
+            hcell = new PdfPCell(new Phrase("Temp Orvalho Máxima (°C)", headFont));
             hcell.setPaddingTop(3.5f);
             hcell.setFixedHeight(40f);
             hcell.setVerticalAlignment(Element.ALIGN_CENTER);
