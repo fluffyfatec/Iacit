@@ -28,8 +28,8 @@ import lombok.ToString;
 @ToString
 public class LogUsuarioModal {
 	
-	@Column(name = "logUsuarioCod")
-	private Integer logUsuarioCod;
+	@Column(name = "logCodUsuario")
+	private Integer logCodUsuario;
 	
 	@Column( name= "logUsuarioNome",length = 60,nullable = false)
 	private String logUsuarioNome ;

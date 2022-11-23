@@ -21,6 +21,7 @@ public class UsuarioController {
     @PostMapping
     private ModelAndView cadastrar(@RequestBody UsuarioDTO usuario) {
         
+    	
        ModelAndView modelandview = usuarioService.criarUsuario(usuario);
        return modelandview;
     }
