@@ -4,8 +4,7 @@ from automacao import Automacao
 
 class RunFunctions:
 
-    @staticmethod
-    def dados_atualizacao():
+    if __name__ == '__main__':
 
         ldfs = LeituraDfs()
 
@@ -19,8 +18,8 @@ class RunFunctions:
         ldfs.leitura_dfs('2022')
 
 
-    if __name__ == '__main__':
-        dados_atualizacao()
+
+
 
 
 

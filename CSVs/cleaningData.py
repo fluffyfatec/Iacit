@@ -1,7 +1,6 @@
 import pandas as pd
 import logging
 from pandas.core.frame import DataFrame
-from conexaoBD import ConexaoBD
 
 
 class CleaningData:
@@ -140,7 +139,9 @@ class CleaningData:
             # Desmembrando os dataframes por tabela do banco
             cleaningData = CleaningData()
 
-            cleaningData.desmembrar_dfs(df)
+            df = cleaningData.desmembrar_dfs(df)
+
+            return df
 
         except:
             logging.debug("- ERRO: tratamento dos CSVs não pode ser concluída (CSVs/cleaningData.py)")
@@ -168,14 +169,6 @@ class CleaningData:
 
         dfFiltrado.__precip = df[['cod_wmo', 'precipitacaototal', 'datahora_captacao']]
 
-        # Transferindo o dataframe filtrado e desmembrado ao método de povoamento do banco
-        cbd = ConexaoBD()
-
-        cbd.povoar_banco(dfFiltrado.getRad(), 'radiacao_global')
-        cbd.povoar_banco(dfFiltrado.getPrecip(), 'precipitacao')
-        cbd.povoar_banco(dfFiltrado.getVento(), 'vento')
-        cbd.povoar_banco(dfFiltrado.getAtm(), 'pressao_atmosferica')
-        cbd.povoar_banco(dfFiltrado.getTemp(), 'temperatura')
-        cbd.povoar_banco(dfFiltrado.getUmi(), 'umidade')
+        return dfFiltrado
 
 

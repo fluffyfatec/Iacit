@@ -35,8 +35,10 @@ class ConexaoBD:
 
             conexaoBD = ConexaoBD()
 
+            cod_wmo = df.loc[0][0]
+
             # Povoamento das tabelas
-            sql = f"SELECT datahora_captacao FROM umidade WHERE cod_wmo='{df.loc[0][0]}' ORDER BY " \
+            sql = f"SELECT datahora_captacao FROM {tabela} WHERE cod_wmo='{cod_wmo}' ORDER BY " \
                   f"datahora_captacao DESC LIMIT 1"
 
             try:
@@ -46,6 +48,9 @@ class ConexaoBD:
 
             if not df.empty:
                 df.to_sql(tabela, conexaoBD.getDb(), if_exists='append', index=False)
+                print(f"Há atualizações nos dados da Estação {cod_wmo} em {tabela}")
+            else:
+                print(f"Não há atualizações nos dados da Estação {cod_wmo} em {tabela}")
 
         except:
             logging.debug("- ERRO: falha na tentativa de povoar o banco com os dados dos CSVs (CSVs/conexaoBD.py)")

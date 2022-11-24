@@ -1,7 +1,6 @@
 import pandas as pd
 import logging
 from pandas.core.frame import DataFrame
-from conexaoBD import ConexaoBD
 
 
 class Cabecalho:
@@ -49,13 +48,12 @@ class Cabecalho:
                             'LATITUDE': 'estacao_latitude', 'ALTITUDE': 'estacao_altitude',
                             'DATA DE FUNDACAO': 'estacao_datafundacao'}, axis=1)
 
-            # Config para visualizar todas as colunas
-            pd.set_option('display.max_columns', None)
-
             # Organizando o dataframe conforme a tabela do banco
             cabecalho = Cabecalho()
 
-            cabecalho.organizar_cabecalho(df)
+            df = cabecalho.organizar_cabecalho(df)
+
+            return df
 
         except:
             logging.debug("- ERRO: tratamento do cabeçalho não pode ser concluída (CSVs/cabeçalho.py)")
@@ -70,10 +68,7 @@ class Cabecalho:
                                    'estacao_longitude', 'estacao_latitude',
                                    'estacao_altitude', 'estacao_datafundacao']]
 
-        # Transferindo o dataframe filtrado e organizado ao método de povoamento do banco
-        cbd = ConexaoBD()
-
-        cbd.estacao_banco(dfEstacao.getEstacao())
+        return dfEstacao
 
 
 
