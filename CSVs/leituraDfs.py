@@ -37,7 +37,14 @@ class LeituraDfs:
                 # Tratamento dos dados e povoamento do banco de dados
                 cleaningData = CleaningData()
 
-                cleaningData.tratamento_dfs(df)
+                df = cleaningData.tratamento_dfs(df)
+
+                cbd.povoar_banco(df.getRad(), 'radiacao_global')
+                cbd.povoar_banco(df.getPrecip(), 'precipitacao')
+                cbd.povoar_banco(df.getVento(), 'vento')
+                cbd.povoar_banco(df.getAtm(), 'pressao_atmosferica')
+                cbd.povoar_banco(df.getTemp(), 'temperatura')
+                cbd.povoar_banco(df.getUmi(), 'umidade')
 
                 print(i)
                 i += 1
@@ -61,12 +68,14 @@ class LeituraDfs:
 
             i = 1
             for f in files:
-                df = pd.read_csv(f, sep=';', encoding='latin-1', on_bad_lines='skip', header=None)
+                dfEstacao = pd.read_csv(f, sep=';', encoding='latin-1', on_bad_lines='skip', header=None)
 
                 # Tratamento dos dados e povoamento do banco de dados
                 cabecalho = Cabecalho()
 
-                cabecalho.tratamento_cabecalho(df)
+                dfEstacao = cabecalho.tratamento_cabecalho(dfEstacao)
+
+                cbd.estacao_banco(dfEstacao.getEstacao())
 
                 print(i)
                 i += 1
