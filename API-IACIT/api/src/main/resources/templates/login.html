@@ -1,45 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="../static/css/stylelogin.css">
-    <title>Login IACIT</title>
+	<title>Login IACIT</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/login.css">
+	
+	<script type="text/javascript" src="js/index.js"></script>
+
 </head>
-<body class="body-background">
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('../static/dist/img/fundoiacit.jpg');">
+			<div class="wrap-login100">
+                <div class="logo">
+                    <img src="../static/dist/img/logofundobranco.jpg" height="150px" width="150px">
+                </div>
+                
+                <label class="labellogin"><b>Faça seu login</b></label>
+                <br>
 
-    <div class="container-input">
+                <div class="inputs">
+                    <input type="text" id="txtusername" placeholder="Usuário" class="input-text">
+                    
+                    <br>
+                    <input type="password" id="txtpassword" placeholder="Senha" class="input-text">
+                    
+                    <br><br>
+                    <input type="submit" value="Entrar" class="button-submit" onclick="login()">
+                </div>
 
-        <div class="logo">
-            <img src="../static/dist/img/logofundobranco.jpg" height="150px" width="150px">
-        </div>
-
-        <div class="inputs">
-            <input type="text" id="txtusername" placeholder="Usuário" class="input-text">
-            
-            <br>
-            <input type="password" id="txtpassword" placeholder="Senha" class="input-text">
-            
-            <br>
-            <input type="submit" value="Entrar" class="button-submit" onclick="login()">
-        </div>
-        <br>
-        <br>
-        <br>
-        <footer class="footer">
-            <strong>Copyright &copy; 2022 <a href="https://github.com/fluffyfatec">Grupo Fluffy</a>.</strong>
-            Todos os direitos reservados.
-        </footer>
-        </div>
-
-    <div class="container-image">
-        <img src="../static/dist/img/fundoiacit.jpg" width="100%" height="100%" border-radius="5px">
-    </div>
-    
-    <script src="../static/js/login.js"></script>
+			</div>	
+		</div>
+	</div>
 
 </body>
-
 </html>
