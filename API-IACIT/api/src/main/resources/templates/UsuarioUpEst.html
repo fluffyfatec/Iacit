@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Update</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>Cadastro de Conta</div>
+        <form action="#" th:action="@{/api/estacao/salvar}" method="POST" th:object="${UsuarioUpEst}">
+            <p>Estação: <input type="text" th:field="*{estacaoNome}" /></p>
+            <p>Estado: <input type="text" th:field="*{estacaoEstado}" /></p>
+            <p><select class="">
+                <option value="A">Ativo</option>
+                <option value="I">Desativado</option>
+            </select></p>
+            <input type="submit" value="Salvar"/>
+        </form>
+    </body>
+</html>

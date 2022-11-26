@@ -249,3 +249,40 @@ function validaPag() {
   }
 
 }
+
+function UsuDet(){
+  var cardCadUsu = document.getElementById("cardCadUsu");
+
+  if (cardCadUsu.style.display == "none"){
+    document.getElementById("cardCadUsu").style.display = "inline";
+    document.getElementById("cardPesqUsu").style.display = "inline";
+    document.getElementById("cardPesqEstacao").style.display = "none";
+    document.getElementById("cardUpEst").style.display = "none";
+  }else{
+    document.getElementById("cardCadUsu").style.display = "none";
+    document.getElementById("cardPesqUsu").style.display = "none";
+    document.getElementById("cardPesqEstacao").style.display = "inline";
+    document.getElementById("cardUpEst").style.display = "inline";
+  } ;
+}
+
+function EstDet(){
+  var cardPesqEstacao = document.getElementById("cardPesqEstacao");
+
+  if (cardPesqEstacao.style.display == "none"){
+    document.getElementById("cardPesqEstacao").style.display = "inline";
+    document.getElementById("cardUpEst").style.display = "inline";
+    document.getElementById("cardCadUsu").style.display = "none";
+    document.getElementById("cardPesqUsu").style.display = "none";
+  }else{
+    document.getElementById("cardPesqEstacao").style.display = "none";
+    document.getElementById("cardUpEst").style.display = "none";
+    document.getElementById("cardCadUsu").style.display = "inline";
+    document.getElementById("cardPesqUsu").style.display = "inline";
+  } ;
+}
+
+function jsSelectEst(){
+  var jsSelectEst = document.getElementById("jsSelectEst").value;
+  $('#cardCadUsuTab').load('/api/estacao/est/'+ jsSelectEst);
+}

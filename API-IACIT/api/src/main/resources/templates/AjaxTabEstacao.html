@@ -1,0 +1,16 @@
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th scope="col">Estação</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="fill : ${filtro}">
+            <td>[[${fill.estacaoNome}]]</td>
+            <td>[[${fill.estacaoEstado}]]</td>
+            <td> <a th:href="@{/api/estacao/editar/{estacaoNome}(estacaoNome=${fill.estacaoNome})}">Editar</a> </td>
+        </tr>
+    </tbody>
+</table>

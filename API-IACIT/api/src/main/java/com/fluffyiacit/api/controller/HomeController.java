@@ -577,7 +577,7 @@ public class HomeController {
 	        
 	        ModelAndView modelAndView = new ModelAndView();
 	        
-	        modelAndView.setViewName("telausuario");
+	        modelAndView.setViewName("UsuarioHome");
 	        return modelAndView;
 
 	    }
