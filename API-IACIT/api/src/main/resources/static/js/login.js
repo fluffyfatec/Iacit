@@ -6,12 +6,11 @@ function login(){
     var username = txtusername.value;
     var password = txtpassword.value;
 
+    location.href = "/home/" + username + "/" + password;
+
     if(username == "admin" && password == "admin"){
-        alert('Sucesso');
-        location.href = "/home";
+        //alert('Sucesso');
     }else{
-        alert('Usuario ou senha incorretos');
+        //alert('Usuario ou senha incorretos');
     }
-
-
 }

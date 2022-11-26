@@ -31,21 +31,30 @@ public class LoginService {
 		UsuarioModal usuario = usuarioRepository.findByUsuarioUsername(login.getUsuario());
 		PermissaoModal permissao = permissaoRepository.findByCodPermissao(usuario.getCodUsuario());
 
-		if (encode.matches(login.getSenha(), usuario.getUsuarioSenha()) && permissao.getPermissaoNome().equals("Administrador")) {
-			loginResponseDTO.setAdm(true);
-			loginResponseDTO.setPasswordMatch(true);
-			modelAndView.addObject(loginResponseDTO);
-			modelAndView.setViewName("pagina carregada");
+//		System.out.println(usuario.getUsuarioNome());
+//		System.out.println(usuario.getUsuarioUsername());
+//		System.out.println(usuario.getUsuarioSenha());
+//		System.out.println(usuario.getCodPermissao());
+//		System.out.println(permissao.getPermissaoNome());
+//		System.out.println(login.getSenha());
+		
+		
+		if (encode.matches(login.getSenha(), usuario.getUsuarioSenha()) && permissao.getPermissaoNome().equals("Administrator")) {
+			System.out.println("oi passou");
+			loginResponseDTO.setAdm("true");
+			loginResponseDTO.setPasswordMatch("true");
+			modelAndView.addObject("permissao", loginResponseDTO);
+			modelAndView.setViewName("validalogin");
 		}else if(encode.matches(login.getSenha(), usuario.getUsuarioSenha()) && permissao.getPermissaoNome().equals("Usuario")){
-			loginResponseDTO.setAdm(false);
-			loginResponseDTO.setPasswordMatch(true);
+			loginResponseDTO.setAdm("false");
+			loginResponseDTO.setPasswordMatch("true");
 			modelAndView.addObject(loginResponseDTO);
-			modelAndView.setViewName("pagina carregada");
+			modelAndView.setViewName("validalogin");
 		}else{
-			loginResponseDTO.setAdm(false);
-			loginResponseDTO.setPasswordMatch(false);
+			loginResponseDTO.setAdm("false");
+			loginResponseDTO.setPasswordMatch("false");
 			modelAndView.addObject(loginResponseDTO);
-			modelAndView.setViewName("pagina carregada");
+			modelAndView.setViewName("validalogin");
 		}
 
 		return modelAndView;
