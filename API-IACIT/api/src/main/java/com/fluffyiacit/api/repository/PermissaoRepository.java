@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PermissaoRepository extends JpaRepository<PermissaoModal, String> {
 
+	PermissaoModal findByCodPermissao(Integer codPermissao);
 	
 	PermissaoModal findByPermissaoNome(String permissaoNome);
 
