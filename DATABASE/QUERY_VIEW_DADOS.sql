@@ -97,7 +97,44 @@ AND v.datahora_captacao = '2020-01-01 00:00:00';
 CREATE VIEW view_filtro_regiao AS
 SELECT DISTINCT est.estacao_estado, est.estacao_regiao FROM estacao est
 
+--VIEW ESTACAO CADASTRO
+CREATE VIEW view_est_tab AS
+SELECT DISTINCT cod_wmo, estacao_nome, estacao_estado, estacao_status FROM estacao ORDER BY estacao_estado, estacao_nome ASC
+
+--VIEW USUARIO
+CREATE VIEW view_usuario AS
+SELECT usu.usuario_nome, 
+       usu.usuario_username, 
+       usu.usuario_senha, 
+       pes.permissao_nome, 
+       (SELECT aux.usuario_username 
+        FROM usuario aux
+        WHERE aux.cod_usuario = usu.usuario_cadastrante
+       ) AS cadastrante, 
+       (SELECT aux.usuario_username 
+        FROM usuario aux
+        WHERE aux.cod_usuario = usu.usuario_alterou
+       ) AS alterante
+FROM usuario usu
+INNER JOIN permissao pes
+ON pes.cod_permissao = usu.cod_permissao
+
+
+--VIEW TOTALIZADOR
+CREATE VIEW view_totalizador AS
+SELECT
+	(SELECT COUNT(*) FROM usuario) AS tot_usuario,
+	
+	(SELECT SUM(tot.logtot) FROM(
+		SELECT (SELECT COUNT(*) FROM log_usuario) AS logtot
+		UNION 
+		SELECT (SELECT COUNT(*) FROM log_estacao) AS logtot
+	)tot) AS tot_logs,
+	
+	(SELECT COUNT(*) FROM estacao) AS tot_est
+
 --DROP VIEWS
+DROP VIEW view_totalizador;
 DROP VIEW view_precipitacao_dados;
 DROP VIEW view_filtro_estacao;
 DROP VIEW view_pressaoatmosferica_dados;
