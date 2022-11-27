@@ -1,25 +1,26 @@
 
-<form action="#" th:action="@{/api/estacao/salvar}" method="POST" th:object="${estacaoAtiva}">
-    <div class="row">
-        <div class="col-6">
-            <p>Estação: <input type="text" class="form-control"  id="jsEstacao" th:field="*{estacaoNome}" readonly/></p>
+<div class="card mt-12">
+    <form action="#" th:action="@{/api/estacao/salvar}" method="POST" th:object="${estacaoAtiva}">
+        <div class="row">
+            <div class="col-6">
+                <p>Estação: <input type="text" class="form-control"  id="jsEstacao" th:field="*{estacaoNome}" readonly/></p>
+            </div>
+            <div class="col-6">
+                <p>Estado: <input type="text" class="form-control" id="jsEstado" th:field="*{estacaoEstado}" readonly/></p>
+            </div>
+            <div class="col-12">
+                Status:
+                <select class="form-control" id="jsStatuss" onchange="jsStatusfil()">
+                    <option value="A">Ativado</option>
+                    <option value="I">Desativado</option>
+                </select>
+            </div>
         </div>
-        <div class="col-6">
-            <p>Estado: <input type="text" class="form-control" id="jsEstado" th:field="*{estacaoEstado}" readonly/></p>
-        </div>
-        <div class="col-12">
-            Status:
-            <select class="form-control" id="jsStatuss" onchange="jsStatusfil()">
-                <option value="A">Ativado</option>
-                <option value="I">Desativado</option>
-              </select>
-        </div>
-    </div>
-    <p> <input type="hidden" class="form-control" th:field="*{estacaoStatus}" id="jsStatus"/></p>
+        <p> <input type="hidden" class="form-control" th:field="*{estacaoStatus}" id="jsStatus"/></p>
 
-</form>
-<input type="submit"class="btn btn-primary"  onclick="jsEditarEstacao()" value="Salvar"/>
-
+    </form>
+    <input type="submit"class="btn btn-primary"  onclick="jsEditarEstacao()" value="Salvar"/>
+</div>
 <script>
     function jsStatusfil(){
         document.getElementById("jsStatus").value = document.getElementById("jsStatuss").value;

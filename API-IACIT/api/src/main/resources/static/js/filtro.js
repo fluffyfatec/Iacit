@@ -104,7 +104,10 @@
     setTimeout(function(){jsFiltroDashboard();},500);
   }
   function jsTelaHome() {
-    window.location.href = "/home";
+    var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+    var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+
+    window.location.href = "/home/"+ jsSessaoUsuario + "/" + jsSessaoPermissao;
   }
   function jsTabelaPDF(tela) {
 

@@ -44,12 +44,7 @@
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
 
-        <!-- Info -->
-        <li class="nav-item">
-          <a class="nav-link" onclick="jsAbrirModalInfo()">
-            <i class="fas fa-info-circle"></i>
-          </a>
-        </li>
+     
 
 
         <!-- FullScreen -->
@@ -76,7 +71,7 @@
     <!-- Main Sidebar Container - MENU VERTICAL -->
     <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
       <!-- Brand Logo -->
-      <a href="/home" class="brand-link sidebariacit">
+      <a class="brand-link sidebariacit">
         <img src="../../dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8;">
         <span class="brand-text font-weight-light text-colorWh">IACIT</span>
@@ -88,12 +83,12 @@
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex" onclick="jsTelaUsuario()">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
             <img src="../../dist/img/3.png"  class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info text-colorWh">
-            <a href="#" class="d-block text-colorWh">User</a>
+            <a class="d-block text-colorWh">User</a>
           </div>
         </div>
 
@@ -348,30 +343,21 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="card mt-12">
-                              <div id="usuariocrud">
-                              </div>
+                            <div id="usuariocrud">
                             </div>
-                            <div class="card mt-12">
-                              <div id="ok">
-                              </div>
+                            <div id="ok">
                             </div>
+                            
                         </div>
 
                       
                     
                         <div id="cardUpEst" style="display: none;">
-                       
-      
-                            <div class="card mt-12">
-                              <div id="estacaocrud">
-                              </div>
+                            <div id="estacaocrud">
                             </div>
-
-                            <div class="card mt-12">
-                              <div id="okest">
-                              </div>
+                            <div id="okest">
                             </div>
+                           
 
                             <!-- <div class="card mt-12 ">
                                 <div class="row">
@@ -430,7 +416,7 @@
     </aside>
     <!-- /.control-sidebar -->
 
-    <div th:replace="~{fragmentModalLegenda :: ModalLegenda}"></div>
+    
   </div>
 
   <!-- Main JS-->
