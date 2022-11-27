@@ -2,15 +2,14 @@ package com.fluffyiacit.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fluffyiacit.api.modal.ViewUsuario;
 import com.fluffyiacit.api.service.UpdateUsuarioService;
 
+import DTO.LoginSessao;
 import DTO.UsuarioRequestDTO;
 
 @Controller
@@ -20,24 +19,28 @@ public class UpdateUsuarioController {
 	@Autowired
 	UpdateUsuarioService updateUsuarioService;
 	
-	@PostMapping
-	public ModelAndView handle(@RequestBody UsuarioRequestDTO data) {
-		ModelAndView retorno = updateUsuarioService.execute(data);
-		return retorno;
-	}
-	
-	@RequestMapping(value = { "/editar" }, method = RequestMethod.POST)
-	public ModelAndView editarStatus(ViewUsuario usuario) {
+	@RequestMapping(value = { "/editar/{UsuarioNome}/{UsuarioUsername}/{UsuarioSenha}/{PermissaoNome}/{CodUsuario}/{Cadastrante}/{Alterante}/{SessaoPermissao}" }, method = RequestMethod.GET)
+	public ModelAndView editarStatus(@PathVariable("CodUsuario") String CodUsuario,
+								   	@PathVariable("UsuarioNome") String UsuarioNome,
+								   	@PathVariable("UsuarioUsername") String UsuarioUsername,
+								   	@PathVariable("UsuarioSenha") String UsuarioSenha,
+								   	@PathVariable("PermissaoNome") String PermissaoNome,
+								   	@PathVariable("Cadastrante") String Cadastrante,
+								   	@PathVariable("Alterante") String Alterante,
+								   	@PathVariable("SessaoPermissao") String SessaoPermissao) {
 		UsuarioRequestDTO data = new UsuarioRequestDTO();
-		 
-		data.setCod_usuario(usuario.getCodUsuario());
-		data.setUsuario_nome(usuario.getUsuarioNome());
-		data.setUsuario_username(usuario.getUsuarioUsername());
-		data.setUsuario_senha(usuario.getUsuarioSenha());
-		data.setNome_permissao(usuario.getPermissaoNome());
-		data.setUsuario_cadastrante(usuario.getCadastrante());
-		data.setUsuario_nome_adm(usuario.getAlterante());
-		ModelAndView retorno = updateUsuarioService.execute(data);
+		LoginSessao sessao = new LoginSessao();
+		data.setCod_usuario(CodUsuario);
+		data.setUsuario_nome(UsuarioNome);
+		data.setUsuario_username(UsuarioUsername);
+		data.setUsuario_senha(UsuarioSenha);
+		data.setNome_permissao(PermissaoNome);
+		data.setUsuario_cadastrante(Cadastrante);
+		data.setUsuario_nome_adm(Alterante);
+		
+		sessao.setUsuario(Alterante);
+		sessao.setPermissao(SessaoPermissao);
+		ModelAndView retorno = updateUsuarioService.execute(data, sessao);
 		return retorno;
 	}
 	

@@ -13,6 +13,8 @@ import com.fluffyiacit.api.modal.ViewUsuario;
 import com.fluffyiacit.api.repository.UsuarioRepository;
 import com.fluffyiacit.api.repository.UsuarioTabRepository;
 import com.fluffyiacit.api.service.UsuarioService;
+
+import DTO.LoginSessao;
 import DTO.UsuarioDTO;
 
 @RestController
@@ -30,21 +32,26 @@ public class UsuarioController {
     
     
 	//CADASTRAR USUARIO
-	@RequestMapping(value = { "/cadastro/{usuario_nome}/{usuario_username}/{usuario_senha}/{nome_permissao}/{usuario_adm}/{usuario_alterou}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/cadastro/{usuario_nome}/{usuario_username}/{usuario_senha}/{nome_permissao}/{usuario_adm}/{usuario_alterou}/{sessaoPermissao}" }, method = RequestMethod.GET)
 	public ModelAndView cadastrar(@PathVariable("usuario_nome") String usuario_nome,
             					   	@PathVariable("usuario_username") String usuario_username,
             					   	@PathVariable("usuario_senha") String usuario_senha,
             					   	@PathVariable("nome_permissao") String nome_permissao,
             					   	@PathVariable("usuario_adm") String usuario_adm,
-            					   	@PathVariable("usuario_alterou") String usuario_alterou) {
+            					   	@PathVariable("usuario_alterou") String usuario_alterou,
+            					   	@PathVariable("sessaoPermissao") String sessaoPermissao) {
 		UsuarioDTO usuario = new UsuarioDTO();
+		LoginSessao sessao = new LoginSessao();
 		usuario.setUsuario_nome(usuario_nome);
 		usuario.setUsuario_username(usuario_username);
 		usuario.setUsuario_senha(usuario_senha);
 		usuario.setNome_permissao(nome_permissao);
 		usuario.setUsuario_adm(usuario_adm);
 		usuario.setUsuario_alterou(usuario_alterou);
-		return usuarioService.criarUsuario(usuario);
+		
+		sessao.setUsuario(usuario_adm);
+		sessao.setPermissao(sessaoPermissao);
+		return usuarioService.criarUsuario(usuario, sessao);
 		 
 				
 	}

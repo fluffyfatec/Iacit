@@ -10,8 +10,15 @@
         <tr th:each="fill : ${filtro}">
             <td>[[${fill.estacaoNome}]]</td>
             <td>[[${fill.estacaoEstado}]]</td>
-            
-            <td> <a th:href="@{/api/estacao/editar/{estacaoNome}(estacaoNome=${fill.estacaoNome})}"><i class="fas fa-edit"></i></a> </td>
+            <td><button type="button" class="btn btn-primary" th:attr="onclick=|editarest('${fill.estacaoNome}')|"><i class="fas fa-edit"></i></button></td>
         </tr>
     </tbody>
 </table>
+
+
+<script>
+    function editarest(estacao){
+        jsOutraPagEstacao = estacao.replaceAll(" ", "*");
+        $('#estacaocrud').load('/api/estacao/editar/' + jsOutraPagEstacao);
+    }
+</script>

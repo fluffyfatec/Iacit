@@ -102,13 +102,6 @@
     $('#js_body').load('/' + dado + '/' + jsOutraPagRegiao + '/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax);
      
     setTimeout(function(){jsFiltroDashboard();},500);
-    // SE
-    // SAO PAULO - INTERLAGOS
-    // SP
-    // 2022-06-27 10:00:00
-    // 2022-06-28 10:00:00
-
-
   }
   function jsTelaHome() {
     window.location.href = "/home";
@@ -152,7 +145,7 @@
     var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
 
     if(jsSessaoPermissao == "Administrator"){
-      window.location.href = "/telausuario";
+      window.location.href = "/telausuario/" + jsSessaoUsuario + "/" + jsSessaoPermissao;
     }else{
       alert("Alerta, o usuário " + jsSessaoUsuario + " não tem permissão para entrar na página")
     }
@@ -320,11 +313,14 @@ function jsCadUsuario(){
   var jsCadSenhaConf = document.getElementById("jsCadSenhaConf").value;
   var jsCadCheck = document.getElementById("jsCadCheck").value;
 
+  var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+  var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+
   if( jsCadNome == '' || jsCadNome == '' || jsCadUsu == '' || jsCadSenha == '' || jsCadSenhaConf == '' || jsCadCheck == ''){
     alert("Há Campos a serem preenchios");
   }else{
     if(jsCadSenha == jsCadSenhaConf){
-      location.href = "/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/fluffy/fluffy";
+      location.href = "/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/" + jsSessaoUsuario + "/" + jsSessaoUsuario + "/" + jsSessaoPermissao;
     }
     else{
       alert("As senhas não coincidem");
@@ -332,16 +328,6 @@ function jsCadUsuario(){
   }
 }
 
-function jsLimpar(){
- document.getElementById("jsSenha").value = '';
-}
 
-function jsStatus(){
-  document.getElementById("jsSelect").value = document.getElementById("jsStatus").value;
- }
-
- function jsStatusfil(){
-  document.getElementById("jsStatus").value = document.getElementById("jsSelect").value;
- }
 
 

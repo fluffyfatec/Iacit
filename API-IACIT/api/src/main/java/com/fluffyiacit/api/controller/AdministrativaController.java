@@ -16,6 +16,7 @@ import com.fluffyiacit.api.repository.FiltroEstacaoRepository;
 import com.fluffyiacit.api.service.ServiceAdm;
 
 import DTO.EstacaoDTO;
+import DTO.LoginSessao;
 
 @Controller
 @RequestMapping("/api/estacao")
@@ -27,35 +28,41 @@ public class AdministrativaController {
 	
 	@Autowired(required = true)
 	private FiltroEstacaoRepository filtroestacaorepository;
-	
-	@PostMapping
-	public ModelAndView AdministrativaController(@RequestBody EstacaoDTO ativas) {
-		return adm.update(ativas);
-	}
-	
-	@RequestMapping(value = { "/salvar" }, method = RequestMethod.POST)
-	public ModelAndView editarStatus(EstacaoDTO estacao) {
-		ModelAndView modelAndView = new ModelAndView();
-		estacao.getEstacaoNome();
-		estacao.getEstacaoEstado();
-		estacao.getEstacaoStatus();
-		return adm.update(estacao);
-	}
+//	
+//	@PostMapping
+//	public ModelAndView AdministrativaController(@RequestBody EstacaoDTO ativas) {
+//		return adm.update(ativas);
+//	}
+//	
+//	@RequestMapping(value = { "/salvar" }, method = RequestMethod.POST)
+//	public ModelAndView editarStatus(EstacaoDTO estacao) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		estacao.getEstacaoNome();
+//		estacao.getEstacaoEstado();
+//		estacao.getEstacaoStatus();
+//		return adm.update(estacao);
+//	}
 
 	//ATUALIZAR
-	@RequestMapping(value = { "/{estacaoNome}/{estacaoStatus}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/salvar/{estacaoNome}/{estacaoStatus}/{usuarioalt}/{sessaopermissao}" }, method = RequestMethod.GET)
 	public ModelAndView atualizar(@PathVariable("estacaoNome") String estacaoNome,
-            					   	@PathVariable("estacaoStatus") String estacaoStatus) {
+            					  @PathVariable("estacaoStatus") String estacaoStatus,
+            					  @PathVariable("usuarioalt") String usuarioalt,
+            					  @PathVariable("sessaopermissao") String sessaopermissao) {
 		EstacaoDTO estacao = new EstacaoDTO();
+		LoginSessao sessao = new LoginSessao();
 		estacao.setEstacaoNome(estacaoNome);
 		estacao.setEstacaoStatus(estacaoStatus);
-		return adm.update(estacao);
+		sessao.setUsuario(usuarioalt);
+		sessao.setPermissao(sessaopermissao);
+		return adm.update(estacao, sessao);
 	}
 	
 	//EDITAR
 	@RequestMapping(value = { "/editar/{estacaoNome}" }, method = RequestMethod.GET)
 	public ModelAndView editar(@PathVariable("estacaoNome") String estacaoNome
             					   	) {
+		estacaoNome = estacaoNome.replace('*', ' ');
 		EstacaoDTO estacao = new EstacaoDTO();
 		estacao.setEstacaoNome(estacaoNome);
 		return adm.listar(estacao);

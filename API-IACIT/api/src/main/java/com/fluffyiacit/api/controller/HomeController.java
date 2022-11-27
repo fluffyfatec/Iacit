@@ -71,11 +71,9 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
 		LoginSessao sessao = new LoginSessao();
-		
 		sessao.setUsuario(username);
 		sessao.setPermissao(permissao);
 		modelAndView.addObject("sessao", sessao);
-		
 		
 		filtrodatas.setEstacaoRegiao("SE");
 		filtrodatas.setEstacaoNome("SP");
@@ -579,11 +577,15 @@ public class HomeController {
 		return modelAndView;
 	}
 
-   @RequestMapping(value = { "/telausuario" }, method = RequestMethod.GET)
-    public ModelAndView telausuario(){
+   @RequestMapping(value = { "/telausuario/{username}/{permissao}" }, method = RequestMethod.GET)
+    public ModelAndView telausuario(@PathVariable("username") String username,
+									@PathVariable("permissao") String permissao){
         
         ModelAndView modelAndView = new ModelAndView();
-        
+		LoginSessao sessao = new LoginSessao();
+		sessao.setUsuario(username);
+		sessao.setPermissao(permissao);
+		modelAndView.addObject("sessao", sessao);
         modelAndView.setViewName("UsuarioHome");
         return modelAndView;
 

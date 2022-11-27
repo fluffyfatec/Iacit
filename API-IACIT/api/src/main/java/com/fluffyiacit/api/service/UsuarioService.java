@@ -3,8 +3,6 @@ package com.fluffyiacit.api.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fluffyiacit.api.modal.PermissaoModal;
@@ -14,6 +12,7 @@ import com.fluffyiacit.api.repository.PermissaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
 import com.fluffyiacit.api.repository.UsuarioTabRepository;
 
+import DTO.LoginSessao;
 import DTO.UsuarioDTO;
 
 @Service
@@ -28,7 +27,7 @@ public class UsuarioService {
     @Autowired
     private UsuarioTabRepository usuariotabrepository;
 	 
-	 public ModelAndView criarUsuario(UsuarioDTO usuario) {
+	 public ModelAndView criarUsuario(UsuarioDTO usuario, LoginSessao sessao) {
 	     
 	 UsuarioModal usuariomodal = new UsuarioModal();
 	 
@@ -49,6 +48,7 @@ public class UsuarioService {
 	 repository.save(usuariomodal);
 	 
 	 ModelAndView modelandview = new ModelAndView();
+	 modelandview.addObject("sessao", sessao);
 	 modelandview.setViewName("HfefCadUsuario");
     return modelandview;
 	 

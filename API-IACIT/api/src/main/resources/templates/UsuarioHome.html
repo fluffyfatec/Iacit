@@ -10,11 +10,11 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Main CSS-->
-  <link href="css/theme.css" rel="stylesheet" media="all">
+  <link href="../../css/theme.css" rel="stylesheet" media="all">
   <!-- Graficos-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -28,7 +28,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/logotransparente.png" height="150" width="150">
+      <img class="animation__shake" src="../../dist/img/logotransparente.png" height="150" width="150">
     </div>
 
     <!-- Navbar - MENU HORIZONTAL -->
@@ -69,6 +69,7 @@
 
 
       </ul>
+      <div th:replace="~{fragmentSessao :: fragmentSessao}"></div>
     </nav>
     <!-- /.navbar -->
 
@@ -76,7 +77,7 @@
     <aside class=" main-sidebar sidebar-dark-primary elevation-4 msidebar">
       <!-- Brand Logo -->
       <a href="/home" class="brand-link sidebariacit">
-        <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="../../dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8;">
         <span class="brand-text font-weight-light text-colorWh">IACIT</span>
         <!-- <img src="dist/img/logofundobranco.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" >
@@ -89,7 +90,7 @@
         
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" onclick="jsTelaUsuario()">
           <div class="image">
-            <img src="dist/img/3.png"  class="img-circle elevation-2" alt="User Image">
+            <img src="../../dist/img/3.png"  class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info text-colorWh">
             <a href="#" class="d-block text-colorWh">User</a>
@@ -312,9 +313,10 @@
                                         <div id="cardCadUsuTab">
                                         </div>
                                     </div>
-                    
+                                                       
                                 </div>
                             </div>
+                            
                         </div>
                     </section>
                     <!-- /.Left col -->
@@ -343,11 +345,33 @@
                                     
                                 </div>
                             </div>
+                            <br>
+                            <div class="card mt-12">
+                              <div id="usuariocrud">
+                              </div>
+                            </div>
+                            <div class="card mt-12">
+                              <div id="ok">
+                              </div>
+                            </div>
                         </div>
 
-                        <div style="display: none;">
+                      
+                    
                         <div id="cardUpEst" style="display: none;">
-                            <div class="card mt-12 ">
+                       
+      
+                            <div class="card mt-12">
+                              <div id="estacaocrud">
+                              </div>
+                            </div>
+
+                            <div class="card mt-12">
+                              <div id="okest">
+                              </div>
+                            </div>
+
+                            <!-- <div class="card mt-12 ">
                                 <div class="row">
                                     <div class="col-12">
                                         <label></label>Estação:
@@ -370,9 +394,11 @@
                                         <button type="submit" class="btn btn-primary">Atualizar</button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            
                         </div>
-                        </div>
+                           
+                    
                     </section>
 
                 </div>
@@ -406,16 +432,16 @@
   </div>
 
   <!-- Main JS-->
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
   <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.js"></script>
+  <script src="../../dist/js/adminlte.js"></script>
   <!-- Js -->
-  <script src="js/filtro.js"></script>
-  <script src="js/detalhe.js"></script>
+  <script src="../../js/filtro.js"></script>
+  <script src="../../js/detalhe.js"></script>
 </body>
 
 </html>
