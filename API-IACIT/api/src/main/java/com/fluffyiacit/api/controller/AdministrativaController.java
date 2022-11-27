@@ -13,9 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fluffyiacit.api.modal.ViewFiltroEstacao;
 import com.fluffyiacit.api.repository.FiltroEstacaoRepository;
+import com.fluffyiacit.api.repository.LogRepository;
+import com.fluffyiacit.api.service.LogService;
 import com.fluffyiacit.api.service.ServiceAdm;
 
 import DTO.EstacaoDTO;
+import DTO.LogUsuarioDTO;
 
 @Controller
 @RequestMapping("/api/estacao")
@@ -24,9 +27,15 @@ public class AdministrativaController {
 
 	@Autowired
 	private ServiceAdm adm;
+
+	@Autowired
+	private LogService log;
 	
 	@Autowired(required = true)
 	private FiltroEstacaoRepository filtroestacaorepository;
+
+	@Autowired(required = true)
+	private LogRepository logrepository;
 	
 	@PostMapping
 	public ModelAndView AdministrativaController(@RequestBody EstacaoDTO ativas) {
@@ -74,5 +83,10 @@ public class AdministrativaController {
 		modelAndView.setViewName("AjaxTabEstacao");
 		return modelAndView;
 	}
+
+	@PostMapping
+    public ModelAndView LogController(@RequestBody LogUsuarioDTO ativas) {
+        return log.listar(ativas);
+    }
 
 }

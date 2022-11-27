@@ -1,0 +1,33 @@
+<div th:fragment="TabelaLog">
+    <!--TABELA LISTA UNICA-->
+    <div style="margin-left: 100px; margin-right: 100px;">
+   
+        <table id="tabelaLog" class="table table-striped" style="font-size: 15px;">
+          <thead>
+              <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Username</th>
+              <th scope="col">Senha</th>
+              <th scope="col">Cod Permissão</th>
+              <th scope="col">Usuário Alterou</th>
+              <th scope="col">Data/Hora Alteração</th>
+              <th scope="col">Usuário Operação</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="aa : ${listar}">
+                  <td>[[${aa.logCodUsuario}]]</td>
+                  <td>[[${aa.logUsuarioNome}]]</td>
+                  <td>[[${aa.logUsuarioUsername}]]</td>
+                  <td>[[${aa.logUsuarioSenha}]]</td>
+                  <td>[[${aa.logCodPermissao}]]</td>
+                  <td>[[${aa.logUsuarioAlterou}]]</td>
+                  <td>[[${aa.logUsuarioDatahoraAlterecao}]]</td>
+                  <td>[[${aa.logUsuarioOperacao}]]</td>
+              </tr>
+          </tbody>
+      </table>
+   
+   </div>
+</div>
