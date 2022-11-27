@@ -127,7 +127,8 @@
   var jsOutraPagDataMax = document.getElementById("jsOutraPagDataMax").value;
        jsOutraPagDataMax = jsOutraPagDataMax.replaceAll(" ", "*");
 
-  endpoint = '/' + tela + '/pdf/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax
+       endpoint = '/' + tela + '/pdf/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax
+       window.location.href = endpoint;
   
 
   }
@@ -147,7 +148,7 @@
   }
 
   function jsTelaUsuario(){
-    $('#js_body').load('/telausuario');
+    window.location.href = "/telausuario";
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////  
