@@ -3,15 +3,14 @@ package com.fluffyiacit.api.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fluffyiacit.api.dto.ListaEstacaoDTO;
+import com.fluffyiacit.api.dto.UsuarioRequestDTO;
 import com.fluffyiacit.api.modal.EstacaoModal;
 import com.fluffyiacit.api.repository.EstacaoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
-
-import DTO.ListaEstacaoDTO;
-import DTO.UsuarioRequestDTO;
 
 @Service
 public class ListaEstacaoService {

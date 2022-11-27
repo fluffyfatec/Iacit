@@ -5,14 +5,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.LoginDTO;
+import com.fluffyiacit.api.dto.LoginResponseDTO;
 import com.fluffyiacit.api.modal.PermissaoModal;
 import com.fluffyiacit.api.modal.ViewUsuario;
 import com.fluffyiacit.api.repository.PermissaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
 import com.fluffyiacit.api.repository.UsuarioTabRepository;
-
-import DTO.LoginDTO;
-import DTO.LoginResponseDTO;
 
 @Service
 public class LoginService {

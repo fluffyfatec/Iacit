@@ -4,13 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.EstacaoDTO;
+import com.fluffyiacit.api.dto.LoginSessao;
 import com.fluffyiacit.api.modal.EstacaoModal;
 import com.fluffyiacit.api.modal.UsuarioModal;
 import com.fluffyiacit.api.repository.EstacaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
-
-import DTO.EstacaoDTO;
-import DTO.LoginSessao;
 
 @Service
 public class ServiceAdm {

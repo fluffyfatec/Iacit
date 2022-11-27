@@ -5,13 +5,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.LoginSessao;
+import com.fluffyiacit.api.dto.UsuarioRequestDTO;
 import com.fluffyiacit.api.modal.PermissaoModal;
 import com.fluffyiacit.api.modal.UsuarioModal;
 import com.fluffyiacit.api.repository.PermissaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
-
-import DTO.LoginSessao;
-import DTO.UsuarioRequestDTO;
 
 @Service
 public class UpdateUsuarioService {

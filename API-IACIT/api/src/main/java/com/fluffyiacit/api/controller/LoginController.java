@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.LoginDTO;
 import com.fluffyiacit.api.service.LoginService;
-
-import DTO.LoginDTO;
 
 @RestController
 public class LoginController {

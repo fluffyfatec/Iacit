@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.LoginSessao;
+import com.fluffyiacit.api.dto.UsuarioDTO;
 import com.fluffyiacit.api.modal.ViewUsuario;
 import com.fluffyiacit.api.repository.UsuarioRepository;
 import com.fluffyiacit.api.repository.UsuarioTabRepository;
 import com.fluffyiacit.api.service.UsuarioService;
-
-import DTO.LoginSessao;
-import DTO.UsuarioDTO;
 
 @RestController
 @RequestMapping(value = "/usuario")

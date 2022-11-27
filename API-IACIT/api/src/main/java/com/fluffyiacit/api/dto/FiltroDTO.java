@@ -1,4 +1,4 @@
-package DTO;
+package com.fluffyiacit.api.dto;
 
 import java.util.List;
 

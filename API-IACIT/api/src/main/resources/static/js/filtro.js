@@ -320,7 +320,7 @@ function jsCadUsuario(){
     alert("Há Campos a serem preenchios");
   }else{
     if(jsCadSenha == jsCadSenhaConf){
-      location.href = "/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/" + jsSessaoUsuario + "/" + jsSessaoUsuario + "/" + jsSessaoPermissao;
+      $("#cadok").load("/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/" + jsSessaoUsuario + "/" + jsSessaoUsuario + "/" + jsSessaoPermissao);
     }
     else{
       alert("As senhas não coincidem");

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.FiltroDatasDTO;
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
 import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
@@ -34,8 +35,6 @@ import com.fluffyiacit.api.repository.RadiacaoGlobalRepository;
 import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
-
-import DTO.FiltroDatasDTO;
 
 import javax.servlet.http.HttpServletResponse;
 

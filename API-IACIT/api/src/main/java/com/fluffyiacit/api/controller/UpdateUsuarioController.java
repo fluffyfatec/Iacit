@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.LoginSessao;
+import com.fluffyiacit.api.dto.UsuarioRequestDTO;
 import com.fluffyiacit.api.service.UpdateUsuarioService;
-
-import DTO.LoginSessao;
-import DTO.UsuarioRequestDTO;
 
 @Controller
 @RequestMapping(value="/update")
