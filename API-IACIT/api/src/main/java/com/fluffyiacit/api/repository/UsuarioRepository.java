@@ -16,5 +16,4 @@ public interface UsuarioRepository extends JpaRepository<UsuarioModal, String> {
 	
 
 	UsuarioModal findByUsuarioUsername(String usuarioUsername);
-
 }

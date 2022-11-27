@@ -110,7 +110,9 @@
 
 
   }
-
+  function jsTelaHome() {
+    window.location.href = "/home";
+  }
   function jsTabelaPDF(tela) {
 
   var jsOutraPagEstacao = document.getElementById("jsOutraPagEstacao").value;
@@ -126,7 +128,7 @@
        jsOutraPagDataMax = jsOutraPagDataMax.replaceAll(" ", "*");
 
   endpoint = '/' + tela + '/pdf/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax
-  window.location.href = endpoint;
+  
 
   }
 
@@ -250,48 +252,49 @@ function validaPag() {
 
 }
 
-function UsuDet(){
+function UsuarioDet(det){
   var cardCadUsu = document.getElementById("cardCadUsu");
-
-  if (cardCadUsu.style.display == "none"){
-    document.getElementById("cardCadUsu").style.display = "inline";
-    document.getElementById("cardPesqUsu").style.display = "inline";
-    document.getElementById("cardPesqEstacao").style.display = "none";
-    document.getElementById("cardUpEst").style.display = "none";
-  }else{
-    document.getElementById("cardCadUsu").style.display = "none";
-    document.getElementById("cardPesqUsu").style.display = "none";
-    document.getElementById("cardPesqEstacao").style.display = "inline";
-    document.getElementById("cardUpEst").style.display = "inline";
-  } ;
-}
-
-function EstDet(){
   var cardPesqEstacao = document.getElementById("cardPesqEstacao");
 
-  if (cardPesqEstacao.style.display == "none"){
-    document.getElementById("cardPesqEstacao").style.display = "inline";
-    document.getElementById("cardUpEst").style.display = "inline";
-    document.getElementById("cardCadUsu").style.display = "none";
-    document.getElementById("cardPesqUsu").style.display = "none";
-  }else{
-    document.getElementById("cardPesqEstacao").style.display = "none";
-    document.getElementById("cardUpEst").style.display = "none";
-    document.getElementById("cardCadUsu").style.display = "inline";
-    document.getElementById("cardPesqUsu").style.display = "inline";
-  } ;
+  if(det == 'usuario'){
+    if (cardCadUsu.style.display == "none"){
+      document.getElementById("cardCadUsu").style.display = "inline";
+      document.getElementById("cardPesqUsu").style.display = "inline";
+      document.getElementById("cardPesqEstacao").style.display = "none";
+      document.getElementById("cardUpEst").style.display = "none";
+    }else{
+      document.getElementById("cardCadUsu").style.display = "none";
+      document.getElementById("cardPesqUsu").style.display = "none";
+    } ;
+  }
+
+  if(det == 'estacao'){
+    if (cardPesqEstacao.style.display == "none"){
+      document.getElementById("cardPesqEstacao").style.display = "inline";
+      document.getElementById("cardUpEst").style.display = "inline";
+      document.getElementById("cardCadUsu").style.display = "none";
+      document.getElementById("cardPesqUsu").style.display = "none";
+     
+    }else{
+      document.getElementById("cardPesqEstacao").style.display = "none";
+      document.getElementById("cardUpEst").style.display = "none";
+    
+    } ;
+  }
 }
 
+/// CADASTRO USUARIO ///
 function jsSelectEst(){
   var jsSelectEst = document.getElementById("jsSelectEst").value;
   $('#cardCadUsuTab').load('/api/estacao/est/'+ jsSelectEst);
 }
 
 function jsListarUsu(){
-  alert("aaa");
   var jsListUsu = document.getElementById("jsListUsu").value;
-  $('#cardListUsu').load('/cadastro/usu/'+ jsListUsu);
+  $('#cardListUsu').load('/usuario/tabela/'+ jsListUsu);
 }
+
+
 
 function jsCadUsuario(){
   var jsCadNome = document.getElementById("jsCadNome").value;
@@ -300,23 +303,28 @@ function jsCadUsuario(){
   var jsCadSenhaConf = document.getElementById("jsCadSenhaConf").value;
   var jsCadCheck = document.getElementById("jsCadCheck").value;
 
-  alert("jsCadNome:" + jsCadNome);
-  alert("jsCadUsu:" + jsCadUsu);
-  alert("jsCadSenha:" + jsCadSenha);
-  alert("jsCadSenhaConf:" + jsCadSenhaConf);
-  alert("jsCadCheck:" + jsCadCheck);
-
-  if(jsCadSenha == jsCadSenhaConf){
-    location.href = "/cadastro/cad/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/fluffy/fluffy";
+  if( jsCadNome == '' || jsCadNome == '' || jsCadUsu == '' || jsCadSenha == '' || jsCadSenhaConf == '' || jsCadCheck == ''){
+    alert("Há Campos a serem preenchios");
+  }else{
+    if(jsCadSenha == jsCadSenhaConf){
+      location.href = "/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/fluffy/fluffy";
+    }
+    else{
+      alert("As senhas não coincidem");
+    }
   }
-  else{
-    alert("As senhas não coincidem");
-  }
-  
-
-
-
-
-
-  
 }
+
+function jsLimpar(){
+ document.getElementById("jsSenha").value = '';
+}
+
+function jsStatus(){
+  document.getElementById("jsSelect").value = document.getElementById("jsStatus").value;
+ }
+
+ function jsStatusfil(){
+  document.getElementById("jsStatus").value = document.getElementById("jsSelect").value;
+ }
+
+

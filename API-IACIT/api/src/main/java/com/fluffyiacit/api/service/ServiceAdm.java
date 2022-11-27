@@ -17,23 +17,18 @@ public class ServiceAdm {
 
 	    public ModelAndView update(EstacaoDTO estacao) {
 	    	ModelAndView  moden= new ModelAndView();
-	    	
 	    	EstacaoModal estacaoAtiva = estacaorep.findByEstacaoNome(estacao.getEstacaoNome());
-	    
 	        estacaoAtiva.setEstacaoStatus(estacao.getEstacaoStatus());
-	         
 	        estacaorep.save(estacaoAtiva);
-	        moden.addObject("colocar o nome do retorno", estacao);
-	 		moden.setViewName("UsuarioUpEst");
-	 		
+	        moden.addObject("estacao", estacao);
+	 		moden.setViewName("HfefCadUsuario");
 	 		return moden;
 	    }
 	  
 	    public ModelAndView listar(EstacaoDTO estacao) {
 	    	ModelAndView  moden= new ModelAndView();
-	    	
 	    	EstacaoModal estacaoAtiva = estacaorep.findByEstacaoNome(estacao.getEstacaoNome());
-	    
+	 
 	        moden.addObject("estacaoAtiva", estacaoAtiva);
 	 		moden.setViewName("UsuarioUpEst");
 	 		

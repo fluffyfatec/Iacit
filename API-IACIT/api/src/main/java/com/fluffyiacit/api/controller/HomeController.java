@@ -571,16 +571,15 @@ public class HomeController {
 		return modelAndView;
 	}
 
-	
-	   @RequestMapping(value = { "/telausuario" }, method = RequestMethod.GET)
-	    public ModelAndView telaPrecipitacao() {
-	        
-	        ModelAndView modelAndView = new ModelAndView();
-	        
-	        modelAndView.setViewName("UsuarioHome");
-	        return modelAndView;
+   @RequestMapping(value = { "/telausuario" }, method = RequestMethod.GET)
+    public ModelAndView telausuario(){
+        
+        ModelAndView modelAndView = new ModelAndView();
+        
+        modelAndView.setViewName("UsuarioHome");
+        return modelAndView;
 
-	    }
+    }
 
 
 

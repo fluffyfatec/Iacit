@@ -33,17 +33,12 @@ public class AdministrativaController {
 		return adm.update(ativas);
 	}
 	
-	@RequestMapping(value = { "/editar" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/salvar" }, method = RequestMethod.POST)
 	public ModelAndView editarStatus(EstacaoDTO estacao) {
 		ModelAndView modelAndView = new ModelAndView();
-		// FILTROS DE DADOS
 		estacao.getEstacaoNome();
 		estacao.getEstacaoEstado();
 		estacao.getEstacaoStatus();
-		System.out.println(estacao.getEstacaoNome());
-		System.out.println(estacao.getEstacaoEstado());
-		System.out.println(estacao.getEstacaoStatus());
-		
 		return adm.update(estacao);
 	}
 

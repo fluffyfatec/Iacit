@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class UsuarioRequestDTO {
 	
+	private String cod_usuario;
+	
 	private String usuario_username;
 	
 	private String usuario_nome;

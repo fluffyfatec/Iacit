@@ -3,12 +3,16 @@ package com.fluffyiacit.api.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fluffyiacit.api.modal.PermissaoModal;
 import com.fluffyiacit.api.modal.UsuarioModal;
+import com.fluffyiacit.api.modal.ViewUsuario;
 import com.fluffyiacit.api.repository.PermissaoRepository;
 import com.fluffyiacit.api.repository.UsuarioRepository;
+import com.fluffyiacit.api.repository.UsuarioTabRepository;
 
 import DTO.UsuarioDTO;
 
@@ -20,6 +24,9 @@ public class UsuarioService {
 	 
 	 @Autowired
 	 private PermissaoRepository permrepository;
+	     
+    @Autowired
+    private UsuarioTabRepository usuariotabrepository;
 	 
 	 public ModelAndView criarUsuario(UsuarioDTO usuario) {
 	     
@@ -42,17 +49,15 @@ public class UsuarioService {
 	 repository.save(usuariomodal);
 	 
 	 ModelAndView modelandview = new ModelAndView();
-	 
-	 modelandview.addObject("colocar nome da chave do objeto",usuariomodal);
-	 modelandview.setViewName("colocar nome da pagina");
+	 modelandview.setViewName("HfefCadUsuario");
     return modelandview;
 	 
 	 
 	 }
 	  
-    public ModelAndView listar(UsuarioModal usuario) {
+    public ModelAndView listar(ViewUsuario usuario) {
     	ModelAndView moden = new ModelAndView();
-    	UsuarioModal filtrousuario = repository.findByUsuarioUsername(usuario.getUsuarioUsername());
+    	ViewUsuario filtrousuario = usuariotabrepository.findByUsuarioUsername(usuario.getUsuarioUsername());
     	filtrousuario.getCodUsuario();
     	filtrousuario.getUsuarioNome();
     	filtrousuario.getUsuarioUsername();
@@ -60,4 +65,5 @@ public class UsuarioService {
  		moden.setViewName("UsuarioUpUsu");
  		return moden;
     }
+	 
 }

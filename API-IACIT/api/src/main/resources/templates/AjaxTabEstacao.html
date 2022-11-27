@@ -10,7 +10,8 @@
         <tr th:each="fill : ${filtro}">
             <td>[[${fill.estacaoNome}]]</td>
             <td>[[${fill.estacaoEstado}]]</td>
-            <td> <a th:href="@{/api/estacao/editar/{estacaoNome}(estacaoNome=${fill.estacaoNome})}">Editar</a> </td>
+            
+            <td> <a th:href="@{/api/estacao/editar/{estacaoNome}(estacaoNome=${fill.estacaoNome})}"><i class="fas fa-edit"></i></a> </td>
         </tr>
     </tbody>
 </table>

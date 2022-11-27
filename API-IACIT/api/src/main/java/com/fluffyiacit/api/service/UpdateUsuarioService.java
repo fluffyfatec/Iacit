@@ -23,31 +23,24 @@ public class UpdateUsuarioService {
 	PermissaoRepository permissaoRepository;
 	
 	public ModelAndView execute(UsuarioRequestDTO data) {
-		
 		ModelAndView modelAndView = new ModelAndView();
-		
-		UsuarioModal userAdmin = usuarioRepository.findByUsuarioUsername(data.getUsuario_nome_adm());
-		
+		UsuarioModal userAdmin = usuarioRepository.findByUsuarioUsername(data.getUsuario_nome_adm());	
 		PermissaoModal permissao = permissaoRepository.findByPermissaoNome(data.getNome_permissao());
-		
-		UsuarioModal user = usuarioRepository.findByUsuarioUsername(data.getUsuario_nome());
-		
+		UsuarioModal user = usuarioRepository.findByUsuarioUsername(data.getUsuario_username());
 		BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
 		
 		String senhaEncriptografada = encode.encode(data.getUsuario_senha());
-		
+
 		user.setCodPermissao(permissao);
 		user.setUsuarioCadastrante(userAdmin);
 		user.setUsuarioNome(data.getUsuario_nome());
 		user.setUsuarioSenha(senhaEncriptografada);
 		user.setUsuarioUsername(data.getUsuario_username());
+		user.setUsuarioAlterou(userAdmin);
 		
 		usuarioRepository.save(user);
-		
-		modelAndView.addObject("colocar o nome do retorno", user);
-		
-		modelAndView.setViewName("trocar o nome do html aqui");
-		
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("HfefCadUsuario");
 		return modelAndView;
 	}
 }
