@@ -24,38 +24,44 @@ public class LoginService {
 
 	public ModelAndView login(LoginDTO login) {
 		
-		BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
+		// BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
 		ModelAndView modelAndView = new ModelAndView();
 		LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
 		
 		UsuarioModal usuario = usuarioRepository.findByUsuarioUsername(login.getUsuario());
 		PermissaoModal permissao = permissaoRepository.findByCodPermissao(usuario.getCodUsuario());
 
-//		System.out.println(usuario.getUsuarioNome());
-//		System.out.println(usuario.getUsuarioUsername());
-//		System.out.println(usuario.getUsuarioSenha());
-//		System.out.println(usuario.getCodPermissao());
-//		System.out.println(permissao.getPermissaoNome());
-//		System.out.println(login.getSenha());
+		System.out.println(usuario.getUsuarioNome());
+		System.out.println(usuario.getUsuarioUsername());
+		System.out.println(usuario.getUsuarioSenha());
+		System.out.println(usuario.getCodPermissao());
+		System.out.println(permissao.getPermissaoNome());
+		System.out.println(login.getUsuario());
+		System.out.println(login.getSenha());
 		
-		
-		if (encode.matches(login.getSenha(), usuario.getUsuarioSenha()) && permissao.getPermissaoNome().equals("Administrator")) {
-			System.out.println("oi passou");
+
+		if ((login.getSenha().equals(usuario.getUsuarioSenha())) && permissao.getPermissaoNome().equals("Administrator")) {
+			System.out.println("1");
 			loginResponseDTO.setAdm("true");
 			loginResponseDTO.setPasswordMatch("true");
 			modelAndView.addObject("permissao", loginResponseDTO);
 			modelAndView.setViewName("validalogin");
-		}else if(encode.matches(login.getSenha(), usuario.getUsuarioSenha()) && permissao.getPermissaoNome().equals("Usuario")){
+		}else if((login.getSenha().equals(usuario.getUsuarioSenha())) && permissao.getPermissaoNome().equals("Usuario")){
+			System.out.println("2");
 			loginResponseDTO.setAdm("false");
 			loginResponseDTO.setPasswordMatch("true");
-			modelAndView.addObject(loginResponseDTO);
+			System.out.println(loginResponseDTO.getAdm());
+			System.out.println(loginResponseDTO.getPasswordMatch());
+			modelAndView.addObject("permissao", loginResponseDTO);
 			modelAndView.setViewName("validalogin");
-		}else{
+		}else {
+			System.out.println("3");
 			loginResponseDTO.setAdm("false");
 			loginResponseDTO.setPasswordMatch("false");
-			modelAndView.addObject(loginResponseDTO);
+			modelAndView.addObject("permissao", loginResponseDTO);
 			modelAndView.setViewName("validalogin");
 		}
+		
 
 		return modelAndView;
 	}
