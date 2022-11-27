@@ -83,10 +83,11 @@ public class AdministrativaController {
 		modelAndView.setViewName("AjaxTabEstacao");
 		return modelAndView;
 	}
-
+	@RequestMapping("/log")
 	@PostMapping
     public ModelAndView LogController(@RequestBody LogUsuarioDTO ativas) {
         return log.listar(ativas);
+        
     }
 
 }
