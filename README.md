@@ -77,7 +77,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Sprints
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/BACKLOG.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/BACKLOG.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -161,7 +161,15 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## DER 
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/DERCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/DERCSV.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## DER do Log 
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/DERCSVLOG.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -169,7 +177,15 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Diagrama Lógico
 
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/logicoCSV.jpg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/SCHEMALOGICO.jpg" width="100%" height="100%">
+<p align="center">
+
+<p align="right">(<a href="#top">voltar ao topo</a>)</p>
+
+## Diagrama Lógico do Log
+
+<p align="center">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/SCHEMALOGICOLOG.jpg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
@@ -185,7 +201,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 ## Burndown
  
 <p align="center">
-      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-3/GIT/WhatsApp%20Image%202022-11-06%20at%2015.59.52.jpeg" width="100%" height="100%">
+      <img src="https://github.com/fluffyfatec/Iacit/blob/Sprint-4/GIT/WhatsApp%20Image%202022-11-27%20at%2014.36.08.jpeg" width="100%" height="100%">
 <p align="center">
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
