@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class LoginResponseDTO {
-	
-	String adm;
+	String permissao;
 	String passwordMatch;
-
 }

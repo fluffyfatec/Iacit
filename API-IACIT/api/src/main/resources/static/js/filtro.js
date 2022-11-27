@@ -148,7 +148,15 @@
   }
 
   function jsTelaUsuario(){
-    window.location.href = "/telausuario";
+    var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+    var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+
+    if(jsSessaoPermissao == "Administrator"){
+      window.location.href = "/telausuario";
+    }else{
+      alert("Alerta, o usuário " + jsSessaoUsuario + " não tem permissão para entrar na página")
+    }
+    
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////  
@@ -162,7 +170,15 @@ function jsFiltroDashboard() {
   dtMax();
   jsRegiaoPag();
   validaPag();
+  validaSessao();
   // jsDetalheAjax("Temperatura");
+}
+
+function validaSessao(){
+  var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+  var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+  //alert(jsSessaoUsuario);
+  //alert(jsSessaoPermissao);
 }
 
 //TRATANDO DATA MAXIMA - TOPO DA PAGINA

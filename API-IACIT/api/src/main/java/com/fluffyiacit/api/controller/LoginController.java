@@ -27,7 +27,7 @@ public class LoginController {
 	}
     
  
-    @RequestMapping(value = { "/home/{username}/{password}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/validalogin/{username}/{password}" }, method = RequestMethod.GET)
     public ModelAndView login(@PathVariable("username") String usuario,
                               @PathVariable("password") String senha) {
     	LoginDTO login = new LoginDTO();

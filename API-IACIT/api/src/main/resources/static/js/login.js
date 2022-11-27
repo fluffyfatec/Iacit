@@ -6,7 +6,7 @@ function login(){
     var username = txtusername.value;
     var password = txtpassword.value;
 
-    location.href = "/home/" + username + "/" + password;
+    location.href = "/validalogin/" + username + "/" + password;
 
     if(username == "admin" && password == "admin"){
         //alert('Sucesso');

@@ -30,6 +30,7 @@ import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
 
 import DTO.FiltroDatasDTO;
+import DTO.LoginSessao;
 
 @Controller
 @RequestMapping
@@ -64,11 +65,18 @@ public class HomeController {
 	
 
 	// ENTRAR PAGINA INDEX
-	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
-	public ModelAndView PaginaIndex() {
+	@RequestMapping(value = { "/home/{username}/{permissao}" }, method = RequestMethod.GET)
+	public ModelAndView PaginaIndex(@PathVariable("username") String username,
+			   						@PathVariable("permissao") String permissao) {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
-
+		LoginSessao sessao = new LoginSessao();
+		
+		sessao.setUsuario(username);
+		sessao.setPermissao(permissao);
+		modelAndView.addObject("sessao", sessao);
+		
+		
 		filtrodatas.setEstacaoRegiao("SE");
 		filtrodatas.setEstacaoNome("SP");
 		filtrodatas.setEstacaoEstado("SAO PAULO - INTERLAGOS");

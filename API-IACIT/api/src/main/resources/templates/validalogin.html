@@ -1,10 +1,49 @@
-<div class="row mb-2" >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="jsValidaLogin()">
+    <div class="row mb-2" >
+        <div class="col-sm-4">
+            <form action='#' th:action="@{/}" method="POST" th:object="${loginResponseDTO}">
+                <input type="hidden" class="form-control" id="jsPermissao" th:field="*{permissao}"></input>
+                <input type="hidden" class="form-control" id="jsStatusSenha" th:field="*{passwordMatch}"></input>
+            </form>
+        </div><!-- /.col -->
 
-    <div class="col-sm-4">
-        <form action='#' th:action="@{/}" method="POST" th:object="${permissao}">
-            <input type="text" class="form-control" id="" th:field="*{adm}"></input>
-            <input type="text" class="form-control" id="" th:field="*{passwordMatch}"></input>
-        </form>
-    </div><!-- /.col -->
+        <div class="col-sm-4">
+            <form action='#' th:action="@{/}" method="POST" th:object="${usuario}">
+                <input type="hidden" class="form-control" id="" th:field="*{codUsuario}"></input>
+                <input type="hidden" class="form-control" id="" th:field="*{usuarioNome}"></input>
+                <input type="hidden" class="form-control" id="jsUsername" th:field="*{usuarioUsername}"></input>
+                <input type="hidden" class="form-control" id="jsPermissaoUser" th:field="*{permissaoNome}"></input>
 
-</div><!-- /.row -->
+            </form>
+        </div><!-- /.col -->
+    
+        <script>
+            function jsValidaLogin(){
+                var jsPermissao = document.getElementById("jsPermissao").value;
+                var jsStatusSenha = document.getElementById("jsStatusSenha").value;
+                var jsUsername = document.getElementById("jsUsername").value;
+                var jsPermissaoUser = document.getElementById("jsPermissaoUser").value;
+                
+
+                if(jsStatusSenha == "senha ok"){
+                    window.location.href = "/home/" + jsUsername + "/" + jsPermissaoUser;
+                }
+                else{
+                    window.location.href = "/";
+                }
+            }
+        </script>
+    </div><!-- /.row -->
+</body>
+</html>
+
+
+
