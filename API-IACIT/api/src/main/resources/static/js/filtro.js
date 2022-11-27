@@ -102,12 +102,30 @@
     $('#js_body').load('/' + dado + '/' + jsOutraPagRegiao + '/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax);
      
     setTimeout(function(){jsFiltroDashboard();},500);
-    // SE
-    // SAO PAULO - INTERLAGOS
-    // SP
-    // 2022-06-27 10:00:00
-    // 2022-06-28 10:00:00
+  }
+  function jsTelaHome() {
+    var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+    var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
 
+    window.location.href = "/home/"+ jsSessaoUsuario + "/" + jsSessaoPermissao;
+  }
+  function jsTabelaPDF(tela) {
+
+  var jsOutraPagEstacao = document.getElementById("jsOutraPagEstacao").value;
+       jsOutraPagEstacao = jsOutraPagEstacao.replaceAll(" ", "*");
+
+  var jsOutraPagEstado = document.getElementById("jsOutraPagEstado").value;
+       jsOutraPagEstado = jsOutraPagEstado.replaceAll(" ", "*");
+
+  var jsOutraPagDataMin = document.getElementById("jsOutraPagDataMin").value;
+       jsOutraPagDataMin = jsOutraPagDataMin.replaceAll(" ", "*");
+
+  var jsOutraPagDataMax = document.getElementById("jsOutraPagDataMax").value;
+       jsOutraPagDataMax = jsOutraPagDataMax.replaceAll(" ", "*");
+
+       endpoint = '/' + tela + '/pdf/' + jsOutraPagEstacao + '/' + jsOutraPagEstado + '/' + jsOutraPagDataMin + '/' + jsOutraPagDataMax
+       window.location.href = endpoint;
+  
 
   }
 
@@ -125,6 +143,18 @@
     });
   }
 
+  function jsTelaUsuario(){
+    var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+    var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+
+    if(jsSessaoPermissao == "Administrator"){
+      window.location.href = "/telausuario/" + jsSessaoUsuario + "/" + jsSessaoPermissao;
+    }else{
+      alert("Alerta, o usuário " + jsSessaoUsuario + " não tem permissão para entrar na página")
+    }
+    
+  }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////  
 //////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -136,7 +166,15 @@ function jsFiltroDashboard() {
   dtMax();
   jsRegiaoPag();
   validaPag();
+  validaSessao();
   // jsDetalheAjax("Temperatura");
+}
+
+function validaSessao(){
+  var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+  var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+  //alert(jsSessaoUsuario);
+  //alert(jsSessaoPermissao);
 }
 
 //TRATANDO DATA MAXIMA - TOPO DA PAGINA
@@ -209,9 +247,90 @@ function validaPag() {
     jsMenuAjax('Umidade');
   }
 
+  if(valida == "/filtroVen"){
+    jsMenuAjax('Ventos');
+  }
+
   if(valida == "/filtroRad"){
     jsMenuAjax('Radiacao');
   }
   
+  if(valida == "/filtroPreci"){
+    jsMenuAjax('Precipitacao');
+  }
+
+  if(valida == "/filtroPressao"){
+    jsMenuAjax('PressaoAtmosferica');
+  }
 
 }
+
+function UsuarioDet(det){
+  var cardCadUsu = document.getElementById("cardCadUsu");
+  var cardPesqEstacao = document.getElementById("cardPesqEstacao");
+
+  if(det == 'usuario'){
+    if (cardCadUsu.style.display == "none"){
+      document.getElementById("cardCadUsu").style.display = "inline";
+      document.getElementById("cardPesqUsu").style.display = "inline";
+      document.getElementById("cardPesqEstacao").style.display = "none";
+      document.getElementById("cardUpEst").style.display = "none";
+    }else{
+      document.getElementById("cardCadUsu").style.display = "none";
+      document.getElementById("cardPesqUsu").style.display = "none";
+    } ;
+  }
+
+  if(det == 'estacao'){
+    if (cardPesqEstacao.style.display == "none"){
+      document.getElementById("cardPesqEstacao").style.display = "inline";
+      document.getElementById("cardUpEst").style.display = "inline";
+      document.getElementById("cardCadUsu").style.display = "none";
+      document.getElementById("cardPesqUsu").style.display = "none";
+     
+    }else{
+      document.getElementById("cardPesqEstacao").style.display = "none";
+      document.getElementById("cardUpEst").style.display = "none";
+    
+    } ;
+  }
+}
+
+/// CADASTRO USUARIO ///
+function jsSelectEst(){
+  var jsSelectEst = document.getElementById("jsSelectEst").value;
+  $('#cardCadUsuTab').load('/api/estacao/est/'+ jsSelectEst);
+}
+
+function jsListarUsu(){
+  var jsListUsu = document.getElementById("jsListUsu").value;
+  $('#cardListUsu').load('/usuario/tabela/'+ jsListUsu);
+}
+
+
+
+function jsCadUsuario(){
+  var jsCadNome = document.getElementById("jsCadNome").value;
+  var jsCadUsu = document.getElementById("jsCadUsu").value;
+  var jsCadSenha = document.getElementById("jsCadSenha").value;
+  var jsCadSenhaConf = document.getElementById("jsCadSenhaConf").value;
+  var jsCadCheck = document.getElementById("jsCadCheck").value;
+
+  var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+  var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+
+  if( jsCadNome == '' || jsCadNome == '' || jsCadUsu == '' || jsCadSenha == '' || jsCadSenhaConf == '' || jsCadCheck == ''){
+    alert("Há Campos a serem preenchios");
+  }else{
+    if(jsCadSenha == jsCadSenhaConf){
+      $("#cadok").load("/usuario/cadastro/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/" + jsSessaoUsuario + "/" + jsSessaoUsuario + "/" + jsSessaoPermissao);
+    }
+    else{
+      alert("As senhas não coincidem");
+    }
+  }
+}
+
+
+
+

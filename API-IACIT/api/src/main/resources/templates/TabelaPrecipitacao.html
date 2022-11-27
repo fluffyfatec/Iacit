@@ -1,0 +1,33 @@
+<div th:fragment="TabelaPrecipitacao">
+    <!--TABELA LISTA RANGE-->
+    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
+     
+        <table id="tabelaPrecipitacao" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
+            <thead>
+                <tr>
+                <th scope="col">Precipitação Total (%)</th>
+                <!-- <th scope="col">codWmo</th>
+                <th scope="col">estacaoEstado</th>
+                <th scope="col">estacaoNome</th> -->
+                <th scope="col">Data Hora Captação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aa : ${rangePrecipitacao}">
+                    <td>[[${aa.precipitacaototal}]]</td>
+                    <!-- <td>[[${aa.codWmo}]]</td>
+                    <td>[[${aa.estacaoEstado}]]</td>
+                    <td>[[${aa.estacaoNome}]]</td> -->
+                    <td>[[${aa.datahoraCaptacao}]]</td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+    <script src="js/tabelaPrecipitacao.js"></script>
+
+
+   
+
+ </div>
+ 

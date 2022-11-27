@@ -2,6 +2,8 @@ package com.fluffyiacit.api.controller;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.FiltroDatasDTO;
+import com.fluffyiacit.api.dto.LoginSessao;
 import com.fluffyiacit.api.modal.ViewFiltroEstacao;
 import com.fluffyiacit.api.modal.ViewFiltroRegiao;
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
@@ -26,8 +30,6 @@ import com.fluffyiacit.api.repository.RadiacaoGlobalRepository;
 import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
-
-import DTO.FiltroDatasDTO;
 
 @Controller
 @RequestMapping
@@ -62,11 +64,16 @@ public class HomeController {
 	
 
 	// ENTRAR PAGINA INDEX
-	@RequestMapping(value = { "" }, method = RequestMethod.GET)
-	public ModelAndView PaginaIndex() {
+	@RequestMapping(value = { "/home/{username}/{permissao}" }, method = RequestMethod.GET)
+	public ModelAndView PaginaIndex(@PathVariable("username") String username,
+			   						@PathVariable("permissao") String permissao) {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
-
+		LoginSessao sessao = new LoginSessao();
+		sessao.setUsuario(username);
+		sessao.setPermissao(permissao);
+		modelAndView.addObject("sessao", sessao);
+		
 		filtrodatas.setEstacaoRegiao("SE");
 		filtrodatas.setEstacaoNome("SP");
 		filtrodatas.setEstacaoEstado("SAO PAULO - INTERLAGOS");
@@ -296,7 +303,10 @@ public class HomeController {
 	@RequestMapping(value = { "/index" }, method = RequestMethod.POST)
 	public ModelAndView PaginaIndexFiltrada(FiltroDatasDTO filtrodatas) {
 		ModelAndView modelAndView = new ModelAndView();
-
+		LoginSessao sessao = new LoginSessao();
+		sessao.setUsuario("fluffy");
+		sessao.setPermissao("Usuario");
+		modelAndView.addObject("sessao", sessao);
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -310,8 +320,15 @@ public class HomeController {
 			if (objviewPrecipitacao.getPrecipitacaototal() == null) {
 				objviewPrecipitacao.setPrecipitacaototal("N/A");
 			}
+			
+				    
 		}
 		modelAndView.addObject("rangePrecipitacao", rangePrecipitacao);
+		Map<String, String> result = rangePrecipitacao.stream().collect
+				  (Collectors.toMap(ViewPrecipitacaoModal::getEstacaoNome ,ViewPrecipitacaoModal::getPrecipitacaototal, (key1, key2)-> key2));
+	        
+		System.out.println("map: " + result);
+	
 
 		// Lista Pressao
 		List<ViewPressaoAtmModal> rangeAtm = pressao.listRange(filtrodatas.getEstacaoNome(),
@@ -329,7 +346,7 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("rangeAtm", rangeAtm);
-
+		
 		// Lista Radiacao
 		List<ViewRadiacaoglobalModal> rangeRadiacaoglobal = radiacao.listRange(filtrodatas.getEstacaoNome(),
 				filtrodatas.getEstacaoEstado(), Timestamp.valueOf(filtrodatas.getDataHoraInicial()),
@@ -340,6 +357,10 @@ public class HomeController {
 			}
 		}
 		modelAndView.addObject("rangeRadiacaoglobal", rangeRadiacaoglobal);
+		/*Map<String, Timestamp> mapRadiacao = rangeRadiacaoglobal.stream().collect
+				  (Collectors.toMap(ViewRadiacaoglobalModal::getEstacaoNome ,ViewRadiacaoglobalModal::getDatahoraCaptacao, (key1, key2)-> key2));*/
+	        
+		//System.out.println("map: " + mapRadiacao );
 
 		// Lista Temperatura
 		List<ViewTemperaturaModal> rangeTemperatura = temperatura.listRange(filtrodatas.getEstacaoNome(),
@@ -558,79 +579,20 @@ public class HomeController {
 		return modelAndView;
 	}
 
-//	@RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
-//	public ModelAndView filtroMenuLateral(@PathVariable("id") String id) {
-//		ModelAndView modelAndView = new ModelAndView();
-//		
-//		List<ViewUmidadeModal> graUmidade = umidade.listarGraphUmidade("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-//		modelAndView.addObject("graUmidade", graUmidade);
-//		for (ViewUmidadeModal objview : graUmidade) {
-//			System.out.println("1:" + objview.getDatahoraCaptacao());
-//		}
-//		
-//		modelAndView.setViewName(id);
-//		return modelAndView;
-//	}
+   @RequestMapping(value = { "/telausuario/{username}/{permissao}" }, method = RequestMethod.GET)
+    public ModelAndView telausuario(@PathVariable("username") String username,
+									@PathVariable("permissao") String permissao){
+        
+        ModelAndView modelAndView = new ModelAndView();
+		LoginSessao sessao = new LoginSessao();
+		sessao.setUsuario(username);
+		sessao.setPermissao(permissao);
+		modelAndView.addObject("sessao", sessao);
+        modelAndView.setViewName("UsuarioHome");
+        return modelAndView;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
 
-	// FILTRO GRAFICOS RANGE DE 7 DIAS
-	// GRAFICO PRECIPITACAO
-//	List<ViewPrecipitacaoModal> precipitacaoGraph = precipitacao.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("precipitacaoGraph", precipitacaoGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//GRAFICO TEMPERATURA
-//	List<ViewTemperaturaModal> temperaturaGraph = temperatura.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("temperaturaGraph", temperaturaGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//GRAFICO UMIDADE
-//	List<ViewUmidadeModal> umidadeGraph = umidade.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("umidadeGraph", umidadeGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//GRAFICO RADIACAO
-//	List<ViewRadiacaoglobalModal> radiacaoGraph = radiacao.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("radiacaoGraph", radiacaoGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//GRAFICO PRESSAO ATM
-//	List<ViewPressaoAtmModal> pressaoAtmGraph = pressao.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("pressaoAtmGraph", pressaoAtmGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//GRAFICO VENTO
-//	List<ViewVentoModal> ventoGraph = vento.listarGraph(FiltroDatasDTO.getEstacaoNome(),
-//			FiltroDatasDTO.getEstacaoEstado(), Timestamp.valueOf(FiltroDatasDTO.getDatahoraCaptacao()));
-//	modelAndView.addObject("ventoGraph", ventoGraph);
-//	modelAndView.setViewName("index");
-//	
-//	//FILTRO GRAFICOS RANGE
-//	//GRAFICO PRECIPITACAO
-//	List<ViewPrecipitacaoModal> graPrecipitacao = precipitacao.listarGraphPrecipitacao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-//	modelAndView.addObject("graPrecipitacao", graPrecipitacao);
-//	modelAndView.setViewName("index"); 
-//	
-//	//GRAFICO TEMPERATURA
-//	List<ViewTemperaturaModal> graTemperatura = temperatura.listarGraphTemperatura("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-//	modelAndView.addObject("graTemperatura", graTemperatura);
-//	modelAndView.setViewName("index"); 
-//	
-//	//GRAFICO UMIDADE
-//	List<ViewUmidadeModal> graUmidade = umidade.listarGraphUmidade("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-//	modelAndView.addObject("graUmidade", graUmidade);
-//	modelAndView.setViewName("index");
-//			
-//	//GRAFICO RADIACAO
-//	List<ViewRadiacaoglobalModal> graRadiacao = radiacao.listarGraphRadiacao("SP", "SAO PAULO - INTERLAGOS",Timestamp.valueOf("2022-06-28 10:00:00"),Timestamp.valueOf("2022-07-01 10:00:00"));
-//	modelAndView.addObject("graRadiacao", graRadiacao);
-//	modelAndView.setViewName("index");	
+
 
 }

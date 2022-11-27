@@ -1,0 +1,32 @@
+<div th:fragment="TabelaPressao">
+    <!--TABELA LISTA RANGE-->
+    <div style="overflow: scroll; max-width: 900px; max-height: 1035px; border-radius: 5px">
+     
+        <table id="tabelaPressao" class="table table-striped" cellspacing="0" cellpadding="0" style="font-size: 15px;">
+            <thead>
+                <tr>
+                <th scope="col">Pressão Atm Estação (mB)</th>
+                <th scope="col">Pressão Atm Max (mB)</th>
+                <th scope="col">Pressão Atm Min (mB)</th>
+                <!-- 
+                <th scope="col">estacaoEstado</th>
+                <th scope="col">estacaoNome</th> -->
+                <th scope="col">Data Hora Captação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="zz : ${rangePressaoAtmosferica}">
+                    <td>[[${zz.pressaoAtmEstacao}]]</td>
+                    <td>[[${zz.pressaoAtmMax}]]</td>
+                    <td>[[${zz.pressaoAtmMin}]]</td>
+
+                   
+                    <td>[[${zz.datahoraCaptacao}]]</td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+    <script src="js/tabelaPressao.js"></script>
+ </div>
+ 

@@ -4,36 +4,22 @@ from automacao import Automacao
 
 class RunFunctions:
 
-    @staticmethod
-    def dados_inicial():
+    if __name__ == '__main__':
 
-        print("Iniciando script de download automático...\n")
-        Automacao.auto_run()
-
-        print("Iniciando povoamento tabela estação...\n")
-        LeituraDfs.leitura_cabecalho2022()
-        LeituraDfs.leitura_cabecalho2021()
-        LeituraDfs.leitura_cabecalho2020()
-
-        print("\nIniciando povoamento das demais tabelas...\n")
-        LeituraDfs.leitura_dfs2020()
-        LeituraDfs.leitura_dfs2021()
-        LeituraDfs.leitura_dfs2022()
-
-    @staticmethod
-    def dados_atualizacao():
+        ldfs = LeituraDfs()
 
         print("Iniciando script de download automático...\n")
         Automacao.auto_run()
 
         print("\nIniciando povoamento tabela estação...\n")
-        LeituraDfs.leitura_cabecalho2022()
+        ldfs.leitura_cabecalho('2022')
 
         print("\nIniciando povoamento das demais tabelas...\n")
-        LeituraDfs.leitura_dfs2022()
+        ldfs.leitura_dfs('2022')
 
 
-#RunFunctions.dados_inicial()
 
-RunFunctions.dados_atualizacao()
+
+
+
 

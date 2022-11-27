@@ -1,0 +1,32 @@
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th scope="col">Cod</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Username</th>
+            <th scope="col">Permissão</th>
+            <th scope="col">User Cad</th>
+            <th scope="col">User Alt</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="usu : ${filtrousuario}">
+            <td>[[${usu.codUsuario}]]</td>
+            <td>[[${usu.usuarioNome}]]</td>
+            <td>[[${usu.usuarioUsername}]]</td>
+            <td>[[${usu.permissaoNome}]]</td>
+            <td>[[${usu.cadastrante}]]</td>
+            <td>[[${usu.alterante}]]</td>
+            <td><button type="button" class="btn btn-primary" th:attr="onclick=|editar('${usu.usuarioUsername}')|"><i class="fas fa-edit"></i></button></td>
+            <!-- <td> <a th:href="@{/usuario/editar/{usuarioUsername}(usuarioUsername=${usu.usuarioUsername})}"><i class="fas fa-edit"></i></a> </td> -->
+
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function editar(username){
+        $('#usuariocrud').load('/usuario/editar/' + username);
+    }
+</script>

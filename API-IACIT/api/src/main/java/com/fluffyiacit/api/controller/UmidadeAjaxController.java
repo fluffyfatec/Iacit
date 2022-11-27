@@ -1,15 +1,26 @@
 package com.fluffyiacit.api.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.fluffyiacit.api.report.PdfTemperatura;
+import com.fluffyiacit.api.report.PdfUmidade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fluffyiacit.api.dto.FiltroDatasDTO;
 import com.fluffyiacit.api.modal.ViewPrecipitacaoModal;
 import com.fluffyiacit.api.modal.ViewPressaoAtmModal;
 import com.fluffyiacit.api.modal.ViewRadiacaoglobalModal;
@@ -25,7 +36,7 @@ import com.fluffyiacit.api.repository.TemperaturaRepository;
 import com.fluffyiacit.api.repository.UmidadeRepository;
 import com.fluffyiacit.api.repository.VentoRepository;
 
-import DTO.FiltroDatasDTO;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping
@@ -51,7 +62,17 @@ public class UmidadeAjaxController {
         estDTfinal = estDTfinal.replace('*', ' ');
 
 		List<ViewUmidadeModal> rangeUmidade = umidaderepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
-				
+		for (ViewUmidadeModal objviewUmidade : rangeUmidade) {
+			if (objviewUmidade.getUmidadeRelativaAr() == null) {
+				objviewUmidade.setUmidadeRelativaAr("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMax() == null) {
+				objviewUmidade.setUmidadeRelativaMax("N/A");
+			}
+			if (objviewUmidade.getUmidadeRelativaMin() == null) {
+				objviewUmidade.setUmidadeRelativaMin("N/A");
+			}
+		}	
 		modelAndView.addObject("rangeUmidade", rangeUmidade);
 		//for (ViewUmidadeModal objview : rangeUmidade) {
 			//System.out.println("1:" + objview.getDatahoraCaptacao());
@@ -111,6 +132,46 @@ public class UmidadeAjaxController {
 		return modelAndView;
 
 	}
+
+    @GetMapping(value = "/Umidade/pdf/{estNome}/{estEstado}/{estDTinicial}/{estDTfinal}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> relatorioUmidade (HttpServletResponse response,
+                                                                     @PathVariable("estNome") String estNome,
+                                                                     @PathVariable("estEstado") String estEstado,
+                                                                     @PathVariable("estDTinicial") String estDTinicial,
+                                                                     @PathVariable("estDTfinal") String estDTfinal) throws IOException {
+
+        estNome = estNome.replace('*', ' ');
+        estEstado = estEstado.replace('*', ' ');
+        estDTinicial = estDTinicial.replace('*', ' ');
+        estDTfinal = estDTfinal.replace('*', ' ');
+
+        List<ViewUmidadeModal> umidade = umidaderepository.listRange(estEstado, estNome,Timestamp.valueOf(estDTinicial),Timestamp.valueOf(estDTfinal));
+
+        for (ViewUmidadeModal objviewUmidade : umidade) {
+            if (objviewUmidade.getUmidadeRelativaAr() == null) {
+                objviewUmidade.setUmidadeRelativaAr("N/A");
+            }
+            if (objviewUmidade.getUmidadeRelativaMax() == null) {
+                objviewUmidade.setUmidadeRelativaMax("N/A");
+            }
+            if (objviewUmidade.getUmidadeRelativaMin() == null) {
+                objviewUmidade.setUmidadeRelativaMin("N/A");
+            }
+        }
+
+        ByteArrayInputStream bis = PdfUmidade.exportarPdfUmidade(umidade);
+
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.add("Content-Disposition", "attachment;filename=Relatório Umidade " +
+                estNome + "(" + new SimpleDateFormat("dd-MM-yyyy")
+                .format(umidade.get(0).getDatahoraCaptacao()) + " até " +
+                new SimpleDateFormat("dd-MM-yyyy").format(umidade.get(umidade.size() - 1).getDatahoraCaptacao()) +
+                ").pdf");
+
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+    }
 	
 	
 	

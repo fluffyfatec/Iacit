@@ -1,0 +1,37 @@
+
+<div class="card mt-12">
+    <form action="#" th:action="@{/update/editar}" method="POST" th:object="${filtrousuario}" >
+        <div class="row">
+            <div class="col-12">
+                <p>Nome: <input type="text" class="form-control" id="jsNome" th:field="*{usuarioNome}"/></p>
+            </div>
+            <div class="col-6">
+                <p>Username: <input type="text" class="form-control" id="jsUser" th:field="*{usuarioUsername}" readonly/></p>
+            </div>
+            <div class="col-6">
+                <p>Senha: <input type="text" class="form-control" id="jsSenha" th:field="*{usuarioSenha}"/></p>
+            </div>
+
+            <div class="col-12">
+                <p>Permissão: <input type="text" class="form-control" id="jsPermissao" th:field="*{permissaoNome}"/></p>
+            </div>
+        </div>
+        <p><input type="hidden" class="form-control" id="jsCodusu" th:field="*{codUsuario}" /></p>
+        <p><input type="hidden" class="form-control" id="jsCadastrante"  th:field="*{cadastrante}" /></p>
+        <p><input type="hidden" class="form-control" id="" th:field="*{alterante}" /></p>
+    </form>
+    <input type="submit"class="btn btn-primary"  onclick="jsEditarUsuario()" value="Salvar"/>
+</div>
+<script>
+  function jsEditarUsuario(){
+    var jsNome = document.getElementById("jsNome").value
+    var jsUser = document.getElementById("jsUser").value
+    var jsSenha = document.getElementById("jsSenha").value
+    var jsPermissao = document.getElementById("jsPermissao").value
+    var jsCodusu = document.getElementById("jsCodusu").value
+    var jsCadastrante = document.getElementById("jsCadastrante").value
+    var jsSessaoUsuario = document.getElementById("jsSessaoUsuario").value;
+    var jsSessaoPermissao = document.getElementById("jsSessaoPermissao").value;
+    $('#ok').load('/update/editar/'+ jsNome + "/" + jsUser + "/" + jsSenha + "/" + jsPermissao + "/" + jsCodusu + "/" + jsCadastrante + "/" + jsSessaoUsuario + "/" + jsSessaoPermissao);
+  }
+</script>

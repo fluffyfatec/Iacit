@@ -1,0 +1,10 @@
+<!-- GRAFICOS TEMPERATURA LINHA -->
+<div th:fragment="fragmentSessao">
+  <div class="col-sm-4">
+    <form action='#' th:action="@{/}" method="POST" th:object="${sessao}">
+        <input type="hidden" class="form-control" id="jsSessaoUsuario" th:field="*{usuario}"></input>
+        <input type="hidden" class="form-control" id="jsSessaoPermissao" th:field="*{permissao}"></input>
+    </form>
+</div><!-- /.col -->
+</div>
+
