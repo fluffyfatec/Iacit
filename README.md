@@ -112,6 +112,8 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 </details>
 
+
+
 <details>
 <summary><b>Sprint 3</b></summary>
 <details>
@@ -126,6 +128,22 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
                   </details>
                   </details>
                   </details>
+
+                  
+<details>
+<summary><b>Sprint 4</b></summary>
+<details>
+                  <summary>Desenvolvimento de tela de login</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero estar logado no sistema para poder ter acesso as funcionalidades do software.
+                  </details>
+                  <details>
+                  <summary>Painel Administrativo</summary>
+                        <b>Story User</b>
+                        <p>•Como usuário Quero ter acesso ao painel admiistrativo Para que eu possa ter acesso aos usuários, logs e relatórios.
+                  </details>
+
+</details>
 
 
 
