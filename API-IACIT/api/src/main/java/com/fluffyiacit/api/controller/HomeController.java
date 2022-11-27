@@ -64,7 +64,7 @@ public class HomeController {
 	
 
 	// ENTRAR PAGINA INDEX
-	@RequestMapping(value = { "" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public ModelAndView PaginaIndex() {
 		ModelAndView modelAndView = new ModelAndView();
 		FiltroDatasDTO filtrodatas = new FiltroDatasDTO();
