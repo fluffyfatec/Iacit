@@ -1,0 +1,15 @@
+<table class="table table-striped" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Usuário</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="usu : ${filtrousuario}">
+            <td>[[${usu.usuarioNome}]]</td>
+            <td>[[${usu.usuarioUsername}]]</td>
+            <td> <a th:href="@{/cadastro/editar/{usuarioUsername}(usuarioUsername=${usu.usuarioUsername})}">Alterar</a> </td>
+        </tr>
+    </tbody>
+</table>

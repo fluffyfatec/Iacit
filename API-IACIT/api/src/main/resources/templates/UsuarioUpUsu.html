@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Update</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>Update Usuario</div>
+        <form action="#" th:action="@{/cadastro/editar}" method="POST" th:object="${filtrousuario}">
+            <p>Nome: <input type="text" th:field="*{usuarioNome}" readonly/></p>
+            <p>Username: <input type="text" th:field="*{usuarioUsername}" readonly/></p>
+            <p>Senha: <input type="text" th:field="*{usuarioSenha}" readonly/></p>
+            <input type="submit" value="Salvar"/>
+        </form>
+    </body>
+</html>
