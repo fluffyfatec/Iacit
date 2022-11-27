@@ -30,14 +30,14 @@ public class UsuarioModal {
 	@Column(name = "codUsuario")
 	private Integer codUsuario;
 	
-	@Column( name= "usuarioNome",length = 60,nullable = false)
-	private String usuarioNome ;
-	
 	@Column( name= "usuarioUsername",length = 20,nullable = false)
 	private String usuarioUsername;
 	
 	@Column( name= "usuarioSenha",length = 256,nullable = false)
 	private String usuarioSenha ;
+	
+	@Column( name= "usuarioNome",length = 60,nullable = false)
+	private String usuarioNome ;
 	
 	@UpdateTimestamp
 	@Column( name= "usuarioDatahoraCriacao",nullable = false)

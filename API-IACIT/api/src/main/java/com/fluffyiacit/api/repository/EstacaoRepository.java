@@ -18,5 +18,5 @@ public interface EstacaoRepository extends JpaRepository<EstacaoModal, String> {
 	@Query(value = "SELECT * FROM estacao", nativeQuery = true)
 	
 	List<EstacaoModal> listarAllEstacoes();
-	EstacaoModal findByEstacaoNomeAndEstacaoEstado(String estacaoNome,String estacaoEstado); 
+	EstacaoModal findByEstacaoNome(String estacaoNome); 
  }

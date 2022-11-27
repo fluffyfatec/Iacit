@@ -286,3 +286,37 @@ function jsSelectEst(){
   var jsSelectEst = document.getElementById("jsSelectEst").value;
   $('#cardCadUsuTab').load('/api/estacao/est/'+ jsSelectEst);
 }
+
+function jsListarUsu(){
+  alert("aaa");
+  var jsListUsu = document.getElementById("jsListUsu").value;
+  $('#cardListUsu').load('/cadastro/usu/'+ jsListUsu);
+}
+
+function jsCadUsuario(){
+  var jsCadNome = document.getElementById("jsCadNome").value;
+  var jsCadUsu = document.getElementById("jsCadUsu").value;
+  var jsCadSenha = document.getElementById("jsCadSenha").value;
+  var jsCadSenhaConf = document.getElementById("jsCadSenhaConf").value;
+  var jsCadCheck = document.getElementById("jsCadCheck").value;
+
+  alert("jsCadNome:" + jsCadNome);
+  alert("jsCadUsu:" + jsCadUsu);
+  alert("jsCadSenha:" + jsCadSenha);
+  alert("jsCadSenhaConf:" + jsCadSenhaConf);
+  alert("jsCadCheck:" + jsCadCheck);
+
+  if(jsCadSenha == jsCadSenhaConf){
+    location.href = "/cadastro/cad/" + jsCadNome + "/" + jsCadUsu + "/" + jsCadSenha + "/" + jsCadCheck + "/fluffy/fluffy";
+  }
+  else{
+    alert("As senhas não coincidem");
+  }
+  
+
+
+
+
+
+  
+}

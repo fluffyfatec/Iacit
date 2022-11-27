@@ -15,17 +15,30 @@ public class ServiceAdm {
 	    @Autowired 
 	    EstacaoRepository estacaorep;
 
-	    public ModelAndView update(EstacaoDTO estacao ) {
+	    public ModelAndView update(EstacaoDTO estacao) {
 	    	ModelAndView  moden= new ModelAndView();
-	    	EstacaoModal estacaoAtiva = estacaorep.findByEstacaoNomeAndEstacaoEstado(estacao.getEstacaoNome(), estacao.getEstacaoEstado());
+	    	
+	    	EstacaoModal estacaoAtiva = estacaorep.findByEstacaoNome(estacao.getEstacaoNome());
+	    
 	        estacaoAtiva.setEstacaoStatus(estacao.getEstacaoStatus());
+	         
 	        estacaorep.save(estacaoAtiva);
 	        moden.addObject("colocar o nome do retorno", estacao);
-	 		moden.setViewName("trocar o nome do html aqui");
+	 		moden.setViewName("UsuarioUpEst");
 	 		
 	 		return moden;
 	    }
 	  
+	    public ModelAndView listar(EstacaoDTO estacao) {
+	    	ModelAndView  moden= new ModelAndView();
+	    	
+	    	EstacaoModal estacaoAtiva = estacaorep.findByEstacaoNome(estacao.getEstacaoNome());
+	    
+	        moden.addObject("estacaoAtiva", estacaoAtiva);
+	 		moden.setViewName("UsuarioUpEst");
+	 		
+	 		return moden;
+	    }
 	      
 	 }
 	                

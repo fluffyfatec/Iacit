@@ -49,4 +49,15 @@ public class UsuarioService {
 	 
 	 
 	 }
+	  
+    public ModelAndView listar(UsuarioModal usuario) {
+    	ModelAndView moden = new ModelAndView();
+    	UsuarioModal filtrousuario = repository.findByUsuarioUsername(usuario.getUsuarioUsername());
+    	filtrousuario.getCodUsuario();
+    	filtrousuario.getUsuarioNome();
+    	filtrousuario.getUsuarioUsername();
+        moden.addObject("filtrousuario", filtrousuario);
+ 		moden.setViewName("UsuarioUpUsu");
+ 		return moden;
+    }
 }

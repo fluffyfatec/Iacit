@@ -8,13 +8,14 @@
     </head>
     <body>
         <div>Cadastro de Conta</div>
-        <form action="#" th:action="@{/api/estacao/salvar}" method="POST" th:object="${UsuarioUpEst}">
+        <form action="#" th:action="@{/api/estacao/salvar}" method="POST" th:object="${estacaoAtiva}">
             <p>Estação: <input type="text" th:field="*{estacaoNome}" /></p>
             <p>Estado: <input type="text" th:field="*{estacaoEstado}" /></p>
-            <p><select class="">
+            <p>Status: <input type="text" th:field="*{estacaoStatus}" /></p>
+            <!-- <p><select class="">
                 <option value="A">Ativo</option>
                 <option value="I">Desativado</option>
-            </select></p>
+            </select></p> -->
             <input type="submit" value="Salvar"/>
         </form>
     </body>

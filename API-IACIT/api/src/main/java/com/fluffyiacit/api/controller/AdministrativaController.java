@@ -31,14 +31,45 @@ public class AdministrativaController {
 	@PostMapping
 	public ModelAndView AdministrativaController(@RequestBody EstacaoDTO ativas) {
 		return adm.update(ativas);
-
 	}
 	
+	@RequestMapping(value = { "/editar" }, method = RequestMethod.POST)
+	public ModelAndView editarStatus(EstacaoDTO estacao) {
+		ModelAndView modelAndView = new ModelAndView();
+		// FILTROS DE DADOS
+		estacao.getEstacaoNome();
+		estacao.getEstacaoEstado();
+		estacao.getEstacaoStatus();
+		System.out.println(estacao.getEstacaoNome());
+		System.out.println(estacao.getEstacaoEstado());
+		System.out.println(estacao.getEstacaoStatus());
+		
+		return adm.update(estacao);
+	}
 
+	//ATUALIZAR
+	@RequestMapping(value = { "/{estacaoNome}/{estacaoStatus}" }, method = RequestMethod.GET)
+	public ModelAndView atualizar(@PathVariable("estacaoNome") String estacaoNome,
+            					   	@PathVariable("estacaoStatus") String estacaoStatus) {
+		EstacaoDTO estacao = new EstacaoDTO();
+		estacao.setEstacaoNome(estacaoNome);
+		estacao.setEstacaoStatus(estacaoStatus);
+		return adm.update(estacao);
+	}
+	
+	//EDITAR
+	@RequestMapping(value = { "/editar/{estacaoNome}" }, method = RequestMethod.GET)
+	public ModelAndView editar(@PathVariable("estacaoNome") String estacaoNome
+            					   	) {
+		EstacaoDTO estacao = new EstacaoDTO();
+		estacao.setEstacaoNome(estacaoNome);
+		return adm.listar(estacao);
+	}
+	
 	
 //	 FILTRO AJAX - ESTACAO
 	@RequestMapping(value = { "/est/{id}" }, method = RequestMethod.GET)
-	public ModelAndView filtroAjax(@PathVariable("id") String id) {
+	public ModelAndView filtroEstacao(@PathVariable("id") String id) {
 		ModelAndView modelAndView = new ModelAndView();
 
 		List<ViewFiltroEstacao> filtro = filtroestacaorepository.listar(id);

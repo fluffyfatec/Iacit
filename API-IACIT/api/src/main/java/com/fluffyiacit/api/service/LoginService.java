@@ -27,7 +27,7 @@ public class LoginService {
 		// BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
 		ModelAndView modelAndView = new ModelAndView();
 		LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
-
+		
 		UsuarioModal usuario = usuarioRepository.findByUsuarioUsername(login.getUsuario());
 		PermissaoModal permissao = permissaoRepository.findByCodPermissao(usuario.getCodUsuario());
 

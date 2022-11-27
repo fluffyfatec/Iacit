@@ -101,38 +101,37 @@
                         <div class="row">
                             <div class="col-12">
                                 <label></label>Nome:
-                                <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                                <input type="text" class="form-control" id="jsCadNome" aria-describedby="" placeholder="">      
                                 <small id="" class="form-text text-muted">  </small>
                             </div>
                             <div class="col-12">
                                 <label></label>Usuário:
-                                <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                                <input type="text" class="form-control" id="jsCadUsu" aria-describedby="" placeholder="">      
                                 <small id="" class="form-text text-muted">  </small>
                             </div>
                             <div class="col-6">
                                 <label></label>Senha:
-                                <input type="password" class="form-control" id="" aria-describedby="" placeholder="">      
+                                <input type="password" class="form-control" id="jsCadSenha" aria-describedby="" placeholder="">      
                                 <small id="" class="form-text text-muted">  </small>
                             </div>
                             <div class="col-6">
                                 <label></label>Confirme a Senha:
-                                <input type="password" class="form-control" id="" aria-describedby="" placeholder="">      
+                                <input type="password" class="form-control" id="jsCadSenhaConf" aria-describedby="" placeholder="">      
                                 
                             </div>
                             <div class="col-12">
+
                                 <label></label>Permissão:<br>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">Usuário</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="" value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">Administrador</label>
-                                </div>
+                                <select class="form-control" id="jsCadCheck">
+                                    <option value="Usuario">Usuário</option>
+                                    <option value="Administrator">Administrador</option>
+                                </select>
+
+
                                 <small id="" class="form-text text-muted">  </small>
                             </div>
                         
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <button type="submit" class="btn btn-primary" onclick="jsCadUsuario()">Cadastrar</button>
                             <small id="" class="form-text text-muted">  </small>
                         </div>
                     </div>
@@ -199,72 +198,21 @@
                         <div class="row" >
                             <div class="col-10">
                                 <label></label>Username:
-                                <input type="text" class="form-control" id="" aria-describedby="" placeholder="">      
+                                <input type="text" class="form-control" id="jsListUsu" aria-describedby="" placeholder="">      
                                 <small id="" class="form-text text-muted">  </small>
                             </div>
                             <div class="col-2">
                                  <br>
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i></button>
+                                <button type="submit" class="btn btn-primary" onclick="jsListarUsu()"><i class="fas fa-search"></i></button>
+                                <!-- <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i></button> -->
+                            </div>
+                            <small id="" class="form-text text-muted">  </small>
+                            
+                            <div class="col-12">
+                                <div id="cardListUsu">
+                                </div>
                             </div>
                             
-                            <small id="" class="form-text text-muted">  </small>
-
-                            <table class="table table-striped" cellspacing="0" cellpadding="0">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Usuário</th>
-                                    <th scope="col">Permissão</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Luiz </td>
-                                        <td>LFBORGES</td>
-                                        <td>Usuário</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ana</td>
-                                        <td>ACLEAL</td>
-                                        <td>Administrador</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Felipe</td>
-                                        <td>FSOBRAL</td>
-                                        <td>Usuário</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Patrick</td>
-                                        <td>PSOUZA</td>
-                                        <td>Usuário</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Victor</td>
-                                        <td>VFERNENDES</td>
-                                        <td>ADEMIR</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tiago</td>
-                                        <td>TCAMILO</td>
-                                        <td>Administrador</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aldrik</td>
-                                        <td>AFALVARO</td>
-                                        <td>Administrador</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Emanuele</td>
-                                        <td>EDINIZ</td>
-                                        <td>Administrador</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael</td>
-                                        <td>MFELIPE</td>
-                                        <td>Usuário</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
