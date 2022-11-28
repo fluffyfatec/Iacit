@@ -192,7 +192,7 @@ A equipe do Fluffy desenvolverá um software web para a empresa Iacit que possib
 
 ## Dicionário de dados
 
-[Clique aqui para acessar o dicionário de dados](https://github.com/fluffyfatec/Iacit/blob/Sprint-2/GIT/LGC_CSV_API.pdf)
+[Clique aqui para acessar o dicionário de dados](https://github.com/fluffyfatec/Iacit/blob/main/GIT/biblioteca_dados_iacti.pdf)
 
 
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
